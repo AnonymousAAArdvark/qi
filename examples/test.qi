@@ -1,2 +1,4 @@
-class Brioche {}
-print Brioche;
+class Brunch {
+  bacon() {}
+  eggs() {}
+}
