@@ -321,7 +321,7 @@ static int resolveUpvalue(Compiler* compiler, Token* name) {
     }
 
     int upvalue = resolveUpvalue(compiler->enclosing, name);
-    if (upvalue != 1) {
+    if (upvalue != -1) {
         return addUpvalue(compiler, (uint8_t)upvalue, false);
     }
 
@@ -658,7 +658,7 @@ static void function(FunctionType type) {
             defineVariable(constant);
         } while (match(TOKEN_COMMA));
     }
-    consume(TOKEN_RIGHT_PAREN, "Expect ') after parameters.");
+    consume(TOKEN_RIGHT_PAREN, "Expect ')' after parameters.");
     consume(TOKEN_LEFT_BRACE, "Expect '{' before function body.");
     block();
 
@@ -738,7 +738,7 @@ static void funDeclaration() {
 }
 
 static void varDeclaration() {
-    uint8_t global = parseVariable("Expect expect variable name.");
+    uint8_t global = parseVariable("Expect variable name.");
 
     if (match(TOKEN_EQUAL)) {
         expression();
@@ -862,7 +862,7 @@ static void synchronize() {
     parser.panicMode = false;
 
     while (parser.current.type != TOKEN_EOF) {
-        if (parser.current.type == TOKEN_SEMICOLON) return;
+        if (parser.previous.type == TOKEN_SEMICOLON) return;
         switch (parser.current.type) {
             case TOKEN_CLASS:
             case TOKEN_FUN:
