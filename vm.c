@@ -158,6 +158,7 @@ static bool invokeFromClass(ObjClass* klass, ObjString* name, int argCount) {
         return false;
     }
     return call(AS_CLOSURE(method), argCount);
+}
 
 static bool invoke(ObjString* name, int argCount) {
     Value receiver = peek(argCount);

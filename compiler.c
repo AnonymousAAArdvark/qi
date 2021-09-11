@@ -438,7 +438,7 @@ static void dot(bool canAssign) {
         emitBytes(OP_SET_PROPERTY, name);
     } else if (match(TOKEN_LEFT_PAREN)) {
         uint8_t argCount = argumentList();
-        emitBytes(OP_INVOKE, name)
+        emitBytes(OP_INVOKE, name);
         emitByte(argCount);
     } else {
         emitBytes(OP_GET_PROPERTY, name);
@@ -665,6 +665,13 @@ static void classDeclaration() {
     ClassCompiler classCompiler;
     classCompiler.enclosing = currentClass;
     currentClass = &classCompiler;
+
+    if (match(TOKEN_LESS)) {
+        consume(TOKEN_IDENTIFIER, "Expect superclass name.");
+        variable(false);
+        namedVariable(className, false);
+        emitByte(OP_INHERIT);
+    }
 
     namedVariable(className, false);
     consume(TOKEN_LEFT_BRACE, "Expect '{' before class body.");
