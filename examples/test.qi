@@ -1,8 +1,15 @@
-class Scone {
-  topping(first, second) {
-    print "scone with " + first + " and " + second;
+class CoffeeMaker {
+  init(coffee) {
+    this.coffee = coffee;
+  }
+
+  brew() {
+    print "Enjoy your cup of " + this.coffee;
+
+    // No reusing the grounds!
+    this.coffee = nil;
   }
 }
 
-var scone = Scone();
-scone.topping("berries", "cream");
+var maker = CoffeeMaker("coffee and chicory");
+maker.brew();
