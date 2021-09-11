@@ -277,14 +277,14 @@ static InterpretResult run() {
     for(;;) {
 #ifdef DEBUG_TRACE_EXECUTION
         printf("          ");
-        for (Value* slot = vm.stack; slot < vm.stackTop; slot++) {
+        for (Value *slot = vm.stack; slot < vm.stackTop; slot++) {
             printf("[ ");
             printValue(*slot);
             printf(" ]");
         }
         printf("\n");
         disassembleInstruction(&frame->closure->function->chunk,
-             (int)(frame->ip - frame->closure->function->chunk.code));
+                               (int) (frame->ip - frame->closure->function->chunk.code));
 #endif
         switch (READ_BYTE()) {
             case OP_CONSTANT: {
@@ -292,10 +292,18 @@ static InterpretResult run() {
                 push(constant);
                 break;
             }
-            case OP_NIL: push(NIL_VAL); break;
-            case OP_TRUE: push(BOOL_VAL(true)); break;
-            case OP_FALSE: push(BOOL_VAL(false)); break;
-            case OP_POP: pop(); break;
+            case OP_NIL:
+                push(NIL_VAL);
+                break;
+            case OP_TRUE:
+                push(BOOL_VAL(true));
+                break;
+            case OP_FALSE:
+                push(BOOL_VAL(false));
+                break;
+            case OP_POP:
+                pop();
+                break;
             case OP_SET_LOCAL: {
                 uint8_t slot = READ_BYTE();
                 frame->slots[slot] = peek(0);
@@ -307,7 +315,7 @@ static InterpretResult run() {
                 break;
             }
             case OP_GET_GLOBAL: {
-                ObjString* name = READ_STRING();
+                ObjString *name = READ_STRING();
                 Value value;
                 if (!tableGet(&vm.globals, name, &value)) {
                     runtimeError("Undefined variable '%s'.", name->chars);
@@ -323,7 +331,7 @@ static InterpretResult run() {
                 break;
             }
             case OP_SET_GLOBAL: {
-                ObjString* name = READ_STRING();
+                ObjString *name = READ_STRING();
                 if (tableSet(&vm.globals, name, peek(0))) {
                     tableDelete(&vm.globals, name);
                     runtimeError("Undefined variable '%s'.", name->chars);
@@ -367,7 +375,7 @@ static InterpretResult run() {
                     return INTERPRET_RUNTIME_ERROR;
                 }
 
-                ObjInstance* instance = AS_INSTANCE(peek(1));
+                ObjInstance *instance = AS_INSTANCE(peek(1));
                 tableSet(&instance->fields, READ_STRING(), peek(0));
                 Value value = pop();
                 pop();
@@ -375,8 +383,8 @@ static InterpretResult run() {
                 break;
             }
             case OP_GET_SUPER: {
-                ObjString* name = READ_STRING();
-                ObjClass* superclass = AS_CLASS(pop());
+                ObjString *name = READ_STRING();
+                ObjClass *superclass = AS_CLASS(pop());
 
                 if (!bindMethod(superclass, name)) {
                     return INTERPRET_RUNTIME_ERROR;
@@ -389,8 +397,12 @@ static InterpretResult run() {
                 push(BOOL_VAL(valuesEqual(a, b)));
                 break;
             }
-            case OP_GREATER:  BINARY_OP(BOOL_VAL, >); break;
-            case OP_LESS:     BINARY_OP(BOOL_VAL, <); break;
+            case OP_GREATER:
+                BINARY_OP(BOOL_VAL, >);
+                break;
+            case OP_LESS:
+                BINARY_OP(BOOL_VAL, <);
+                break;
             case OP_ADD:
                 if (IS_STRING(peek(0)) && IS_STRING(peek(1))) {
                     concatenate();
@@ -403,9 +415,15 @@ static InterpretResult run() {
                     return INTERPRET_RUNTIME_ERROR;
                 }
                 break;
-            case OP_SUBTRACT: BINARY_OP(NUMBER_VAL, -); break;
-            case OP_MULTIPLY: BINARY_OP(NUMBER_VAL, *); break;
-            case OP_DIVIDE:   BINARY_OP(NUMBER_VAL, /); break;
+            case OP_SUBTRACT:
+                BINARY_OP(NUMBER_VAL, -);
+                break;
+            case OP_MULTIPLY:
+                BINARY_OP(NUMBER_VAL, *);
+                break;
+            case OP_DIVIDE:
+                BINARY_OP(NUMBER_VAL, /);
+                break;
             case OP_NOT:
                 push(BOOL_VAL(isFalsey(pop())));
                 break;
@@ -448,13 +466,13 @@ static InterpretResult run() {
                 ObjString *method = READ_STRING();
                 int argCount = READ_BYTE();
                 if (!invoke(method, argCount)) {
-                        return INTERPRET_RUNTIME_ERROR;
+                    return INTERPRET_RUNTIME_ERROR;
                 }
             }
             case OP_SUPER_INVOKE: {
-                ObjString* method = READ_STRING();
+                ObjString *method = READ_STRING();
                 int argCount = READ_BYTE();
-                ObjClass* superclass = AS_CLASS(pop());
+                ObjClass *superclass = AS_CLASS(pop());
                 if (!invokeFromClass(superclass, method, argCount)) {
                     return INTERPRET_RUNTIME_ERROR;
                 }
@@ -502,7 +520,8 @@ static InterpretResult run() {
                 if (!IS_CLASS(superclass)) {
                     runtimeError("Superclass must be a class.");
                     return INTERPRET_RUNTIME_ERROR;
-                ObjClass* subclass = AS_CLASS(peek(0));
+                }
+                ObjClass *subclass = AS_CLASS(peek(0));
                 tableAddAll(&AS_CLASS(superclass)->methods, &subclass->methods);
                 pop(); // Subclass.
                 break;
