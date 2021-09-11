@@ -232,7 +232,7 @@ static ObjFunction* endCompiler() {
     emitReturn();
     ObjFunction* function = current->function;
 
-#ifndef DEBUG_PRINT_CODE
+#ifdef DEBUG_PRINT_CODE
     if (!parser.hadError) {
         disassembleChunk(currentChunk(), function->name != NULL
             ? function->name->chars : "<script>");
@@ -701,18 +701,19 @@ static void classDeclaration() {
     if (match(TOKEN_LESS)) {
         consume(TOKEN_IDENTIFIER, "Expect superclass name.");
         variable(false);
+
+        if (identifiersEqual(&className, &parser.previous)) {
+            error("A class can't inherit from itself.");
+        }
+
+        beginScope();
+        addLocal(syntheticToken("super"));
+        defineVariable(0);
+
         namedVariable(className, false);
         emitByte(OP_INHERIT);
         classCompiler.hasSuperclass = true;
     }
-
-    if (identifiersEqual(&className, &parser.previous)) {
-        error("A class can't inherit from itself.");
-    }
-
-    beginScope();
-    addLocal(syntheticToken("super"));
-    defineVariable(0);
 
     namedVariable(className, false);
     consume(TOKEN_LEFT_BRACE, "Expect '{' before class body.");
@@ -833,7 +834,7 @@ static void returnStatement() {
         emitReturn();
     } else {
         if (current->type == TYPE_INITIALIZER) {
-            error("can't return a value from an initializer.");
+            error("Can't return a value from an initializer.");
         }
 
         expression();

@@ -468,6 +468,8 @@ static InterpretResult run() {
                 if (!invoke(method, argCount)) {
                     return INTERPRET_RUNTIME_ERROR;
                 }
+                frame = &vm.frames[vm.frameCount - 1];
+                break;
             }
             case OP_SUPER_INVOKE: {
                 ObjString *method = READ_STRING();
@@ -541,6 +543,8 @@ static InterpretResult run() {
 
 InterpretResult interpret(const char* source) {
     ObjFunction* function = compile(source);
+    if (function == NULL) return INTERPRET_COMPILE_ERROR;
+
     push(OBJ_VAL(function));
     ObjClosure* closure = newClosure(function);
     pop();

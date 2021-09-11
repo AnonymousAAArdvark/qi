@@ -9,7 +9,7 @@
 #include "memory.h"
 #include "vm.h"
 
-#ifndef DEBUG_LOG_GC
+#ifdef DEBUG_LOG_GC
 #include "debug.h"
 #endif
 
@@ -117,7 +117,7 @@ static void blackenObject(Obj* object) {
 }
 
 static void freeObject(Obj* object) {
-#ifndef DEBUG_LOG_GC
+#ifdef DEBUG_LOG_GC
     printf("%p free type %d\n", (void*)object, object->type);
 #endif
 
@@ -212,7 +212,7 @@ static void traceReferences() {
 }
 
 void collectGarbage() {
-#ifndef DEBUG_LOG_GC
+#ifdef DEBUG_LOG_GC
     printf("-- gc begin\n");
     size_t before = vm.bytesAllocated;
 #endif
@@ -224,7 +224,7 @@ void collectGarbage() {
 
     vm.nextGC = vm.bytesAllocated * GC_HEAP_GROW_FACTOR;
 
-#ifndef DEBUG_LOG_GC
+#ifdef DEBUG_LOG_GC
     printf("-- gc end\n");
     printf("   collected %zu bytes (from %zu to %zu) next at %zu\n",
            before - vm.bytesAllocated, before, vm.bytesAllocated, vm.nextGC);

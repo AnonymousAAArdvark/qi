@@ -1,15 +1,7 @@
-class CoffeeMaker {
-  init(coffee) {
-    this.coffee = coffee;
-  }
-
-  brew() {
-    print "Enjoy your cup of " + this.coffee;
-
-    // No reusing the grounds!
-    this.coffee = nil;
+class Foo {
+  method() {
+    print method; // expect runtime error: Undefined variable 'method'.
   }
 }
 
-var maker = CoffeeMaker("coffee and chicory");
-maker.brew();
+Foo().method();
