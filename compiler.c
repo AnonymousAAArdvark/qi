@@ -617,7 +617,7 @@ static void method() {
 
     FunctionType type = TYPE_FUNCTION;
     function(type);
-    emitBytes(OP_METHOD, OP_CONSTANT);
+    emitBytes(OP_METHOD, constant);
 }
 
 static void classDeclaration() {

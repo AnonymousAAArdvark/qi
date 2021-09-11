@@ -113,6 +113,10 @@ static bool call(ObjClosure* closure, int argCount) {
 static bool callValue(Value callee, int argCount) {
     if (IS_OBJ(callee)) {
         switch (OBJ_TYPE(callee)) {
+            case OBJ_BOUND_METHOD: {
+                ObjBoundMethod* bound = AS_BOUND_METHOD(callee);
+                return call(bound->method, argCount);
+            }
             case OBJ_CLASS: {
                 ObjClass* klass = AS_CLASS(callee);
                 vm.stackTop[-argCount - 1] = OBJ_VAL(newInstance(klass));
@@ -133,6 +137,19 @@ static bool callValue(Value callee, int argCount) {
     }
     runtimeError("Can only call functions and classes.");
     return false;
+}
+
+static bool bindMethod(ObjClass* klass, ObjString* name) {
+    Value method;
+    if (!tableGet(&klass->methods, name, &method)) {
+        runtimeError("Undefined property '%s'.", name->chars);
+        return false;
+    }
+
+    ObjBoundMethod* bound = newBoundMethod(peek(0), AS_CLOSURE(method));
+    pop();
+    push(OBJ_VAL(bound));
+    return true;
 }
 
 static ObjUpvalue* captureUpvalue(Value* local) {
@@ -164,6 +181,13 @@ static void closeUpvalues(Value* last) {
         upvalue->location = &upvalue->closed;
         vm.openUpvalues = upvalue->next;
     }
+}
+
+static void defineMethod(ObjString* name) {
+    Value method = peek(0);
+    ObjClass* klass = AS_CLASS(peek(1));
+    tableSet(&klass->methods, name, method);
+    pop();
 }
 
 static bool isFalsey(Value value) {
@@ -292,8 +316,10 @@ static InterpretResult run() {
                     break;
                 }
 
-                runtimeError("Undefined property '%s'.", name->chars);
-                return INTERPRET_RUNTIME_ERROR;
+                if (!bindMethod(instance->klass, name)) {
+                    return INTERPRET_RUNTIME_ERROR;
+                }
+                break;
             }
             case OP_SET_PROPERTY: {
                 if (!IS_INSTANCE(peek(1))) {
@@ -404,6 +430,9 @@ static InterpretResult run() {
             }
             case OP_CLASS:
                 push(OBJ_VAL(newClass(READ_STRING())));
+                break;
+            case OP_METHOD:
+                defineMethod(READ_STRING());
                 break;
         }
     }
