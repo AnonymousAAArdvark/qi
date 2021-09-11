@@ -572,7 +572,7 @@ ParseRule rules[] = {
         [TOKEN_OR]            = {NULL,     or_,   PREC_OR},
         [TOKEN_PRINT]         = {NULL,     NULL,   PREC_NONE},
         [TOKEN_RETURN]        = {NULL,     NULL,   PREC_NONE},
-        [TOKEN_SUPER]         = {NULL,     NULL,   PREC_NONE},
+        [TOKEN_SUPER]         = {super_,     NULL,   PREC_NONE},
         [TOKEN_THIS]          = {this_,     NULL,   PREC_NONE},
         [TOKEN_TRUE]          = {literal,     NULL,   PREC_NONE},
         [TOKEN_VAR]           = {NULL,     NULL,   PREC_NONE},
@@ -671,6 +671,7 @@ static void classDeclaration() {
     defineVariable(nameConstant);
 
     ClassCompiler classCompiler;
+    classCompiler.hasSuperclass = false;
     classCompiler.enclosing = currentClass;
     currentClass = &classCompiler;
 
@@ -679,6 +680,7 @@ static void classDeclaration() {
         variable(false);
         namedVariable(className, false);
         emitByte(OP_INHERIT);
+        classCompiler.hasSuperclass = true;
     }
 
     if (identifiersEqual(&className, &parser.previous)) {
