@@ -1,0 +1,4 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=/usr/bin/g++ -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /Users/andrewyang/CLionProjects/qi
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/andrewyang/CLionProjects/qi/cmake-build-release

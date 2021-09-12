@@ -3,13 +3,13 @@
 //
 
 #include <stdlib.h>
-#include <stdio.h>
 
 #include "compiler.h"
 #include "memory.h"
 #include "vm.h"
 
 #ifdef DEBUG_LOG_GC
+#include <stdio.h>
 #include "debug.h"
 #endif
 
@@ -18,7 +18,7 @@
 void* reallocate(void* pointer, size_t oldSize, size_t newSize) {
     vm.bytesAllocated += newSize - oldSize;
     if (newSize > oldSize) {
-#ifndef DEBUG_STRESS_GC
+#ifdef DEBUG_STRESS_GC
         collectGarbage();
 #endif
 

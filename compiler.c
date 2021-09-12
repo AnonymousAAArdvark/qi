@@ -252,7 +252,7 @@ static void endScope() {
 
     while (current->localCount > 0 &&
            current->locals[current->localCount - 1].depth >
-              current->scopeDepth) {
+           current->scopeDepth) {
         if (current->locals[current->localCount - 1].isCaptured) {
             emitByte(OP_CLOSE_UPVALUE);
         } else {
@@ -478,7 +478,7 @@ static void or_(bool canAssign) {
 
 static void string(bool canAssign) {
     emitConstant(OBJ_VAL(copyString(parser.previous.start + 1,
-                                            parser.previous.length - 2)));
+                                    parser.previous.length - 2)));
 }
 
 static void namedVariable(Token name, bool canAssign) {
