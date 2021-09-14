@@ -60,6 +60,17 @@ static void runFile(const char* path) {
 }
 
 int main(int argc, const char* argv[]) {
+//    setlocale(LC_CTYPE, "");
+//
+//    int i;
+//    wchar_t chinese[] = L"我不是中国人。";
+//    for(i = 0; chinese[i]; ++i)
+//    {
+//        if(chinese[i] == L'不')
+//            wprintf(L"%lc", chinese[i]);
+//        if(chinese[i] == L'\u4E0D')
+//            printf("also found\n");
+//    }
     initVM();
 
     if (argc == 1) {

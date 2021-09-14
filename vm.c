@@ -532,6 +532,7 @@ static InterpretResult run() {
             case OP_METHOD:
                 defineMethod(READ_STRING());
                 break;
+            case OP_DUP: push(peek(0)); break;
         }
     }
 
