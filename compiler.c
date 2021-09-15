@@ -33,7 +33,6 @@ typedef enum {
     PREC_FACTOR,      // * /
     PREC_UNARY,       // ! -
     PREC_CALL,        // . ()
-    PREC_PRIMARY
 } Precedence;
 
 typedef void (*ParseFn)(bool canAssign);
@@ -81,6 +80,9 @@ typedef struct ClassCompiler {
 Parser parser;
 Compiler* current = NULL;
 ClassCompiler* currentClass = NULL;
+
+int innermostLoopStart = -1;
+int innermostLoopScopeDepth = 0;
 
 static Chunk* currentChunk() {
     return &current->function->chunk;
@@ -758,16 +760,21 @@ static void expressionStatement() {
 
 static void forStatement() {
     beginScope();
+
     consume(TOKEN_LEFT_PAREN, "Expect '(' after 'for'.");
-    if (match(TOKEN_SEMICOLON)) {
-        // No initializer.
-    } else if (match(TOKEN_VAR)) {
+    if (match(TOKEN_VAR)) {
         varDeclaration();
+    } else if (match(TOKEN_SEMICOLON)) {
+        // No initializer.
     } else {
         expressionStatement();
     }
 
-    int loopStart = currentChunk()->count;
+    int surroundingLoopStart = innermostLoopStart;
+    int surroundingLoopScopeDepth = innermostLoopScopeDepth;
+    innermostLoopStart = currentChunk()->count;
+    innermostLoopScopeDepth = current->scopeDepth;
+
     int exitJump = -1;
     if (!match(TOKEN_SEMICOLON)) {
         expression();
@@ -780,23 +787,40 @@ static void forStatement() {
 
     if (!match(TOKEN_RIGHT_PAREN)) {
         int bodyJump = emitJump(OP_JUMP);
+
         int incrementStart = currentChunk()->count;
         expression();
         emitByte(OP_POP);
         consume(TOKEN_RIGHT_PAREN, "Expect ')' after for clauses.");
 
-        emitLoop(loopStart);
-        loopStart = incrementStart;
+        emitLoop(innermostLoopStart);
+        innermostLoopStart = incrementStart;
         patchJump(bodyJump);
     }
 
+    int body = current->function->chunk.count;
     statement();
-    emitLoop(loopStart);
+
+    emitLoop(innermostLoopStart);
 
     if (exitJump != -1) {
         patchJump(exitJump);
         emitByte(OP_POP); // Condition.
     }
+
+    int i = body;
+    while (i < current->function->chunk.count) {
+        if (current->function->chunk.code[i] == OP_END) {
+            current->function->chunk.code[i] = OP_JUMP;
+            patchJump(i + 1);
+            i += 3;
+        } else {
+            i += 1;
+        }
+    }
+
+    innermostLoopStart = surroundingLoopStart;
+    innermostLoopScopeDepth = surroundingLoopScopeDepth;
 
     endScope();
 }
@@ -930,6 +954,42 @@ static void switchStatement() {
     emitByte(OP_POP); // The switch value.
 }
 
+static void continueStatement() {
+    if (innermostLoopStart == -1) {
+        error("Can't use 'continue' outside of a loop.");
+    }
+
+    consume(TOKEN_SEMICOLON, "Expect ';' after 'continue'.");
+
+    // Discard any locals created inside the loop.
+    for (int i = current->localCount - 1; i >= 0 && current->locals[i].depth > innermostLoopScopeDepth; i--) {
+        emitByte(OP_POP);
+    }
+
+    // Jump to top of current innermost loop.
+    emitLoop(innermostLoopStart);
+}
+
+static void breakStatement() {
+    if (innermostLoopStart == -1) {
+        error("Can't use 'break' outside of a loop.");
+    }
+
+    consume(TOKEN_SEMICOLON, "Expect ';' after 'break'.");
+
+    // Discard any locals created inside the loop.
+    for (int i = current->localCount - 1; i >= 0 && current->locals[i].depth > innermostLoopScopeDepth; i--) {
+        emitByte(OP_POP);
+    }
+
+    // Emit a placeholder instruction for the jump to the end of the body. When
+    // we're done compiling the loop body and know where the end is, we'll
+    // replace these with `CODE_JUMP` instructions with appropriate offsets.
+    // We use `CODE_END` here because that can't occur in the middle of
+    // bytecode.
+    emitJump(OP_END);
+}
+
 static void synchronize() {
     parser.panicMode = false;
 
@@ -982,6 +1042,10 @@ static void statement() {
         whileStatement();
     } else if (match(TOKEN_SWITCH)) {
         switchStatement();
+    } else if (match(TOKEN_CONTINUE)) {
+        continueStatement();
+    } else if (match(TOKEN_BREAK)) {
+        breakStatement();
     } else if (match(TOKEN_LEFT_BRACE)) {
         beginScope();
         block();
