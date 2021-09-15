@@ -1,20 +1,2 @@
-var i = 0;
-while (i != 10) {
-    if (i == 5) {
-        print "five";
-        i = i + 3;
-        continue;
-    }
-    for (var j = 10; j < 20; j = j + 1) {
-        if (j == 15) {
-            print "jfive";
-            j = j + 3;
-            continue;
-            continue;
-            continue;
-        }
-        print j;
-    }
-    print i;
-    i = i + 1;
-}
+var a = 0;
+a.invoke();
