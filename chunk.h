@@ -47,6 +47,7 @@ typedef enum {
     OP_INHERIT,
     OP_METHOD,
     OP_DUP,
+    OP_END
 } OpCode;
 
 typedef struct {
