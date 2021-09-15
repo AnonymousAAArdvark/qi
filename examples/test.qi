@@ -1,10 +1,20 @@
-for (var i = 0; i < 10; i = i + 1) {
-    if (i == 5) break;
-    for (var j = 0; j < 10; j = j + 1) {
-        if (j == 3) break;
-        print "j";
+var i = 0;
+while (i != 10) {
+    if (i == 5) {
+        print "five";
+        i = i + 3;
+        continue;
+    }
+    for (var j = 10; j < 20; j = j + 1) {
+        if (j == 15) {
+            print "jfive";
+            j = j + 3;
+            continue;
+            continue;
+            continue;
+        }
         print j;
     }
     print i;
+    i = i + 1;
 }
-print "after";
