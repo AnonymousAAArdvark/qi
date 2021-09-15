@@ -111,6 +111,10 @@ int disassembleInstruction(Chunk* chunk, int offset) {
             return simpleInstruction("OP_NEGATE", offset);
         case OP_PRINT:
             return simpleInstruction("OP_PRINT", offset);
+        case OP_END:
+            return simpleInstruction("OP_END", offset);
+        case OP_DUP:
+            return simpleInstruction("OP_DUP", offset);
         case OP_JUMP:
             return jumpInstruction("OP_JUMP", 1, chunk, offset);
         case OP_JUMP_IF_FALSE:
@@ -134,8 +138,7 @@ int disassembleInstruction(Chunk* chunk, int offset) {
             for (int j = 0; j < function->upvalueCount; j++) {
                 int isLocal = chunk->code[offset++];
                 int index = chunk->code[offset++];
-                printf("%04d      |                     %s %d\n",
-                       offset - 2, isLocal ? "local" : "upvalue", index);
+                printf("%04d      |                     %s %d\n", offset - 2, isLocal ? "local" : "upvalue", index);
             }
             return offset;
         }
