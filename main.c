@@ -27,7 +27,6 @@ static char* readFile(const char* path) {
         fprintf(stderr, "Could not open file \"%s\".\n", path);
         exit(74);
     }
-
     fseek(file, 0L, SEEK_END);
     size_t fileSize = ftell(file);
     rewind(file);

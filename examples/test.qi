@@ -1,11 +1,10 @@
-switch (4) {
-case 1:
-  print "one";
-case 2:
-  print "two";
-case 3:
-  print "three";
-default:
-  print "default";
+for (var i = 0; i < 10; i = i + 1) {
+    if (i == 5) break;
+    for (var j = 0; j < 10; j = j + 1) {
+        if (j == 3) break;
+        print "j";
+        print j;
+    }
+    print i;
 }
 print "after";
