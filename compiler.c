@@ -632,6 +632,61 @@ static ParseRule* getRule(TokenType type) {
     return &rules[type];
 }
 
+static int getByteCountForArguments(int ip) {
+    OpCode instruction = (OpCode)current->function->chunk.code[ip];
+    switch (instruction) {
+        case OP_NIL:
+        case OP_TRUE:
+        case OP_FALSE:
+        case OP_POP:
+        case OP_EQUAL:
+        case OP_GREATER:
+        case OP_LESS:
+        case OP_ADD:
+        case OP_SUBTRACT:
+        case OP_MULTIPLY:
+        case OP_DIVIDE:
+        case OP_NOT:
+        case OP_NEGATE:
+        case OP_PRINT:
+        case OP_CLOSE_UPVALUE:
+        case OP_RETURN:
+        case OP_INHERIT:
+        case OP_DUP:
+        case OP_END:
+            return 0;
+
+        case OP_CONSTANT:
+        case OP_GET_GLOBAL:
+        case OP_DEFINE_GLOBAL:
+        case OP_SET_GLOBAL:
+        case OP_GET_PROPERTY:
+        case OP_SET_PROPERTY:
+        case OP_GET_SUPER:
+        case OP_CLASS:
+        case OP_METHOD:
+        case OP_GET_LOCAL:
+        case OP_SET_LOCAL:
+        case OP_GET_UPVALUE:
+        case OP_SET_UPVALUE:
+        case OP_CALL:
+            return 1;
+
+        case OP_INVOKE:
+        case OP_SUPER_INVOKE:
+        case OP_JUMP_IF_FALSE:
+        case OP_JUMP:
+        case OP_LOOP:
+            return 2;
+
+        case OP_CLOSURE:
+            return 2 + (current->function->upvalueCount);
+    }
+
+    // Unreachable.
+    return 0;
+}
+
 static void expression() {
     parsePrecedence(PREC_ASSIGNMENT);
 }
@@ -798,7 +853,7 @@ static void forStatement() {
         patchJump(bodyJump);
     }
 
-    int body = current->function->chunk.count;
+    int loopBody = current->function->chunk.count;
     statement();
 
     emitLoop(innermostLoopStart);
@@ -808,14 +863,14 @@ static void forStatement() {
         emitByte(OP_POP); // Condition.
     }
 
-    int i = body;
+    int i = loopBody;
     while (i < current->function->chunk.count) {
         if (current->function->chunk.code[i] == OP_END) {
             current->function->chunk.code[i] = OP_JUMP;
             patchJump(i + 1);
             i += 3;
         } else {
-            i += 1;
+            i += 1 + getByteCountForArguments(i);
         }
     }
 
@@ -868,18 +923,37 @@ static void returnStatement() {
 }
 
 static void whileStatement() {
-    int loopStart = currentChunk()->count;
+    int surroundingLoopStart = innermostLoopStart;
+    int surroundingLoopScopeDepth = innermostLoopScopeDepth;
+    innermostLoopStart = currentChunk()->count;
+    innermostLoopScopeDepth = current->scopeDepth;
+
     consume(TOKEN_LEFT_PAREN, "Expect '(' after 'while'.");
     expression();
     consume(TOKEN_RIGHT_PAREN, "Expect ')' after condition.");
 
     int exitJump = emitJump(OP_JUMP_IF_FALSE);
     emitByte(OP_POP);
+    int loopBody = current->function->chunk.count;
     statement();
-    emitLoop(loopStart);
+    emitLoop(innermostLoopStart);
 
     patchJump(exitJump);
     emitByte(OP_POP);
+
+    innermostLoopStart = surroundingLoopStart;
+    innermostLoopScopeDepth = surroundingLoopScopeDepth;
+
+    int i = loopBody;
+    while (i < current->function->chunk.count) {
+        if (current->function->chunk.code[i] == OP_END) {
+            current->function->chunk.code[i] = OP_JUMP;
+            patchJump(i + 1);
+            i += 3;
+        } else {
+            i += 1 + getByteCountForArguments(i);
+        }
+    }
 }
 
 #define MAX_CASES 256
@@ -985,7 +1059,7 @@ static void breakStatement() {
     // Emit a placeholder instruction for the jump to the end of the body. When
     // we're done compiling the loop body and know where the end is, we'll
     // replace these with `CODE_JUMP` instructions with appropriate offsets.
-    // We use `CODE_END` here because that can't occur in the middle of
+    // We use `OP_END` here because that can't occur in the middle of
     // bytecode.
     emitJump(OP_END);
 }
