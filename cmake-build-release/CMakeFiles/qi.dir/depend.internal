@@ -71,6 +71,7 @@ CMakeFiles/qi.dir/table.c.o
  /Users/andrewyang/CLionProjects/qi/table.c
  /Users/andrewyang/CLionProjects/qi/table.h
  /Users/andrewyang/CLionProjects/qi/value.h
+ /Users/andrewyang/CLionProjects/qi/vm.h
 CMakeFiles/qi.dir/value.c.o
  /Users/andrewyang/CLionProjects/qi/chunk.h
  /Users/andrewyang/CLionProjects/qi/common.h
