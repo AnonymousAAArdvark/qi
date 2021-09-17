@@ -39,14 +39,14 @@ void* reallocate(void* pointer, size_t oldSize, size_t newSize) {
 
 void markObject(Obj* object) {
     if (object == NULL) return;
-    if (object->isMarked) return;
+    if (mark(object) == vm.markValue) return;
 
 #ifdef DEBUG_LOG_GC
     printf("%p mark ", (void*)object);
     printValue(OBJ_VAL(object));
     printf("\n");
 #endif
-    object->isMarked = true;
+    setMark(object, vm.markValue);
     if (vm.grayCapacity < vm.grayCount + 1) {
         vm.grayCapacity = GROW_CAPACITY(vm.grayCapacity);
         vm.grayStack = (Obj**)realloc(vm.grayStack,sizeof(Obj*) * vm.grayCapacity);
@@ -74,7 +74,7 @@ static void blackenObject(Obj* object) {
     printf("\n");
 #endif
 
-    switch (object->type) {
+    switch (objType(object)) {
         case OBJ_BOUND_METHOD: {
             ObjBoundMethod* bound = (ObjBoundMethod*)object;
             markValue(bound->receiver);
@@ -121,7 +121,7 @@ static void freeObject(Obj* object) {
     printf("%p free type %d\n", (void*)object, object->type);
 #endif
 
-    switch (object->type) {
+    switch (objType(object)) {
         case OBJ_BOUND_METHOD:
             FREE(ObjBoundMethod, object);
             break;
@@ -186,15 +186,15 @@ static void sweep() {
     Obj* previous = NULL;
     Obj* object = vm.objects;
     while (object != NULL) {
-        if (object->isMarked) {
-            object->isMarked = false;
+        if (mark(object) == vm.markValue) {
+            setMark(object, false);
             previous = object;
-            object = object->next;
+            object = objNext(object);
         } else {
             Obj* unreached = object;
-            object = object->next;
+            object = objNext(object);
             if (previous != NULL) {
-                previous->next = object;
+                setObjNext(previous, object);
             } else {
                 vm.objects = object;
             }
@@ -222,7 +222,7 @@ void collectGarbage() {
     tableRemoveWhite(&vm.strings);
     sweep();
 
-    vm.nextGC = vm.bytesAllocated * GC_HEAP_GROW_FACTOR;
+    vm.markValue = !vm.markValue;
 
 #ifdef DEBUG_LOG_GC
     printf("-- gc end\n");
@@ -234,7 +234,7 @@ void collectGarbage() {
 void freeObjects() {
     Obj* object = vm.objects;
     while (object != NULL) {
-        Obj* next = object->next;
+        Obj* next = objNext(object);
         freeObject(object);
         object = next;
     }
