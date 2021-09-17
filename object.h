@@ -10,7 +10,7 @@
 #include "table.h"
 #include "value.h"
 
-#define OBJ_TYPE(value)        (AS_OBJ(value)->type)
+#define OBJ_TYPE(value)        (objType(AS_OBJ(value)))
 
 #define IS_BOUND_METHOD(value) isObjType(value, OBJ_BOUND_METHOD);
 #define IS_CLASS(value)        isObjType(value, OBJ_CLASS)
@@ -41,10 +41,30 @@ typedef enum {
 } ObjType;
 
 struct Obj {
-    ObjType type;
-    bool isMarked;
-    struct Obj* next;
+    uint64_t header;
 };
+
+static inline ObjType objType(Obj* object) {
+    return (ObjType)((object->header >> 56) & 0xff);
+}
+
+static inline bool mark(Obj* object) {
+    return (bool)((object->header >> 48) & 0x01);
+}
+
+static inline Obj* objNext(Obj* object) {
+    return (Obj*)(object->header & 0x0000ffffffffffff);
+}
+
+static inline void setMark(Obj* object, bool mark) {
+    object->header = (object->header & 0xff00ffffffffffff) |
+                     ((uint64_t)mark << 48);
+}
+
+static inline void setObjNext(Obj* object, Obj* next) {
+    object->header = (object->header & 0xffff000000000000) |
+                     (uint64_t)next;
+}
 
 typedef struct {
     Obj obj;
@@ -113,7 +133,7 @@ ObjUpvalue* newUpvalue(Value* slot);
 void printObject(Value value);
 
 static inline bool isObjType(Value value, ObjType type) {
-    return IS_OBJ(value) && AS_OBJ(value)->type == type;
+    return IS_OBJ(value) && objType(AS_OBJ(value)) == type;
 }
 
 #endif //QI_OBJECT_H
