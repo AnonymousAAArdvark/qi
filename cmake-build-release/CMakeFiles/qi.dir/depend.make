@@ -70,7 +70,8 @@ CMakeFiles/qi.dir/table.c.o: \
  ../object.h \
  ../table.c \
  ../table.h \
- ../value.h
+ ../value.h \
+ ../vm.h
 CMakeFiles/qi.dir/value.c.o: \
  ../chunk.h \
  ../common.h \
