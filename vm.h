@@ -36,6 +36,7 @@ typedef struct {
     int grayCount;
     int grayCapacity;
     Obj** grayStack;
+    bool markValue;
 } VM;
 
 typedef enum {
