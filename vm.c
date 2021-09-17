@@ -97,6 +97,7 @@ void initVM() {
 
     vm.initString = NULL;
     vm.initString = copyString("init", 4);
+    vm.markValue = true;
 
     defineNative("clock", clockNative, 0);
     defineNative("sqrt", sqrtNative, 1);
@@ -256,7 +257,7 @@ static ObjUpvalue* captureUpvalue(Value* local) {
     return createdUpvalue;
 }
 
-static void closeUpvalues(Value* last) {
+static void closeUpvalues(const Value* last) {
     while (vm.openUpvalues != NULL && vm.openUpvalues->location >= last) {
         ObjUpvalue* upvalue = vm.openUpvalues;
         upvalue->closed = *upvalue->location;
