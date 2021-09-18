@@ -14,7 +14,7 @@
 #include "object.h"
 #include "memory.h"
 #include "vm.h"
-#include "stdlib.h"
+#include "lib.h"
 
 VM vm;
 
@@ -77,6 +77,7 @@ void initVM() {
     defineNative("min", minNative, 2);
     defineNative("max", maxNative, 2);
     defineNative("round", roundNative, -1);
+    defineNative("ston", stonNative, 1);
 }
 
 void freeVM() {
