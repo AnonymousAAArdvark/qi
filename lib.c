@@ -134,3 +134,9 @@ bool notsNative(int argCount, Value* args) {
     args[-1] = OBJ_VAL(copyString(str, strlen(str)));
     return true;
 }
+
+bool typeNative(int argCount, Value* args) {
+    char* type = getType(args[0]);
+    args[-1] = OBJ_VAL(copyString(type, strlen(type)));
+    return true;
+}
