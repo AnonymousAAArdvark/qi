@@ -196,18 +196,18 @@ CMakeFiles/qi.dir/table.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qi.dir/table.c.s"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/andrewyang/CLionProjects/qi/table.c -o CMakeFiles/qi.dir/table.c.s
 
-CMakeFiles/qi.dir/stdlib.c.o: CMakeFiles/qi.dir/flags.make
-CMakeFiles/qi.dir/stdlib.c.o: ../stdlib.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/andrewyang/CLionProjects/qi/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/qi.dir/stdlib.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/qi.dir/stdlib.c.o -c /Users/andrewyang/CLionProjects/qi/stdlib.c
+CMakeFiles/qi.dir/lib.c.o: CMakeFiles/qi.dir/flags.make
+CMakeFiles/qi.dir/lib.c.o: ../lib.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/andrewyang/CLionProjects/qi/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/qi.dir/lib.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/qi.dir/lib.c.o -c /Users/andrewyang/CLionProjects/qi/lib.c
 
-CMakeFiles/qi.dir/stdlib.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/qi.dir/stdlib.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/andrewyang/CLionProjects/qi/stdlib.c > CMakeFiles/qi.dir/stdlib.c.i
+CMakeFiles/qi.dir/lib.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/qi.dir/lib.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/andrewyang/CLionProjects/qi/lib.c > CMakeFiles/qi.dir/lib.c.i
 
-CMakeFiles/qi.dir/stdlib.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qi.dir/stdlib.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/andrewyang/CLionProjects/qi/stdlib.c -o CMakeFiles/qi.dir/stdlib.c.s
+CMakeFiles/qi.dir/lib.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qi.dir/lib.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/andrewyang/CLionProjects/qi/lib.c -o CMakeFiles/qi.dir/lib.c.s
 
 # Object files for target qi
 qi_OBJECTS = \
@@ -221,7 +221,7 @@ qi_OBJECTS = \
 "CMakeFiles/qi.dir/scanner.c.o" \
 "CMakeFiles/qi.dir/object.c.o" \
 "CMakeFiles/qi.dir/table.c.o" \
-"CMakeFiles/qi.dir/stdlib.c.o"
+"CMakeFiles/qi.dir/lib.c.o"
 
 # External object files for target qi
 qi_EXTERNAL_OBJECTS =
@@ -236,7 +236,7 @@ qi: CMakeFiles/qi.dir/compiler.c.o
 qi: CMakeFiles/qi.dir/scanner.c.o
 qi: CMakeFiles/qi.dir/object.c.o
 qi: CMakeFiles/qi.dir/table.c.o
-qi: CMakeFiles/qi.dir/stdlib.c.o
+qi: CMakeFiles/qi.dir/lib.c.o
 qi: CMakeFiles/qi.dir/build.make
 qi: CMakeFiles/qi.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/andrewyang/CLionProjects/qi/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking C executable qi"

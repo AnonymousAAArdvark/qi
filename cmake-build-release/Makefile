@@ -201,6 +201,30 @@ debug.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/qi.dir/build.make CMakeFiles/qi.dir/debug.c.s
 .PHONY : debug.c.s
 
+lib.o: lib.c.o
+.PHONY : lib.o
+
+# target to build an object file
+lib.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qi.dir/build.make CMakeFiles/qi.dir/lib.c.o
+.PHONY : lib.c.o
+
+lib.i: lib.c.i
+.PHONY : lib.i
+
+# target to preprocess a source file
+lib.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qi.dir/build.make CMakeFiles/qi.dir/lib.c.i
+.PHONY : lib.c.i
+
+lib.s: lib.c.s
+.PHONY : lib.s
+
+# target to generate assembly for a file
+lib.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qi.dir/build.make CMakeFiles/qi.dir/lib.c.s
+.PHONY : lib.c.s
+
 main.o: main.c.o
 .PHONY : main.o
 
@@ -297,30 +321,6 @@ scanner.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/qi.dir/build.make CMakeFiles/qi.dir/scanner.c.s
 .PHONY : scanner.c.s
 
-stdlib.o: stdlib.c.o
-.PHONY : stdlib.o
-
-# target to build an object file
-stdlib.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qi.dir/build.make CMakeFiles/qi.dir/stdlib.c.o
-.PHONY : stdlib.c.o
-
-stdlib.i: stdlib.c.i
-.PHONY : stdlib.i
-
-# target to preprocess a source file
-stdlib.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qi.dir/build.make CMakeFiles/qi.dir/stdlib.c.i
-.PHONY : stdlib.c.i
-
-stdlib.s: stdlib.c.s
-.PHONY : stdlib.s
-
-# target to generate assembly for a file
-stdlib.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qi.dir/build.make CMakeFiles/qi.dir/stdlib.c.s
-.PHONY : stdlib.c.s
-
 table.o: table.c.o
 .PHONY : table.o
 
@@ -411,6 +411,9 @@ help:
 	@echo "... debug.o"
 	@echo "... debug.i"
 	@echo "... debug.s"
+	@echo "... lib.o"
+	@echo "... lib.i"
+	@echo "... lib.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
@@ -423,9 +426,6 @@ help:
 	@echo "... scanner.o"
 	@echo "... scanner.i"
 	@echo "... scanner.s"
-	@echo "... stdlib.o"
-	@echo "... stdlib.i"
-	@echo "... stdlib.s"
 	@echo "... table.o"
 	@echo "... table.i"
 	@echo "... table.s"

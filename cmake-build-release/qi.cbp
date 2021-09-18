@@ -99,6 +99,12 @@
 		<Unit filename="/Users/andrewyang/CLionProjects/qi/debug.h">
 			<Option target="qi"/>
 		</Unit>
+		<Unit filename="/Users/andrewyang/CLionProjects/qi/lib.c">
+			<Option target="qi"/>
+		</Unit>
+		<Unit filename="/Users/andrewyang/CLionProjects/qi/lib.h">
+			<Option target="qi"/>
+		</Unit>
 		<Unit filename="/Users/andrewyang/CLionProjects/qi/main.c">
 			<Option target="qi"/>
 		</Unit>
@@ -118,12 +124,6 @@
 			<Option target="qi"/>
 		</Unit>
 		<Unit filename="/Users/andrewyang/CLionProjects/qi/scanner.h">
-			<Option target="qi"/>
-		</Unit>
-		<Unit filename="/Users/andrewyang/CLionProjects/qi/stdlib.c">
-			<Option target="qi"/>
-		</Unit>
-		<Unit filename="/Users/andrewyang/CLionProjects/qi/stdlib.h">
 			<Option target="qi"/>
 		</Unit>
 		<Unit filename="/Users/andrewyang/CLionProjects/qi/table.c">

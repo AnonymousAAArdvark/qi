@@ -30,6 +30,16 @@ CMakeFiles/qi.dir/debug.c.o: \
  ../object.h \
  ../table.h \
  ../value.h
+CMakeFiles/qi.dir/lib.c.o: \
+ ../chunk.h \
+ ../common.h \
+ ../lib.c \
+ ../lib.h \
+ ../memory.h \
+ ../object.h \
+ ../table.h \
+ ../value.h \
+ ../vm.h
 CMakeFiles/qi.dir/main.c.o: \
  ../chunk.h \
  ../common.h \
@@ -63,16 +73,6 @@ CMakeFiles/qi.dir/scanner.c.o: \
  ../common.h \
  ../scanner.c \
  ../scanner.h
-CMakeFiles/qi.dir/stdlib.c.o: \
- ../chunk.h \
- ../common.h \
- ../memory.h \
- ../object.h \
- ../stdlib.c \
- ../stdlib.h \
- ../table.h \
- ../value.h \
- ../vm.h
 CMakeFiles/qi.dir/table.c.o: \
  ../chunk.h \
  ../common.h \
@@ -95,9 +95,9 @@ CMakeFiles/qi.dir/vm.c.o: \
  ../common.h \
  ../compiler.h \
  ../debug.h \
+ ../lib.h \
  ../memory.h \
  ../object.h \
- ../stdlib.h \
  ../table.h \
  ../value.h \
  ../vm.c \

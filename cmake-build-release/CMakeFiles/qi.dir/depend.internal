@@ -30,6 +30,16 @@ CMakeFiles/qi.dir/debug.c.o
  /Users/andrewyang/CLionProjects/qi/object.h
  /Users/andrewyang/CLionProjects/qi/table.h
  /Users/andrewyang/CLionProjects/qi/value.h
+CMakeFiles/qi.dir/lib.c.o
+ /Users/andrewyang/CLionProjects/qi/chunk.h
+ /Users/andrewyang/CLionProjects/qi/common.h
+ /Users/andrewyang/CLionProjects/qi/lib.c
+ /Users/andrewyang/CLionProjects/qi/lib.h
+ /Users/andrewyang/CLionProjects/qi/memory.h
+ /Users/andrewyang/CLionProjects/qi/object.h
+ /Users/andrewyang/CLionProjects/qi/table.h
+ /Users/andrewyang/CLionProjects/qi/value.h
+ /Users/andrewyang/CLionProjects/qi/vm.h
 CMakeFiles/qi.dir/main.c.o
  /Users/andrewyang/CLionProjects/qi/chunk.h
  /Users/andrewyang/CLionProjects/qi/common.h
@@ -63,16 +73,6 @@ CMakeFiles/qi.dir/scanner.c.o
  /Users/andrewyang/CLionProjects/qi/common.h
  /Users/andrewyang/CLionProjects/qi/scanner.c
  /Users/andrewyang/CLionProjects/qi/scanner.h
-CMakeFiles/qi.dir/stdlib.c.o
- /Users/andrewyang/CLionProjects/qi/chunk.h
- /Users/andrewyang/CLionProjects/qi/common.h
- /Users/andrewyang/CLionProjects/qi/memory.h
- /Users/andrewyang/CLionProjects/qi/object.h
- /Users/andrewyang/CLionProjects/qi/stdlib.c
- /Users/andrewyang/CLionProjects/qi/stdlib.h
- /Users/andrewyang/CLionProjects/qi/table.h
- /Users/andrewyang/CLionProjects/qi/value.h
- /Users/andrewyang/CLionProjects/qi/vm.h
 CMakeFiles/qi.dir/table.c.o
  /Users/andrewyang/CLionProjects/qi/chunk.h
  /Users/andrewyang/CLionProjects/qi/common.h
@@ -95,9 +95,9 @@ CMakeFiles/qi.dir/vm.c.o
  /Users/andrewyang/CLionProjects/qi/common.h
  /Users/andrewyang/CLionProjects/qi/compiler.h
  /Users/andrewyang/CLionProjects/qi/debug.h
+ /Users/andrewyang/CLionProjects/qi/lib.h
  /Users/andrewyang/CLionProjects/qi/memory.h
  /Users/andrewyang/CLionProjects/qi/object.h
- /Users/andrewyang/CLionProjects/qi/stdlib.h
  /Users/andrewyang/CLionProjects/qi/table.h
  /Users/andrewyang/CLionProjects/qi/value.h
  /Users/andrewyang/CLionProjects/qi/vm.c
