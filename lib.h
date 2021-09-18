@@ -17,5 +17,6 @@ bool minNative(int argCount, Value* args);
 bool maxNative(int argCount, Value* args);
 bool roundNative(int argCount, Value* args);
 bool stonNative(int argCount, Value* args);
+bool notsNative(int argCount, Value* args);
 
 #endif //QI_LIB_H
