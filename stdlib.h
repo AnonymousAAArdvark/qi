@@ -10,11 +10,11 @@
 #include "memory.h"
 #include "vm.h"
 
-static bool clockNative(int argCount, Value* args);
-static bool sqrtNative(int argCount, Value* args);
-static bool powNative(int argCount, Value* args);
-static bool minNative(int argCount, Value* args);
-static bool maxNative(int argCount, Value* args);
-static bool roundNative(int argCount, Value* args);
+bool clockNative(int argCount, Value* args);
+bool sqrtNative(int argCount, Value* args);
+bool powNative(int argCount, Value* args);
+bool minNative(int argCount, Value* args);
+bool maxNative(int argCount, Value* args);
+bool roundNative(int argCount, Value* args);
 
 #endif //QI_STDLIB_H
