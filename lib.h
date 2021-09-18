@@ -2,8 +2,8 @@
 // Created by Andrew Yang on 9/17/21.
 //
 
-#ifndef QI_STDLIB_H
-#define QI_STDLIB_H
+#ifndef QI_LIB_H
+#define QI_LIB_H
 
 #include "common.h"
 #include "object.h"
@@ -16,5 +16,6 @@ bool powNative(int argCount, Value* args);
 bool minNative(int argCount, Value* args);
 bool maxNative(int argCount, Value* args);
 bool roundNative(int argCount, Value* args);
+bool stonNative(int argCount, Value* args);
 
-#endif //QI_STDLIB_H
+#endif //QI_LIB_H
