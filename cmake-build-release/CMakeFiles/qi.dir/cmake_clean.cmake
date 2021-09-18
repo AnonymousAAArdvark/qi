@@ -6,6 +6,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/qi.dir/memory.c.o"
   "CMakeFiles/qi.dir/object.c.o"
   "CMakeFiles/qi.dir/scanner.c.o"
+  "CMakeFiles/qi.dir/stdlib.c.o"
   "CMakeFiles/qi.dir/table.c.o"
   "CMakeFiles/qi.dir/value.c.o"
   "CMakeFiles/qi.dir/vm.c.o"

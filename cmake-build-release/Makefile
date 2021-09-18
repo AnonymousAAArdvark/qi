@@ -297,6 +297,30 @@ scanner.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/qi.dir/build.make CMakeFiles/qi.dir/scanner.c.s
 .PHONY : scanner.c.s
 
+stdlib.o: stdlib.c.o
+.PHONY : stdlib.o
+
+# target to build an object file
+stdlib.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qi.dir/build.make CMakeFiles/qi.dir/stdlib.c.o
+.PHONY : stdlib.c.o
+
+stdlib.i: stdlib.c.i
+.PHONY : stdlib.i
+
+# target to preprocess a source file
+stdlib.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qi.dir/build.make CMakeFiles/qi.dir/stdlib.c.i
+.PHONY : stdlib.c.i
+
+stdlib.s: stdlib.c.s
+.PHONY : stdlib.s
+
+# target to generate assembly for a file
+stdlib.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qi.dir/build.make CMakeFiles/qi.dir/stdlib.c.s
+.PHONY : stdlib.c.s
+
 table.o: table.c.o
 .PHONY : table.o
 
@@ -399,6 +423,9 @@ help:
 	@echo "... scanner.o"
 	@echo "... scanner.i"
 	@echo "... scanner.s"
+	@echo "... stdlib.o"
+	@echo "... stdlib.i"
+	@echo "... stdlib.s"
 	@echo "... table.o"
 	@echo "... table.i"
 	@echo "... table.s"

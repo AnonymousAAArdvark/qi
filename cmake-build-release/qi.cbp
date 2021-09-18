@@ -120,6 +120,12 @@
 		<Unit filename="/Users/andrewyang/CLionProjects/qi/scanner.h">
 			<Option target="qi"/>
 		</Unit>
+		<Unit filename="/Users/andrewyang/CLionProjects/qi/stdlib.c">
+			<Option target="qi"/>
+		</Unit>
+		<Unit filename="/Users/andrewyang/CLionProjects/qi/stdlib.h">
+			<Option target="qi"/>
+		</Unit>
 		<Unit filename="/Users/andrewyang/CLionProjects/qi/table.c">
 			<Option target="qi"/>
 		</Unit>

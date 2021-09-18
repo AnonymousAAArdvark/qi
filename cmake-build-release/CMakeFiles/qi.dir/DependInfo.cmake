@@ -15,6 +15,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/andrewyang/CLionProjects/qi/memory.c" "/Users/andrewyang/CLionProjects/qi/cmake-build-release/CMakeFiles/qi.dir/memory.c.o"
   "/Users/andrewyang/CLionProjects/qi/object.c" "/Users/andrewyang/CLionProjects/qi/cmake-build-release/CMakeFiles/qi.dir/object.c.o"
   "/Users/andrewyang/CLionProjects/qi/scanner.c" "/Users/andrewyang/CLionProjects/qi/cmake-build-release/CMakeFiles/qi.dir/scanner.c.o"
+  "/Users/andrewyang/CLionProjects/qi/stdlib.c" "/Users/andrewyang/CLionProjects/qi/cmake-build-release/CMakeFiles/qi.dir/stdlib.c.o"
   "/Users/andrewyang/CLionProjects/qi/table.c" "/Users/andrewyang/CLionProjects/qi/cmake-build-release/CMakeFiles/qi.dir/table.c.o"
   "/Users/andrewyang/CLionProjects/qi/value.c" "/Users/andrewyang/CLionProjects/qi/cmake-build-release/CMakeFiles/qi.dir/value.c.o"
   "/Users/andrewyang/CLionProjects/qi/vm.c" "/Users/andrewyang/CLionProjects/qi/cmake-build-release/CMakeFiles/qi.dir/vm.c.o"
