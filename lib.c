@@ -123,3 +123,14 @@ bool stonNative(int argCount, Value* args) {
     args[-1] = NUMBER_VAL(strtod(AS_CSTRING(args[0]), NULL));
     return true;
 }
+
+bool notsNative(int argCount, Value* args) {
+    if (!IS_NUMBER(args[0])) {
+        return nativeError(args,
+                           "Argument 1 (input) must be of type 'number', not '%s'.", getType(args[0]));
+    }
+    char str[100];
+    sprintf(str, "%f", AS_NUMBER(args[0]));
+    args[-1] = OBJ_VAL(copyString(str, strlen(str)));
+    return true;
+}
