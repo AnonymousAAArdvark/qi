@@ -46,6 +46,17 @@ static bool maxNative(int argCount, Value* args) {
     return true;
 }
 
+static bool roundNative(int argCount, Value* args) {
+    int precision = 0;
+    if (argCount < 1 || argCount > 2) {
+        char error[40];
+        sprintf(error, "Expected 1 to 2 arguments but got %d", argCount);
+        args[-1] = OBJ_VAL(copyString(error, 40));
+        return false;
+    }
+    return true;
+}
+
 static void resetStack() {
     vm.stackTop = vm.stack;
     vm.frameCount = 0;
@@ -104,6 +115,7 @@ void initVM() {
     defineNative("pow", powNative, 2);
     defineNative("min", minNative, 2);
     defineNative("max", maxNative, 2);
+    defineNative("round", roundNative, -1);
 }
 
 void freeVM() {
@@ -169,7 +181,7 @@ static bool callValue(Value callee, int argCount) {
                 return call(AS_CLOSURE(callee), argCount);
             case OBJ_NATIVE: {
                 ObjNative* native = AS_NATIVE(callee);
-                if (argCount != native->arity) {
+                if (native->arity != -1 && argCount != native->arity) {
                     runtimeError("Expected %d arguments but got %d.", native->arity, argCount);
                     return false;
                 }
