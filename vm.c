@@ -78,6 +78,7 @@ void initVM() {
     defineNative("max", maxNative, 2);
     defineNative("round", roundNative, -1);
     defineNative("ston", stonNative, 1);
+    defineNative("nots", notsNative, 1);
 }
 
 void freeVM() {
