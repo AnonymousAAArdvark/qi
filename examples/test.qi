@@ -1,1 +1,9 @@
-print nots(3242.3243);
+fun test() {
+
+}
+
+fun test1() {
+    return 0;
+}
+
+print type(test()) == type(test1());
