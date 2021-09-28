@@ -136,7 +136,46 @@ static void printFunction(ObjFunction* function) {
 }
 
 ObjList* newList() {
+    ObjList* list = ALLOCATE_OBJ(ObjList, OBJ_LIST);
+    list->items = NULL;
+    list->count = 0;
+    list->capacity = 0;
+    return list;
+}
 
+void appendToList(ObjList* list, Value value) {
+    // Grow the array if necessary
+    if (list->capacity < list->count + 1) {
+        int oldCapcity = list->capacity;
+        list->capacity = GROW_CAPACITY(oldCapcity);
+        list->items = GROW_ARRAY(list->items, Value, oldCapacity, list->capacity);
+    }
+    list->items[list->count] = value;
+    list->count++;
+    return;
+}
+
+void storeToList(ObjList* list, int index, Value value) {
+    list->items[index] = value;
+}
+
+Value indexFromList(ObjList* list, int index) {
+    return list->items[index];
+}
+
+void deleteFromList(ObjList* list, int index) {
+    for (int i = index; i < list->count - 1; i++) {
+        list->items[i] = list->items[i+1];
+    }
+    list->items[list->count - 1] = NIL_VAL;
+    list->count--;
+}
+
+bool isValidListIndex(ObjList* list, int index) {
+    if (index < 0 || index > list->count - 1) {
+        return false;
+    }
+    return true;
 }
 
 void printObject(Value value) {
