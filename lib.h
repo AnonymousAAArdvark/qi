@@ -10,7 +10,7 @@
 #include "memory.h"
 #include "vm.h"
 
-bool clockNative(int argCount, Value* args);
+bool clockNative(__attribute__((unused)) int argCount, Value* args);
 bool sqrtNative(int argCount, Value* args);
 bool powNative(int argCount, Value* args);
 bool minNative(int argCount, Value* args);

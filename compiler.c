@@ -681,10 +681,11 @@ static int getByteCountForArguments(int ip) {
 
         case OP_CLOSURE:
             return 2 + (current->function->upvalueCount);
-    }
 
-    // Unreachable.
-    return 0;
+        default:
+            // Unreachable.
+            return 0;
+    }
 }
 
 static void expression() {

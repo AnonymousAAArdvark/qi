@@ -6,7 +6,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
-#include <math.h>
 
 #include "common.h"
 #include "compiler.h"
@@ -156,7 +155,6 @@ static bool callValue(Value callee, int argCount) {
                     runtimeError(AS_STRING(vm.stackTop[-argCount - 1])->chars);
                     return false;
                 }
-                return true;
             }
             default:
                 break; // Non-callable object type.

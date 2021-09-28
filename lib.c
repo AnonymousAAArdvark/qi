@@ -41,12 +41,12 @@ static char* getType(Value value) {
     return "unknown";
 }
 
-bool clockNative(int argCount, Value* args) {
+bool clockNative(__attribute__((unused)) int argCount, Value* args) {
     args[-1] = NUMBER_VAL((double)clock() / CLOCKS_PER_SEC);
     return true;
 }
 
-bool sqrtNative(int argCount, Value* args) {
+bool sqrtNative(__attribute__((unused)) int argCount, Value* args) {
     if (!IS_NUMBER(args[0])) {
         return nativeError(args,
                            "Argument 1 (input) must be of type 'number', not '%s'.", getType(args[0]));
@@ -55,7 +55,7 @@ bool sqrtNative(int argCount, Value* args) {
     return true;
 }
 
-bool powNative(int argCount, Value* args) {
+bool powNative(__attribute__((unused)) int argCount, Value* args) {
     if (!IS_NUMBER(args[0])) {
         return nativeError(args,
                            "Argument 1 (base) must be of type 'number', not '%s'.", getType(args[0]));
@@ -68,7 +68,7 @@ bool powNative(int argCount, Value* args) {
     return true;
 }
 
-bool minNative(int argCount, Value* args) {
+bool minNative(__attribute__((unused)) int argCount, Value* args) {
     if (!IS_NUMBER(args[0])) {
         return nativeError(args,
                            "Argument 1 must be of type 'number', not '%s'.", getType(args[0]));
@@ -83,7 +83,7 @@ bool minNative(int argCount, Value* args) {
     return true;
 }
 
-bool maxNative(int argCount, Value* args) {
+bool maxNative(__attribute__((unused)) int argCount, Value* args) {
     if (!IS_NUMBER(args[0])) {
         return nativeError(args,
                            "Argument 1 must be of type 'number', not '%s'.", getType(args[0]));
@@ -115,7 +115,7 @@ bool roundNative(int argCount, Value* args) {
     return true;
 }
 
-bool stonNative(int argCount, Value* args) {
+bool stonNative(__attribute__((unused)) int argCount, Value* args) {
     if (!IS_STRING(args[0])) {
         return nativeError(args,
                            "Argument 1 (input) must be of type 'string', not '%s'.", getType(args[0]));
@@ -124,7 +124,7 @@ bool stonNative(int argCount, Value* args) {
     return true;
 }
 
-bool notsNative(int argCount, Value* args) {
+bool notsNative(__attribute__((unused)) int argCount, Value* args) {
     if (!IS_NUMBER(args[0])) {
         return nativeError(args,
                            "Argument 1 (input) must be of type 'number', not '%s'.", getType(args[0]));
@@ -135,7 +135,7 @@ bool notsNative(int argCount, Value* args) {
     return true;
 }
 
-bool typeNative(int argCount, Value* args) {
+bool typeNative(__attribute__((unused)) int argCount, Value* args) {
     char* type = getType(args[0]);
     args[-1] = OBJ_VAL(copyString(type, strlen(type)));
     return true;
