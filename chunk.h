@@ -47,7 +47,10 @@ typedef enum {
     OP_INHERIT,
     OP_METHOD,
     OP_DUP,
-    OP_END
+    OP_END,
+    OP_BUILD_LIST,
+    OP_INDEX_SUBSCR,
+    OP_STORE_SUBSCR
 } OpCode;
 
 typedef struct {

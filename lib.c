@@ -41,12 +41,12 @@ static char* getType(Value value) {
     return "unknown";
 }
 
-bool clockNative(__attribute__((unused)) int argCount, Value* args) {
+bool clockNative(int argCount, Value* args) {
     args[-1] = NUMBER_VAL((double)clock() / CLOCKS_PER_SEC);
     return true;
 }
 
-bool sqrtNative(__attribute__((unused)) int argCount, Value* args) {
+bool sqrtNative(int argCount, Value* args) {
     if (!IS_NUMBER(args[0])) {
         return nativeError(args,
                            "Argument 1 (input) must be of type 'number', not '%s'.", getType(args[0]));
@@ -55,7 +55,7 @@ bool sqrtNative(__attribute__((unused)) int argCount, Value* args) {
     return true;
 }
 
-bool powNative(__attribute__((unused)) int argCount, Value* args) {
+bool powNative(int argCount, Value* args) {
     if (!IS_NUMBER(args[0])) {
         return nativeError(args,
                            "Argument 1 (base) must be of type 'number', not '%s'.", getType(args[0]));
@@ -68,7 +68,7 @@ bool powNative(__attribute__((unused)) int argCount, Value* args) {
     return true;
 }
 
-bool minNative(__attribute__((unused)) int argCount, Value* args) {
+bool minNative(int argCount, Value* args) {
     if (!IS_NUMBER(args[0])) {
         return nativeError(args,
                            "Argument 1 must be of type 'number', not '%s'.", getType(args[0]));
@@ -83,7 +83,7 @@ bool minNative(__attribute__((unused)) int argCount, Value* args) {
     return true;
 }
 
-bool maxNative(__attribute__((unused)) int argCount, Value* args) {
+bool maxNative(int argCount, Value* args) {
     if (!IS_NUMBER(args[0])) {
         return nativeError(args,
                            "Argument 1 must be of type 'number', not '%s'.", getType(args[0]));
@@ -115,7 +115,7 @@ bool roundNative(int argCount, Value* args) {
     return true;
 }
 
-bool stonNative(__attribute__((unused)) int argCount, Value* args) {
+bool stonNative(int argCount, Value* args) {
     if (!IS_STRING(args[0])) {
         return nativeError(args,
                            "Argument 1 (input) must be of type 'string', not '%s'.", getType(args[0]));
@@ -124,7 +124,7 @@ bool stonNative(__attribute__((unused)) int argCount, Value* args) {
     return true;
 }
 
-bool notsNative(__attribute__((unused)) int argCount, Value* args) {
+bool notsNative(int argCount, Value* args) {
     if (!IS_NUMBER(args[0])) {
         return nativeError(args,
                            "Argument 1 (input) must be of type 'number', not '%s'.", getType(args[0]));
@@ -135,8 +135,38 @@ bool notsNative(__attribute__((unused)) int argCount, Value* args) {
     return true;
 }
 
-bool typeNative(__attribute__((unused)) int argCount, Value* args) {
+bool typeNative(int argCount, Value* args) {
     char* type = getType(args[0]);
     args[-1] = OBJ_VAL(copyString(type, strlen(type)));
+    return true;
+}
+
+bool appendNative(int argCount, Value* args) {
+    // Append a value to the end of a list increasing the list's length by 1
+    if (!IS_LIST(args[0])) {
+        return nativeError(args,
+                           "Argument 1 (input) must be of type 'list', not '%s'.", getType(args[0]));
+    }
+    ObjList* list = AS_LIST(args[0]);
+    Value item = args[1];
+    appendToList(list, item);
+    return true;
+}
+
+bool deleteNative(int argCount, Value* args) {
+    // Delete an item from a list at the given index.
+    if (!IS_LIST(args[0])) {
+        return nativeError(args,
+                           "Argument 1 (input) must be of type 'list', not '%s'.", getType(args[0]));
+    }
+
+    ObjList* list = AS_LIST(args[0]);
+    int index = AS_NUMBER(args[1]);
+
+    if (!isValidListIndex(list, index)) {
+        return nativeError(args,"Argument 2 is not a valid index");
+    }
+
+    deleteFromList(list, index);
     return true;
 }

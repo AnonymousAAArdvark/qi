@@ -135,6 +135,17 @@ static void printFunction(ObjFunction* function) {
     printf("<fn %s>", function->name->chars);
 }
 
+static void printList(ObjList* list) {
+    printf("[");
+    for (int i = 0; i < list->count; i++) {
+        printObject(list->items[i]);
+        if (i < list->count - 1) {
+            printf(", ");
+        }
+    }
+    printf("]");
+}
+
 ObjList* newList() {
     ObjList* list = ALLOCATE_OBJ(ObjList, OBJ_LIST);
     list->items = NULL;
@@ -146,13 +157,12 @@ ObjList* newList() {
 void appendToList(ObjList* list, Value value) {
     // Grow the array if necessary
     if (list->capacity < list->count + 1) {
-        int oldCapcity = list->capacity;
-        list->capacity = GROW_CAPACITY(oldCapcity);
-        list->items = GROW_ARRAY(list->items, Value, oldCapacity, list->capacity);
+        int oldCapacity = list->capacity;
+        list->capacity = GROW_CAPACITY(oldCapacity);
+        list->items = GROW_ARRAY(Value, list->items, oldCapacity, list->capacity);
     }
     list->items[list->count] = value;
     list->count++;
-    return;
 }
 
 void storeToList(ObjList* list, int index, Value value) {
@@ -203,6 +213,9 @@ void printObject(Value value) {
             break;
         case OBJ_UPVALUE:
             printf("upvalue");
+            break;
+        case OBJ_LIST:
+            printList(AS_LIST(value));
             break;
     }
 }

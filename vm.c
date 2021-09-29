@@ -79,6 +79,8 @@ void initVM() {
     defineNative("ston", stonNative, 1);
     defineNative("nots", notsNative, 1);
     defineNative("type", typeNative, 1);
+    defineNative("append", appendNative, 2);
+    defineNative("delete", deleteNative, 2);
 }
 
 void freeVM() {
@@ -564,6 +566,53 @@ static InterpretResult run() {
                 defineMethod(READ_STRING());
                 break;
             case OP_DUP: push(peek(0)); break;
+            case OP_BUILD_LIST: {
+                // Stack before: [item1, item2, ..., itemN] and after: [list]
+                ObjList* list = newList();
+                uint8_t itemCount = READ_BYTE();
+
+                // Add items to list
+                push(OBJ_VAL(list)); // So list isn't sweeped by GC in appendToList
+                for (int i = itemCount; i > 0; i--) {
+                    appendToList(list, peek(i));
+                }
+                pop();
+
+                // Pop items from stack
+                while (itemCount-- > 0) {
+                    pop();
+                }
+
+                push(OBJ_VAL(list));
+                break;
+            }
+            case OP_STORE_SUBSCR: {
+                // Stack before: [list, index, item] and after: [item]
+                Value item = pop();
+                Value index = pop();
+                Value list = pop();
+
+                if (!IS_LIST(list)) {
+                    runtimeError("Cannot store value in a non-list.");
+                    return INTERPRET_RUNTIME_ERROR;
+                }
+                ObjList* objList = AS_LIST(list);
+
+                if (!IS_NUMBER(index)) {
+                    runtimeError("List index is not a number.");
+                    return INTERPRET_RUNTIME_ERROR;
+                }
+                int numIndex = AS_NUMBER(index);
+
+                if (!isValidListIndex(objList, numIndex)) {
+                    runtimeError("Invalid list index.");
+                    return INTERPRET_RUNTIME_ERROR;
+                }
+
+                storeToList(objList, numIndex, item);
+                push(item);
+                break;
+            }
         }
     }
 

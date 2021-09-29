@@ -33,6 +33,7 @@ typedef enum {
     PREC_FACTOR,      // * /
     PREC_UNARY,       // ! -
     PREC_CALL,        // . ()
+    PREC_SUBSCRIPT,   // [
 } Precedence;
 
 typedef void (*ParseFn)(bool canAssign);
@@ -483,6 +484,42 @@ static void string(bool canAssign) {
                                     parser.previous.length - 2)));
 }
 
+static void list(bool canAssign) {
+    int itemCount = 0;
+    if (!check(TOKEN_RIGHT_BRACKET)) {
+        do {
+            if (check(TOKEN_RIGHT_BRACKET)) {
+                // Trailing comma case
+                break;
+            }
+
+            parsePrecedence(PREC_OR);
+
+            if (itemCount == UINT8_COUNT) {
+                error("Cannot have more than 256 items in a list literal.");
+            }
+            itemCount++;
+        } while (match(TOKEN_COMMA));
+    }
+
+    consume(TOKEN_RIGHT_BRACKET, "Expect ']' after list literal.");
+
+    emitByte(OP_BUILD_LIST);
+    emitByte(itemCount);
+}
+
+static void subscript(bool canAssign) {
+    parsePrecedence(PREC_OR);
+    consume(TOKEN_RIGHT_BRACKET, "Expect ']' after index.");
+
+    if (canAssign && match(TOKEN_EQUAL)) {
+        expression();
+        emitByte(OP_STORE_SUBSCR);
+    } else {
+        emitByte(OP_INDEX_SUBSCR);
+    }
+}
+
 static void namedVariable(Token name, bool canAssign) {
     uint8_t getOp, setOp;
     int arg = resolveLocal(current, &name);
@@ -585,6 +622,8 @@ ParseRule rules[] = {
         [TOKEN_LESS_EQUAL]    = {NULL,     binary, PREC_COMPARISON},
         [TOKEN_IDENTIFIER]    = {variable,     NULL,   PREC_NONE},
         [TOKEN_STRING]        = {string,     NULL,   PREC_NONE},
+        [TOKEN_LEFT_BRACKET]  = {list,     subscript, PREC_SUBSCRIPT},
+        [TOKEN_RIGHT_BRACKET] = {NULL,     NULL,   PREC_NONE},
         [TOKEN_NUMBER]        = {number,   NULL,   PREC_NONE},
         [TOKEN_AND]           = {NULL,     and_,   PREC_AND},
         [TOKEN_CLASS]         = {NULL,     NULL,   PREC_NONE},
