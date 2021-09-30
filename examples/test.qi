@@ -1,8 +1,13 @@
 var foo = [1, 2, 3];
 
-// append returns nil because it modifies foo in place
-append(foo, 4);
+// push returns nil because it modifies foo in place
+foo.push(4);
 print foo;
 
-delete(foo, 2); // Expect: nil
+foo.delete(2);
+print foo;
+foo.insert(2, "red");
+print foo;
+print foo.length();
+foo.pop();
 print foo;

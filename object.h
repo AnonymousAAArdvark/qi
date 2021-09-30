@@ -141,7 +141,7 @@ ObjString* takeString(char* chars, int length);
 ObjString* copyString(const char* chars, int length);
 ObjUpvalue* newUpvalue(Value* slot);
 ObjList* newList();
-void appendToList(ObjList* list, Value value);
+void insertToList(ObjList* list, Value value, int index);
 void storeToList(ObjList* list, int index, Value value);
 Value indexFromList(ObjList* list, int index);
 void deleteFromList(ObjList* list, int index);

@@ -154,14 +154,17 @@ ObjList* newList() {
     return list;
 }
 
-void appendToList(ObjList* list, Value value) {
+void insertToList(ObjList* list, Value value, int index) {
     // Grow the array if necessary
     if (list->capacity < list->count + 1) {
         int oldCapacity = list->capacity;
         list->capacity = GROW_CAPACITY(oldCapacity);
         list->items = GROW_ARRAY(Value, list->items, oldCapacity, list->capacity);
     }
-    list->items[list->count] = value;
+    for (int i = list->count; i > index; i--) {
+        list->items[i] = list->items[i - 1];
+    }
+    list->items[index] = value;
     list->count++;
 }
 

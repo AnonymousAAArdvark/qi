@@ -79,8 +79,6 @@ void initVM() {
     defineNative("ston", stonNative, 1);
     defineNative("nots", notsNative, 1);
     defineNative("type", typeNative, 1);
-    defineNative("append", appendNative, 2);
-    defineNative("delete", deleteNative, 2);
 }
 
 void freeVM() {
@@ -176,16 +174,8 @@ static bool invokeFromClass(ObjClass* klass, ObjString* name, int argCount, Call
     return call(AS_CLOSURE(method), argCount);
 }
 
-static bool invoke(ObjString* name, int argCount, CallFrame* frame, uint8_t* ip) {
-    Value receiver = peek(argCount);
-
-    if (!IS_INSTANCE(receiver)) {
-        frame->ip = ip;
-        runtimeError("Only instances have methods");
-        return false;
-    }
-
-    ObjInstance* instance = AS_INSTANCE(receiver);
+static bool invokeInstance(const Value* receiver, ObjString* name, int argCount, CallFrame* frame, uint8_t* ip) {
+    ObjInstance* instance = AS_INSTANCE(*receiver);
 
     Value value;
     if (tableGet(&instance->fields, name, &value)) {
@@ -194,6 +184,112 @@ static bool invoke(ObjString* name, int argCount, CallFrame* frame, uint8_t* ip)
     }
 
     return invokeFromClass(instance->klass, name, argCount, frame, ip);
+}
+
+static bool invokeList(const Value* receiver, ObjString* name, int argCount, CallFrame* frame, uint8_t* ip) {
+    if (strcmp(name->chars, "push") == 0) {
+        // Push a value to the end of a list increasing the list's length by 1
+        if (argCount != 1) {
+            frame->ip = ip;
+            runtimeError("Expected 1 argument but got %d.", argCount);
+            return false;
+        }
+        ObjList *list = AS_LIST(*receiver);
+        Value item = vm.stackTop[-argCount];
+        insertToList(list, item, list->count);
+        vm.stackTop -= argCount;
+        return true;
+    } else if (strcmp(name->chars, "pop") == 0) {
+        // Pop a value from the end of a list decreasing the list's length by 1
+        if (argCount != 0) {
+            frame->ip = ip;
+            runtimeError("Expected 0 arguments but got %d.", argCount);
+            return false;
+        }
+
+        ObjList *list = AS_LIST(*receiver);
+
+        if (!isValidListIndex(list, list->count - 1)) {
+            frame->ip = ip;
+            runtimeError("Cannot pop from an empty list.");
+            return false;
+        }
+
+        deleteFromList(list, list->count - 1);
+        vm.stackTop -= argCount;
+        return true;
+    } else if (strcmp(name->chars, "insert") == 0) {
+        // Insert a value to the specified index of a list increasing the list's length by 1
+        if (argCount != 2) {
+            frame->ip = ip;
+            runtimeError("Expected 2 arguments but got %d.", argCount);
+            return false;
+        } else if (!IS_NUMBER(vm.stackTop[-argCount])) {
+            frame->ip = ip;
+            runtimeError("Argument 1 (index) must be of type 'number', not '%s'.", getType(vm.stackTop[-argCount]));
+            return false;
+        }
+
+        ObjList *list = AS_LIST(*receiver);
+        int index = AS_NUMBER(vm.stackTop[-argCount]);
+        Value item = vm.stackTop[-argCount + 1];
+
+        if (!isValidListIndex(list, index)) {
+            frame->ip = ip;
+            runtimeError("Argument 1 is not a valid index");
+            return false;
+        }
+
+        insertToList(list, item, index);
+        vm.stackTop -= argCount;
+        return true;
+    } else if (strcmp(name->chars, "delete") == 0) {
+        // Delete an item from a list at the given index.
+        if (argCount != 1) {
+            frame->ip = ip;
+            runtimeError("Expected 1 argument but got %d.", argCount);
+            return false;
+        } else if (!IS_NUMBER(vm.stackTop[-argCount])) {
+            frame->ip = ip;
+            runtimeError("Argument 1 (index) must be of type 'number', not '%s'.", getType(vm.stackTop[-argCount]));
+            return false;
+        }
+
+        ObjList* list = AS_LIST(*receiver);
+        int index = AS_NUMBER(vm.stackTop[-argCount]);
+
+        if (!isValidListIndex(list, index)) {
+            frame->ip = ip;
+            runtimeError("Argument 1 is not a valid index");
+            return false;
+        }
+
+        deleteFromList(list, index);
+        vm.stackTop -= argCount;
+        return true;
+    } else if (strcmp(name->chars, "length") == 0) {
+        vm.stackTop -= argCount;
+        push(NUMBER_VAL(AS_LIST(*receiver)->count));
+        return true;
+    }
+
+    frame->ip = ip;
+    runtimeError("Undefined property %s.", name->chars);
+    return false;
+}
+
+static bool invoke(ObjString* name, int argCount, CallFrame* frame, uint8_t* ip) {
+    Value receiver = peek(argCount);
+
+    if (IS_INSTANCE(receiver)) {
+        return invokeInstance(&receiver, name, argCount, frame, ip);
+    } else if (IS_LIST(receiver)) {
+        return invokeList(&receiver, name, argCount, frame, ip);
+    }
+
+    frame->ip = ip;
+    runtimeError("Only instances, strings, and lists have methods");
+    return false;
 }
 
 static bool bindMethod(ObjClass* klass, ObjString* name, CallFrame* frame, uint8_t* ip) {
@@ -572,9 +668,9 @@ static InterpretResult run() {
                 uint8_t itemCount = READ_BYTE();
 
                 // Add items to list
-                push(OBJ_VAL(list)); // So list isn't sweeped by GC in appendToList
+                push(OBJ_VAL(list)); // So list isn't sweeped by GC in insertToList
                 for (int i = itemCount; i > 0; i--) {
-                    appendToList(list, peek(i));
+                    insertToList(list, peek(i), list->count);
                 }
                 pop();
 

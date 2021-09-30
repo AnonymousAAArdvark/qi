@@ -10,6 +10,7 @@
 #include "memory.h"
 #include "vm.h"
 
+char* getType(Value value);
 bool clockNative(__attribute__((unused)) int argCount, Value* args);
 bool sqrtNative(int argCount, Value* args);
 bool powNative(int argCount, Value* args);
@@ -19,7 +20,5 @@ bool roundNative(int argCount, Value* args);
 bool stonNative(int argCount, Value* args);
 bool notsNative(int argCount, Value* args);
 bool typeNative(int argCount, Value* args);
-bool appendNative(int argCount, Value* args);
-bool deleteNative(int argCount, Value* args);
 
 #endif //QI_LIB_H

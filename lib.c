@@ -21,7 +21,7 @@ static bool nativeError(Value* args, char* msg, ...) {
     return false;
 }
 
-static char* getType(Value value) {
+char* getType(Value value) {
     if (IS_BOOL(value)) return "bool";
     else if (IS_NUMBER(value)) return "number";
     else if (IS_NIL(value)) return "nil";
@@ -32,6 +32,7 @@ static char* getType(Value value) {
             case OBJ_INSTANCE: return "instance";
             case OBJ_FUNCTION: return "function";
             case OBJ_STRING: return "string";
+            case OBJ_LIST: return "list";
             case OBJ_UPVALUE: return "upvalue";
             case OBJ_CLOSURE: return "closure";
             case OBJ_CLASS: return "class";
@@ -138,35 +139,5 @@ bool notsNative(int argCount, Value* args) {
 bool typeNative(int argCount, Value* args) {
     char* type = getType(args[0]);
     args[-1] = OBJ_VAL(copyString(type, strlen(type)));
-    return true;
-}
-
-bool appendNative(int argCount, Value* args) {
-    // Append a value to the end of a list increasing the list's length by 1
-    if (!IS_LIST(args[0])) {
-        return nativeError(args,
-                           "Argument 1 (input) must be of type 'list', not '%s'.", getType(args[0]));
-    }
-    ObjList* list = AS_LIST(args[0]);
-    Value item = args[1];
-    appendToList(list, item);
-    return true;
-}
-
-bool deleteNative(int argCount, Value* args) {
-    // Delete an item from a list at the given index.
-    if (!IS_LIST(args[0])) {
-        return nativeError(args,
-                           "Argument 1 (input) must be of type 'list', not '%s'.", getType(args[0]));
-    }
-
-    ObjList* list = AS_LIST(args[0]);
-    int index = AS_NUMBER(args[1]);
-
-    if (!isValidListIndex(list, index)) {
-        return nativeError(args,"Argument 2 is not a valid index");
-    }
-
-    deleteFromList(list, index);
     return true;
 }
