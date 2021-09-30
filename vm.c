@@ -586,6 +586,33 @@ static InterpretResult run() {
                 push(OBJ_VAL(list));
                 break;
             }
+            case OP_INDEX_SUBSCR: {
+                // Stack before: [list, index] and after: [index(list, index)]
+                Value index = pop();
+                Value list = pop();
+                Value result;
+
+                if (!IS_LIST(list)) {
+                    runtimeError("Invalid type to index into.");
+                    return INTERPRET_RUNTIME_ERROR;
+                }
+                ObjList* objList = AS_LIST(list);
+
+                if (!IS_NUMBER(index)) {
+                    runtimeError("List index is not a number.");
+                    return INTERPRET_RUNTIME_ERROR;
+                }
+                int numIndex = AS_NUMBER(index);
+
+                if (!isValidListIndex(objList, numIndex)) {
+                    runtimeError("List index out of range.");
+                    return INTERPRET_RUNTIME_ERROR;
+                }
+
+                result = indexFromList(objList, AS_NUMBER(index));
+                push(result);
+                break;
+            }
             case OP_STORE_SUBSCR: {
                 // Stack before: [list, index, item] and after: [item]
                 Value item = pop();

@@ -138,7 +138,7 @@ static void printFunction(ObjFunction* function) {
 static void printList(ObjList* list) {
     printf("[");
     for (int i = 0; i < list->count; i++) {
-        printObject(list->items[i]);
+        printValue(list->items[i]);
         if (i < list->count - 1) {
             printf(", ");
         }
