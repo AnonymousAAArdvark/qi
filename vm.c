@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
+#include <ctype.h>
 
 #include "common.h"
 #include "compiler.h"
@@ -186,6 +187,53 @@ static bool invokeInstance(const Value* receiver, ObjString* name, int argCount,
     return invokeFromClass(instance->klass, name, argCount, frame, ip);
 }
 
+static bool invokeString(const Value* receiver, ObjString* name, int argCount, CallFrame* frame, uint8_t* ip) {
+    if (strcmp(name->chars, "length") == 0) {
+        // Returns the length of the string
+        vm.stackTop -= argCount;
+        push(NUMBER_VAL(AS_STRING(*receiver)->length));
+        return true;
+    } else if (strcmp(name->chars, "upper") == 0) {
+        // Returns a string where all characters are in upper case.
+        ObjString* str = AS_STRING(*receiver);
+
+        char* chars = ALLOCATE(char, str->length + 1);
+        memcpy(chars, str->chars, str->length);
+        chars[str->length + 1] = '\0';
+        char* c = chars;
+        while (*c) {
+            *c = (char)toupper(*c);
+            c++;
+        }
+        ObjString* result = takeString(chars, str->length + 1);
+
+        vm.stackTop -= argCount;
+        push(OBJ_VAL(result));
+        return true;
+    } else if (strcmp(name->chars, "lower") == 0) {
+        // Returns a string where all characters are in lower case.
+        ObjString* str = AS_STRING(*receiver);
+
+        char* chars = ALLOCATE(char, str->length + 1);
+        memcpy(chars, str->chars, str->length);
+        chars[str->length + 1] = '\0';
+        char* c = chars;
+        while (*c) {
+            *c = (char)tolower(*c);
+            c++;
+        }
+        ObjString* result = takeString(chars, str->length + 1);
+
+        vm.stackTop -= argCount;
+        push(OBJ_VAL(result));
+        return true;
+    }
+
+    frame->ip = ip;
+    runtimeError("Undefined property %s.", name->chars);
+    return false;
+}
+
 static bool invokeList(const Value* receiver, ObjString* name, int argCount, CallFrame* frame, uint8_t* ip) {
     if (strcmp(name->chars, "push") == 0) {
         // Push a value to the end of a list increasing the list's length by 1
@@ -198,6 +246,7 @@ static bool invokeList(const Value* receiver, ObjString* name, int argCount, Cal
         Value item = vm.stackTop[-argCount];
         insertToList(list, item, list->count);
         vm.stackTop -= argCount;
+        push(NIL_VAL);
         return true;
     } else if (strcmp(name->chars, "pop") == 0) {
         // Pop a value from the end of a list decreasing the list's length by 1
@@ -217,6 +266,7 @@ static bool invokeList(const Value* receiver, ObjString* name, int argCount, Cal
 
         deleteFromList(list, list->count - 1);
         vm.stackTop -= argCount;
+        push(NIL_VAL);
         return true;
     } else if (strcmp(name->chars, "insert") == 0) {
         // Insert a value to the specified index of a list increasing the list's length by 1
@@ -242,6 +292,7 @@ static bool invokeList(const Value* receiver, ObjString* name, int argCount, Cal
 
         insertToList(list, item, index);
         vm.stackTop -= argCount;
+        push(NIL_VAL);
         return true;
     } else if (strcmp(name->chars, "delete") == 0) {
         // Delete an item from a list at the given index.
@@ -266,8 +317,10 @@ static bool invokeList(const Value* receiver, ObjString* name, int argCount, Cal
 
         deleteFromList(list, index);
         vm.stackTop -= argCount;
+        push(NIL_VAL);
         return true;
     } else if (strcmp(name->chars, "length") == 0) {
+        // Returns the length of the list
         vm.stackTop -= argCount;
         push(NUMBER_VAL(AS_LIST(*receiver)->count));
         return true;
@@ -283,6 +336,8 @@ static bool invoke(ObjString* name, int argCount, CallFrame* frame, uint8_t* ip)
 
     if (IS_INSTANCE(receiver)) {
         return invokeInstance(&receiver, name, argCount, frame, ip);
+    } else if (IS_STRING(receiver)) {
+        return invokeString(&receiver, name, argCount, frame, ip);
     } else if (IS_LIST(receiver)) {
         return invokeList(&receiver, name, argCount, frame, ip);
     }

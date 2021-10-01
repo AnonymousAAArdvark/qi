@@ -1,13 +1,19 @@
-var foo = [1, 2, 3];
+//var foo = [1, 2, 3];
 
 // push returns nil because it modifies foo in place
-foo.push(4);
-print foo;
+//foo.push(4);
+//print foo;
 
-foo.delete(2);
-print foo;
-foo.insert(2, "red");
-print foo;
-print foo.length();
-foo.pop();
-print foo;
+//foo.delete(2);
+//print foo;
+//foo.insert(2, "red");
+//print foo;
+//print foo.length();
+//foo.pop();
+//print foo;*/
+
+var str = "test";
+print str.upper();
+print str.length();
+print str.lower();
+print str;

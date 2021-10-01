@@ -73,6 +73,8 @@ string.h
 -
 time.h
 -
+ctype.h
+-
 common.h
 /Users/andrewyang/CLionProjects/qi/common.h
 compiler.h
