@@ -6,14 +6,15 @@
 
 //foo.delete(2);
 //print foo;
-//foo.insert(2, "red");
+//foo.insert("te", 1);
 //print foo;
 //print foo.length();
 //foo.pop();
-//print foo;*/
+//print foo;
+
+//for (var i = 1; i <= foo.length(); i = i + 1) {
+//    print foo[-i];
+//}
 
 var str = "test";
-print str.upper();
-print str.length();
-print str.lower();
-print str;
+print str.substring(3, 4);

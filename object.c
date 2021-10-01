@@ -119,6 +119,13 @@ ObjString* copyString(const char* chars, int length) {
     return allocateString(heapChars, length, hash);
 }
 
+bool isValidStringIndex(ObjString* string, int index) {
+    if (index < 0 || index > string->length - 1) {
+        return false;
+    }
+    return true;
+}
+
 ObjUpvalue* newUpvalue(Value* slot) {
     ObjUpvalue* upvalue = ALLOCATE_OBJ(ObjUpvalue, OBJ_UPVALUE);
     upvalue->closed = NIL_VAL;

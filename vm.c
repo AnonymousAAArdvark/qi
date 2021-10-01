@@ -190,7 +190,7 @@ static bool invokeInstance(const Value* receiver, ObjString* name, int argCount,
 static bool invokeString(const Value* receiver, ObjString* name, int argCount, CallFrame* frame, uint8_t* ip) {
     if (strcmp(name->chars, "length") == 0) {
         // Returns the length of the string
-        vm.stackTop -= argCount;
+        vm.stackTop -= argCount + 1;
         push(NUMBER_VAL(AS_STRING(*receiver)->length));
         return true;
     } else if (strcmp(name->chars, "upper") == 0) {
@@ -207,7 +207,7 @@ static bool invokeString(const Value* receiver, ObjString* name, int argCount, C
         }
         ObjString* result = takeString(chars, str->length + 1);
 
-        vm.stackTop -= argCount;
+        vm.stackTop -= argCount + 1;
         push(OBJ_VAL(result));
         return true;
     } else if (strcmp(name->chars, "lower") == 0) {
@@ -224,11 +224,54 @@ static bool invokeString(const Value* receiver, ObjString* name, int argCount, C
         }
         ObjString* result = takeString(chars, str->length + 1);
 
-        vm.stackTop -= argCount;
+        vm.stackTop -= argCount + 1;
+        push(OBJ_VAL(result));
+        return true;
+    } else if (strcmp(name->chars, "substring") == 0) {
+        // Returns a part of a string between given indexes
+        if (argCount != 2) {
+            frame->ip = ip;
+            runtimeError("Expected 2 arguments but got %d.", argCount);
+            return false;
+        } else if (!IS_NUMBER(peek(argCount - 1))) {
+            frame->ip = ip;
+            runtimeError("Argument 1 (begin) must be of type 'number', not '%s'.", getType(vm.stackTop[-argCount]));
+            return false;
+        } else if (!IS_NUMBER(peek(argCount - 2))) {
+            frame->ip = ip;
+            runtimeError("Argument 2 (end) must be of type 'number', not '%s'.", getType(vm.stackTop[-argCount]));
+            return false;
+        }
+
+        ObjString* str = AS_STRING(*receiver);
+        int begin = AS_NUMBER(peek(argCount - 1));
+        int end = AS_NUMBER(peek(argCount - 2));
+        if (begin < 0) begin = str->length + begin;
+        if (end < 0) end = str->length + end;
+
+        if (!isValidStringIndex(str, begin)) {
+            frame->ip = ip;
+            runtimeError("Argument 1 is not a valid index");
+            return false;
+        } else if (!isValidStringIndex(str, end - 1)) { // Ending index is exclusive
+            frame->ip = ip;
+            runtimeError("Argument 2 is not a valid index");
+            return false;
+        } else if (end < begin) {
+            frame->ip = ip;
+            runtimeError("End index cannot be before begin index.");
+            return false;
+        }
+
+        char* chars = ALLOCATE(char, end - begin + 1);
+        memcpy( chars, &str->chars[begin], end - begin );
+        chars[end - begin] = '\0';
+        ObjString* result = takeString(chars, end - begin + 1);
+
+        vm.stackTop -= argCount + 1;
         push(OBJ_VAL(result));
         return true;
     }
-
     frame->ip = ip;
     runtimeError("Undefined property %s.", name->chars);
     return false;
@@ -243,9 +286,9 @@ static bool invokeList(const Value* receiver, ObjString* name, int argCount, Cal
             return false;
         }
         ObjList *list = AS_LIST(*receiver);
-        Value item = vm.stackTop[-argCount];
+        Value item = peek(argCount - 1);
         insertToList(list, item, list->count);
-        vm.stackTop -= argCount;
+        vm.stackTop -= argCount + 1;
         push(NIL_VAL);
         return true;
     } else if (strcmp(name->chars, "pop") == 0) {
@@ -265,7 +308,7 @@ static bool invokeList(const Value* receiver, ObjString* name, int argCount, Cal
         }
 
         deleteFromList(list, list->count - 1);
-        vm.stackTop -= argCount;
+        vm.stackTop -= argCount + 1;
         push(NIL_VAL);
         return true;
     } else if (strcmp(name->chars, "insert") == 0) {
@@ -274,15 +317,16 @@ static bool invokeList(const Value* receiver, ObjString* name, int argCount, Cal
             frame->ip = ip;
             runtimeError("Expected 2 arguments but got %d.", argCount);
             return false;
-        } else if (!IS_NUMBER(vm.stackTop[-argCount])) {
+        } else if (!IS_NUMBER(peek(argCount - 1))) {
             frame->ip = ip;
             runtimeError("Argument 1 (index) must be of type 'number', not '%s'.", getType(vm.stackTop[-argCount]));
             return false;
         }
 
         ObjList *list = AS_LIST(*receiver);
-        int index = AS_NUMBER(vm.stackTop[-argCount]);
-        Value item = vm.stackTop[-argCount + 1];
+        int index = AS_NUMBER(peek(argCount - 1));
+        if (index < 0) index = list->count + index;
+        Value item = peek(argCount - 2);
 
         if (!isValidListIndex(list, index)) {
             frame->ip = ip;
@@ -291,7 +335,7 @@ static bool invokeList(const Value* receiver, ObjString* name, int argCount, Cal
         }
 
         insertToList(list, item, index);
-        vm.stackTop -= argCount;
+        vm.stackTop -= argCount + 1;
         push(NIL_VAL);
         return true;
     } else if (strcmp(name->chars, "delete") == 0) {
@@ -300,14 +344,15 @@ static bool invokeList(const Value* receiver, ObjString* name, int argCount, Cal
             frame->ip = ip;
             runtimeError("Expected 1 argument but got %d.", argCount);
             return false;
-        } else if (!IS_NUMBER(vm.stackTop[-argCount])) {
+        } else if (!IS_NUMBER(peek(argCount - 1))) {
             frame->ip = ip;
             runtimeError("Argument 1 (index) must be of type 'number', not '%s'.", getType(vm.stackTop[-argCount]));
             return false;
         }
 
         ObjList* list = AS_LIST(*receiver);
-        int index = AS_NUMBER(vm.stackTop[-argCount]);
+        int index = AS_NUMBER(peek(argCount - 1));
+        if (index < 0) index = list->count + index;
 
         if (!isValidListIndex(list, index)) {
             frame->ip = ip;
@@ -316,12 +361,12 @@ static bool invokeList(const Value* receiver, ObjString* name, int argCount, Cal
         }
 
         deleteFromList(list, index);
-        vm.stackTop -= argCount;
+        vm.stackTop -= argCount + 1;
         push(NIL_VAL);
         return true;
     } else if (strcmp(name->chars, "length") == 0) {
         // Returns the length of the list
-        vm.stackTop -= argCount;
+        vm.stackTop -= argCount + 1;
         push(NUMBER_VAL(AS_LIST(*receiver)->count));
         return true;
     }
@@ -436,6 +481,8 @@ static InterpretResult run() {
 #define BINARY_OP(valueType, op) \
     do { \
       if (!IS_NUMBER(peek(0)) || !IS_NUMBER(peek(1))) { \
+        printValue(peek(0));     \
+        printValue(peek(1));\
         frame->ip = ip; \
         runtimeError("Operands must be numbers."); \
         return INTERPRET_RUNTIME_ERROR; \
@@ -754,13 +801,14 @@ static InterpretResult run() {
                     return INTERPRET_RUNTIME_ERROR;
                 }
                 int numIndex = AS_NUMBER(index);
+                if (numIndex < 0) numIndex = objList->count + numIndex;
 
                 if (!isValidListIndex(objList, numIndex)) {
                     runtimeError("List index out of range.");
                     return INTERPRET_RUNTIME_ERROR;
                 }
 
-                result = indexFromList(objList, AS_NUMBER(index));
+                result = indexFromList(objList, numIndex);
                 push(result);
                 break;
             }
@@ -781,6 +829,7 @@ static InterpretResult run() {
                     return INTERPRET_RUNTIME_ERROR;
                 }
                 int numIndex = AS_NUMBER(index);
+                if (numIndex < 0) numIndex = objList->count + numIndex;
 
                 if (!isValidListIndex(objList, numIndex)) {
                     runtimeError("Invalid list index.");
