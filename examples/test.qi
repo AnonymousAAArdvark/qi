@@ -16,10 +16,10 @@
 //    print foo[-i];
 //}
 
-var list = ["one", "two", "three", "four", "five"];
-for (var i = 0; i < list.length(); i = i + 1) {
-    for (var j = 0; j < list[i].length(); j = j + 1) {
-        print " ";
-        print list[i][j];
-    }
-}
+//var list = ["one", "two", "three", "four", "five"];
+//for (var i = 0; i < list.length(); i = i + 1) {
+//    for (var j = 0; j < list[i].length(); j = j + 1) {
+//        print " ";
+//        print list[i][j];
+//    }
+//}

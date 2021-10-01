@@ -7,6 +7,7 @@
 #include <string.h>
 #include <time.h>
 #include <ctype.h>
+#include <math.h>
 
 #include "common.h"
 #include "compiler.h"
@@ -491,6 +492,19 @@ static InterpretResult run() {
       double a = AS_NUMBER(pop()); \
       push(valueType(a op b)); \
     } while (false)
+#define BINARY_FUNC_OP(valueType, op) \
+    do { \
+      if (!IS_NUMBER(peek(0)) || !IS_NUMBER(peek(1))) { \
+        printValue(peek(0));     \
+        printValue(peek(1));\
+        frame->ip = ip; \
+        runtimeError("Operands must be numbers."); \
+        return INTERPRET_RUNTIME_ERROR; \
+      } \
+      double b = AS_NUMBER(pop()); \
+      double a = AS_NUMBER(pop());    \
+      push(valueType(op(a, b))); \
+    } while (false)
 
     for(;;) {
 #ifdef DEBUG_TRACE_EXECUTION
@@ -646,6 +660,9 @@ static InterpretResult run() {
                 break;
             case OP_DIVIDE:
                 BINARY_OP(NUMBER_VAL, /);
+                break;
+            case OP_MODULO:
+                BINARY_FUNC_OP(NUMBER_VAL, fmod);
                 break;
             case OP_NOT:
                 push(BOOL_VAL(isFalsey(pop())));
@@ -905,6 +922,7 @@ static InterpretResult run() {
 #undef READ_SHORT
 #undef READ_CONSTANT
 #undef READ_STRING
+#undef BINARY_FUNC_OP
 #undef BINARY_OP
 }
 
