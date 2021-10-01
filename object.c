@@ -119,6 +119,14 @@ ObjString* copyString(const char* chars, int length) {
     return allocateString(heapChars, length, hash);
 }
 
+void storeToString(ObjString* string, int index, char value) {
+    string->chars[index] = value;
+}
+
+char indexFromString(ObjString* string, int index) {
+    return string->chars[index];
+}
+
 bool isValidStringIndex(ObjString* string, int index) {
     if (index < 0 || index > string->length - 1) {
         return false;

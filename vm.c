@@ -787,58 +787,116 @@ static InterpretResult run() {
             case OP_INDEX_SUBSCR: {
                 // Stack before: [list, index] and after: [index(list, index)]
                 Value index = pop();
-                Value list = pop();
-                Value result;
+                Value obj = pop();
 
-                if (!IS_LIST(list)) {
-                    runtimeError("Invalid type to index into.");
-                    return INTERPRET_RUNTIME_ERROR;
+                if (IS_STRING(obj)) {
+                    ObjString *objString = AS_STRING(obj);
+
+                    if (!IS_NUMBER(index)) {
+                        frame->ip = ip;
+                        runtimeError("String index is not a number.");
+                        return INTERPRET_RUNTIME_ERROR;
+                    }
+                    int numIndex = AS_NUMBER(index);
+                    if (numIndex < 0) numIndex = objString->length + numIndex;
+
+                    if (!isValidStringIndex(objString, numIndex)) {
+                        frame->ip = ip;
+                        runtimeError("String index out of range.");
+                        return INTERPRET_RUNTIME_ERROR;
+                    }
+                    char* result = ALLOCATE(char, 1);
+                    result[0] = indexFromString(objString, numIndex);
+                    push(OBJ_VAL(takeString(result, 1)));
+                    break;
+                } else if (IS_LIST(obj)) {
+                    ObjList *objList = AS_LIST(obj);
+
+                    if (!IS_NUMBER(index)) {
+                        frame->ip = ip;
+                        runtimeError("List index is not a number.");
+                        return INTERPRET_RUNTIME_ERROR;
+                    }
+                    int numIndex = AS_NUMBER(index);
+                    if (numIndex < 0) numIndex = objList->count + numIndex;
+
+                    if (!isValidListIndex(objList, numIndex)) {
+                        frame->ip = ip;
+                        runtimeError("List index out of range.");
+                        return INTERPRET_RUNTIME_ERROR;
+                    }
+
+                    Value result = indexFromList(objList, numIndex);
+                    push(result);
+                    break;
                 }
-                ObjList* objList = AS_LIST(list);
 
-                if (!IS_NUMBER(index)) {
-                    runtimeError("List index is not a number.");
-                    return INTERPRET_RUNTIME_ERROR;
-                }
-                int numIndex = AS_NUMBER(index);
-                if (numIndex < 0) numIndex = objList->count + numIndex;
-
-                if (!isValidListIndex(objList, numIndex)) {
-                    runtimeError("List index out of range.");
-                    return INTERPRET_RUNTIME_ERROR;
-                }
-
-                result = indexFromList(objList, numIndex);
-                push(result);
-                break;
+                frame->ip = ip;
+                runtimeError("Invalid type to index into.");
+                return INTERPRET_RUNTIME_ERROR;
             }
             case OP_STORE_SUBSCR: {
                 // Stack before: [list, index, item] and after: [item]
                 Value item = pop();
                 Value index = pop();
-                Value list = pop();
+                Value obj = pop();
 
-                if (!IS_LIST(list)) {
-                    runtimeError("Cannot store value in a non-list.");
-                    return INTERPRET_RUNTIME_ERROR;
+                if (IS_STRING(obj)) {
+                    ObjString* objString = AS_STRING(obj);
+
+                    if (!IS_NUMBER(index)) {
+                        frame->ip = ip;
+                        runtimeError("String index is not a number.");
+                        return INTERPRET_RUNTIME_ERROR;
+                    } else if (!IS_STRING(item)) {
+                        frame->ip = ip;
+                        runtimeError("Only characters can be stored in strings.");
+                        return INTERPRET_RUNTIME_ERROR;
+                    }
+
+                    ObjString* itemString = AS_STRING(item);
+                    int numIndex = AS_NUMBER(index);
+                    if (numIndex < 0) numIndex = objString->length + numIndex;
+
+                    if (!isValidStringIndex(objString, numIndex)) {
+                        frame->ip = ip;
+                        runtimeError("Invalid string index.");
+                        return INTERPRET_RUNTIME_ERROR;
+                    } else if (strlen(itemString->chars) != 1) {
+                        frame->ip = ip;
+                        runtimeError(
+                                "Expected string of length 1 but got length %d.", strlen(itemString->chars));
+                        return INTERPRET_RUNTIME_ERROR;
+                    }
+
+                    storeToString(objString, numIndex, itemString->chars[0]);
+                    push(item);
+                    break;
+                } else if (IS_LIST(obj)) {
+                    ObjList *objList = AS_LIST(obj);
+
+                    if (!IS_NUMBER(index)) {
+                        frame->ip = ip;
+                        runtimeError("List index is not a number.");
+                        return INTERPRET_RUNTIME_ERROR;
+                    }
+                    int numIndex = AS_NUMBER(index);
+                    if (numIndex < 0) numIndex = objList->count + numIndex;
+
+                    if (!isValidListIndex(objList, numIndex)) {
+                        frame->ip = ip;
+                        runtimeError("Invalid list index.");
+                        return INTERPRET_RUNTIME_ERROR;
+                    }
+
+                    storeToList(objList, numIndex, item);
+                    push(item);
+                    break;
                 }
-                ObjList* objList = AS_LIST(list);
 
-                if (!IS_NUMBER(index)) {
-                    runtimeError("List index is not a number.");
-                    return INTERPRET_RUNTIME_ERROR;
-                }
-                int numIndex = AS_NUMBER(index);
-                if (numIndex < 0) numIndex = objList->count + numIndex;
-
-                if (!isValidListIndex(objList, numIndex)) {
-                    runtimeError("Invalid list index.");
-                    return INTERPRET_RUNTIME_ERROR;
-                }
-
-                storeToList(objList, numIndex, item);
-                push(item);
-                break;
+                frame->ip = ip;
+                runtimeError("Cannot store value: variable is not a string or list.");
+                return INTERPRET_RUNTIME_ERROR;
             }
         }
     }

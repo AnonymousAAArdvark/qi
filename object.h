@@ -139,6 +139,8 @@ ObjInstance* newInstance(ObjClass* klass);
 ObjNative* newNative(NativeFn function, int arity);
 ObjString* takeString(char* chars, int length);
 ObjString* copyString(const char* chars, int length);
+void storeToString(ObjString* string, int index, char value);
+char indexFromString(ObjString* string, int index);
 bool isValidStringIndex(ObjString* string, int index);
 ObjUpvalue* newUpvalue(Value* slot);
 ObjList* newList();
