@@ -24,11 +24,16 @@ typedef enum {
     OP_GET_PROPERTY,
     OP_SET_PROPERTY,
     OP_GET_SUPER,
+    OP_BUILD_LIST,
+    OP_INDEX_SUBSCR,
+    OP_STORE_SUBSCR,
     OP_EQUAL,
     OP_GREATER,
     OP_LESS,
     OP_ADD,
     OP_SUBTRACT,
+    OP_INCREMENT,
+    OP_DECREMENT,
     OP_MULTIPLY,
     OP_DIVIDE,
     OP_MODULO,
@@ -48,10 +53,8 @@ typedef enum {
     OP_INHERIT,
     OP_METHOD,
     OP_DUP,
+    OP_DOUBLE_DUP,
     OP_END,
-    OP_BUILD_LIST,
-    OP_INDEX_SUBSCR,
-    OP_STORE_SUBSCR
 } OpCode;
 
 typedef struct {
