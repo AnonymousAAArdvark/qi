@@ -20,6 +20,24 @@ stddef.h
 stdint.h
 -
 
+/Users/andrewyang/CLionProjects/qi/compiler.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+common.h
+/Users/andrewyang/CLionProjects/qi/common.h
+compiler.h
+/Users/andrewyang/CLionProjects/qi/compiler.h
+memory.h
+/Users/andrewyang/CLionProjects/qi/memory.h
+scanner.h
+/Users/andrewyang/CLionProjects/qi/scanner.h
+debug.h
+/Users/andrewyang/CLionProjects/qi/debug.h
+
 /Users/andrewyang/CLionProjects/qi/compiler.h
 object.h
 /Users/andrewyang/CLionProjects/qi/object.h
@@ -29,16 +47,6 @@ vm.h
 /Users/andrewyang/CLionProjects/qi/debug.h
 chunk.h
 /Users/andrewyang/CLionProjects/qi/chunk.h
-
-/Users/andrewyang/CLionProjects/qi/lib.h
-common.h
-/Users/andrewyang/CLionProjects/qi/common.h
-object.h
-/Users/andrewyang/CLionProjects/qi/object.h
-memory.h
-/Users/andrewyang/CLionProjects/qi/memory.h
-vm.h
-/Users/andrewyang/CLionProjects/qi/vm.h
 
 /Users/andrewyang/CLionProjects/qi/memory.h
 common.h
@@ -56,6 +64,8 @@ table.h
 value.h
 /Users/andrewyang/CLionProjects/qi/value.h
 
+/Users/andrewyang/CLionProjects/qi/scanner.h
+
 /Users/andrewyang/CLionProjects/qi/table.h
 
 /Users/andrewyang/CLionProjects/qi/value.h
@@ -63,34 +73,6 @@ string.h
 -
 common.h
 /Users/andrewyang/CLionProjects/qi/common.h
-
-/Users/andrewyang/CLionProjects/qi/vm.c
-stdarg.h
--
-stdio.h
--
-string.h
--
-time.h
--
-ctype.h
--
-math.h
--
-common.h
-/Users/andrewyang/CLionProjects/qi/common.h
-compiler.h
-/Users/andrewyang/CLionProjects/qi/compiler.h
-debug.h
-/Users/andrewyang/CLionProjects/qi/debug.h
-object.h
-/Users/andrewyang/CLionProjects/qi/object.h
-memory.h
-/Users/andrewyang/CLionProjects/qi/memory.h
-vm.h
-/Users/andrewyang/CLionProjects/qi/vm.h
-lib.h
-/Users/andrewyang/CLionProjects/qi/lib.h
 
 /Users/andrewyang/CLionProjects/qi/vm.h
 chunk.h
