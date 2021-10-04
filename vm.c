@@ -274,7 +274,7 @@ static bool invokeString(const Value* receiver, ObjString* name, int argCount, C
         return true;
     }
     frame->ip = ip;
-    runtimeError("Undefined property %s.", name->chars);
+    runtimeError("Undefined property '%s'.", name->chars);
     return false;
 }
 
@@ -373,7 +373,7 @@ static bool invokeList(const Value* receiver, ObjString* name, int argCount, Cal
     }
 
     frame->ip = ip;
-    runtimeError("Undefined property %s.", name->chars);
+    runtimeError("Undefined property '%s'.", name->chars);
     return false;
 }
 
@@ -450,10 +450,7 @@ static bool isFalsey(Value value) {
     return IS_NIL(value) || (IS_BOOL(value) && !AS_BOOL(value));
 }
 
-static void concatenate() {
-    ObjString* b = AS_STRING(peek(0));
-    ObjString* a = AS_STRING(peek(1));
-
+static ObjString* concatenate(ObjString* a, ObjString* b) {
     int length = a->length + b->length;
     char* chars = ALLOCATE(char, length + 1);
     memcpy(chars, a->chars, a->length);
@@ -461,9 +458,7 @@ static void concatenate() {
     chars[length] = '\0';
 
     ObjString* result = takeString(chars, length);
-    pop();
-    pop();
-    push(OBJ_VAL(result));
+    return result;
 }
 
 static InterpretResult run() {
@@ -482,8 +477,6 @@ static InterpretResult run() {
 #define BINARY_OP(valueType, op) \
     do { \
       if (!IS_NUMBER(peek(0)) || !IS_NUMBER(peek(1))) { \
-        printValue(peek(0));     \
-        printValue(peek(1));\
         frame->ip = ip; \
         runtimeError("Operands must be numbers."); \
         return INTERPRET_RUNTIME_ERROR; \
@@ -495,8 +488,6 @@ static InterpretResult run() {
 #define BINARY_FUNC_OP(valueType, op) \
     do { \
       if (!IS_NUMBER(peek(0)) || !IS_NUMBER(peek(1))) { \
-        printValue(peek(0));     \
-        printValue(peek(1));\
         frame->ip = ip; \
         runtimeError("Operands must be numbers."); \
         return INTERPRET_RUNTIME_ERROR; \
@@ -641,7 +632,12 @@ static InterpretResult run() {
                 break;
             case OP_ADD:
                 if (IS_STRING(peek(0)) && IS_STRING(peek(1))) {
-                    concatenate();
+                    ObjString* b = AS_STRING(peek(0));
+                    ObjString* a = AS_STRING(peek(1));
+                    ObjString* result = concatenate(a, b);
+                    pop();
+                    pop();
+                    push(OBJ_VAL(result));
                 } else if (IS_NUMBER(peek(0)) && IS_NUMBER(peek(1))) {
                     double b = AS_NUMBER(pop());
                     double a = AS_NUMBER(pop());
@@ -675,6 +671,24 @@ static InterpretResult run() {
                 }
                 push(NUMBER_VAL(-AS_NUMBER(pop())));
                 break;
+            case OP_INCREMENT: {
+                if (!IS_NUMBER(peek(0))) {
+                    frame->ip = ip;
+                    runtimeError("Operand must be a number.");
+                    return INTERPRET_RUNTIME_ERROR;
+                }
+                push(NUMBER_VAL(AS_NUMBER(pop()) + 1));
+                break;
+            }
+            case OP_DECREMENT: {
+                if (!IS_NUMBER(peek(0))) {
+                    frame->ip = ip;
+                    runtimeError("Operand must be a number.");
+                    return INTERPRET_RUNTIME_ERROR;
+                }
+                push(NUMBER_VAL(AS_NUMBER(pop()) - 1));
+                break;
+            }
             case OP_PRINT: {
                 printValue(pop());
                 printf("\n");
@@ -781,6 +795,7 @@ static InterpretResult run() {
                 defineMethod(READ_STRING());
                 break;
             case OP_DUP: push(peek(0)); break;
+            case OP_DOUBLE_DUP: push(peek(1)); push(peek(1)); break;
             case OP_BUILD_LIST: {
                 // Stack before: [item1, item2, ..., itemN] and after: [list]
                 ObjList* list = newList();
