@@ -13,7 +13,7 @@ import (
 	`strings`
 )
 
-var green = "\u001b[32m";
+var green = "\u001b[32m"
 var magenta = "\u001b[35m"
 var red = "\u001b[31m"
 var yellow = "\u001b[33m"
@@ -21,7 +21,6 @@ var gray = "\u001b[1;30m"
 var none = "\u001b[0m"
 var resetColor = "\u001b[39m"
 
-/// Runs the tests.
 var expectedOutputPattern, _ = regexp.Compile(`// expect: ?(.*)`)
 var expectedErrorPattern, _ = regexp.Compile(`// (Error.*)`)
 var errorLinePattern, _ = regexp.Compile(`// \[((java|c) )?line (\d+)] (Error.*)`)
@@ -30,12 +29,12 @@ var syntaxErrorPattern, _ = regexp.Compile(`\[.*line (\d+)] (Error.+)`)
 var stackTracePattern, _ = regexp.Compile(`\[line (\d+)]`)
 var nonTestPattern, _ = regexp.Compile(`// nontest`)
 
-var passed = 0
-var failed = 0
-var skipped = 0
-var expectations = 0
+var passed int
+var failed int
+var skipped int
+var expectations int
 
-var interpreter = ""
+var interpreter string
 
 func main() {
 	interpreterPtr := flag.String("interpreter", "", "Path to interpreter.")
@@ -135,7 +134,7 @@ func newTest(path string) Test {
 
 func parse(test Test) (Test, bool) {
 	parts := strings.Split(test.path, "/")
-	subpath := ""
+	var subpath string
 
 	for _, part := range parts {
 		if subpath != "" { subpath += "/" }
@@ -146,7 +145,6 @@ func parse(test Test) (Test, bool) {
 	if err != nil {
 		fmt.Println(err.Error())
 	}
-	defer file.Close()
 
 	scanner := bufio.NewScanner(file)
 
@@ -209,6 +207,10 @@ func parse(test Test) (Test, bool) {
 		return test, false
 	}
 
+	err = file.Close()
+	if err != nil {
+		fmt.Println(err.Error())
+	}
 	return test, true
 }
 
@@ -250,7 +252,7 @@ func validateRuntimeError(test Test, errorLines []string) Test {
 		test = fail(test, errorLines[0])
 	}
 
-	match := []string{}
+	var match []string
 	stackLines := errorLines[1:]
 	for _, line := range stackLines {
 		match = stackTracePattern.FindStringSubmatch(line)
@@ -270,22 +272,22 @@ func validateRuntimeError(test Test, errorLines []string) Test {
 	return test
 }
 
-func validateCompileErrors(test Test, error_lines []string) Test {
-	foundErrors := []string{}
-	unexpectedCount := 0
-	for _, line := range error_lines {
+func validateCompileErrors(test Test, errorLines []string) Test {
+	var foundErrors []string
+	var unexpectedCount int
+	for _, line := range errorLines {
 		match := syntaxErrorPattern.FindStringSubmatch(line)
 		if len(match) != 0 {
-			error := fmt.Sprintf("[%s] %s", match[1], match[2])
-			found := false
+			err := fmt.Sprintf("[%s] %s", match[1], match[2])
+			var found bool
 			for _, e := range test.expectedErrors {
-				if error == e {
+				if err == e {
 					found = true
 					break
 				}
 			}
 			if found {
-				foundErrors = append(foundErrors, error)
+				foundErrors = append(foundErrors, err)
 			} else {
 				if unexpectedCount < 10 {
 					test = fail(test, "Unexpected error:")
@@ -307,7 +309,7 @@ func validateCompileErrors(test Test, error_lines []string) Test {
 	}
 
 	for _, expected := range test.expectedErrors {
-		isFound := false
+		var isFound bool
 		for _, found := range foundErrors {
 			if expected == found {
 				isFound = true
