@@ -7,7 +7,7 @@ var a = "global";
 
   var a = "inner";
   assign();
-  print a; // expect: inner
+  println(a); // expect: inner
 }
 
-print a; // expect: assigned
+println(a); // expect: assigned

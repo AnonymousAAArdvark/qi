@@ -729,7 +729,6 @@ ParseRule rules[] = {
         [TOKEN_IF]            = {NULL,     NULL,   PREC_NONE},
         [TOKEN_NIL]           = {literal,     NULL,   PREC_NONE},
         [TOKEN_OR]            = {NULL,     or_,   PREC_OR},
-        [TOKEN_PRINT]         = {NULL,     NULL,   PREC_NONE},
         [TOKEN_RETURN]        = {NULL,     NULL,   PREC_NONE},
         [TOKEN_SUPER]         = {super_,     NULL,   PREC_NONE},
         [TOKEN_THIS]          = {this_,     NULL,   PREC_NONE},
@@ -783,7 +782,6 @@ static int getByteCountForArguments(int ip) {
         case OP_MODULO:
         case OP_NOT:
         case OP_NEGATE:
-        case OP_PRINT:
         case OP_CLOSE_UPVALUE:
         case OP_RETURN:
         case OP_INHERIT:
@@ -1037,7 +1035,6 @@ static void ifStatement() {
 static void printStatement() {
     expression();
     consume(TOKEN_SEMICOLON, "Expect ';' after value.");
-    emitByte(OP_PRINT);
 }
 
 static void returnStatement() {
@@ -1213,7 +1210,6 @@ static void synchronize() {
             case TOKEN_IF:
             case TOKEN_SWITCH:
             case TOKEN_WHILE:
-            case TOKEN_PRINT:
             case TOKEN_RETURN:
                 return;
 
@@ -1240,9 +1236,7 @@ static void declaration() {
 }
 
 static void statement() {
-    if (match(TOKEN_PRINT)) {
-        printStatement();
-    } else if (match(TOKEN_FOR)) {
+    if (match(TOKEN_FOR)) {
         forStatement();
     } else if (match(TOKEN_IF)) {
         ifStatement();

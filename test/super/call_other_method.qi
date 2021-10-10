@@ -1,12 +1,12 @@
 class Base {
   foo() {
-    print "Base.foo()";
+    println("Base.foo()");
   }
 }
 
 class Derived < Base {
   bar() {
-    print "Derived.bar()";
+    println("Derived.bar()");
     super.foo();
   }
 }

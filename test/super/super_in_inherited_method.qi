@@ -1,6 +1,6 @@
 class A {
   say() {
-    print "A";
+    println("A");
   }
 }
 
@@ -10,13 +10,13 @@ class B < A {
   }
 
   say() {
-    print "B";
+    println("B");
   }
 }
 
 class C < B {
   say() {
-    print "C";
+    println("C");
   }
 }
 

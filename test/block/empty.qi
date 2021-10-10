@@ -4,4 +4,4 @@
 if (true) {}
 if (false) {} else {}
 
-print "ok"; // expect: ok
+println("ok"); // expect: ok

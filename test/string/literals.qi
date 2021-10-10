@@ -1,5 +1,5 @@
-print "(" + "" + ")";   // expect: ()
-print "a string"; // expect: a string
+println("(" + "" + ")");   // expect: ()
+println("a string"); // expect: a string
 
 // Non-ASCII.
-print "A~¶Þॐஃ"; // expect: A~¶Þॐஃ
+println("A~¶Þॐஃ"); // expect: A~¶Þॐஃ

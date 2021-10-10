@@ -11,6 +11,8 @@
 #include "vm.h"
 
 char* getType(Value value);
+bool printNative(int argCount, Value* args);
+bool printlnNative(int argCount, Value* args);
 bool clockNative(__attribute__((unused)) int argCount, Value* args);
 bool sqrtNative(int argCount, Value* args);
 bool powNative(int argCount, Value* args);
@@ -18,7 +20,7 @@ bool minNative(int argCount, Value* args);
 bool maxNative(int argCount, Value* args);
 bool roundNative(int argCount, Value* args);
 bool stonNative(int argCount, Value* args);
-bool notsNative(int argCount, Value* args);
+bool ntosNative(int argCount, Value* args);
 bool typeNative(int argCount, Value* args);
 
 #endif //QI_LIB_H

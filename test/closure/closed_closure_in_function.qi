@@ -3,7 +3,7 @@ var f;
 {
   var local = "local";
   fun f_() {
-    print local;
+    println(local);
   }
   f = f_;
 }

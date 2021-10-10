@@ -26,9 +26,9 @@ while (i < 10000000) {
 }
 
 var elapsed = clock() - start;
-print "loop";
-print loopTime;
-print "elapsed";
-print elapsed;
-print "equals";
-print elapsed - loopTime;
+println("loop");
+println(loopTime);
+println("elapsed");
+println(elapsed);
+println("equals");
+println(elapsed - loopTime);

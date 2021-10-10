@@ -27,5 +27,5 @@ while (sum < 10000000) {
             + zoo.mouse();
 }
 
-print sum;
-print clock() - start;
+println(sum);
+println(clock() - start);

@@ -1,9 +1,9 @@
 class Foo {}
 
 fun bar(a, b) {
-  print "bar";
-  print a;
-  print b;
+  println("bar");
+  println(a);
+  println(b);
 }
 
 var foo = Foo();

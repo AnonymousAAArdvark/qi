@@ -3,8 +3,8 @@ var f;
 {
   var a = "a";
   fun f_() {
-    print a;
-    print a;
+    println(a);
+    println(a);
   }
   f = f_;
 }

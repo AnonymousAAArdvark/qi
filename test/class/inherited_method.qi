@@ -1,18 +1,18 @@
 class Foo {
   inFoo() {
-    print "in foo";
+    println("in foo");
   }
 }
 
 class Bar < Foo {
   inBar() {
-    print "in bar";
+    println("in bar");
   }
 }
 
 class Baz < Bar {
   inBaz() {
-    print "in baz";
+    println("in baz");
   }
 }
 

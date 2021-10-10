@@ -42,6 +42,19 @@ char* getType(Value value) {
     return "unknown";
 }
 
+bool printNative(int argCount, Value* args) {
+    printValue(args[0]);
+    args[-1] = NIL_VAL;
+    return true;
+}
+
+bool printlnNative(int argCount, Value* args) {
+    printValue(args[0]);
+    printf("\n");
+    args[-1] = NIL_VAL;
+    return true;
+}
+
 bool clockNative(int argCount, Value* args) {
     args[-1] = NUMBER_VAL((double)clock() / CLOCKS_PER_SEC);
     return true;
@@ -125,7 +138,7 @@ bool stonNative(int argCount, Value* args) {
     return true;
 }
 
-bool notsNative(int argCount, Value* args) {
+bool ntosNative(int argCount, Value* args) {
     if (!IS_NUMBER(args[0])) {
         return nativeError(args,
                            "Argument 1 (input) must be of type 'number', not '%s'.", getType(args[0]));
