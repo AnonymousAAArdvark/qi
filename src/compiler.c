@@ -462,7 +462,7 @@ static void postfix(bool canAssign) {
                 emitByte(operatorType == TOKEN_PLUS_PLUS ? OP_DECREMENT : OP_INCREMENT);
                 break;
             }
-            emitByte(operatorType == TOKEN_PLUS_PLUS ? OP_INCREMENT : OP_DECREMENT);
+            error("Expression is not assignable.");
             break;
         }
         default: return; // Unreachable.
@@ -683,7 +683,7 @@ static void unary(bool canAssign) {
                 emitByte(OP_STORE_SUBSCR);
                 break;
             }
-            emitByte(operatorType == TOKEN_PLUS_PLUS ? OP_INCREMENT : OP_DECREMENT);
+            error("Expression is not assignable.");
             break;
         }
         default: return; // Unreachable.
