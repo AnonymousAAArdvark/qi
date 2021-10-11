@@ -1,1 +1,4 @@
 // nontest
+print("Enter input: ");
+var input = scan();
+print("input: " + input);

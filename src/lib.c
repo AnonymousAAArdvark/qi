@@ -55,6 +55,14 @@ bool printlnNative(int argCount, Value* args) {
     return true;
 }
 
+bool scanNative(int argCount, Value* args) {
+    char input[100];
+    while (fgets(input, 100, stdin) == NULL) {}
+    input[ strlen(input)-1] = '\0';
+    args[-1] = OBJ_VAL(copyString(input, strlen(input)));
+    return true;
+}
+
 bool clockNative(int argCount, Value* args) {
     args[-1] = NUMBER_VAL((double)clock() / CLOCKS_PER_SEC);
     return true;
