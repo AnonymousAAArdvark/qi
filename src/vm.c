@@ -83,7 +83,7 @@ void initVM() {
     defineNative("round", roundNative, -1);
     defineNative("ston", stonNative, 1);
     defineNative("ntos", ntosNative, 1);
-    defineNative("type", typeNative, 1);
+    defineNative("typeof", typeofNative, 1);
 }
 
 void freeVM() {

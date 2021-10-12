@@ -152,12 +152,12 @@ bool ntosNative(int argCount, Value* args) {
                            "Argument 1 (input) must be of type 'number', not '%s'.", getType(args[0]));
     }
     char str[100];
-    sprintf(str, "%f", AS_NUMBER(args[0]));
+    sprintf(str, "%g", AS_NUMBER(args[0]));
     args[-1] = OBJ_VAL(copyString(str, strlen(str)));
     return true;
 }
 
-bool typeNative(int argCount, Value* args) {
+bool typeofNative(int argCount, Value* args) {
     char* type = getType(args[0]);
     args[-1] = OBJ_VAL(copyString(type, strlen(type)));
     return true;
