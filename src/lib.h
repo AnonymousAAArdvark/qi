@@ -10,7 +10,7 @@
 #include "memory.h"
 #include "vm.h"
 
-char* getType(Value value);
+wchar_t* getType(Value value);
 bool printNative(int argCount, Value* args);
 bool printlnNative(int argCount, Value* args);
 bool scanNative(int argCount, Value* args);

@@ -28,7 +28,7 @@
 #define AS_FUNCTION(value)     ((ObjFunction*)AS_OBJ(value))
 #define AS_INSTANCE(value)     ((ObjInstance*)AS_OBJ(value))
 #define AS_STRING(value)       ((ObjString*)AS_OBJ(value))
-#define AS_CSTRING(value)      (((ObjString*)AS_OBJ(value))->chars)
+#define AS_WCSTRING(value)     (((ObjString*)AS_OBJ(value))->chars)
 #define AS_LIST(value)         ((ObjList*)AS_OBJ(value))
 
 typedef enum {
@@ -68,7 +68,7 @@ typedef struct {
 struct ObjString {
     Obj obj;
     int length;
-    char* chars;
+    wchar_t* chars;
     uint32_t hash;
 };
 
@@ -117,10 +117,10 @@ ObjClosure* newClosure(ObjFunction* function);
 ObjFunction* newFunction();
 ObjInstance* newInstance(ObjClass* klass);
 ObjNative* newNative(NativeFn function, int arity);
-ObjString* takeString(char* chars, int length);
-ObjString* copyString(const char* chars, int length);
-void storeToString(ObjString* string, int index, char value);
-char indexFromString(ObjString* string, int index);
+ObjString* takeString(wchar_t* chars, int length);
+ObjString* copyString(const wchar_t* chars, int length);
+void storeToString(ObjString* string, int index, wchar_t value);
+wchar_t indexFromString(ObjString* string, int index);
 bool isValidStringIndex(ObjString* string, int index);
 ObjUpvalue* newUpvalue(Value* slot);
 ObjList* newList();

@@ -11,35 +11,35 @@
 
 #include "lib.h"
 
-static bool nativeError(Value* args, char* msg, ...) {
+static bool nativeError(Value* args, wchar_t* msg, ...) {
     va_list list;
-    char error[100];
+    wchar_t error[100];
     va_start(list, msg);
-    vsprintf(error, msg, list);
+    vswprintf(error, sizeof(error), msg, list);
     args[-1] = OBJ_VAL(copyString(error, 100));
     va_end(list);
     return false;
 }
 
-char* getType(Value value) {
-    if (IS_BOOL(value)) return "bool";
-    else if (IS_NUMBER(value)) return "number";
-    else if (IS_NIL(value)) return "nil";
+wchar_t* getType(Value value) {
+    if (IS_BOOL(value)) return L"bool";
+    else if (IS_NUMBER(value)) return L"number";
+    else if (IS_NIL(value)) return L"nil";
     else if (IS_OBJ(value)) {
         switch (AS_OBJ(value)->type) {
-            case OBJ_NATIVE: return "native function";
-            case OBJ_BOUND_METHOD: return "bound method";
-            case OBJ_INSTANCE: return "instance";
-            case OBJ_FUNCTION: return "function";
-            case OBJ_STRING: return "string";
-            case OBJ_LIST: return "list";
-            case OBJ_UPVALUE: return "upvalue";
-            case OBJ_CLOSURE: return "closure";
-            case OBJ_CLASS: return "class";
+            case OBJ_NATIVE: return L"native function";
+            case OBJ_BOUND_METHOD: return L"bound method";
+            case OBJ_INSTANCE: return L"instance";
+            case OBJ_FUNCTION: return L"function";
+            case OBJ_STRING: return L"string";
+            case OBJ_LIST: return L"list";
+            case OBJ_UPVALUE: return L"upvalue";
+            case OBJ_CLOSURE: return L"closure";
+            case OBJ_CLASS: return L"class";
         }
     }
     // Unreachable.
-    return "unknown";
+    return L"unknown";
 }
 
 bool printNative(int argCount, Value* args) {
@@ -50,7 +50,7 @@ bool printNative(int argCount, Value* args) {
 
 bool printlnNative(int argCount, Value* args) {
     printValue(args[0]);
-    printf("\n");
+    wprintf(L"\n");
     args[-1] = NIL_VAL;
     return true;
 }
@@ -59,7 +59,9 @@ bool scanNative(int argCount, Value* args) {
     char input[100];
     while (fgets(input, 100, stdin) == NULL) {}
     input[ strlen(input)-1] = '\0';
-    args[-1] = OBJ_VAL(copyString(input, strlen(input)));
+    wchar_t* winput = ALLOCATE(wchar_t, strlen(input));
+    mbstowcs(winput, input, strlen(input));
+    args[-1] = OBJ_VAL(copyString(winput, wcslen(winput)));
     return true;
 }
 
@@ -71,7 +73,7 @@ bool clockNative(int argCount, Value* args) {
 bool sqrtNative(int argCount, Value* args) {
     if (!IS_NUMBER(args[0])) {
         return nativeError(args,
-                           "Argument 1 (input) must be of type 'number', not '%s'.", getType(args[0]));
+                           L"Argument 1 (input) must be of type 'number', not '%ls'.", getType(args[0]));
     }
     args[-1] = NUMBER_VAL(sqrt(AS_NUMBER(args[0])));
     return true;
@@ -80,11 +82,11 @@ bool sqrtNative(int argCount, Value* args) {
 bool powNative(int argCount, Value* args) {
     if (!IS_NUMBER(args[0])) {
         return nativeError(args,
-                           "Argument 1 (base) must be of type 'number', not '%s'.", getType(args[0]));
+                           L"Argument 1 (base) must be of type 'number', not '%ls'.", getType(args[0]));
     }
     if (!IS_NUMBER(args[1])) {
         return nativeError(args,
-                           "Argument 2 (power) must be of type 'number', not '%s'.", getType(args[1]));
+                           L"Argument 2 (power) must be of type 'number', not '%ls'.", getType(args[1]));
     }
     args[-1] = NUMBER_VAL(pow(AS_NUMBER(args[0]), AS_NUMBER(args[1])));
     return true;
@@ -93,11 +95,11 @@ bool powNative(int argCount, Value* args) {
 bool minNative(int argCount, Value* args) {
     if (!IS_NUMBER(args[0])) {
         return nativeError(args,
-                           "Argument 1 must be of type 'number', not '%s'.", getType(args[0]));
+                           L"Argument 1 must be of type 'number', not '%ls'.", getType(args[0]));
     }
     if (!IS_NUMBER(args[1])) {
         return nativeError(args,
-                           "Argument 2 must be of type 'number', not '%s'.", getType(args[1]));
+                           L"Argument 2 must be of type 'number', not '%ls'.", getType(args[1]));
     }
     double a = AS_NUMBER(args[0]);
     double b = AS_NUMBER(args[1]);
@@ -108,11 +110,11 @@ bool minNative(int argCount, Value* args) {
 bool maxNative(int argCount, Value* args) {
     if (!IS_NUMBER(args[0])) {
         return nativeError(args,
-                           "Argument 1 must be of type 'number', not '%s'.", getType(args[0]));
+                           L"Argument 1 must be of type 'number', not '%ls'.", getType(args[0]));
     }
     if (!IS_NUMBER(args[1])) {
         return nativeError(args,
-                           "Argument 2 must be of type 'number', not '%s'.", getType(args[1]));
+                           L"Argument 2 must be of type 'number', not '%ls'.", getType(args[1]));
     }
     double a = AS_NUMBER(args[0]);
     double b = AS_NUMBER(args[1]);
@@ -122,15 +124,15 @@ bool maxNative(int argCount, Value* args) {
 
 bool roundNative(int argCount, Value* args) {
     if (argCount < 1 || argCount > 2) {
-        return nativeError(args, "Expected 1 to 2 arguments but got %d.", argCount);
+        return nativeError(args, L"Expected 1 to 2 arguments but got %d.", argCount);
     }
     if (!IS_NUMBER(args[0])) {
         return nativeError(args,
-                           "Argument 1 (input) must be of type 'number', not '%s'.", getType(args[0]));
+                           L"Argument 1 (input) must be of type 'number', not '%ls'.", getType(args[0]));
     }
     if (argCount == 2 && !IS_NUMBER(args[1])) {
         return nativeError(args,
-                           "Argument 2 (precision) must be of type 'number', not '%s'.", getType(args[1]));
+                           L"Argument 2 (precision) must be of type 'number', not '%ls'.", getType(args[1]));
     }
     double shift =  pow(10.0, AS_NUMBER(args[1]));
     args[-1] = NUMBER_VAL(round(AS_NUMBER(args[0]) * shift) / shift);
@@ -140,25 +142,25 @@ bool roundNative(int argCount, Value* args) {
 bool stonNative(int argCount, Value* args) {
     if (!IS_STRING(args[0])) {
         return nativeError(args,
-                           "Argument 1 (input) must be of type 'string', not '%s'.", getType(args[0]));
+                           L"Argument 1 (input) must be of type 'string', not '%ls'.", getType(args[0]));
     }
-    args[-1] = NUMBER_VAL(strtod(AS_CSTRING(args[0]), NULL));
+    args[-1] = NUMBER_VAL(wcstod(AS_WCSTRING(args[0]), NULL));
     return true;
 }
 
 bool ntosNative(int argCount, Value* args) {
     if (!IS_NUMBER(args[0])) {
         return nativeError(args,
-                           "Argument 1 (input) must be of type 'number', not '%s'.", getType(args[0]));
+                           L"Argument 1 (input) must be of type 'number', not '%ls'.", getType(args[0]));
     }
-    char str[100];
-    sprintf(str, "%g", AS_NUMBER(args[0]));
-    args[-1] = OBJ_VAL(copyString(str, strlen(str)));
+    wchar_t str[100];
+    swprintf(str, sizeof(str), L"%g", AS_NUMBER(args[0]));
+    args[-1] = OBJ_VAL(copyString(str, wcslen(str)));
     return true;
 }
 
 bool typeofNative(int argCount, Value* args) {
-    char* type = getType(args[0]);
-    args[-1] = OBJ_VAL(copyString(type, strlen(type)));
+    wchar_t* type = getType(args[0]);
+    args[-1] = OBJ_VAL(copyString(type, wcslen(type)));
     return true;
 }

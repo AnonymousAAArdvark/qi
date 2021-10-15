@@ -42,9 +42,9 @@ void markObject(Obj* object) {
     if (object->isMarked) return;
 
 #ifdef DEBUG_LOG_GC
-    printf("%p mark ", (void*)object);
+    wprintf(L"%p mark ", (void*)object);
     printValue(OBJ_VAL(object));
-    printf("\n");
+    wprintf(L"\n");
 #endif
     object->isMarked = true;
     if (vm.grayCapacity < vm.grayCount + 1) {
@@ -69,9 +69,9 @@ static void markArray(ValueArray* array) {
 
 static void blackenObject(Obj* object) {
 #ifdef DEBUG_LOG_GC
-    printf("%p blacken ", (void*)object);
+    wprintf(L"%p blacken ", (void*)object);
     printValue(OBJ_VAL(object));
-    printf("\n");
+    wprintf(L"\n");
 #endif
 
     switch (object->type) {
@@ -125,7 +125,7 @@ static void blackenObject(Obj* object) {
 
 static void freeObject(Obj* object) {
 #ifdef DEBUG_LOG_GC
-    printf("%p free type %d\n", (void*)object, objType(object));
+    wprintf(L"%p free type %d\n", (void*)object, objType(object));
 #endif
 
     switch (object->type) {
@@ -161,7 +161,7 @@ static void freeObject(Obj* object) {
             break;
         case OBJ_STRING: {
             ObjString *string = (ObjString *) object;
-            FREE_ARRAY(char, string->chars, string->length + 1);
+            FREE_ARRAY(wchar_t, string->chars, string->length + 1);
             FREE(ObjString, object);
             break;
         }
@@ -226,7 +226,7 @@ static void traceReferences() {
 
 void collectGarbage() {
 #ifdef DEBUG_LOG_GC
-    printf("-- gc begin\n");
+    wprintf(L"-- gc begin\n");
     size_t before = vm.bytesAllocated;
 #endif
 
@@ -238,8 +238,8 @@ void collectGarbage() {
     vm.nextGC = vm.bytesAllocated * GC_HEAP_GROW_FACTOR;
 
 #ifdef DEBUG_LOG_GC
-    printf("-- gc end\n");
-    printf("   collected %zu bytes (from %zu to %zu) next at %zu\n",
+    wprintf(L"-- gc end\n");
+    wprintf(L"   collected %zu bytes (from %zu to %zu) next at %zu\n",
            before - vm.bytesAllocated, before, vm.bytesAllocated, vm.nextGC);
 #endif
 }

@@ -7,7 +7,7 @@
 
 #include "chunk.h"
 
-void disassembleChunk(Chunk* chunk, const char* name);
+void disassembleChunk(Chunk* chunk, const wchar_t* name);
 int disassembleInstruction(Chunk* chunk, int offset);
 
 #endif //QI_DEBUG_H

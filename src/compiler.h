@@ -8,7 +8,7 @@
 #include "object.h"
 #include "vm.h"
 
-ObjFunction* compile(const char* source);
+ObjFunction* compile(const wchar_t* source);
 void markCompilerRoots();
 
 #endif //QI_COMPILER_H

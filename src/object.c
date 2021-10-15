@@ -22,7 +22,7 @@ static Obj* allocateObject(size_t size, ObjType type) {
     vm.objects = object;
 
 #ifdef DEBUG_LOG_GC
-    printf("%p allocate %zu for %d\n", (void*)object, size, type);
+    wprintf(L"%p allocate %zu for %d\n", (void*)object, size, type);
 #endif
 
     return object;
@@ -78,7 +78,7 @@ ObjNative* newNative(NativeFn function, int arity) {
     return native;
 }
 
-static ObjString* allocateString(char* chars, int length, uint32_t hash) {
+static ObjString* allocateString(wchar_t* chars, int length, uint32_t hash) {
     ObjString* string = ALLOCATE_OBJ(ObjString, OBJ_STRING);
     string->length = length;
     string->chars = chars;
@@ -91,7 +91,7 @@ static ObjString* allocateString(char* chars, int length, uint32_t hash) {
     return string;
 }
 
-static uint32_t hashString(const char* key, int length) {
+static uint32_t hashString(const wchar_t* key, int length) {
     uint32_t hash = 2166136261u;
     for (int i = 0; i < length; ++i) {
         hash ^= (uint8_t)key[i];
@@ -100,31 +100,31 @@ static uint32_t hashString(const char* key, int length) {
     return hash;
 }
 
-ObjString* takeString(char* chars, int length) {
+ObjString* takeString(wchar_t* chars, int length) {
     uint32_t hash = hashString(chars, length);
     ObjString* interned = tableFindString(&vm.strings, chars, length, hash);
     if (interned != NULL) {
-        FREE_ARRAY(char, chars, length + 1);
+        FREE_ARRAY(wchar_t, chars, length + 1);
         return interned;
     }
     return allocateString(chars, length, hash);
 }
 
-ObjString* copyString(const char* chars, int length) {
+ObjString* copyString(const wchar_t* chars, int length) {
     uint32_t hash = hashString(chars, length);
     ObjString* interned = tableFindString(&vm.strings, chars, length, hash);
     if (interned != NULL) return interned;
-    char* heapChars = ALLOCATE(char, length + 1);
-    memcpy(heapChars, chars, length);
-    heapChars[length] = '\0';
+    wchar_t* heapChars = ALLOCATE(wchar_t, length + 1);
+    memcpy(heapChars, chars, length * sizeof(wchar_t));
+    heapChars[length] = L'\0';
     return allocateString(heapChars, length, hash);
 }
 
-void storeToString(ObjString* string, int index, char value) {
+void storeToString(ObjString* string, int index, wchar_t value) {
     string->chars[index] = value;
 }
 
-char indexFromString(ObjString* string, int index) {
+wchar_t indexFromString(ObjString* string, int index) {
     return string->chars[index];
 }
 
@@ -143,23 +143,23 @@ ObjUpvalue* newUpvalue(Value* slot) {
     return upvalue;
 }
 
-static void printFunction(ObjFunction* function) {
+static void printfunction(ObjFunction* function) {
     if (function->name == NULL) {
-        printf("<script>");
+        wprintf(L"<script>");
         return;
     }
-    printf("<fn %s>", function->name->chars);
+    wprintf(L"<fn %ls>", function->name->chars);
 }
 
 static void printList(ObjList* list) {
-    printf("[");
+    wprintf(L"[");
     for (int i = 0; i < list->count; i++) {
         printValue(list->items[i]);
         if (i < list->count - 1) {
-            printf(", ");
+            wprintf(L", ");
         }
     }
-    printf("]");
+    wprintf(L"]");
 }
 
 ObjList* newList() {
@@ -210,28 +210,28 @@ bool isValidListIndex(ObjList* list, int index) {
 void printObject(Value value) {
     switch (OBJ_TYPE(value)) {
         case OBJ_BOUND_METHOD:
-            printFunction(AS_BOUND_METHOD(value)->method->function);
+            printfunction(AS_BOUND_METHOD(value)->method->function);
             break;
         case OBJ_CLASS:
-            printf("%s", AS_CLASS(value)->name->chars);
+            wprintf(L"%ls", AS_CLASS(value)->name->chars);
             break;
         case OBJ_CLOSURE:
-            printFunction(AS_CLOSURE(value)->function);
+            printfunction(AS_CLOSURE(value)->function);
             break;
         case OBJ_FUNCTION:
-            printFunction(AS_FUNCTION(value));
+            printfunction(AS_FUNCTION(value));
             break;
         case OBJ_INSTANCE:
-            printf("%s instance", AS_INSTANCE(value)->klass->name->chars);
+            wprintf(L"%ls instance", AS_INSTANCE(value)->klass->name->chars);
             break;
         case OBJ_NATIVE:
-            printf("<native fn>");
+            wprintf(L"<native fn>");
             break;
         case OBJ_STRING:
-            printf("%s", AS_CSTRING(value));
+            wprintf(L"%ls", AS_WCSTRING(value));
             break;
         case OBJ_UPVALUE:
-            printf("upvalue");
+            wprintf(L"upvalue");
             break;
         case OBJ_LIST:
             printList(AS_LIST(value));
