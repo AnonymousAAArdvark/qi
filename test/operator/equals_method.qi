@@ -7,7 +7,7 @@ var foo = Foo();
 var fooMethod = foo.method;
 
 // Same bound method.
-println(fooMethod == fooMethod); // expect: true
+println(fooMethod == fooMethod); // expect: 真
 
 // Different closurizations.
-println(foo.method == foo.method); // expect: false
+println(foo.method == foo.method); // expect: 假

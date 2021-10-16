@@ -1,19 +1,19 @@
 // Note: These tests implicitly depend on ints being truthy.
 
-// Return the first true argument.
-println(1 || true); // expect: 1
-println(false || 1); // expect: 1
-println(false || false || true); // expect: true
+// Return the first 真 argument.
+println(1 || 真); // expect: 1
+println(假 || 1); // expect: 1
+println(假 || 假 || 真); // expect: 真
 
-// Return the last argument if all are false.
-println(false || false); // expect: false
-println(false || false || false); // expect: false
+// Return the last argument if all are 假.
+println(假 || 假); // expect: 假
+println(假 || 假 || 假); // expect: 假
 
-// Short-circuit at the first true argument.
+// Short-circuit at the first 真 argument.
 var a = "before";
 var b = "before";
-(a = false) ||
-    (b = true) ||
+(a = 假) ||
+    (b = 真) ||
     (a = "bad");
-println(a); // expect: false
-println(b); // expect: true
+println(a); // expect: 假
+println(b); // expect: 真

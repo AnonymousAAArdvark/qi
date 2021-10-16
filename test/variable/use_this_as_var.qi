@@ -1,2 +1,2 @@
-// [line 2] Error at 'this': Expect variable name.
-var this = "value";
+// [line 2] Error at '这': Expect variable name.
+var 这 = "value";

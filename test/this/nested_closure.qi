@@ -3,7 +3,7 @@ class Foo {
     fun f() {
       fun g() {
         fun h() {
-          return this.toString();
+          return 这.toString();
         }
         return h;
       }

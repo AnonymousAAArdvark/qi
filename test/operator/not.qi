@@ -1,13 +1,13 @@
-println(!true);     // expect: false
-println(!false);    // expect: true
-println(!!true);    // expect: true
+println(!真);     // expect: 假
+println(!假);    // expect: 真
+println(!!真);    // expect: 真
 
-println(!123);      // expect: false
-println(!0);        // expect: false
+println(!123);      // expect: 假
+println(!0);        // expect: 假
 
-println(!nil);     // expect: true
+println(!nil);     // expect: 真
 
-println(!"");       // expect: false
+println(!"");       // expect: 假
 
 fun foo() {}
-println(!foo);      // expect: false
+println(!foo);      // expect: 假

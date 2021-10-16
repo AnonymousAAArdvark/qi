@@ -1,12 +1,12 @@
 var list = [];
 for (var i = 0; i < 10; i++) {
-    if (i % 2 == 0) continue;
+    如果 (i % 2 == 0) continue;
     list.push(i);
 }
 println(list); // expect: [1, 3, 5, 7, 9]
 var i = list.length();
 while (--i >= 0) {
-    if (list[i] % 3 == 0) continue;
+    如果 (list[i] % 3 == 0) continue;
     list.delete(i);
 }
 println(list); // expect: [3, 9]

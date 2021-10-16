@@ -47,6 +47,10 @@ static bool match(wchar_t expected) {
     return true;
 }
 
+static bool isAlpha(wchar_t ch) {
+    return ((unsigned int)ch >= 0x4E00u && (unsigned int)ch <= 0x2FA1F) || iswalpha(ch) || ch == L'_';
+}
+
 static Token makeToken(TokenType type) {
     Token token;
     token.type = type;
@@ -113,17 +117,16 @@ static TokenType identifierType() {
                 }
             }
         case L'd': return checkKeyword(1, 6, L"efault", TOKEN_DEFAULT);
-        case L'e': return checkKeyword(1, 3, L"lse", TOKEN_ELSE);
+        case L'否': return checkKeyword(1, 1, L"则", TOKEN_ELSE);
         case L'f':
             if (scanner.current - scanner.start > 1) {
                 switch (scanner.start[1]) {
-                    case L'a': return checkKeyword(2, 3, L"lse", TOKEN_FALSE);
                     case L'o': return checkKeyword(2, 1, L"r", TOKEN_FOR);
                     case L'u': return checkKeyword(2, 1, L"n", TOKEN_FUN);
                 }
             }
             break;
-        case L'i': return checkKeyword(1, 1, L"f", TOKEN_IF);
+        case L'如': return checkKeyword(1, 1, L"果", TOKEN_IF);
         case L'n': return checkKeyword(1, 2, L"il", TOKEN_NIL);
         case L'r': return checkKeyword(1, 5, L"eturn", TOKEN_RETURN);
         case L's':
@@ -133,14 +136,10 @@ static TokenType identifierType() {
                     case L'w': return checkKeyword(2, 4, L"itch", TOKEN_SWITCH);
                 }
             }
-        case L't':
-            if (scanner.current - scanner.start > 1) {
-                switch (scanner.start[1]) {
-                    case L'h': return checkKeyword(2, 2, L"is", TOKEN_THIS);
-                    case L'r': return checkKeyword(2, 2, L"ue", TOKEN_TRUE);
-                }
-            }
             break;
+        case L'真': return TOKEN_TRUE;
+        case L'假': return TOKEN_FALSE;
+        case L'这': return TOKEN_THIS;
         case L'v': return checkKeyword(1, 2, L"ar", TOKEN_VAR);
         case L'w': return checkKeyword(1, 4, L"hile", TOKEN_WHILE);
     }
@@ -149,7 +148,7 @@ static TokenType identifierType() {
 }
 
 static Token identifier() {
-    while (iswalpha(peek()) || iswdigit(peek()) || peek() == L'_') advance();
+    while (isAlpha(peek()) || iswdigit(peek())) advance();
     return makeToken(identifierType());
 }
 
@@ -187,7 +186,7 @@ Token scanToken() {
     if (isAtEnd()) return makeToken(TOKEN_EOF);
 
     wchar_t c = advance();
-    if (iswalpha(c) || c == L'_') return identifier();
+    if (isAlpha(c)) return identifier();
     if (iswdigit(c)) return number();
 
     switch (c) {

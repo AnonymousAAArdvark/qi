@@ -1,12 +1,12 @@
 fun isEven(n) {
-  if (n == 0) return true;
+  如果 (n == 0) return 真;
   return isOdd(n - 1);
 }
 
 fun isOdd(n) {
-  if (n == 0) return false;
+  如果 (n == 0) return 假;
   return isEven(n - 1);
 }
 
-println(isEven(4)); // expect: true
-println(isOdd(3)); // expect: true
+println(isEven(4)); // expect: 真
+println(isOdd(3)); // expect: 真

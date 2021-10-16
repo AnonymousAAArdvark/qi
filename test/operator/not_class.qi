@@ -1,3 +1,3 @@
 class Bar {}
-println(!Bar);      // expect: false
-println(!Bar());    // expect: false
+println(!Bar);      // expect: 假
+println(!Bar());    // expect: 假

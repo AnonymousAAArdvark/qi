@@ -1,8 +1,8 @@
 var nan = 0/0;
 
-println(nan == 0); // expect: false
-println(nan != 1); // expect: true
+println(nan == 0); // expect: 假
+println(nan != 1); // expect: 真
 
 // NaN is not equal to self.
-println(nan == nan); // expect: false
-println(nan != nan); // expect: true
+println(nan == nan); // expect: 假
+println(nan != nan); // expect: 真

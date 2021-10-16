@@ -1,7 +1,7 @@
-var foo = [2 - 1, "b", false];
+var foo = [2 - 1, "b", 假];
 
 println(foo[2 - 2]); // expect: 1
 
 println(foo[1]); // expect: b
 
-println(foo[-1]); // expect: false
+println(foo[-1]); // expect: 假

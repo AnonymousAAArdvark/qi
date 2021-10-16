@@ -5,10 +5,10 @@ var loopStart = clock();
 while (i < 10000000) {
   i = i + 1;
 
-  1; 1; 1; 2; 1; nil; 1; "str"; 1; true;
-  nil; nil; nil; 1; nil; "str"; nil; true;
-  true; true; true; 1; true; false; true; "str"; true; nil;
-  "str"; "str"; "str"; "stru"; "str"; 1; "str"; nil; "str"; true;
+  1; 1; 1; 2; 1; nil; 1; "str"; 1; 真;
+  nil; nil; nil; 1; nil; "str"; nil; 真;
+  真; 真; 真; 1; 真; 假; 真; "str"; 真; nil;
+  "str"; "str"; "str"; "stru"; "str"; 1; "str"; nil; "str"; 真;
 }
 
 var loopTime = clock() - loopStart;
@@ -19,10 +19,10 @@ i = 0;
 while (i < 10000000) {
   i = i + 1;
 
-  1 == 1; 1 == 2; 1 == nil; 1 == "str"; 1 == true;
-  nil == nil; nil == 1; nil == "str"; nil == true;
-  true == true; true == 1; true == false; true == "str"; true == nil;
-  "str" == "str"; "str" == "stru"; "str" == 1; "str" == nil; "str" == true;
+  1 == 1; 1 == 2; 1 == nil; 1 == "str"; 1 == 真;
+  nil == nil; nil == 1; nil == "str"; nil == 真;
+  真 == 真; 真 == 1; 真 == 假; 真 == "str"; 真 == nil;
+  "str" == "str"; "str" == "stru"; "str" == 1; "str" == nil; "str" == 真;
 }
 
 var elapsed = clock() - start;

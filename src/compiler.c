@@ -223,8 +223,8 @@ static void initCompiler(Compiler* compiler, FunctionType type) {
     local->depth = 0;
     local->isCaptured = false;
     if (type != TYPE_FUNCTION) {
-        local->name.start = L"this";
-        local->name.length = 4;
+        local->name.start = L"这";
+        local->name.length = 1;
     } else {
         local->name.start = L"";
         local->name.length = 0;
@@ -625,7 +625,7 @@ static void super_(bool canAssign) {
     consume(TOKEN_IDENTIFIER, L"Expect superclass method name.");
     uint8_t name = identifierConstant(&parser.previous);
 
-    namedVariable(syntheticToken(L"this"), false);
+    namedVariable(syntheticToken(L"这"), false);
     if (match(TOKEN_LEFT_PAREN)) {
         uint8_t argCount = argumentList();
         namedVariable(syntheticToken(L"super"), false);
@@ -639,7 +639,7 @@ static void super_(bool canAssign) {
 
 static void this_(bool canAssign) {
     if (currentClass == NULL) {
-        error(L"Can't use 'this' outside of a class.");
+        error(L"Can't use '这' outside of a class.");
         return;
     }
 

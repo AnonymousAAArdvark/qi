@@ -1,4 +1,4 @@
-if (false) {
+如果 (假) {
   println(notDefined);
 }
 

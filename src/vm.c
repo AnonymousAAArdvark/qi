@@ -37,7 +37,7 @@ static void runtimeError(const wchar_t* format, ...) {
         CallFrame* frame = &vm.frames[i];
         ObjFunction* function = frame->closure->function;
         size_t instruction = frame->ip - function->chunk.code - 1;
-        fwprintf(stderr, L"[line %d] in L", function->chunk.lines[instruction]);
+        fwprintf(stderr, L"[line %d] in ", function->chunk.lines[instruction]);
         if (function->name == NULL) {
             fwprintf(stderr, L"script\n");
         } else {
@@ -203,7 +203,7 @@ static bool invokeString(const Value* receiver, ObjString* name, int argCount, C
         ObjString* str = AS_STRING(*receiver);
 
         wchar_t* chars = ALLOCATE(wchar_t, str->length + 1);
-        memcpy(chars, str->chars, str->length * sizeof(wchar_t));
+        wcscpy(chars, str->chars);
         chars[str->length + 1] = L'\0';
         wchar_t* c = chars;
         while (*c) {
@@ -220,7 +220,7 @@ static bool invokeString(const Value* receiver, ObjString* name, int argCount, C
         ObjString* str = AS_STRING(*receiver);
 
         wchar_t* chars = ALLOCATE(wchar_t, str->length + 1);
-        memcpy(chars, str->chars, str->length * sizeof(wchar_t));
+        wcscpy(chars, str->chars);
         chars[str->length + 1] = L'\0';
         wchar_t* c = chars;
         while (*c) {

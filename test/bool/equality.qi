@@ -1,23 +1,23 @@
-println(true == true);    // expect: true
-println(true == false);   // expect: false
-println(false == true);   // expect: false
-println(false == false);  // expect: true
+println(真 == 真);    // expect: 真
+println(真 == 假);   // expect: 假
+println(假 == 真);   // expect: 假
+println(假 == 假);  // expect: 真
 
 // Not equal to other types.
-println(true == 1);        // expect: false
-println(false == 0);       // expect: false
-println(true == "true");   // expect: false
-println(false == "false"); // expect: false
-println(false == "");      // expect: false
+println(真 == 1);        // expect: 假
+println(假 == 0);       // expect: 假
+println(真 == "真");   // expect: 假
+println(假 == "假"); // expect: 假
+println(假 == "");      // expect: 假
 
-println(true != true);    // expect: false
-println(true != false);   // expect: true
-println(false != true);   // expect: true
-println(false != false);  // expect: false
+println(真 != 真);    // expect: 假
+println(真 != 假);   // expect: 真
+println(假 != 真);   // expect: 真
+println(假 != 假);  // expect: 假
 
 // Not equal to other types.
-println(true != 1);        // expect: true
-println(false != 0);       // expect: true
-println(true != "true");   // expect: true
-println(false != "false"); // expect: true
-println(false != "");      // expect: true
+println(真 != 1);        // expect: 真
+println(假 != 0);       // expect: 真
+println(真 != "真");   // expect: 真
+println(假 != "假"); // expect: 真
+println(假 != "");      // expect: 真

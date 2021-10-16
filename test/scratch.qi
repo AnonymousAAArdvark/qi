@@ -1,2 +1,20 @@
 // nontest
-println(els0);
+class Foo {
+  getClosure() {
+    fun f() {
+      fun g() {
+        fun h() {
+          return 这.toString();
+        }
+        return h;
+      }
+      return g;
+    }
+    return f;
+  }
+
+  toString() { return "Foo"; }
+}
+
+var closure = Foo().getClosure();
+println(closure()()()); // expect: Foo

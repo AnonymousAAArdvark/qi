@@ -1,6 +1,6 @@
 class Foo {
   sayName(a) {
-    println(this.name);
+    println(这.name);
     println(a);
   }
 }

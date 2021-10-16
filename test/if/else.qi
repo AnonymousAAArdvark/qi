@@ -1,6 +1,6 @@
-// Evaluate the 'else' expression if the condition is false.
-if (true) println("good"); else println("bad"); // expect: good
-if (false) println("bad"); else println("good"); // expect: good
+// Evaluate the 'else' expression if the condition is 假.
+如果 (真) println("good"); 否则 println("bad"); // expect: good
+如果 (假) println("bad"); 否则 println("good"); // expect: good
 
 // Allow block body.
-if (false) nil; else { println("block"); } // expect: block
+如果 (假) nil; 否则 { println("block"); } // expect: block
