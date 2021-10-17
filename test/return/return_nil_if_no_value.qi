@@ -1,6 +1,6 @@
 fun f() {
-  return;
-  println("bad");
+  return；
+  println("bad")；
 }
 
-println(f()); // expect: nil
+println(f())； // expect: nil

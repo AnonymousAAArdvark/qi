@@ -1,16 +1,16 @@
 class Base {
   init(a, b) {
-    println("Base.init(" + a + ", " + b + ")");
+    println("Base.init(" + a + ", " + b + ")")；
   }
 }
 
-class Derived < Base {
+class Derived : Base {
   init() {
-    println("Derived.init()");
-    super.init("a", "b");
+    println("Derived.init()")；
+    super.init("a", "b")；
   }
 }
 
-Derived();
+Derived()；
 // expect: Derived.init()
 // expect: Base.init(a, b)

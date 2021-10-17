@@ -1,10 +1,10 @@
 class Foo {
   init() {
-    println("init");
-    return;
-    println("nope");
+    println("init")；
+    return；
+    println("nope")；
   }
 }
 
-var foo = Foo(); // expect: init
-println(foo); // expect: Foo instance
+var foo = Foo()； // expect: init
+println(foo)； // expect: Foo instance

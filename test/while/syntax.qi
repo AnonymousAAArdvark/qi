@@ -1,21 +1,21 @@
 // Single-expression body.
-var c = 0;
-while (c < 3) println(c = c + 1);
+var c = 0；
+while (c 小 3) println(c = c + 1)；
 // expect: 1
 // expect: 2
 // expect: 3
 
 // Block body.
-var a = 0;
-while (a < 3) {
-  println(a);
-  a = a + 1;
+var a = 0；
+while (a 小 3) {
+  println(a)；
+  a = a + 1；
 }
 // expect: 0
 // expect: 1
 // expect: 2
 
 // Statement bodies.
-while (假) 如果 (真) 1; 否则 2;
-while (假) while (真) 1;
-while (假) for (;;) 1;
+while (假) 如果 (真) 1； 否则 2；
+while (假) while (真) 1；
+while (假) for (；；) 1；

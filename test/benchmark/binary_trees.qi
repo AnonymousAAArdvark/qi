@@ -1,71 +1,71 @@
 class Tree {
   init(item, depth) {
-    这.item = item;
-    这.depth = depth;
+    这.item = item；
+    这.depth = depth；
     如果 (depth > 0) {
-      var item2 = item + item;
-      depth = depth - 1;
-      这.left = Tree(item2 - 1, depth);
-      这.right = Tree(item2, depth);
+      var item2 = item + item；
+      depth = depth - 1；
+      这.left = Tree(item2 - 1, depth)；
+      这.right = Tree(item2, depth)；
     } 否则 {
-      这.left = nil;
-      这.right = nil;
+      这.left = nil；
+      这.right = nil；
     }
   }
 
   check() {
-    如果 (这.left == nil) {
-      return 这.item;
+    如果 (这.left 等 nil) {
+      return 这.item；
     }
 
-    return 这.item + 这.left.check() - 这.right.check();
+    return 这.item + 这.left.check() - 这.right.check()；
   }
 }
 
-var minDepth = 4;
-var maxDepth = 14;
-var stretchDepth = maxDepth + 1;
+var minDepth = 4；
+var maxDepth = 14；
+var stretchDepth = maxDepth + 1；
 
-var start = clock();
+var start = clock()；
 
-println("stretch tree of depth:");
-println(stretchDepth);
-println("check:");
-println(Tree(0, stretchDepth).check());
+println("stretch tree of depth:")；
+println(stretchDepth)；
+println("check:")；
+println(Tree(0, stretchDepth).check())；
 
-var longLivedTree = Tree(0, maxDepth);
+var longLivedTree = Tree(0, maxDepth)；
 
 // iterations = 2 ** maxDepth
-var iterations = 1;
-var d = 0;
-while (d < maxDepth) {
-  iterations = iterations * 2;
-  d = d + 1;
+var iterations = 1；
+var d = 0；
+while (d 小 maxDepth) {
+  iterations = iterations * 2；
+  d = d + 1；
 }
 
-var depth = minDepth;
-while (depth < stretchDepth) {
-  var check = 0;
-  var i = 1;
-  while (i <= iterations) {
-    check = check + Tree(i, depth).check() + Tree(-i, depth).check();
-    i = i + 1;
+var depth = minDepth；
+while (depth 小 stretchDepth) {
+  var check = 0；
+  var i = 1；
+  while (i 小等 iterations) {
+    check = check + Tree(i, depth).check() + Tree(-i, depth).check()；
+    i = i + 1；
   }
 
-  println("num trees:");
-  println(iterations * 2;)
-  println("depth:");
-  println(depth);
-  println("check:");
-  println(check);
+  println("num trees:")；
+  println(iterations * 2；)
+  println("depth:")；
+  println(depth)；
+  println("check:")；
+  println(check)；
 
-  iterations = iterations / 4;
-  depth = depth + 2;
+  iterations = iterations / 4；
+  depth = depth + 2；
 }
 
-println("long lived tree of depth:");
-println(maxDepth);
-println("check:");
-println(longLivedTree.check());
-println("elapsed:");
-println(clock() - start);
+println("long lived tree of depth:")；
+println(maxDepth)；
+println("check:")；
+println(longLivedTree.check())；
+println("elapsed:")；
+println(clock() - start)；

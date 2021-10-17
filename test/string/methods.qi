@@ -1,5 +1,5 @@
-var foo = "sTr1nG";
-println(foo.upper()); // expect: STR1NG
-println(foo.lower()); // expect: str1ng
-var fo = foo.substring(2, foo.length());
-println(fo); // expect: r1nG
+var foo = "sTr1nG"；
+println(foo.upper())； // expect: STR1NG
+println(foo.lower())； // expect: str1ng
+var fo = foo.substring(2, foo.length())；
+println(fo)； // expect: r1nG

@@ -1,3 +1,3 @@
 fun foo() {
-  这; // Error at '这': Can't use '这' outside of a class.
+  这； // Error at '这': Can't use '这' outside of a class.
 }

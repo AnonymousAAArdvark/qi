@@ -1,26 +1,26 @@
 class A {
   say() {
-    println("A");
+    println("A")；
   }
 }
 
-class B < A {
+class B : A {
   getClosure() {
     fun closure() {
-      super.say();
+      super.say()；
     }
-    return closure;
+    return closure；
   }
 
   say() {
-    println("B");
+    println("B")；
   }
 }
 
-class C < B {
+class C : B {
   say() {
-    println("C");
+    println("C")；
   }
 }
 
-C().getClosure()(); // expect: A
+C().getClosure()()； // expect: A

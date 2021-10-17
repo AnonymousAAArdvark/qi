@@ -4,12 +4,12 @@
 // then didn't handle not finding the variable.
 
 fun f() {
-  var a = "a";
-  var b = "b";
+  var a = "a"；
+  var b = "b"；
   fun g() {
-    println(b); // expect: b
-    println(a); // expect: a
+    println(b)； // expect: b
+    println(a)； // expect: a
   }
-  g();
+  g()；
 }
-f();
+f()；

@@ -1,9 +1,9 @@
 fun f() {
-  for (;;) {
-    var i = "i";
-    return i;
+  for (；；) {
+    var i = "i"；
+    return i；
   }
 }
 
-println(f());
+println(f())；
 // expect: i

@@ -1,13 +1,13 @@
 class Foo {
   getClosure() {
     fun closure() {
-      return 这.toString();
+      return 这.toString()；
     }
-    return closure;
+    return closure；
   }
 
-  toString() { return "Foo"; }
+  toString() { return "Foo"； }
 }
 
-var closure = Foo().getClosure();
-println(closure()); // expect: Foo
+var closure = Foo().getClosure()；
+println(closure())； // expect: Foo

@@ -4,25 +4,25 @@
 // Here we create two locals that can be closed over, but only the first one
 // actually is. When "b" goes out of scope, we need to make sure we don't
 // prematurely close "a".
-var closure;
+var closure；
 
 {
-  var a = "a";
+  var a = "a"；
 
   {
-    var b = "b";
+    var b = "b"；
     fun returnA() {
-      return a;
+      return a；
     }
 
-    closure = returnA;
+    closure = returnA；
 
     如果 (假) {
       fun returnB() {
-        return b;
+        return b；
       }
     }
   }
 
-  println(closure()); // expect: a
+  println(closure())； // expect: a
 }

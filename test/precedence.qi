@@ -1,32 +1,32 @@
 // * has higher precedence than +.
-println(2 + 3 * 4); // expect: 14
+println(2 + 3 * 4)； // expect: 14
 
 // * has higher precedence than -.
-println(20 - 3 * 4); // expect: 8
+println(20 - 3 * 4)； // expect: 8
 
 // / has higher precedence than +.
-println(2 + 6 / 3); // expect: 4
+println(2 + 6 / 3)； // expect: 4
 
 // / has higher precedence than -.
-println(2 - 6 / 3); // expect: 0
+println(2 - 6 / 3)； // expect: 0
 
-// < has higher precedence than ==.
-println(假 == 2 < 1); // expect: 真
+// 小 has higher precedence than 等.
+println(假 等 2 小 1)； // expect: 真
 
-// > has higher precedence than ==.
-println(假 == 1 > 2); // expect: 真
+// > has higher precedence than 等.
+println(假 等 1 > 2)； // expect: 真
 
-// <= has higher precedence than ==.
-println(假 == 2 <= 1); // expect: 真
+// 小等 has higher precedence than 等.
+println(假 等 2 小等 1)； // expect: 真
 
-// >= has higher precedence than ==.
-println(假 == 1 >= 2); // expect: 真
+// 大等 has higher precedence than 等.
+println(假 等 1 大等 2)； // expect: 真
 
 // 1 - 1 is not space-sensitive.
-println(1 - 1); // expect: 0
-println(1 -1);  // expect: 0
-println(1- 1);  // expect: 0
-println(1-1);   // expect: 0
+println(1 - 1)； // expect: 0
+println(1 -1)；  // expect: 0
+println(1- 1)；  // expect: 0
+println(1-1)；   // expect: 0
 
 // Using () for grouping.
-println((2 * (6 - (2 + 2)))); // expect: 4
+println((2 * (6 - (2 + 2))))； // expect: 4

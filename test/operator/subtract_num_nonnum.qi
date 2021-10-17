@@ -1,1 +1,1 @@
-1 - "1"; // expect runtime error: Operands must be numbers.
+1 - "1"； // expect runtime error: Operands must be numbers.

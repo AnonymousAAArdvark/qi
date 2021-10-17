@@ -1,16 +1,16 @@
 {
-  var f;
+  var f；
 
   {
-    var a = "a";
-    fun f_() { println(a); }
-    f = f_;
+    var a = "a"；
+    fun f下() { println(a)； }
+    f = f下；
   }
 
   {
     // Since a is out of scope, the local slot will be reused by b. Make sure
     // that f still closes over a.
-    var b = "b";
-    f(); // expect: a
+    var b = "b"；
+    f()； // expect: a
   }
 }

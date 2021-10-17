@@ -48,7 +48,7 @@ static bool match(wchar_t expected) {
 }
 
 static bool isAlpha(wchar_t ch) {
-    return ((unsigned int)ch >= 0x4E00u && (unsigned int)ch <= 0x2FA1F) || iswalpha(ch) || ch == L'_';
+    return ((unsigned int)ch >= 0x4E00u && (unsigned int)ch <= 0x2FA1F && !iswpunct(ch)) || iswalpha(ch);
 }
 
 static Token makeToken(TokenType type) {
@@ -137,11 +137,35 @@ static TokenType identifierType() {
                 }
             }
             break;
-        case L'真': return TOKEN_TRUE;
-        case L'假': return TOKEN_FALSE;
-        case L'这': return TOKEN_THIS;
+        case L'真': return checkKeyword(1, 0, L"", TOKEN_TRUE);
+        case L'假': return checkKeyword(1, 0, L"", TOKEN_FALSE);
+        case L'这': return checkKeyword(1, 0, L"", TOKEN_THIS);
         case L'v': return checkKeyword(1, 2, L"ar", TOKEN_VAR);
         case L'w': return checkKeyword(1, 4, L"hile", TOKEN_WHILE);
+        case L'不':
+            if (scanner.current - scanner.start > 1) {
+                switch (scanner.start[1]) {
+                    case L'等': return checkKeyword(2, 0, L"", TOKEN_BANG_EQUAL);
+                }
+            }
+            return checkKeyword(1, 0, L"", TOKEN_BANG);
+        case L'和': return checkKeyword(1, 0, L"", TOKEN_AND);
+        case L'或': return checkKeyword(1, 0, L"", TOKEN_OR);
+        case L'等': return checkKeyword(1, 0, L"", TOKEN_EQUAL_EQUAL);
+        case L'大':
+            if (scanner.current - scanner.start > 1) {
+                switch (scanner.start[1]) {
+                    case L'等': return checkKeyword(2, 0, L"", TOKEN_GREATER_EQUAL);
+                }
+            }
+            return checkKeyword(1, 0, L"", TOKEN_GREATER);
+        case L'小':
+            if (scanner.current - scanner.start > 1) {
+                switch (scanner.start[1]) {
+                    case L'等': return checkKeyword(2, 0, L"", TOKEN_LESS_EQUAL);
+                }
+            }
+            return checkKeyword(1, 0, L"", TOKEN_LESS);
     }
 
     return TOKEN_IDENTIFIER;
@@ -194,7 +218,7 @@ Token scanToken() {
         case L')': return makeToken(TOKEN_RIGHT_PAREN);
         case L'{': return makeToken(TOKEN_LEFT_BRACE);
         case L'}': return makeToken(TOKEN_RIGHT_BRACE);
-        case L';': return makeToken(TOKEN_SEMICOLON);
+        case L'；': return makeToken(TOKEN_SEMICOLON);
         case L',': return makeToken(TOKEN_COMMA);
         case L'.': return makeToken(TOKEN_DOT);
         case L'-':
@@ -207,19 +231,10 @@ Token scanToken() {
         case L'*': return makeToken(TOKEN_STAR);
         case L'%': return makeToken(TOKEN_PERCENT);
         case L':': return makeToken(TOKEN_COLON);
-        case L'!':
-            return makeToken(match(L'=') ? TOKEN_BANG_EQUAL : TOKEN_BANG);
-        case L'=':
-            return makeToken(match(L'=') ? TOKEN_EQUAL_EQUAL : TOKEN_EQUAL);
-        case L'<':
-            return makeToken(match(L'=') ? TOKEN_LESS_EQUAL : TOKEN_LESS);
-        case L'>':
-            return makeToken(match(L'=') ? TOKEN_GREATER_EQUAL : TOKEN_GREATER);
+        case L'=': return makeToken(TOKEN_EQUAL);
         case L'"': return string();
         case L'[': return makeToken(TOKEN_LEFT_BRACKET);
         case L']': return makeToken(TOKEN_RIGHT_BRACKET);
-        case L'&': if (match(L'&')) return makeToken(TOKEN_AND);
-        case L'|': if (match(L'|')) return makeToken(TOKEN_OR);
     }
 
     return errorToken(L"Unexpected character.");

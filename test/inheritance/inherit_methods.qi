@@ -1,14 +1,14 @@
 class Foo {
-  methodOnFoo() { println("foo"); }
-  override() { println("foo"); }
+  methodOnFoo() { println("foo")； }
+  override() { println("foo")； }
 }
 
-class Bar < Foo {
-  methodOnBar() { println("bar"); }
-  override() { println("bar"); }
+class Bar : Foo {
+  methodOnBar() { println("bar")； }
+  override() { println("bar")； }
 }
 
-var bar = Bar();
-bar.methodOnFoo(); // expect: foo
-bar.methodOnBar(); // expect: bar
-bar.override(); // expect: bar
+var bar = Bar()；
+bar.methodOnFoo()； // expect: foo
+bar.methodOnBar()； // expect: bar
+bar.override()； // expect: bar

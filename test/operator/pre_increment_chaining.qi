@@ -1,5 +1,5 @@
-var i = 2;
-println(---i); // [line 2] Error at 'i': Expression is not assignable.
-println(----i); // [line 3] Error at 'i': Expression is not assignable.
-println(++--i); // [line 4] Error at 'i': Expression is not assignable.
-println(--++i); // [line 5] Error at 'i': Expression is not assignable.
+var i = 2；
+println(---i)； // [line 2] Error at 'i': Expression is not assignable.
+println(----i)； // [line 3] Error at 'i': Expression is not assignable.
+println(++--i)； // [line 4] Error at 'i': Expression is not assignable.
+println(--++i)； // [line 5] Error at 'i': Expression is not assignable.

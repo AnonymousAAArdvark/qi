@@ -1,18 +1,18 @@
 class A {
   foo() {
-    println("A.foo()");
+    println("A.foo()")；
   }
 }
 
-class B < A {}
+class B : A {}
 
-class C < B {
+class C : B {
   foo() {
-    println("C.foo()");
-    super.foo();
+    println("C.foo()")；
+    super.foo()；
   }
 }
 
-C().foo();
+C().foo()；
 // expect: C.foo()
 // expect: A.foo()

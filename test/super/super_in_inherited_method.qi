@@ -1,23 +1,23 @@
 class A {
   say() {
-    println("A");
+    println("A")；
   }
 }
 
-class B < A {
+class B : A {
   test() {
-    super.say();
+    super.say()；
   }
 
   say() {
-    println("B");
+    println("B")；
   }
 }
 
-class C < B {
+class C : B {
   say() {
-    println("C");
+    println("C")；
   }
 }
 
-C().test(); // expect: A
+C().test()； // expect: A

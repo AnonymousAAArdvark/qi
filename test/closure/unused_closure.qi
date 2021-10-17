@@ -3,11 +3,11 @@
 // the closure was not executed.
 
 {
-  var a = "a";
+  var a = "a"；
   如果 (假) {
-    fun foo() { a; }
+    fun foo() { a； }
   }
 }
 
 // If we get here, we didn't segfault when a went out of scope.
-println("ok"); // expect: ok
+println("ok")； // expect: ok

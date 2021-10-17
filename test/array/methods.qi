@@ -1,11 +1,11 @@
-var foo = [1, 2, 3, 4];
-foo.push(5);
-println(foo); // expect: [1, 2, 3, 4, 5]
-foo.pop();
-println(foo); // expect: [1, 2, 3, 4]
-foo.insert(0, "zero");
-println(foo); // expect: [zero, 1, 2, 3, 4]
-foo.delete(-1);
-println(foo); // expect: [zero, 1, 2, 3]
-println(foo.length()); // expect: 4
-foo.insert("one", "two"); // expect runtime error: Argument 1 (index) must be of type 'number', not 'string'.
+var foo = [1, 2, 3, 4]；
+foo.push(5)；
+println(foo)； // expect: [1, 2, 3, 4, 5]
+foo.pop()；
+println(foo)； // expect: [1, 2, 3, 4]
+foo.insert(0, "zero")；
+println(foo)； // expect: [zero, 1, 2, 3, 4]
+foo.delete(-1)；
+println(foo)； // expect: [zero, 1, 2, 3]
+println(foo.length())； // expect: 4
+foo.insert("one", "two")； // expect runtime error: Argument 1 (index) must be of type 'number', not 'string'.

@@ -1,8 +1,8 @@
 // 假 and nil are 假.
-如果 (假) println("bad"); 否则 println("假"); // expect: 假
-如果 (nil) println("bad"); 否则 println("nil"); // expect: nil
+如果 (假) println("bad")； 否则 println("假")； // expect: 假
+如果 (nil) println("bad")； 否则 println("nil")； // expect: nil
 
 // Everything 否则 is 真.
-如果 (真) println(真); // expect: 真
-如果 (0) println(0); // expect: 0
-如果 ("") println("empty"); // expect: empty
+如果 (真) println(真)； // expect: 真
+如果 (0) println(0)； // expect: 0
+如果 ("") println("empty")； // expect: empty
