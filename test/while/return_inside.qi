@@ -1,9 +1,9 @@
-fun f() {
-  while (真) {
+功能 f（）「
+  循环（真）「
     var i = "i"；
     return i；
-  }
-}
+  」
+」
 
-println(f())；
+println（f（））；
 // expect: i

@@ -1,12 +1,12 @@
-class Foo {
-  init(arg) {
-    println("Foo.init(" + arg + ")")；
-    这.field = "init"；
-  }
-}
+类 Foo「
+  init（arg）「
+    println（"Foo。init（" + arg + "）"）；
+    这。field = "init"；
+  」
+」
 
-fun init() {
-  println("not initializer")；
-}
+功能 init（）「
+  println（"not initializer"）；
+」
 
-init()； // expect: not initializer
+init（）； // expect: not initializer

@@ -1,4 +1,4 @@
-class Foo {}
+类 Foo「」
 
-var foo = Foo()；
-foo()； // expect runtime error: Can only call functions and classes.
+var foo = Foo（）；
+foo（）； // expect runtime error: Can only call functions and 类es.

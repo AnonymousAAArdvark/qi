@@ -1,5 +1,5 @@
-fun f() {
-  while (真) return "ok"；
-}
+功能 f（）「
+  循环（真）return "ok"；
+」
 
-println(f())； // expect: ok
+println（f（））； // expect: ok

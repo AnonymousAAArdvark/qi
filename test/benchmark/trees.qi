@@ -1,29 +1,29 @@
-class Tree {
-  init(depth) {
-    这.depth = depth；
-    如果 (depth > 0) {
-      这.a = Tree(depth - 1)；
-      这.b = Tree(depth - 1)；
-      这.c = Tree(depth - 1)；
-      这.d = Tree(depth - 1)；
-      这.e = Tree(depth - 1)；
-    }
-  }
+类 Tree「
+  init（depth）「
+    这。depth = depth；
+    如果（depth 大 0）「
+      这。a = Tree（depth - 1）；
+      这。b = Tree（depth - 1）；
+      这。c = Tree（depth - 1）；
+      这。d = Tree（depth - 1）；
+      这。e = Tree（depth - 1）；
+    」
+  」
 
-  walk() {
-    如果 (这.depth 等 0) return 0；
-    return 这.depth
-        + 这.a.walk()
-        + 这.b.walk()
-        + 这.c.walk()
-        + 这.d.walk()
-        + 这.e.walk()；
-  }
-}
+  walk（）「
+    如果（这。depth 等 0）return 0；
+    return 这。depth
+        + 这。a。walk（）
+        + 这。b。walk（）
+        + 这。c。walk（）
+        + 这。d。walk（）
+        + 这。e。walk（）；
+  」
+」
 
-var tree = Tree(8)；
-var start = clock()；
-for (var i = 0； i 小 100； i = i + 1) {
-  如果 (tree.walk() 不等 122068) println("Error")；
-}
-println(clock() - start)；
+var tree = Tree（8）；
+var start = clock（）；
+对于（var i = 0； i 小 100； i = i + 1）「
+  如果（tree。walk（）不等 122068）println（"Error"）；
+」
+println（clock（）- start）；

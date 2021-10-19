@@ -1,17 +1,17 @@
-class Base {
-  toString() { return "Base"； }
-}
+类 Base「
+  toString（）「 return "Base"； 」
+」
 
-class Derived : Base {
-  getClosure() {
-    fun closure() {
-      return super.toString()；
-    }
+类 Derived：Base「
+  getClosure（）「
+    功能 closure（）「
+      return super。toString（）；
+    」
     return closure；
-  }
+  」
 
-  toString() { return "Derived"； }
-}
+  toString（）「 return "Derived"； 」
+」
 
-var closure = Derived().getClosure()；
-println(closure())； // expect: Base
+var closure = Derived（）。getClosure（）；
+println（closure（））； // expect: Base

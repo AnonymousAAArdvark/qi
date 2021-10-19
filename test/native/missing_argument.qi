@@ -1,1 +1,1 @@
-print()； // expect runtime error: Expected 1 arguments but got 0.
+print（）； // expect runtime error: Expected 1 arguments but got 0.

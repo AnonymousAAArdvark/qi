@@ -1,14 +1,14 @@
-class Base {
-  foo(a, b) {
-    println("Base.foo(" + a + ", " + b + ")")；
-  }
-}
+类 Base「
+  foo（a，b）「
+    println（"Base。foo（" + a + "，" + b + "）"）；
+  」
+」
 
-class Derived : Base {
-  foo() {
-    println("Derived.foo()")； // expect: Derived.foo()
-    super.foo("a", "b", "c", "d")； // expect runtime error: Expected 2 arguments but got 4.
-  }
-}
+类 Derived：Base「
+  foo（）「
+    println（"Derived。foo（）"）； // expect: Derived。foo（）
+    super。foo（"a"，"b"，"c"，"d"）； // expect runtime error: Expected 2 arguments but got 4.
+  」
+」
 
-Derived().foo()；
+Derived（）。foo（）；

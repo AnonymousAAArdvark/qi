@@ -1,9 +1,9 @@
-fun f() {
-  for (；；) {
+功能 f（）「
+  对于（；；）「
     var i = "i"；
     return i；
-  }
-}
+  」
+」
 
-println(f())；
+println（f（））；
 // expect: i

@@ -1,69 +1,69 @@
-class Toggle {
-  init(startState) {
-    这.state = startState；
-  }
+类 Toggle「
+  init（startState）「
+    这。state = startState；
+  」
 
-  value() { return 这.state； }
+  value（）「 return 这。state； 」
 
-  activate() {
-    这.state = 不 这.state；
+  activate（）「
+    这。state = 不 这。state；
     return 这；
-  }
-}
+  」
+」
 
-class NthToggle : Toggle {
-  init(startState, maxCounter) {
-    super.init(startState)；
-    这.countMax = maxCounter；
-    这.count = 0；
-  }
+类 NthToggle：Toggle「
+  init（startState，maxCounter）「
+    super。init（startState）；
+    这。countMax = maxCounter；
+    这。count = 0；
+  」
 
-  activate() {
-    这.count = 这.count + 1；
-    如果 (这.count 大等 这.countMax) {
-      super.activate()；
-      这.count = 0；
-    }
+  activate（）「
+    这。count = 这。count + 1；
+    如果（这。count 大等 这。countMax）「
+      super。activate（）；
+      这。count = 0；
+    」
 
     return 这；
-  }
-}
+  」
+」
 
-var start = clock()；
+var start = clock（）；
 var n = 100000；
 var val = 真；
-var toggle = Toggle(val)；
+var toggle = Toggle（val）；
 
-for (var i = 0； i 小 n； i = i + 1) {
-  val = toggle.activate().value()；
-  val = toggle.activate().value()；
-  val = toggle.activate().value()；
-  val = toggle.activate().value()；
-  val = toggle.activate().value()；
-  val = toggle.activate().value()；
-  val = toggle.activate().value()；
-  val = toggle.activate().value()；
-  val = toggle.activate().value()；
-  val = toggle.activate().value()；
-}
+对于（var i = 0； i 小 n； i = i + 1）「
+  val = toggle。activate（）。value（）；
+  val = toggle。activate（）。value（）；
+  val = toggle。activate（）。value（）；
+  val = toggle。activate（）。value（）；
+  val = toggle。activate（）。value（）；
+  val = toggle。activate（）。value（）；
+  val = toggle。activate（）。value（）；
+  val = toggle。activate（）。value（）；
+  val = toggle。activate（）。value（）；
+  val = toggle。activate（）。value（）；
+」
 
-println(toggle.value())；
+println（toggle。value（））；
 
 val = 真；
-var ntoggle = NthToggle(val, 3)；
+var ntoggle = NthToggle（val，3）；
 
-for (var i = 0； i 小 n； i = i + 1) {
-  val = ntoggle.activate().value()；
-  val = ntoggle.activate().value()；
-  val = ntoggle.activate().value()；
-  val = ntoggle.activate().value()；
-  val = ntoggle.activate().value()；
-  val = ntoggle.activate().value()；
-  val = ntoggle.activate().value()；
-  val = ntoggle.activate().value()；
-  val = ntoggle.activate().value()；
-  val = ntoggle.activate().value()；
-}
+对于（var i = 0； i 小 n； i = i + 1）「
+  val = ntoggle。activate（）。value（）；
+  val = ntoggle。activate（）。value（）；
+  val = ntoggle。activate（）。value（）；
+  val = ntoggle。activate（）。value（）；
+  val = ntoggle。activate（）。value（）；
+  val = ntoggle。activate（）。value（）；
+  val = ntoggle。activate（）。value（）；
+  val = ntoggle。activate（）。value（）；
+  val = ntoggle。activate（）。value（）；
+  val = ntoggle。activate（）。value（）；
+」
 
-println(ntoggle.value())；
-println(clock() - start)；
+println（ntoggle。value（））；
+println（clock（）- start）；

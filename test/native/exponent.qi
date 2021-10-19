@@ -1,4 +1,4 @@
-println(sqrt(4))； // expect: 2
-println(pow(3, 4))； // expect: 81
-println(pow(9, 0.5))； // expect: 3
-println(sqrt("3"))； // expect runtime error: Argument 1 (input) must be of type 'number', not 'string'.
+println（sqrt（4））； // expect: 2
+println（pow（3，4））； // expect: 81
+println（pow（9，0.5））； // expect: 3
+println（sqrt（"3"））； // expect runtime error: Argument 1 (input) must be of type 'number', not 'string'.

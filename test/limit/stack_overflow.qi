@@ -1,4 +1,4 @@
-fun foo() {
+功能 foo（）「
   var a1；
   var a2；
   var a3；
@@ -15,7 +15,7 @@ fun foo() {
   var a14；
   var a15；
   var a16；
-  foo()； // expect runtime error: Stack overflow.
-}
+  foo（）； // expect runtime error: Stack overflow.
+」
 
-foo()；
+foo（）；

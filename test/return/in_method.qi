@@ -1,8 +1,8 @@
-class Foo {
-  method() {
+类 Foo「
+  method（）「
     return "ok"；
-    println("bad")；
-  }
-}
+    println（"bad"）；
+  」
+」
 
-println(Foo().method())； // expect: ok
+println（Foo（）。method（））； // expect: ok

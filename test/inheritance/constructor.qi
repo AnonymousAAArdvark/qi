@@ -1,14 +1,14 @@
-class A {
-  init(param) {
-    这.field = param；
-  }
+类 A「
+  init（param）「
+    这。field = param；
+  」
 
-  test() {
-    println(这.field)；
-  }
-}
+  test（）「
+    println（这。field）；
+  」
+」
 
-class B : A {}
+类 B：A「」
 
-var b = B("value")；
-b.test()； // expect: value
+var b = B（"value"）；
+b。test（）； // expect: value

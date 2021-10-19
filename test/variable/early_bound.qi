@@ -1,10 +1,10 @@
 var a = "outer"；
-{
-  fun foo() {
-    println(a)；
-  }
+「
+  功能 foo（）「
+    println（a）；
+  」
 
-  foo()； // expect: outer
+  foo（）； // expect: outer
   var a = "inner"；
-  foo()； // expect: outer
-}
+  foo（）； // expect: outer
+」

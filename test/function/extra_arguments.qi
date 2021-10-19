@@ -1,6 +1,6 @@
-fun f(a, b) {
-  println(a)；
-  println(b)；
-}
+功能 f（a，b）「
+  println（a）；
+  println（b）；
+」
 
-f(1, 2, 3, 4)； // expect runtime error: Expected 2 arguments but got 4.
+f（1，2，3，4）； // expect runtime error: Expected 2 arguments but got 4.

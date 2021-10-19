@@ -1,10 +1,10 @@
-// Evaluate the 'then' expression if the condition is 真.
-如果 (真) println("good")； // expect: good
-如果 (假) println("bad")；
+// Evaluate the 'then' expression if the condition is 真。
+如果（真）println（"good"）； // expect: good
+如果（假）println（"bad"）；
 
 // Allow block body.
-如果 (真) { println("block")； } // expect: block
+如果（真）「 println（"block"）； 」// expect: block
 
-// Assignment in if condition.
+// Assignment in if condition。
 var a = 假；
-如果 (a = 真) println(a)； // expect: 真
+如果（a = 真）println（a）； // expect: 真

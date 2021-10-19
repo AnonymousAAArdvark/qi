@@ -22,9 +22,9 @@ static bool nativeError(Value* args, wchar_t* msg, ...) {
 }
 
 wchar_t* getType(Value value) {
-    if (IS_BOOL(value)) return L"bool";
-    else if (IS_NUMBER(value)) return L"number";
-    else if (IS_NIL(value)) return L"nil";
+    if (IS_BOOL(value)) return L"布尔";
+    else if (IS_NUMBER(value)) return L"数字";
+    else if (IS_NIL(value)) return L"空";
     else if (IS_OBJ(value)) {
         switch (AS_OBJ(value)->type) {
             case OBJ_NATIVE: return L"native function";
@@ -35,7 +35,7 @@ wchar_t* getType(Value value) {
             case OBJ_LIST: return L"list";
             case OBJ_UPVALUE: return L"upvalue";
             case OBJ_CLOSURE: return L"closure";
-            case OBJ_CLASS: return L"class";
+            case OBJ_CLASS: return L"类";
         }
     }
     // Unreachable.

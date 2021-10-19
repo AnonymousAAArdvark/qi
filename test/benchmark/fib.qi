@@ -1,8 +1,8 @@
-fun fib(n) {
-  如果 (n 小 2) return n；
-  return fib(n - 2) + fib(n - 1)；
-}
+功能 fib（n）「
+  如果（n 小 2）return n；
+  return fib（n - 2）+ fib（n - 1）；
+」
 
-var start = clock()；
-println(fib(35) 等 9227465)；
-println(clock() - start)；
+var start = clock（）；
+println（fib（35）等 9227465）；
+println（clock（）- start）；

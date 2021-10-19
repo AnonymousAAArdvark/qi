@@ -1,19 +1,19 @@
-class A {
-  method(arg) {
-    println("A.method(" + arg + ")")；
-  }
-}
+类 A「
+  method（arg）「
+    println（"A。method（" + arg + "）"）；
+  」
+」
 
-class B : A {
-  getClosure() {
-    return super.method；
-  }
+类 B：A「
+  getClosure（）「
+    return super。method；
+  」
 
-  method(arg) {
-    println("B.method(" + arg + ")")；
-  }
-}
+  method（arg）「
+    println（"B。method（" + arg + "）"）；
+  」
+」
 
 
-var closure = B().getClosure()；
-closure("arg")； // expect: A.method(arg)
+var closure = B（）。getClosure（）；
+closure（"arg"）； // expect: A。method（arg）

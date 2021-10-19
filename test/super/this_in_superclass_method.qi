@@ -1,16 +1,16 @@
-class Base {
-  init(a) {
-    这.a = a；
-  }
-}
+类 Base「
+  init（a）「
+    这。a = a；
+  」
+」
 
-class Derived : Base {
-  init(a, b) {
-    super.init(a)；
-    这.b = b；
-  }
-}
+类 Derived：Base「
+  init（a，b）「
+    super。init（a）；
+    这。b = b；
+  」
+」
 
-var derived = Derived("a", "b")；
-println(derived.a)； // expect: a
-println(derived.b)； // expect: b
+var derived = Derived（"a"，"b"）；
+println（derived。a）； // expect: a
+println（derived。b）； // expect: b

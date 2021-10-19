@@ -1,11 +1,11 @@
 var f；
 
-{
+「
   var local = "local"；
-  fun f下() {
-    println(local)；
-  }
+  功能 f下（）「
+    println（local）；
+  」
   f = f下；
-}
+」
 
-f()； // expect: local
+f（）； // expect: local

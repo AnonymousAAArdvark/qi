@@ -1,2 +1,2 @@
-class Foo {}
-Foo.bar； // expect runtime error: Only instances have properties.
+类 Foo「」
+Foo。bar； // expect runtime error: Only instances have properties.

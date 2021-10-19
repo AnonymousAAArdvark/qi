@@ -1,22 +1,22 @@
-class Base {
-  method() {
-    println("Base.method()")；
-  }
-}
+类 Base「
+  method（）「
+    println（"Base。method（）"）；
+  」
+」
 
-class Derived : Base {
-  method() {
-    super.method()；
-  }
-}
+类 Derived：Base「
+  method（）「
+    super。method（）；
+  」
+」
 
-class OtherBase {
-  method() {
-    println("OtherBase.method()")；
-  }
-}
+类 OtherBase「
+  method（）「
+    println（"OtherBase。method（）"）；
+  」
+」
 
-var derived = Derived()；
-derived.method()； // expect: Base.method()
+var derived = Derived（）；
+derived。method（）； // expect: Base。method（）
 Base = OtherBase；
-derived.method()； // expect: Base.method()
+derived。method（）； // expect: Base。method（）

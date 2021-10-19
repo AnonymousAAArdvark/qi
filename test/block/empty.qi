@@ -1,7 +1,7 @@
-{} // By itself.
+「」// By itself.
 
-// In a statement.
-如果 (真) {}
-如果 (假) {} 否则 {}
+// In a statement。
+如果（真）「」
+如果（假）「」否则「」
 
-println("ok")； // expect: ok
+println（"ok"）； // expect: ok

@@ -1,4 +1,4 @@
-fun f() {
+功能 f（）「
   var v00； var v01； var v02； var v03； var v04； var v05； var v06； var v07；
   var v08； var v09； var v0a； var v0b； var v0c； var v0d； var v0e； var v0f；
 
@@ -23,7 +23,7 @@ fun f() {
   var v70； var v71； var v72； var v73； var v74； var v75； var v76； var v77；
   var v78； var v79； var v7a； var v7b； var v7c； var v7d； var v7e； var v7f；
 
-  fun g() {
+  功能 g（）「
     var v80； var v81； var v82； var v83； var v84； var v85； var v86； var v87；
     var v88； var v89； var v8a； var v8b； var v8c； var v8d； var v8e； var v8f；
 
@@ -50,7 +50,7 @@ fun f() {
 
     var oops；
 
-    fun h() {
+    功能 h（）「
       v00； v01； v02； v03； v04； v05； v06； v07；
       v08； v09； v0a； v0b； v0c； v0d； v0e； v0f；
 
@@ -100,6 +100,6 @@ fun f() {
       vf8； vf9； vfa； vfb； vfc； vfd； vfe； vff；
 
       oops； // Error at 'oops': Too many closure variables in function.
-    }
-  }
-}
+    」
+  」
+」

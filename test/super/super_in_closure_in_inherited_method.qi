@@ -1,26 +1,26 @@
-class A {
-  say() {
-    println("A")；
-  }
-}
+类 A「
+  say（）「
+    println（"A"）；
+  」
+」
 
-class B : A {
-  getClosure() {
-    fun closure() {
-      super.say()；
-    }
+类 B：A「
+  getClosure（）「
+    功能 closure（）「
+      super。say（）；
+    」
     return closure；
-  }
+  」
 
-  say() {
-    println("B")；
-  }
-}
+  say（）「
+    println（"B"）；
+  」
+」
 
-class C : B {
-  say() {
-    println("C")；
-  }
-}
+类 C：B「
+  say（）「
+    println（"C"）；
+  」
+」
 
-C().getClosure()()； // expect: A
+C（）。getClosure（）（）； // expect: A

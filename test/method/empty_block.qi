@@ -1,5 +1,5 @@
-class Foo {
-  bar() {}
-}
+类 Foo「
+  bar（）「」
+」
 
-println(Foo().bar())； // expect: nil
+println（Foo（）。bar（））； // expect: 空

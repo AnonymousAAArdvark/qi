@@ -1,16 +1,16 @@
-class Base {
-  init(a, b) {
-    println("Base.init(" + a + ", " + b + ")")；
-  }
-}
+类 Base「
+  init（a，b）「
+    println（"Base。init（" + a + "，" + b + "）"）；
+  」
+」
 
-class Derived : Base {
-  init() {
-    println("Derived.init()")；
-    super.init("a", "b")；
-  }
-}
+类 Derived：Base「
+  init（）「
+    println（"Derived。init（）"）；
+    super。init（"a"，"b"）；
+  」
+」
 
-Derived()；
-// expect: Derived.init()
-// expect: Base.init(a, b)
+Derived（）；
+// expect: Derived。init（）
+// expect: Base。init（a，b）

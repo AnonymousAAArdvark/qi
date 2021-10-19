@@ -1,20 +1,20 @@
-class Outer {
-  method() {
-    println(这)； // expect: Outer instance
+类 Outer「
+  method（）「
+    println（这）； // expect: Outer instance
 
-    fun f() {
-      println(这)； // expect: Outer instance
+    功能 f（）「
+      println（这）； // expect: Outer instance
 
-      class Inner {
-        method() {
-          println(这)； // expect: Inner instance
-        }
-      }
+      类 Inner「
+        method（）「
+          println（这）； // expect: Inner instance
+        」
+      」
 
-      Inner().method()；
-    }
-    f()；
-  }
-}
+      Inner（）。method（）；
+    」
+    f（）；
+  」
+」
 
-Outer().method()；
+Outer（）。method（）；

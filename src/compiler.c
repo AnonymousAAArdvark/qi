@@ -616,13 +616,13 @@ static Token syntheticToken(const wchar_t* text) {
 
 static void super_(bool canAssign) {
     if (currentClass == NULL) {
-        error(L"Can't use 'super' outside of a class.");
+        error(L"Can't use 'super' outside of a 类.");
     } else if (!currentClass->hasSuperclass) {
-        error(L"Can't use 'super' in a class with no superclass.");
+        error(L"Can't use 'super' in a 类 with no super类.");
     }
 
     consume(TOKEN_DOT, L"Expect '.' after 'super'.");
-    consume(TOKEN_IDENTIFIER, L"Expect superclass method name.");
+    consume(TOKEN_IDENTIFIER, L"Expect super类 method name.");
     uint8_t name = identifierConstant(&parser.previous);
 
     namedVariable(syntheticToken(L"这"), false);
@@ -639,7 +639,7 @@ static void super_(bool canAssign) {
 
 static void this_(bool canAssign) {
     if (currentClass == NULL) {
-        error(L"Can't use '这' outside of a class.");
+        error(L"Can't use '这' outside of a 类.");
         return;
     }
 
@@ -875,7 +875,7 @@ static void method() {
 }
 
 static void classDeclaration() {
-    consume(TOKEN_IDENTIFIER, L"Expect class name.");
+    consume(TOKEN_IDENTIFIER, L"Expect 类 name.");
     Token className = parser.previous;
     uint8_t  nameConstant = identifierConstant(&parser.previous);
     declareVariable();
@@ -889,11 +889,11 @@ static void classDeclaration() {
     currentClass = &classCompiler;
 
     if (match(TOKEN_COLON)) {
-        consume(TOKEN_IDENTIFIER, L"Expect superclass name.");
+        consume(TOKEN_IDENTIFIER, L"Expect super类 name.");
         variable(false);
 
         if (identifiersEqual(&className, &parser.previous)) {
-            error(L"A class can't inherit from itself.");
+            error(L"A 类 can't inherit from itself.");
         }
 
         beginScope();
@@ -906,11 +906,11 @@ static void classDeclaration() {
     }
 
     namedVariable(className, false);
-    consume(TOKEN_LEFT_BRACE, L"Expect '{' before class body.");
+    consume(TOKEN_LEFT_BRACE, L"Expect '{' before 类 body.");
     while (!check(TOKEN_RIGHT_BRACE) && !check(TOKEN_EOF)) {
         method();
     }
-    consume(TOKEN_RIGHT_BRACE, L"Expect '}' after class body.");
+    consume(TOKEN_RIGHT_BRACE, L"Expect '}' after 类 body.");
     emitByte(OP_POP);
 
     if (classCompiler.hasSuperclass) {
@@ -1029,11 +1029,6 @@ static void ifStatement() {
 
     if (match(TOKEN_ELSE)) statement();
     patchJump(elseJump);
-}
-
-static void printStatement() {
-    expression();
-    consume(TOKEN_SEMICOLON, L"Expect '；' after value.");
 }
 
 static void returnStatement() {
@@ -1162,10 +1157,10 @@ static void switchStatement() {
 
 static void continueStatement() {
     if (innermostLoopStart == -1) {
-        error(L"Can't use 'continue' outside of a loop.");
+        error(L"Can't use '继续' outside of a loop.");
     }
 
-    consume(TOKEN_SEMICOLON, L"Expect '；' after 'continue'.");
+    consume(TOKEN_SEMICOLON, L"Expect '；' after '继续'.");
 
     // Discard any locals created inside the loop.
     for (int i = current->localCount - 1; i >= 0 && current->locals[i].depth > innermostLoopScopeDepth; i--) {
@@ -1178,10 +1173,10 @@ static void continueStatement() {
 
 static void breakStatement() {
     if (innermostLoopStart == -1) {
-        error(L"Can't use 'break' outside of a loop.");
+        error(L"Can't use '打断' outside of a loop.");
     }
 
-    consume(TOKEN_SEMICOLON, L"Expect '；' after 'break'.");
+    consume(TOKEN_SEMICOLON, L"Expect '；' after '打断'.");
 
     // Discard any locals created inside the loop.
     for (int i = current->localCount - 1; i >= 0 && current->locals[i].depth > innermostLoopScopeDepth; i--) {

@@ -1,1 +1,1 @@
-println(nil)； // expect: nil
+println（空）； // expect: 空

@@ -1,10 +1,10 @@
-class Foo {
-  init() {
-    fun init() {
+类 Foo「
+  init（）「
+    功能 init（）「
       return "bar"；
-    }
-    println(init())； // expect: bar
-  }
-}
+    」
+    println（init（））； // expect: bar
+  」
+」
 
-println(Foo())； // expect: Foo instance
+println（Foo（））； // expect: Foo instance

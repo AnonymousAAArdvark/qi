@@ -1,16 +1,16 @@
-var list = []；
+var list =【】；
 var i = 0；
-for (； i 小 10； i++) {
-    如果 (i 等 5) break；
-    list.push(i)；
-}
-println(list)； // expect: [0, 1, 2, 3, 4]
-while (真) {
-    如果 (i 等 10) break；
-    list.push(i)；
+对于（； i 小 10； i++）「
+    如果（i 等 5）打断；
+    list。push（i）；
+」
+println（list）； // expect:【0，1，2，3，4】
+循环（真）「
+    如果（i 等 10）打断；
+    list。push（i）；
     i++；
-}
-println(list)； // expect: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-{
-break； // Error at 'break': Can't use 'break' outside of a loop.
-}
+」
+println（list）； // expect:【0，1，2，3，4，5，6，7，8，9】
+「
+打断； // Error at '打断': Can't use '打断' outside of a loop.
+」

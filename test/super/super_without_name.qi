@@ -1,7 +1,7 @@
-class A {}
+类 A「」
 
-class B : A {
-  method() {
-    super.； // Error at '；': Expect superclass method name.
-  }
-}
+类 B：A「
+  method（）「
+    super。； // Error at '；': Expect super类 method name.
+  」
+」

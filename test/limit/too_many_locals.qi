@@ -1,5 +1,5 @@
-fun f() {
-  // var v00； First slot already taken.
+功能 f（）「
+  // var v00； First slot already taken。
 
   var v01； var v02； var v03； var v04； var v05； var v06； var v07；
   var v08； var v09； var v0a； var v0b； var v0c； var v0d； var v0e； var v0f；
@@ -50,4 +50,4 @@ fun f() {
   var vf8； var vf9； var vfa； var vfb； var vfc； var vfd； var vfe； var vff；
 
   var oops； // Error at 'oops': Too many local variables in function.
-}
+」

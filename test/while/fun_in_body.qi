@@ -1,2 +1,2 @@
-// [line 2] Error at 'fun': Expect expression.
-while (真) fun foo() {}
+// [line 2] Error at '功能': Expect expression.
+循环（真）功能 foo（）「」

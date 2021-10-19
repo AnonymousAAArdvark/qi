@@ -1,14 +1,14 @@
 var f；
 
-{
+「
   var a = "a"；
-  fun f下() {
-    println(a)；
-    println(a)；
-  }
+  功能 f下（）「
+    println（a）；
+    println（a）；
+  」
   f = f下；
-}
+」
 
-f()；
+f（）；
 // expect: a
 // expect: a

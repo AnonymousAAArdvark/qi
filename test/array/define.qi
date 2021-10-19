@@ -1,5 +1,5 @@
-var foo = ["a", "b", "c"]；
-println(foo)； // expect: [a, b, c]
-var bar = []；
-println(bar)； // expect: []
-println([1, 2, 3])； // expect: [1, 2, 3]
+var foo =【"a"，"b"，"c"】；
+println（foo）； // expect:【a，b，c】
+var bar =【】；
+println（bar）； // expect:【】
+println（【1，2，3】）； // expect:【1，2，3】

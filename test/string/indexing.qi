@@ -1,7 +1,7 @@
 var foo = "string"；
 
-println(foo[2 - 2])； // expect: s
+println（foo【2 - 2】）； // expect: s
 
-println(foo[1])； // expect: t
+println（foo【1】）； // expect: t
 
-println(foo[-1])； // expect: g
+println（foo【-1】）； // expect: g

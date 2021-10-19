@@ -1,18 +1,18 @@
-class A {
-  foo() {
-    println("A.foo()")；
-  }
-}
+类 A「
+  foo（）「
+    println（"A。foo（）"）；
+  」
+」
 
-class B : A {}
+类 B：A「」
 
-class C : B {
-  foo() {
-    println("C.foo()")；
-    super.foo()；
-  }
-}
+类 C：B「
+  foo（）「
+    println（"C。foo（）"）；
+    super。foo（）；
+  」
+」
 
-C().foo()；
-// expect: C.foo()
-// expect: A.foo()
+C（）。foo（）；
+// expect: C。foo（）
+// expect: A。foo（）

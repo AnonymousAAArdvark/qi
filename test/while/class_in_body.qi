@@ -1,2 +1,2 @@
-// [line 2] Error at 'class': Expect expression.
-while (真) class Foo {}
+// [line 2] Error at '类': Expect expression.
+循环（真）类 Foo「」

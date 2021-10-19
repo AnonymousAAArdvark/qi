@@ -166,7 +166,7 @@ static bool callValue(Value callee, int argCount) {
                 break; // Non-callable object type.
         }
     }
-    runtimeError(L"Can only call functions and classes.");
+    runtimeError(L"Can only call functions and 类es.");
     return false;
 }
 
@@ -782,7 +782,7 @@ static InterpretResult run() {
                 Value superclass = peek(1);
                 if (!IS_CLASS(superclass)) {
                     frame->ip = ip;
-                    runtimeError(L"Superclass must be a class.");
+                    runtimeError(L"Super类 must be a 类.");
                     return INTERPRET_RUNTIME_ERROR;
                 }
                 ObjClass *subclass = AS_CLASS(peek(0));

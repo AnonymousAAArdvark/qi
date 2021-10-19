@@ -1,13 +1,13 @@
 var f；
 
-class Foo {
-  method(param) {
-    fun f下() {
-      println(param)；
-    }
+类 Foo「
+  method（param）「
+    功能 f下（）「
+      println（param）；
+    」
     f = f下；
-  }
-}
+  」
+」
 
-Foo().method("param")；
-f()； // expect: param
+Foo（）。method（"param"）；
+f（）； // expect: param
