@@ -9,7 +9,7 @@
     功能 closure（）「
       super。say（）；
     」
-    return closure；
+    返回 closure；
   」
 
   say（）「

@@ -1,16 +1,16 @@
 类 Base「
-  toString（）「 return "Base"； 」
+  toString（）「 返回 "Base"； 」
 」
 
 类 Derived：Base「
   getClosure（）「
     功能 closure（）「
-      return super。toString（）；
+      返回 super。toString（）；
     」
-    return closure；
+    返回 closure；
   」
 
-  toString（）「 return "Derived"； 」
+  toString（）「 返回 "Derived"； 」
 」
 
 var closure = Derived（）。getClosure（）；

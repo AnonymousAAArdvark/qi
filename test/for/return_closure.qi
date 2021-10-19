@@ -2,7 +2,7 @@
   对于（；；）「
     var i = "i"；
     功能 g（）「 println（i）； 」
-    return g；
+    返回 g；
   」
 」
 

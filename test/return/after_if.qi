@@ -1,5 +1,5 @@
 功能 f（）「
-  如果（真）return "ok"；
+  如果（真）返回 "ok"；
 」
 
 println（f（））； // expect: ok

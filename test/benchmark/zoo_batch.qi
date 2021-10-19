@@ -7,12 +7,12 @@
     这。elephant = 1；
     这。fox      = 1；
   」
-  ant（）  「 return 这。aarvark； 」
-  banana（）「 return 这。baboon； 」
-  tuna（） 「 return 这。cat； 」
-  hay（）  「 return 这。donkey； 」
-  grass（）「 return 这。elephant； 」
-  mouse（）「 return 这。fox； 」
+  ant（）  「 返回 这。aarvark； 」
+  banana（）「 返回 这。baboon； 」
+  tuna（） 「 返回 这。cat； 」
+  hay（）  「 返回 这。donkey； 」
+  grass（）「 返回 这。elephant； 」
+  mouse（）「 返回 这。fox； 」
 」
 
 var zoo = Zoo（）；

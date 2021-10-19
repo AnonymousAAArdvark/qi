@@ -1,12 +1,12 @@
 「
   功能 isEven（n）「
-    如果（n 等 0）return 真；
-    return isOdd（n - 1）； // expect runtime error: Undefined variable 'isOdd'.
+    如果（n 等 0）返回 真；
+    返回 isOdd（n - 1）； // expect runtime error: Undefined variable 'isOdd'.
   」
 
   功能 isOdd（n）「
-    如果（n 等 0）return 假；
-    return isEven（n - 1）；
+    如果（n 等 0）返回 假；
+    返回 isEven（n - 1）；
   」
 
   isEven（4）；

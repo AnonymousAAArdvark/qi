@@ -1,5 +1,5 @@
 功能 f（）「
-  return；
+  返回；
   println（"bad"）；
 」
 
