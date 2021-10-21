@@ -1,14 +1,14 @@
 // Single-expression body.
-var c = 0；
-循环（c 小 3）println（c = c + 1）；
+变量 c = 0；
+循环（c 小 3）打印条（c = c + 1）；
 // expect: 1
 // expect: 2
 // expect: 3
 
 // Block body.
-var a = 0；
+变量 a = 0；
 循环（a 小 3）「
-  println（a）；
+  打印条（a）；
   a = a + 1；
 」
 // expect: 0
