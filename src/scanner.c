@@ -120,17 +120,11 @@ static TokenType identifierType() {
         case L'如': return checkKeyword(1, 1, L"果", TOKEN_IF);
         case L'空': return checkKeyword(1, 0, L"", TOKEN_NIL);
         case L'返': return checkKeyword(1, 1, L"回", TOKEN_RETURN);
-        case L's':
-            if (scanner.current - scanner.start > 1) {
-                switch (scanner.start[1]) {
-                    case L'u': return checkKeyword(2, 3, L"per", TOKEN_SUPER);
-                }
-            }
-            break;
+        case L'超': return checkKeyword(1, 0, L"", TOKEN_SUPER);
         case L'真': return checkKeyword(1, 0, L"", TOKEN_TRUE);
         case L'假': return checkKeyword(1, 0, L"", TOKEN_FALSE);
         case L'这': return checkKeyword(1, 0, L"", TOKEN_THIS);
-        case L'v': return checkKeyword(1, 2, L"ar", TOKEN_VAR);
+        case L'变': return checkKeyword(1, 1, L"量", TOKEN_VAR);
         case L'和': return checkKeyword(1, 0, L"", TOKEN_AND);
         case L'或': return checkKeyword(1, 0, L"", TOKEN_OR);
         case L'等': return checkKeyword(1, 0, L"", TOKEN_EQUAL_EQUAL);
