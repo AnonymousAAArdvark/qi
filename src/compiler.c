@@ -285,7 +285,7 @@ static int resolveLocal(Compiler* compiler, Token* name) {
         Local* local = &compiler->locals[i];
         if (identifiersEqual(name, &local->name)) {
             if (local->depth == -1) {
-                error(L"Can't read local variable in its own initializer.");
+                error(L"Can't read local 变量 in its own initializer.");
             }
             return i;
         }
@@ -305,7 +305,7 @@ static int addUpvalue(Compiler* compiler, uint8_t index, bool isLocal) {
     }
 
     if (upvalueCount == UINT8_COUNT) {
-        error(L"Too many closure variables in function.");
+        error(L"Too many closure 变量 in function.");
         return 0;
     }
 
@@ -333,7 +333,7 @@ static int resolveUpvalue(Compiler* compiler, Token* name) {
 
 static void addLocal(Token name) {
     if (current->localCount == UINT8_COUNT) {
-        error(L"Too many local variables in function.");
+        error(L"Too many local 变量 in function.");
         return;
     }
 
@@ -354,7 +354,7 @@ static void declareVariable() {
         }
 
         if (identifiersEqual(name, &local->name)) {
-            error(L"Already a variable with this name in this scope.");
+            error(L"Already a 变量 with this name in this scope.");
         }
     }
 
@@ -616,23 +616,23 @@ static Token syntheticToken(const wchar_t* text) {
 
 static void super_(bool canAssign) {
     if (currentClass == NULL) {
-        error(L"Can't use 'super' outside of a 类.");
+        error(L"Can't use '超' outside of a 类.");
     } else if (!currentClass->hasSuperclass) {
-        error(L"Can't use 'super' in a 类 with no super类.");
+        error(L"Can't use '超' in a 类 with no 超类.");
     }
 
-    consume(TOKEN_DOT, L"Expect '.' after 'super'.");
-    consume(TOKEN_IDENTIFIER, L"Expect super类 method name.");
+    consume(TOKEN_DOT, L"Expect '.' after '超'.");
+    consume(TOKEN_IDENTIFIER, L"Expect 超类 method name.");
     uint8_t name = identifierConstant(&parser.previous);
 
     namedVariable(syntheticToken(L"这"), false);
     if (match(TOKEN_LEFT_PAREN)) {
         uint8_t argCount = argumentList();
-        namedVariable(syntheticToken(L"super"), false);
+        namedVariable(syntheticToken(L"超"), false);
         emitBytes(OP_SUPER_INVOKE, name);
         emitByte(argCount);
     } else {
-        namedVariable(syntheticToken(L"super"), false);
+        namedVariable(syntheticToken(L"超"), false);
         emitBytes(OP_GET_SUPER, name);
     }
 }
@@ -889,7 +889,7 @@ static void classDeclaration() {
     currentClass = &classCompiler;
 
     if (match(TOKEN_COLON)) {
-        consume(TOKEN_IDENTIFIER, L"Expect super类 name.");
+        consume(TOKEN_IDENTIFIER, L"Expect 超类 name.");
         variable(false);
 
         if (identifiersEqual(&className, &parser.previous)) {
@@ -897,7 +897,7 @@ static void classDeclaration() {
         }
 
         beginScope();
-        addLocal(syntheticToken(L"super"));
+        addLocal(syntheticToken(L"超"));
         defineVariable(0);
 
         namedVariable(className, false);
@@ -928,14 +928,14 @@ static void funDeclaration() {
 }
 
 static void varDeclaration() {
-    uint8_t global = parseVariable(L"Expect variable name.");
+    uint8_t global = parseVariable(L"Expect 变量 name.");
 
     if (match(TOKEN_EQUAL)) {
         expression();
     } else {
         emitByte(OP_NIL);
     }
-    consume(TOKEN_SEMICOLON, L"Expect '；' after variable declaration.");
+    consume(TOKEN_SEMICOLON, L"Expect '；' after 变量 declaration.");
 
     defineVariable(global);
 }
@@ -1033,14 +1033,14 @@ static void ifStatement() {
 
 static void returnStatement() {
     if (current->type == TYPE_SCRIPT) {
-        error(L"Can't return from top-level code.");
+        error(L"Can't 返回 from top-level code.");
     }
 
     if (match(TOKEN_SEMICOLON)) {
         emitReturn();
     } else {
         if (current->type == TYPE_INITIALIZER) {
-            error(L"Can't return a value from an initializer.");
+            error(L"Can't 返回 a value from an initializer.");
         }
 
         expression();
