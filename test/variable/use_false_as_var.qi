@@ -1,2 +1,2 @@
-// [line 2] Error at '假': Expect variable name.
-var 假 = "value"；
+// [line 2] Error at '假': Expect 变量 name.
+变量 假 = "value"；

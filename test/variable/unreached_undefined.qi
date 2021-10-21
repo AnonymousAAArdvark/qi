@@ -1,5 +1,5 @@
 如果（假）「
-  println（notDefined）；
+  打印条（notDefined）；
 」
 
-println（"ok"）； // expect: ok
+打印条（"ok"）； // expect: ok

@@ -1,1 +1,1 @@
-println（notDefined）；  // expect runtime error: Undefined variable 'notDefined'.
+打印条（notDefined）；  // expect runtime error: Undefined 变量 'notDefined'.

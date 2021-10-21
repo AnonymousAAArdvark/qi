@@ -1,10 +1,10 @@
-var a = "outer"；
+变量 a = "outer"；
 「
   功能 foo（）「
-    println（a）；
+    打印条（a）；
   」
 
   foo（）； // expect: outer
-  var a = "inner"；
+  变量 a = "inner"；
   foo（）； // expect: outer
 」

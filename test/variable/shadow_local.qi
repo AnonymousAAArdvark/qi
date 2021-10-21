@@ -1,8 +1,8 @@
 「
-  var a = "local"；
+  变量 a = "local"；
  「
-    var a = "shadow"；
-    println（a）； // expect: shadow
+    变量 a = "shadow"；
+    打印条（a）； // expect: shadow
   」
-  println（a）； // expect: local
+  打印条（a）； // expect: local
 」

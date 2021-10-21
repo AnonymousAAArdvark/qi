@@ -1,10 +1,10 @@
 「
-  var a = "a"；
-  println（a）； // expect: a
-  var b = a + " b"；
-  println（b）； // expect: a b
-  var c = a + " c"；
-  println（c）； // expect: a c
-  var d = b + " d"；
-  println（d）； // expect: a b d
+  变量 a = "a"；
+  打印条（a）； // expect: a
+  变量 b = a + " b"；
+  打印条（b）； // expect: a b
+  变量 c = a + " c"；
+  打印条（c）； // expect: a c
+  变量 d = b + " d"；
+  打印条（d）； // expect: a b d
 」

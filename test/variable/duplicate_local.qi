@@ -1,4 +1,4 @@
 「
-  var a = "value"；
-  var a = "other"； // Error at 'a': Already a variable with this name in this scope.
+  变量 a = "value"；
+  变量 a = "other"； // Error at 'a': Already a 变量 with this name in this scope.
 」
