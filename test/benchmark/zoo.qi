@@ -1,13 +1,13 @@
 类 Zoo「
   init（）「
-    这。aarvark  = 1；
+    这。aar变量k  = 1；
     这。baboon   = 1；
     这。cat      = 1；
     这。donkey   = 1；
     这。elephant = 1；
     这。fox      = 1；
   」
-  ant（）  「 返回 这。aarvark； 」
+  ant（）  「 返回 这。aar变量k； 」
   banana（）「 返回 这。baboon； 」
   tuna（） 「 返回 这。cat； 」
   hay（）  「 返回 这。donkey； 」
@@ -15,9 +15,9 @@
   mouse（）「 返回 这。fox； 」
 」
 
-var zoo = Zoo（）；
-var sum = 0；
-var start = clock（）；
+变量 zoo = Zoo（）；
+变量 sum = 0；
+变量 start = 时钟（）；
 循环（sum 小 10000000）「
   sum = sum + zoo。ant（）
             + zoo。banana（）
@@ -27,5 +27,5 @@ var start = clock（）；
             + zoo。mouse（）；
 」
 
-println（sum）；
-println（clock（）- start）；
+打印条（sum）；
+打印条（时钟（）- start）；

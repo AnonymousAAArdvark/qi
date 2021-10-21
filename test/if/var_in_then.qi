@@ -1,2 +1,2 @@
-// [line 2] Error at 'var': Expect expression.
-如果（真）var foo；
+// [line 2] Error at '变量': Expect expression.
+如果（真）变量 foo；

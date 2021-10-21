@@ -1,6 +1,6 @@
 功能 f（a，b）「
-  println（a）；
-  println（b）；
+  打印条（a）；
+  打印条（b）；
 」
 
 f（1，2，3，4）； // expect runtime error: Expected 2 arguments but got 4.

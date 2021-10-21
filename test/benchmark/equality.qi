@@ -1,6 +1,6 @@
-var i = 0；
+变量 i = 0；
 
-var loopStart = clock（）；
+变量 loopStart = 时钟（）；
 
 循环（i 小 10000000）「
   i = i + 1；
@@ -11,9 +11,9 @@ var loopStart = clock（）；
   "str"； "str"； "str"； "stru"； "str"； 1； "str"； 空； "str"； 真；
 」
 
-var loopTime = clock（）- loopStart；
+变量 loopTime = 时钟（）- loopStart；
 
-var start = clock（）；
+变量 start = 时钟（）；
 
 i = 0；
 循环（i 小 10000000）「
@@ -25,10 +25,10 @@ i = 0；
   "str" 等 "str"； "str" 等 "stru"； "str" 等 1； "str" 等 空； "str" 等 真；
 」
 
-var elapsed = clock（）- start；
-println（"loop"）；
-println（loopTime）；
-println（"elapsed"）；
-println（elapsed）；
-println（"equals"）；
-println（elapsed - loopTime）；
+变量 elapsed = 时钟（）- start；
+打印条（"loop"）；
+打印条（loopTime）；
+打印条（"elapsed"）；
+打印条（elapsed）；
+打印条（"equals"）；
+打印条（elapsed - loopTime）；

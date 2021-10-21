@@ -1,14 +1,14 @@
 // This is a regression test。 There was a bug where if an upvalue for an
 // earlier local （here "a"）was captured *after* a later one （"b"），then it
 // would crash because it walked to the end of the upvalue list （correct），but
-// then didn't handle not finding the variable。
+// then didn't handle not finding the 变量。
 
 功能 f（）「
-  var a = "a"；
-  var b = "b"；
+  变量 a = "a"；
+  变量 b = "b"；
   功能 g（）「
-    println（b）； // expect: b
-    println（a）； // expect: a
+    打印条（b）； // expect: b
+    打印条（a）； // expect: a
   」
   g（）；
 」

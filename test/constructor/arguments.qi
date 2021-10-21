@@ -1,11 +1,11 @@
 类 Foo「
   init（a，b）「
-    println（"init"）； // expect: init
+    打印条（"init"）； // expect: init
     这。a = a；
     这。b = b；
   」
 」
 
-var foo = Foo（1，2）；
-println（foo。a）； // expect: 1
-println（foo。b）； // expect: 2
+变量 foo = Foo（1，2）；
+打印条（foo。a）； // expect: 1
+打印条（foo。b）； // expect: 2

@@ -1,4 +1,4 @@
 类 Foo「」
 
-var foo = Foo（）；
-println（foo）； // expect: Foo instance
+变量 foo = Foo（）；
+打印条（foo）； // expect: Foo instance

@@ -1,9 +1,9 @@
-var f；
+变量 f；
 
 类 Foo「
   method（param）「
     功能 f下（）「
-      println（param）；
+      打印条（param）；
     」
     f = f下；
   」

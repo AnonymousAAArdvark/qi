@@ -1,22 +1,22 @@
 类 Foo「
   inFoo（）「
-    println（"in foo"）；
+    打印条（"in foo"）；
   」
 」
 
 类 Bar：Foo「
   inBar（）「
-    println（"in bar"）；
+    打印条（"in bar"）；
   」
 」
 
 类 Baz：Bar「
   inBaz（）「
-    println（"in baz"）；
+    打印条（"in baz"）；
   」
 」
 
-var baz = Baz（）；
+变量 baz = Baz（）；
 baz。inFoo（）； // expect: in foo
 baz。inBar（）； // expect: in bar
 baz。inBaz（）； // expect: in baz

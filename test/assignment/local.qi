@@ -1,10 +1,10 @@
 「
-  var a = "before"；
-  println（a）； // expect: before
+  变量 a = "before"；
+  打印条（a）； // expect: before
 
   a = "after"；
-  println（a）； // expect: after
+  打印条（a）； // expect: after
 
-  println（a = "arg"）； // expect: arg
-  println（a）； // expect: arg
+  打印条（a = "arg"）； // expect: arg
+  打印条（a）； // expect: arg
 」

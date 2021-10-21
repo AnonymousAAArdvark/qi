@@ -4,4 +4,4 @@
   」
 」
 
-println（Foo（）。返回Self（））； // expect: Foo
+打印条（Foo（）。返回Self（））； // expect: Foo

@@ -1,12 +1,10 @@
-功能 function（）「」
-类 klass「
-    method（）「」
+类 测试「
 」
-println（typeof（klass））； // expect: 类
-println（typeof（min））； // expect: native function
-println（typeof（klass（）））； // expect: instance
-println（typeof（""））； // expect: string
-println（typeof（【】））； // expect: list
-println（typeof（假））； // expect: 布尔
-println（typeof（0））； // expect: 数字
-println（typeof（空））； // expect: 空
+打印条（型（测试））； // expect: 类
+打印条（型（最小））； // expect: 本机功能
+打印条（型（测试（）））； // expect: 实例
+打印条（型（""））； // expect: 字符串
+打印条（型（【】））； // expect: 列表
+打印条（型（假））； // expect: 布尔
+打印条（型（0））； // expect: 数字
+打印条（型（空））； // expect: 空

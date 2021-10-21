@@ -5,4 +5,4 @@
   返回 B；
 」
 
-println（f（））； // expect: B
+打印条（f（））； // expect: B

@@ -1,6 +1,6 @@
 类 A「
   foo（）「
-    println（"A。foo（）"）；
+    打印条（"A。foo（）"）；
   」
 」
 
@@ -8,8 +8,8 @@
 
 类 C：B「
   foo（）「
-    println（"C。foo（）"）；
-    super。foo（）；
+    打印条（"C。foo（）"）；
+    超。foo（）；
   」
 」
 

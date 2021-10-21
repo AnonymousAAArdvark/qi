@@ -1,7 +1,7 @@
 「
   功能 isEven（n）「
     如果（n 等 0）返回 真；
-    返回 isOdd（n - 1）； // expect runtime error: Undefined variable 'isOdd'.
+    返回 isOdd（n - 1）； // expect runtime error: Undefined 变量 'isOdd'.
   」
 
   功能 isOdd（n）「

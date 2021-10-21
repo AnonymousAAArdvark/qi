@@ -1,6 +1,6 @@
 类 Foo「」
 
-var foo = Foo（）；
+变量 foo = Foo（）；
 foo。bar = "not fn"；
 
 foo。bar（）； // expect runtime error: Can only call functions and 类es.

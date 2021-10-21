@@ -3,4 +3,4 @@
   baz（）「 返回 "baz"； 」
 」
 
-println（Foo（）。bar（）。baz（））； // expect: baz
+打印条（Foo（）。bar（）。baz（））； // expect: baz

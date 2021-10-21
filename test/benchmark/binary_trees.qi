@@ -3,7 +3,7 @@
     这。项 = 项；
     这。深 = 深；
     如果（深 大 0）「
-      var 项2 = 项 + 项；
+      变量 项2 = 项 + 项；
       深 = 深 - 1；
       这。左 = 树（项2 - 1，深）；
       这。右 = 树（项2，深）；
@@ -22,50 +22,50 @@
   」
 」
 
-var minDepth = 4；
-var maxDepth = 14；
-var stretchDepth = maxDepth + 1；
+变量 minDepth = 4；
+变量 maxDepth = 14；
+变量 stretchDepth = maxDepth + 1；
 
-var start = clock（）；
+变量 start = 时钟（）；
 
-println（"stretch tree of 深："）；
-println（stretchDepth）；
-println（"check："）；
-println（树（0，stretchDepth）。check（））；
+打印条（"stretch tree of 深："）；
+打印条（stretchDepth）；
+打印条（"check："）；
+打印条（树（0，stretchDepth）。check（））；
 
-var longLived树 = 树（0，maxDepth）；
+变量 longLived树 = 树（0，maxDepth）；
 
 // iterations = 2 ** maxDepth
-var iterations = 1；
-var d = 0；
+变量 iterations = 1；
+变量 d = 0；
 循环（d 小 maxDepth）「
   iterations = iterations * 2；
   d = d + 1；
 」
 
-var 深 = minDepth；
+变量 深 = minDepth；
 循环（深 小 stretchDepth）「
-  var check = 0；
-  var i = 1；
+  变量 check = 0；
+  变量 i = 1；
   循环（i 小等 iterations）「
     check = check + 树（i，深）。check（）+ 树（-i，深）。check（）；
     i = i + 1；
   」
 
-  println（"num trees："）；
-  println（iterations * 2）；
-  println（"深："）；
-  println（深）；
-  println（"check："）；
-  println（check）；
+  打印条（"num trees："）；
+  打印条（iterations * 2）；
+  打印条（"深："）；
+  打印条（深）；
+  打印条（"check："）；
+  打印条（check）；
 
   iterations = iterations / 4；
   深 = 深 + 2；
 」
 
-println（"long lived tree of 深："）；
-println（maxDepth）；
-println（"check："）；
-println（longLived树。check（））；
-println（"elapsed："）；
-println（clock（）- start）；
+打印条（"long lived tree of 深："）；
+打印条（maxDepth）；
+打印条（"check："）；
+打印条（longLived树。check（））；
+打印条（"elapsed："）；
+打印条（时钟（）- start）；

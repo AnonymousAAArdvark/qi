@@ -1,1 +1,1 @@
-unknown = "what"； // expect runtime error: Undefined variable 'unknown'.
+unknown = "what"； // expect runtime error: Undefined 变量 'unknown'.

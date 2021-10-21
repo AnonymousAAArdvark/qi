@@ -1,7 +1,7 @@
 类 Foo「
   method（a，b）「
-    println（a）；
-    println（b）；
+    打印条（a）；
+    打印条（b）；
   」
 」
 

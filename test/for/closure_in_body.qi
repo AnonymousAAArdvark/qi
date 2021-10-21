@@ -1,12 +1,12 @@
-var f1；
-var f2；
-var f3；
+变量 f1；
+变量 f2；
+变量 f3；
 
-对于（var i = 1； i 小 4； i = i + 1）「
-  var j = i；
+对于（变量 i = 1； i 小 4； i = i + 1）「
+  变量 j = i；
   功能 f（）「
-    println（i）；
-    println（j）；
+    打印条（i）；
+    打印条（j）；
   」
 
   如果（j 等 1）f1 = f；

@@ -1,5 +1,5 @@
 「
   类 A「」
   类 B：A「」
-  println（B）； // expect: B
+  打印条（B）； // expect: B
 」

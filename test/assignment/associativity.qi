@@ -1,9 +1,9 @@
-var a = "a"；
-var b = "b"；
-var c = "c"；
+变量 a = "a"；
+变量 b = "b"；
+变量 c = "c"；
 
 // Assignment is right-associative。
 a = b = c；
-println（a）； // expect: c
-println（b）； // expect: c
-println（c）； // expect: c
+打印条（a）； // expect: c
+打印条（b）； // expect: c
+打印条（c）； // expect: c

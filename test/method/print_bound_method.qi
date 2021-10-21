@@ -1,5 +1,5 @@
 类 Foo「
   method（）「 」
 」
-var foo = Foo（）；
-println（foo。method）； // expect: <fn method>
+变量 foo = Foo（）；
+打印条（foo。method）； // expect: <fn method>

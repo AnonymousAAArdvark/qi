@@ -1,12 +1,12 @@
 「
-  var foo = "closure"；
+  变量 foo = "closure"；
   功能 f（）「
    「
-      println（foo）； // expect: closure
-      var foo = "shadow"；
-      println（foo）； // expect: shadow
+      打印条（foo）； // expect: closure
+      变量 foo = "shadow"；
+      打印条（foo）； // expect: shadow
     」
-    println（foo）； // expect: closure
+    打印条（foo）； // expect: closure
   」
   f（）；
 」

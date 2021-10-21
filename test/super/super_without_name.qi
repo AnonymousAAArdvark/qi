@@ -2,6 +2,6 @@
 
 类 B：A「
   method（）「
-    super。； // Error at '；': Expect super类 method name.
+    超。； // Error at '；': Expect 超类 method name.
   」
 」

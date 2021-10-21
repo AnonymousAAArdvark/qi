@@ -2,7 +2,7 @@
     string【0】= rep； // expect runtime error: Expected string of length 1 but got length 2.
 」
 
-var foo = "test"；
+变量 foo = "test"；
 modifyString（foo，"j"）；
-println（foo）； // expect: jest
+打印条（foo）； // expect: jest
 modifyString（foo，"gu"）；

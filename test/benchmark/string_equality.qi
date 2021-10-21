@@ -1,15 +1,15 @@
-var a1 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1"；
-var a2 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa2"；
-var a3 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa3"；
-var a4 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa4"；
-var a5 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa5"；
-var a6 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa6"；
-var a7 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa7"；
-var a8 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa8"；
+变量 a1 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1"；
+变量 a2 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa2"；
+变量 a3 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa3"；
+变量 a4 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa4"；
+变量 a5 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa5"；
+变量 a6 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa6"；
+变量 a7 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa7"；
+变量 a8 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa8"；
 
-var i = 0；
+变量 i = 0；
 
-var loopStart = clock（）；
+变量 loopStart = 时钟（）；
 
 循环（i 小 100000）「
   i = i + 1；
@@ -105,9 +105,9 @@ var loopStart = clock（）；
   a8； a1； a8； a2； a8； a3； a8； a4； a8； a5； a8； a6； a8； a7； a8； a8；
 」
 
-var loopTime = clock（）- loopStart；
+变量 loopTime = 时钟（）- loopStart；
 
-var start = clock（）；
+变量 start = 时钟（）；
 
 i = 0；
 循环（i 小 100000）「
@@ -210,10 +210,10 @@ i = 0；
 
 」
 
-var elapsed = clock（）- start；
-println（"loop"）；
-println（loopTime）；
-println（"elapsed"）；
-println（elapsed）；
-println（"equals"）；
-println（elapsed - loopTime）；
+变量 elapsed = 时钟（）- start；
+打印条（"loop"）；
+打印条（loopTime）；
+打印条（"elapsed"）；
+打印条（elapsed）；
+打印条（"equals"）；
+打印条（elapsed - loopTime）；

@@ -1,19 +1,19 @@
 // Note：These tests implicitly depend on ints being truthy。
 
 // 返回 the first 真 argument。
-println（1 或 真）； // expect: 1
-println（假 或 1）； // expect: 1
-println（假 或 假 或 真）； // expect: 真
+打印条（1 或 真）； // expect: 1
+打印条（假 或 1）； // expect: 1
+打印条（假 或 假 或 真）； // expect: 真
 
 // 返回 the last argument if all are 假。
-println（假 或 假）； // expect: 假
-println（假 或 假 或 假）； // expect: 假
+打印条（假 或 假）； // expect: 假
+打印条（假 或 假 或 假）； // expect: 假
 
 // Short-circuit at the first 真 argument。
-var a = "before"；
-var b = "before"；
+变量 a = "before"；
+变量 b = "before"；
 （a = 假）或
    （b = 真）或
    （a = "bad"）；
-println（a）； // expect: 假
-println（b）； // expect: 真
+打印条（a）； // expect: 假
+打印条（b）； // expect: 真

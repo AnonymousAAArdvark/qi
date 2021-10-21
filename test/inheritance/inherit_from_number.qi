@@ -1,2 +1,2 @@
-var Number = 123；
-类 Foo：Number「」// expect runtime error: Super类 must be a 类.
+变量 Number = 123；
+类 Foo：Number「」// expect runtime error: 超类 must be a 类.

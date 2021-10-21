@@ -13,7 +13,7 @@
 
 类 NthToggle：Toggle「
   init（startState，maxCounter）「
-    super。init（startState）；
+    超。init（startState）；
     这。countMax = maxCounter；
     这。count = 0；
   」
@@ -21,7 +21,7 @@
   activate（）「
     这。count = 这。count + 1；
     如果（这。count 大等 这。countMax）「
-      super。activate（）；
+      超。activate（）；
       这。count = 0；
     」
 
@@ -29,12 +29,12 @@
   」
 」
 
-var start = clock（）；
-var n = 100000；
-var val = 真；
-var toggle = Toggle（val）；
+变量 start = 时钟（）；
+变量 n = 100000；
+变量 val = 真；
+变量 toggle = Toggle（val）；
 
-对于（var i = 0； i 小 n； i = i + 1）「
+对于（变量 i = 0； i 小 n； i = i + 1）「
   val = toggle。activate（）。value（）；
   val = toggle。activate（）。value（）；
   val = toggle。activate（）。value（）；
@@ -47,12 +47,12 @@ var toggle = Toggle（val）；
   val = toggle。activate（）。value（）；
 」
 
-println（toggle。value（））；
+打印条（toggle。value（））；
 
 val = 真；
-var ntoggle = NthToggle（val，3）；
+变量 ntoggle = NthToggle（val，3）；
 
-对于（var i = 0； i 小 n； i = i + 1）「
+对于（变量 i = 0； i 小 n； i = i + 1）「
   val = ntoggle。activate（）。value（）；
   val = ntoggle。activate（）。value（）；
   val = ntoggle。activate（）。value（）；
@@ -65,5 +65,5 @@ var ntoggle = NthToggle（val，3）；
   val = ntoggle。activate（）。value（）；
 」
 
-println（ntoggle。value（））；
-println（clock（）- start）；
+打印条（ntoggle。value（））；
+打印条（时钟（）- start）；

@@ -1,8 +1,8 @@
-var a = "outer"；
+变量 a = "outer"；
 
 「
-  var a = "inner"；
-  println（a）； // expect: inner
+  变量 a = "inner"；
+  打印条（a）； // expect: inner
 」
 
-println（a）； // expect: outer
+打印条（a）； // expect: outer

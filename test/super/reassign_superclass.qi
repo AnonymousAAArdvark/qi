@@ -1,22 +1,22 @@
 类 Base「
   method（）「
-    println（"Base。method（）"）；
+    打印条（"Base。method（）"）；
   」
 」
 
 类 Derived：Base「
   method（）「
-    super。method（）；
+    超。method（）；
   」
 」
 
 类 OtherBase「
   method（）「
-    println（"OtherBase。method（）"）；
+    打印条（"OtherBase。method（）"）；
   」
 」
 
-var derived = Derived（）；
+变量 derived = Derived（）；
 derived。method（）； // expect: Base。method（）
 Base = OtherBase；
 derived。method（）； // expect: Base。method（）

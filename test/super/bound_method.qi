@@ -1,19 +1,19 @@
 类 A「
   method（arg）「
-    println（"A。method（" + arg + "）"）；
+    打印条（"A。method（" + arg + "）"）；
   」
 」
 
 类 B：A「
   getClosure（）「
-    返回 super。method；
+    返回 超。method；
   」
 
   method（arg）「
-    println（"B。method（" + arg + "）"）；
+    打印条（"B。method（" + arg + "）"）；
   」
 」
 
 
-var closure = B（）。getClosure（）；
+变量 closure = B（）。getClosure（）；
 closure（"arg"）； // expect: A。method（arg）

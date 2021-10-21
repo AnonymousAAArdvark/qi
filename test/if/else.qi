@@ -1,6 +1,6 @@
 // Evaluate the 'else' expression if the condition is 假。
-如果（真）println（"good"）； 否则 println（"bad"）； // expect: good
-如果（假）println（"bad"）； 否则 println（"good"）； // expect: good
+如果（真）打印条（"good"）； 否则 打印条（"bad"）； // expect: good
+如果（假）打印条（"bad"）； 否则 打印条（"good"）； // expect: good
 
 // Allow block body.
-如果（假）空； 否则「 println（"block"）； 」// expect: block
+如果（假）空； 否则「 打印条（"block"）； 」// expect: block

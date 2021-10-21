@@ -4,11 +4,11 @@
   」
 
   test（）「
-    println（这。field）；
+    打印条（这。field）；
   」
 」
 
 类 B：A「」
 
-var b = B（"value"）；
+变量 b = B（"value"）；
 b。test（）； // expect: value

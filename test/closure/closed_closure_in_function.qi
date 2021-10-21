@@ -1,9 +1,9 @@
-var f；
+变量 f；
 
 「
-  var local = "local"；
+  变量 local = "local"；
   功能 f下（）「
-    println（local）；
+    打印条（local）；
   」
   f = f下；
 」
