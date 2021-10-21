@@ -27,19 +27,19 @@ wchar_t* getType(Value value) {
     else if (IS_NIL(value)) return L"空";
     else if (IS_OBJ(value)) {
         switch (AS_OBJ(value)->type) {
-            case OBJ_NATIVE: return L"native function";
-            case OBJ_BOUND_METHOD: return L"bound method";
-            case OBJ_INSTANCE: return L"instance";
-            case OBJ_FUNCTION: return L"function";
-            case OBJ_STRING: return L"string";
-            case OBJ_LIST: return L"list";
-            case OBJ_UPVALUE: return L"upvalue";
-            case OBJ_CLOSURE: return L"closure";
+            case OBJ_NATIVE: return L"本机功能";
+            case OBJ_BOUND_METHOD: return L"绑定方法";
+            case OBJ_INSTANCE: return L"实例";
+            case OBJ_FUNCTION: return L"功能";
+            case OBJ_STRING: return L"字符串";
+            case OBJ_LIST: return L"列表";
+            case OBJ_UPVALUE: return L"升值";
+            case OBJ_CLOSURE: return L"关闭";
             case OBJ_CLASS: return L"类";
         }
     }
     // Unreachable.
-    return L"unknown";
+    return L"未知";
 }
 
 bool printNative(int argCount, Value* args) {
