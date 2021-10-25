@@ -1,7 +1,7 @@
 变量 a = "outer"；
 「
   功能 foo（）「
-    打印条（a）；
+    打印行（a）；
   」
 
   foo（）； // expect: outer

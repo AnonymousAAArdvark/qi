@@ -1,4 +1,4 @@
 功能 foo（arg，
-        arg）「 // Error at 'arg': Already a 变量 with this name in this scope.
+        arg）「 // 错误在「arg」：Already a 变量 with this name in this scope.
   "body"；
 」

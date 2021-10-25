@@ -1,4 +1,4 @@
 变量 a = "outer"；
 「
-  变量 a = a； // Error at 'a': Can't read local 变量 in its own initializer.
+  变量 a = a； // 错误在「a」：Can't read local 变量 in its own initializer.
 」

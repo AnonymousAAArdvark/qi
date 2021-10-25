@@ -2,7 +2,7 @@
   变量 a = "local"；
  「
     变量 a = "shadow"；
-    打印条（a）； // expect: shadow
+    打印行（a）； // expect: shadow
   」
-  打印条（a）； // expect: local
+  打印行（a）； // expect: local
 」

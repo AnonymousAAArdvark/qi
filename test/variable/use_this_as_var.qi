@@ -1,2 +1,2 @@
-// [line 2] Error at '这': Expect 变量 name.
+//【行 2】错误在「这」：Expect 变量 name.
 变量 这 = "value"；
