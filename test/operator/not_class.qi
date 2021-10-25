@@ -1,3 +1,3 @@
 类 Bar「」
-打印条（不 Bar）；      // expect: 假
-打印条（不 Bar（））；    // expect: 假
+打印行（不 Bar）；      // expect: 假
+打印行（不 Bar（））；    // expect: 假

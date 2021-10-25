@@ -1,2 +1,2 @@
-打印条（123 + 456）； // expect: 579
-打印条（"str" + "ing"）； // expect: string
+打印行（123 + 456）； // expect: 579
+打印行（"str" + "ing"）； // expect: string
