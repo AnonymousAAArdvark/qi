@@ -22,10 +22,10 @@ var none = "\u001b[0m"
 var resetColor = "\u001b[39m"
 
 var expectedOutputPattern, _ = regexp.Compile(`// expect: ?(.*)`)
-var expectedErrorPattern, _ = regexp.Compile(`// (Error.*)`)
-var errorLinePattern, _ = regexp.Compile(`// \[((java|c) )?line (\d+)] (Error.*)`)
+var expectedErrorPattern, _ = regexp.Compile(`// (错误.*)`)
+var errorLinePattern, _ = regexp.Compile(`//【行 (\d+)】(错误.*)`)
 var expectedRuntimeErrorPattern, _ = regexp.Compile(`// expect runtime error: (.+)`)
-var syntaxErrorPattern, _ = regexp.Compile(`\[.*line (\d+)] (Error.+)`)
+var syntaxErrorPattern, _ = regexp.Compile(`【.*行 (\d+)】(错误.+)`)
 var stackTracePattern, _ = regexp.Compile(`\[line (\d+)]`)
 var nonTestPattern, _ = regexp.Compile(`// nontest`)
 
@@ -181,13 +181,10 @@ func parse(test Test) (Test, bool) {
 
 		match = errorLinePattern.FindStringSubmatch(line)
 		if len(match) != 0 {
-			language := match[2]
-			if language != "java" {
-				test.expectedErrors = append(test.expectedErrors, fmt.Sprintf("[%s] %s", match[3], match[4]))
+            test.expectedErrors = append(test.expectedErrors, fmt.Sprintf("[%s] %s", match[1], match[2]))
 
-				test.expectedExitCode = 65
-				expectations++
-			}
+            test.expectedExitCode = 65
+            expectations++
 			continue
 		}
 
