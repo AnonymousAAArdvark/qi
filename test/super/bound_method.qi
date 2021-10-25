@@ -1,6 +1,6 @@
 类 A「
   method（arg）「
-    打印条（"A。method（" + arg + "）"）；
+    打印行（"A。method（" + arg + "）"）；
   」
 」
 
@@ -10,7 +10,7 @@
   」
 
   method（arg）「
-    打印条（"B。method（" + arg + "）"）；
+    打印行（"B。method（" + arg + "）"）；
   」
 」
 

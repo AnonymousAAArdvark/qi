@@ -1,6 +1,6 @@
 类 Base「
   method（）「
-    打印条（"Base。method（）"）；
+    打印行（"Base。method（）"）；
   」
 」
 
@@ -12,7 +12,7 @@
 
 类 OtherBase「
   method（）「
-    打印条（"OtherBase。method（）"）；
+    打印行（"OtherBase。method（）"）；
   」
 」
 

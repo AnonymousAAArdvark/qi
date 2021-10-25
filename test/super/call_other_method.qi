@@ -1,12 +1,12 @@
 类 Base「
   foo（）「
-    打印条（"Base。foo（）"）；
+    打印行（"Base。foo（）"）；
   」
 」
 
 类 Derived：Base「
   bar（）「
-    打印条（"Derived。bar（）"）；
+    打印行（"Derived。bar（）"）；
     超。foo（）；
   」
 」
