@@ -1,6 +1,6 @@
 变量 test =【10，11.5，1.5，1.05，1.005】；
-对于（变量 i = 0； i 小 test。length（）； i++）「
+对于（变量 i = 0； i 小 test。长度（）； i++）「
     test【i】= 四舍五入（test【i】，1）；
 」
-打印条（test）； // expect:【10，11.5，1.5，1.1，1】
+打印行（test）； // expect:【10，11.5，1.5，1.1，1】
 四舍五入（）； // expect runtime error: Expected 1 to 2 arguments but got 0.
