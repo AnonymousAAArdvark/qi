@@ -1,7 +1,7 @@
 变量 a = "1
 2
 3"；
-打印条（a）；
+打印行（a）；
 // expect: 1
 // expect: 2
 // expect: 3

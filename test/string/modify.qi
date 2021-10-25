@@ -4,5 +4,5 @@
 
 变量 foo = "test"；
 modifyString（foo，"j"）；
-打印条（foo）； // expect: jest
+打印行（foo）； // expect: jest
 modifyString（foo，"gu"）；
