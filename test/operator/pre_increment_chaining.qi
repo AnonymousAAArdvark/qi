@@ -1,5 +1,5 @@
 变量 i = 2；
-打印行（---i）； //【行 2】错误在「i」：Expression is not assignable.
-打印行（----i）； //【行 3】错误在「i」：Expression is not assignable.
-打印行（++--i）； //【行 4】错误在「i」：Expression is not assignable.
-打印行（--++i）； //【行 5】错误在「i」：Expression is not assignable.
+打印行（---i）； //【行 2】错误在「i」：表达式不可赋值。
+打印行（----i）； //【行 3】错误在「i」：表达式不可赋值。
+打印行（++--i）； //【行 4】错误在「i」：表达式不可赋值。
+打印行（--++i）； //【行 5】错误在「i」：表达式不可赋值。
