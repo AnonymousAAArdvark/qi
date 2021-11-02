@@ -5,8 +5,8 @@
   」
 
   fooPrint（）「
-    打印条（这。field1）；
-    打印条（这。field2）；
+    打印行（这。field1）；
+    打印行（这。field2）；
   」
 」
 
@@ -17,8 +17,8 @@
   」
 
   barPrint（）「
-    打印条（这。field1）；
-    打印条（这。field2）；
+    打印行（这。field1）；
+    打印行（这。field2）；
   」
 」
 

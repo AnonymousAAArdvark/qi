@@ -1,4 +1,4 @@
 类 Foo「」
 
-// [line 4] Error at '（': Expect 超类 name.
+//【行 4】错误在「（」：期待超类名。
 类 Bar：（Foo）「」
