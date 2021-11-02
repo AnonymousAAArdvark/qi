@@ -2,4 +2,4 @@
   bar（）「」
 」
 
-打印条（Foo（）。bar（））； // expect: 空
+打印行（Foo（）。bar（））； // expect: 空

@@ -1,6 +1,6 @@
 类 Foo「
   method（）「
-    打印条（method）； // expect runtime error: Undefined 变量 'method'.
+    打印行（method）； // expect runtime error: Undefined 变量 'method'.
   」
 」
 
