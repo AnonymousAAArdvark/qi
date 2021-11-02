@@ -1,1 +1,1 @@
-返回 "wat"； // 错误在「返回」：Can't 返回 from top-level code.
+返回 "wat"； // 错误在「返回」：无法从顶级代码返回。
