@@ -70,11 +70,11 @@ void initVM() {
     initTable(&vm.strings);
 
     vm.initString = NULL;
-    vm.initString = copyString(L"init", 4);
+    vm.initString = copyString(L"初始化", 3);
     vm.markValue = true;
 
     defineNative(L"打印", printNative, 1);
-    defineNative(L"打印条", printlnNative, 1);
+    defineNative(L"打印行", printlnNative, 1);
     defineNative(L"扫描", scanNative, 0);
     defineNative(L"时钟", clockNative, 0);
     defineNative(L"平方根", sqrtNative, 1);
@@ -193,12 +193,12 @@ static bool invokeInstance(const Value* receiver, ObjString* name, int argCount,
 }
 
 static bool invokeString(const Value* receiver, ObjString* name, int argCount, CallFrame* frame, uint8_t* ip) {
-    if (wcscmp(name->chars, L"length") == 0) {
+    if (wcscmp(name->chars, L"长度") == 0) {
         // Returns the length of the string
         vm.stackTop -= argCount + 1;
         push(NUMBER_VAL(AS_STRING(*receiver)->length));
         return true;
-    } else if (wcscmp(name->chars, L"upper") == 0) {
+    } else if (wcscmp(name->chars, L"大写") == 0) {
         // Returns a string where all characters are in upper case.
         ObjString* str = AS_STRING(*receiver);
 
@@ -215,7 +215,7 @@ static bool invokeString(const Value* receiver, ObjString* name, int argCount, C
         vm.stackTop -= argCount + 1;
         push(OBJ_VAL(result));
         return true;
-    } else if (wcscmp(name->chars, L"lower") == 0) {
+    } else if (wcscmp(name->chars, L"小写") == 0) {
         // Returns a string where all characters are in lower case.
         ObjString* str = AS_STRING(*receiver);
 
@@ -232,7 +232,7 @@ static bool invokeString(const Value* receiver, ObjString* name, int argCount, C
         vm.stackTop -= argCount + 1;
         push(OBJ_VAL(result));
         return true;
-    } else if (wcscmp(name->chars, L"substring") == 0) {
+    } else if (wcscmp(name->chars, L"子串") == 0) {
         // Returns a part of a string between given indexes
         if (argCount != 2) {
             frame->ip = ip;
@@ -283,7 +283,7 @@ static bool invokeString(const Value* receiver, ObjString* name, int argCount, C
 }
 
 static bool invokeList(const Value* receiver, ObjString* name, int argCount, CallFrame* frame, uint8_t* ip) {
-    if (wcscmp(name->chars, L"push") == 0) {
+    if (wcscmp(name->chars, L"推") == 0) {
         // Push a value to the end of a list increasing the list's length by 1
         if (argCount != 1) {
             frame->ip = ip;
@@ -296,7 +296,7 @@ static bool invokeList(const Value* receiver, ObjString* name, int argCount, Cal
         vm.stackTop -= argCount + 1;
         push(NIL_VAL);
         return true;
-    } else if (wcscmp(name->chars, L"pop") == 0) {
+    } else if (wcscmp(name->chars, L"弹") == 0) {
         // Pop a value from the end of a list decreasing the list's length by 1
         if (argCount != 0) {
             frame->ip = ip;
@@ -316,7 +316,7 @@ static bool invokeList(const Value* receiver, ObjString* name, int argCount, Cal
         vm.stackTop -= argCount + 1;
         push(NIL_VAL);
         return true;
-    } else if (wcscmp(name->chars, L"insert") == 0) {
+    } else if (wcscmp(name->chars, L"插") == 0) {
         // Insert a value to the specified index of a list increasing the list's length by 1
         if (argCount != 2) {
             frame->ip = ip;
@@ -343,7 +343,7 @@ static bool invokeList(const Value* receiver, ObjString* name, int argCount, Cal
         vm.stackTop -= argCount + 1;
         push(NIL_VAL);
         return true;
-    } else if (wcscmp(name->chars, L"delete") == 0) {
+    } else if (wcscmp(name->chars, L"删") == 0) {
         // Delete an item from a list at the given index.
         if (argCount != 1) {
             frame->ip = ip;
@@ -369,7 +369,7 @@ static bool invokeList(const Value* receiver, ObjString* name, int argCount, Cal
         vm.stackTop -= argCount + 1;
         push(NIL_VAL);
         return true;
-    } else if (wcscmp(name->chars, L"length") == 0) {
+    } else if (wcscmp(name->chars, L"长度") == 0) {
         // Returns the length of the list
         vm.stackTop -= argCount + 1;
         push(NUMBER_VAL(AS_LIST(*receiver)->count));
