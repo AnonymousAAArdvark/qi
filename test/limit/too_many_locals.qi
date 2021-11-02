@@ -49,5 +49,5 @@
   变量 vf0； 变量 vf1； 变量 vf2； 变量 vf3； 变量 vf4； 变量 vf5； 变量 vf6； 变量 vf7；
   变量 vf8； 变量 vf9； 变量 vfa； 变量 vfb； 变量 vfc； 变量 vfd； 变量 vfe； 变量 vff；
 
-  变量 oops； // Error at 'oops': Too many local 变量 in function.
+  变量 oops； // 错误在「oops」：功能中的局部变量太多。
 」

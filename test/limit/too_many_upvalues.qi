@@ -99,7 +99,7 @@
       vf0； vf1； vf2； vf3； vf4； vf5； vf6； vf7；
       vf8； vf9； vfa； vfb； vfc； vfd； vfe； vff；
 
-      oops； // Error at 'oops': Too many closure 变量 in function.
+      oops； // 错误在「oops」：功能中的闭包变量太多。
     」
   」
 」
