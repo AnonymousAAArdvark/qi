@@ -4,8 +4,6 @@
 #include <locale.h>
 
 #include "common.h"
-#include "chunk.h"
-#include "debug.h"
 #include "vm.h"
 
 static void repl() {
@@ -61,16 +59,7 @@ static void runFile(const char* path) {
 
 int main(int argc, const char* argv[]) {
     setlocale(LC_ALL, "");
-//    int i;
-//    wchar_t chinese[] = L"我不是中国人。";
-//    for(i = 0; chinese[i]; ++i)
-//    {
-//        if(chinese[i] == L'不')
-//            wprintf(L"%lc", chinese[i]);
-//        if(chinese[i] == L'\u4E0D')
-//            wprintf(L"also found\n");
-//    }
-//
+
     initVM();
 
     if (argc == 1) {
