@@ -22,6 +22,24 @@ stdint.h
 wchar.h
 -
 
+/Users/andrewyang/CLionProjects/qi/src/compiler.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+common.h
+/Users/andrewyang/CLionProjects/qi/src/common.h
+compiler.h
+/Users/andrewyang/CLionProjects/qi/src/compiler.h
+memory.h
+/Users/andrewyang/CLionProjects/qi/src/memory.h
+scanner.h
+/Users/andrewyang/CLionProjects/qi/src/scanner.h
+debug.h
+/Users/andrewyang/CLionProjects/qi/src/debug.h
+
 /Users/andrewyang/CLionProjects/qi/src/compiler.h
 object.h
 /Users/andrewyang/CLionProjects/qi/src/object.h
@@ -57,6 +75,8 @@ table.h
 /Users/andrewyang/CLionProjects/qi/src/table.h
 value.h
 /Users/andrewyang/CLionProjects/qi/src/value.h
+
+/Users/andrewyang/CLionProjects/qi/src/scanner.h
 
 /Users/andrewyang/CLionProjects/qi/src/table.h
 

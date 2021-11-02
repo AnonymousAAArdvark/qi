@@ -43,7 +43,6 @@ CMakeFiles/qi.dir/lib.c.o: \
 CMakeFiles/qi.dir/main.c.o: \
  ../chunk.h \
  ../common.h \
- ../debug.h \
  ../main.c \
  ../object.h \
  ../table.h \

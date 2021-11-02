@@ -84,6 +84,7 @@ ClassCompiler* currentClass = NULL;
 
 int innermostLoopStart = -1;
 int innermostLoopScopeDepth = 0;
+int innermostSwitchStart = -1;
 
 static Chunk* currentChunk() {
     return &current->function->chunk;
@@ -92,17 +93,17 @@ static Chunk* currentChunk() {
 static void errorAt(Token* token, const wchar_t* message) {
     if (parser.panicMode) return;
     parser.panicMode = true;
-    fwprintf(stderr, L"[line %d] Error", token->line);
+    fwprintf(stderr, L"【行 %d】错误", token->line);
 
     if (token->type == TOKEN_EOF) {
-        fwprintf(stderr, L" at end");
+        fwprintf(stderr, L"在末尾");
     } else if (token->type == TOKEN_ERROR) {
         // Nothing.
     } else {
-        fwprintf(stderr, L" at '%.*ls'", token->length, token->start);
+        fwprintf(stderr, L"在「%.*ls」", token->length, token->start);
     }
 
-    fwprintf(stderr, L": %ls\n", message);
+    fwprintf(stderr, L"：%ls\n", message);
     parser.hadError = true;
 }
 
@@ -157,7 +158,7 @@ static void emitLoop(int loopStart) {
     emitByte(OP_LOOP);
 
     int offset = currentChunk()->count - loopStart + 2;
-    if (offset > UINT16_MAX) error(L"Loop body too large.");
+    if (offset > UINT16_MAX) error(L"循环太大。");
 
     emitByte((offset >> 8) & 0xff);
     emitByte(offset & 0xff);
@@ -183,7 +184,7 @@ static void emitReturn() {
 static uint8_t makeConstant(Value value) {
     int constant = addConstant(currentChunk(), value);
     if (constant > UINT8_MAX) {
-        error(L"Too many constants in one chunk.");
+        error(L"太多常量在一个块中里面。");
         return 0;
     }
 
@@ -199,7 +200,7 @@ static void patchJump(int offset) {
     int jump = currentChunk()->count - offset - 2;
 
     if (jump > UINT16_MAX) {
-        error(L"Too much code to jump over.");
+        error(L"代码太多，无法跳过。");
     }
 
     currentChunk()->code[offset] = (jump >> 8) & 0xff;
@@ -238,7 +239,7 @@ static ObjFunction* endCompiler() {
 #ifdef DEBUG_PRINT_CODE
     if (!parser.hadError) {
         disassembleChunk(currentChunk(), function->name != NULL
-            ? function->name->chars : L"<script>");
+            ? function->name->chars : L"《脚本》");
     }
 #endif
 
@@ -285,7 +286,7 @@ static int resolveLocal(Compiler* compiler, Token* name) {
         Local* local = &compiler->locals[i];
         if (identifiersEqual(name, &local->name)) {
             if (local->depth == -1) {
-                error(L"Can't read local 变量 in its own initializer.");
+                error(L"无法在自己的初始化器中读取局部变量。");
             }
             return i;
         }
@@ -305,7 +306,7 @@ static int addUpvalue(Compiler* compiler, uint8_t index, bool isLocal) {
     }
 
     if (upvalueCount == UINT8_COUNT) {
-        error(L"Too many closure 变量 in function.");
+        error(L"功能中的闭包变量太多。");
         return 0;
     }
 
@@ -333,7 +334,7 @@ static int resolveUpvalue(Compiler* compiler, Token* name) {
 
 static void addLocal(Token name) {
     if (current->localCount == UINT8_COUNT) {
-        error(L"Too many local 变量 in function.");
+        error(L"功能中的局部变量太多。");
         return;
     }
 
@@ -354,7 +355,7 @@ static void declareVariable() {
         }
 
         if (identifiersEqual(name, &local->name)) {
-            error(L"Already a 变量 with this name in this scope.");
+            error(L"在这个范围内已经有了这个名字的变量。");
         }
     }
 
@@ -390,12 +391,12 @@ static uint8_t argumentList() {
         do {
             expression();
             if (argCount == 255) {
-                error(L"Can't have more than 255 arguments.");
+                error(L"不能有超过255个参数。");
             }
             argCount++;
         } while (match(TOKEN_COMMA));
     }
-    consume(TOKEN_RIGHT_PAREN, L"Expect ')' after arguments.");
+    consume(TOKEN_RIGHT_PAREN, L"参数后期待「 ）」");
     return argCount;
 }
 
@@ -462,7 +463,7 @@ static void postfix(bool canAssign) {
                 emitByte(operatorType == TOKEN_PLUS_PLUS ? OP_DECREMENT : OP_INCREMENT);
                 break;
             }
-            error(L"Expression is not assignable.");
+            error(L"表达式不可赋值。");
             break;
         }
         default: return; // Unreachable.
@@ -475,7 +476,7 @@ static void call(bool canAssign) {
 }
 
 static void dot(bool canAssign) {
-    consume(TOKEN_IDENTIFIER, L"Expect property name after '.'.");
+    consume(TOKEN_IDENTIFIER, L"期待在「 。」之后的属性名称。");
     uint8_t name = identifierConstant(&parser.previous);
     if (canAssign && match(TOKEN_EQUAL)) {
         expression();
@@ -507,7 +508,7 @@ static void literal(bool canAssign) {
 
 static void grouping(bool canAssign) {
     expression();
-    consume(TOKEN_RIGHT_PAREN, L"Expect ')' after expression.");
+    consume(TOKEN_RIGHT_PAREN, L"表达式后期待「)」。");
 }
 
 static void number(bool canAssign) {
@@ -543,13 +544,13 @@ static void list(bool canAssign) {
             parsePrecedence(PREC_OR);
 
             if (itemCount == UINT8_COUNT) {
-                error(L"Cannot have more than 256 items in a list literal.");
+                error(L"列表中的项目不能超过256个。");
             }
             itemCount++;
         } while (match(TOKEN_COMMA));
     }
 
-    consume(TOKEN_RIGHT_BRACKET, L"Expect ']' after list literal.");
+    consume(TOKEN_RIGHT_BRACKET, L"在列表后期待「 】」。");
 
     emitByte(OP_BUILD_LIST);
     emitByte(itemCount);
@@ -557,7 +558,7 @@ static void list(bool canAssign) {
 
 static void subscript(bool canAssign) {
     parsePrecedence(PREC_OR);
-    consume(TOKEN_RIGHT_BRACKET, L"Expect ']' after index.");
+    consume(TOKEN_RIGHT_BRACKET, L"索引后应有「【 」。");
 
     if (canAssign && match(TOKEN_EQUAL)) {
         expression();
@@ -616,13 +617,13 @@ static Token syntheticToken(const wchar_t* text) {
 
 static void super_(bool canAssign) {
     if (currentClass == NULL) {
-        error(L"Can't use '超' outside of a 类.");
+        error(L"不能在类之外使用「超」。");
     } else if (!currentClass->hasSuperclass) {
-        error(L"Can't use '超' in a 类 with no 超类.");
+        error(L"不能在没有超类的类中使用「超」。");
     }
 
-    consume(TOKEN_DOT, L"Expect '.' after '超'.");
-    consume(TOKEN_IDENTIFIER, L"Expect 超类 method name.");
+    consume(TOKEN_DOT, L"期待「 。」在「超」之后。");
+    consume(TOKEN_IDENTIFIER, L"期待超类方法名。");
     uint8_t name = identifierConstant(&parser.previous);
 
     namedVariable(syntheticToken(L"这"), false);
@@ -639,7 +640,7 @@ static void super_(bool canAssign) {
 
 static void this_(bool canAssign) {
     if (currentClass == NULL) {
-        error(L"Can't use '这' outside of a 类.");
+        error(L"不能在类之外使用「这」。");
         return;
     }
 
@@ -682,7 +683,7 @@ static void unary(bool canAssign) {
                 emitByte(OP_STORE_SUBSCR);
                 break;
             }
-            error(L"Expression is not assignable.");
+            error(L"表达式不可赋值。");
             break;
         }
         default: return; // Unreachable.
@@ -742,7 +743,7 @@ static void parsePrecedence(Precedence precedence) {
     advance();
     ParseFn prefixRule = getRule(parser.previous.type)->prefix;
     if (prefixRule == NULL) {
-        error(L"Expect expression.");
+        error(L"期待表达式。");
         return;
     }
 
@@ -755,8 +756,8 @@ static void parsePrecedence(Precedence precedence) {
         infixRule(canAssign);
     }
 
-    if (canAssign && (match(TOKEN_EQUAL) || match(TOKEN_PLUS_EQUAL) || match(TOKEN_PLUS_EQUAL))) {
-        error(L"Invalid assignment target.");
+    if (canAssign && (match(TOKEN_EQUAL) || match(TOKEN_PLUS_EQUAL) || match(TOKEN_MINUS_EQUAL))) {
+        error(L"分配目标无效。");
     }
 }
 
@@ -829,7 +830,7 @@ static void block() {
         declaration();
     }
 
-    consume(TOKEN_RIGHT_BRACE, L"Expect '}' after block.");
+    consume(TOKEN_RIGHT_BRACE, L"块后期待「 」」。");
 }
 
 static void function(FunctionType type) {
@@ -837,19 +838,19 @@ static void function(FunctionType type) {
     initCompiler(&compiler, type);
     beginScope();
 
-    consume(TOKEN_LEFT_PAREN, L"Expect '(' after function name.");
+    consume(TOKEN_LEFT_PAREN, L"功能名后期待「（ 」。");
     if (!check(TOKEN_RIGHT_PAREN)) {
         do {
             current->function->arity++;
             if (current->function->arity > 255) {
-                errorAtCurrent(L"Can't have more than 255 parameters.");
+                errorAtCurrent(L"参数不能超过255个。");
             }
-            uint8_t constant = parseVariable(L"Expect parameter name.");
+            uint8_t constant = parseVariable(L"期待参数名。");
             defineVariable(constant);
         } while (match(TOKEN_COMMA));
     }
-    consume(TOKEN_RIGHT_PAREN, L"Expect ')' after parameters.");
-    consume(TOKEN_LEFT_BRACE, L"Expect '{' before function body.");
+    consume(TOKEN_RIGHT_PAREN, L"参数后期待「 ）」。");
+    consume(TOKEN_LEFT_BRACE, L"函数体之前期待「「 」。");
     block();
 
     ObjFunction* function = endCompiler();
@@ -862,11 +863,12 @@ static void function(FunctionType type) {
 }
 
 static void method() {
-    consume(TOKEN_IDENTIFIER, L"Expect method name.");
+    consume(TOKEN_IDENTIFIER, L"期待方法名。");
     uint8_t constant = identifierConstant(&parser.previous);
 
     FunctionType type = TYPE_METHOD;
-    if (parser.previous.length == 4 && memcmp(parser.previous.start, L"init", 4 * sizeof(wchar_t)) == 0) {
+    if (parser.previous.length == 3 &&
+        memcmp(parser.previous.start, L"初始化", 3) == 0) {
         type = TYPE_INITIALIZER;
     }
 
@@ -875,7 +877,7 @@ static void method() {
 }
 
 static void classDeclaration() {
-    consume(TOKEN_IDENTIFIER, L"Expect 类 name.");
+    consume(TOKEN_IDENTIFIER, L"期待类名。");
     Token className = parser.previous;
     uint8_t  nameConstant = identifierConstant(&parser.previous);
     declareVariable();
@@ -889,11 +891,11 @@ static void classDeclaration() {
     currentClass = &classCompiler;
 
     if (match(TOKEN_COLON)) {
-        consume(TOKEN_IDENTIFIER, L"Expect 超类 name.");
+        consume(TOKEN_IDENTIFIER, L"期待超类名。");
         variable(false);
 
         if (identifiersEqual(&className, &parser.previous)) {
-            error(L"A 类 can't inherit from itself.");
+            error(L"类不能从自身继承。");
         }
 
         beginScope();
@@ -906,11 +908,11 @@ static void classDeclaration() {
     }
 
     namedVariable(className, false);
-    consume(TOKEN_LEFT_BRACE, L"Expect '{' before 类 body.");
+    consume(TOKEN_LEFT_BRACE, L"在类主体之前期待「「 」。");
     while (!check(TOKEN_RIGHT_BRACE) && !check(TOKEN_EOF)) {
         method();
     }
-    consume(TOKEN_RIGHT_BRACE, L"Expect '}' after 类 body.");
+    consume(TOKEN_RIGHT_BRACE, L"在类主体之后期待「 」」。");
     emitByte(OP_POP);
 
     if (classCompiler.hasSuperclass) {
@@ -921,35 +923,35 @@ static void classDeclaration() {
 }
 
 static void funDeclaration() {
-    uint8_t global = parseVariable(L"Expect function name.");
+    uint8_t global = parseVariable(L"期待功能名。");
     markInitialized();
     function(TYPE_FUNCTION);
     defineVariable(global);
 }
 
 static void varDeclaration() {
-    uint8_t global = parseVariable(L"Expect 变量 name.");
+    uint8_t global = parseVariable(L"期待变量名。");
 
     if (match(TOKEN_EQUAL)) {
         expression();
     } else {
         emitByte(OP_NIL);
     }
-    consume(TOKEN_SEMICOLON, L"Expect '；' after 变量 declaration.");
+    consume(TOKEN_SEMICOLON, L"在变量声明之后期待「 ；」。");
 
     defineVariable(global);
 }
 
 static void expressionStatement() {
     expression();
-    consume(TOKEN_SEMICOLON, L"Expect '；' after expression.");
+    consume(TOKEN_SEMICOLON, L"表达式后期待「 ；」。");
     emitByte(OP_POP);
 }
 
 static void forStatement() {
     beginScope();
 
-    consume(TOKEN_LEFT_PAREN, L"Expect '(' after 'for'.");
+    consume(TOKEN_LEFT_PAREN, L"在「对于」之后期待「（ 」。");
     if (match(TOKEN_VAR)) {
         varDeclaration();
     } else if (match(TOKEN_SEMICOLON)) {
@@ -966,7 +968,7 @@ static void forStatement() {
     int exitJump = -1;
     if (!match(TOKEN_SEMICOLON)) {
         expression();
-        consume(TOKEN_SEMICOLON, L"Expect '；' after loop condition.");
+        consume(TOKEN_SEMICOLON, L"循环条件后期待「 ；」。");
 
         // Jump out of the loop if the condition is false.
         exitJump = emitJump(OP_JUMP_IF_FALSE);
@@ -979,7 +981,7 @@ static void forStatement() {
         int incrementStart = currentChunk()->count;
         expression();
         emitByte(OP_POP);
-        consume(TOKEN_RIGHT_PAREN, L"Expect ')' after for clauses.");
+        consume(TOKEN_RIGHT_PAREN, L"在对于句之后期待「 ）」。");
 
         emitLoop(innermostLoopStart);
         innermostLoopStart = incrementStart;
@@ -1014,9 +1016,9 @@ static void forStatement() {
 }
 
 static void ifStatement() {
-    consume(TOKEN_LEFT_PAREN, L"Expect '(' after 'if'.");
+    consume(TOKEN_LEFT_PAREN, L"在「如果」之后期待「（ 」。");
     expression();
-    consume(TOKEN_RIGHT_PAREN, L"Expect ')' after condition.");
+    consume(TOKEN_RIGHT_PAREN, L"套件后期待「（ 」。");
 
     int thenJump = emitJump(OP_JUMP_IF_FALSE);
     emitByte(OP_POP);
@@ -1033,18 +1035,18 @@ static void ifStatement() {
 
 static void returnStatement() {
     if (current->type == TYPE_SCRIPT) {
-        error(L"Can't 返回 from top-level code.");
+        error(L"无法从顶级代码返回。");
     }
 
     if (match(TOKEN_SEMICOLON)) {
         emitReturn();
     } else {
         if (current->type == TYPE_INITIALIZER) {
-            error(L"Can't 返回 a value from an initializer.");
+            error(L"不能从初始值设定项返回值。");
         }
 
         expression();
-        consume(TOKEN_SEMICOLON, L"Expect '；' after return value.");
+        consume(TOKEN_SEMICOLON, L"返回值后期得「 ；」。");
         emitByte(OP_RETURN);
     }
 }
@@ -1055,9 +1057,9 @@ static void whileStatement() {
     innermostLoopStart = currentChunk()->count;
     innermostLoopScopeDepth = current->scopeDepth;
 
-    consume(TOKEN_LEFT_PAREN, L"Expect '(' after 'while'.");
+    consume(TOKEN_LEFT_PAREN, L"在「而」之后期待「（ 」。");
     expression();
-    consume(TOKEN_RIGHT_PAREN, L"Expect ')' after condition.");
+    consume(TOKEN_RIGHT_PAREN, L"条件后期待「 ）」。");
 
     int exitJump = emitJump(OP_JUMP_IF_FALSE);
     emitByte(OP_POP);
@@ -1083,31 +1085,32 @@ static void whileStatement() {
     }
 }
 
-#define MAX_CASES 256
-
 static void switchStatement() {
-    consume(TOKEN_LEFT_PAREN, L"Expect '(' after 'switch'.");
+    int surroundingSwitchStart = innermostSwitchStart;
+    innermostSwitchStart = currentChunk()->count;
+
+    consume(TOKEN_LEFT_PAREN, L"在「切换」之后期待「（ 」。");
     expression();
-    consume(TOKEN_RIGHT_PAREN, L"Expect ')' after value.");
-    consume(TOKEN_LEFT_BRACE, L"Expect '{' before switch cases.");
+    consume(TOKEN_RIGHT_PAREN, L"在值之后期待「 ）」。");
+    consume(TOKEN_LEFT_BRACE, L"在切换案例之前期待「「 」。");
 
     int state = 0; // 0: before all cases, 1: before default, 2: after default.
-    int caseEnds[MAX_CASES];
     int caseCount = 0;
     int previousCaseSkip = -1;
+    int previousCaseFallthrough = -1;
+    int switchBody = current->function->chunk.count;
 
     while (!match(TOKEN_RIGHT_BRACE) && !check(TOKEN_EOF)) {
         if (match(TOKEN_CASE) || match(TOKEN_DEFAULT)) {
             TokenType caseType = parser.previous.type;
 
             if (state == 2) {
-                error(L"Can't have another case or default after the default case.");
+                error(L"在预设之后不能有另一个案例或预设。");
             }
 
             if (state == 1) {
-                // At the end of the previous case, jump over the others.
-                caseEnds[caseCount++] = emitJump(OP_JUMP);
-
+                    previousCaseFallthrough = emitJump(OP_JUMP);
+                caseCount++;
                 // Patch its condition to jump to the next case (this one).
                 patchJump(previousCaseSkip);
                 emitByte(OP_POP);
@@ -1120,7 +1123,7 @@ static void switchStatement() {
                 emitByte(OP_DUP);
                 expression();
 
-                consume(TOKEN_COLON, L"Expect ':' after case value.");
+                consume(TOKEN_COLON, L"在案例值之后期得「 ：」。");
 
                 emitByte(OP_EQUAL);
                 previousCaseSkip = emitJump(OP_JUMP_IF_FALSE);
@@ -1129,13 +1132,18 @@ static void switchStatement() {
                 emitByte(OP_POP);
             } else {
                 state = 2;
-                consume(TOKEN_COLON, L"Expect ':' after default.");
+                consume(TOKEN_COLON, L"在案例之后期待「 ：」。");
                 previousCaseSkip = -1;
+            }
+
+            emitByte(OP_POP);
+            if (caseCount > 0) {
+                patchJump(previousCaseFallthrough);
             }
         } else {
             // Otherwise, it's a statement inside the current case.
             if (state == 0) {
-                error(L"Can't have statements before any case.");
+                error(L"在任何案件之前不能有语句。");
             }
             statement();
         }
@@ -1147,20 +1155,28 @@ static void switchStatement() {
         emitByte(OP_POP);
     }
 
-    // Patch all the case jumps to the end.
-    for (int i = 0; i < caseCount; i++) {
-        patchJump(caseEnds[i]);
-    }
-
     emitByte(OP_POP); // The switch value.
+
+    innermostSwitchStart = surroundingSwitchStart;
+
+    int i = switchBody;
+    while (i < current->function->chunk.count) {
+        if (current->function->chunk.code[i] == OP_END) {
+            current->function->chunk.code[i] = OP_JUMP;
+            patchJump(i + 1);
+            i += 3;
+        } else {
+            i += 1 + getByteCountForArguments(i);
+        }
+    }
 }
 
 static void continueStatement() {
     if (innermostLoopStart == -1) {
-        error(L"Can't use '继续' outside of a loop.");
+        error(L"不能在循环外使用「继续」。");
     }
 
-    consume(TOKEN_SEMICOLON, L"Expect '；' after '继续'.");
+    consume(TOKEN_SEMICOLON, L"在「继续」之后期待「 ；」。");
 
     // Discard any locals created inside the loop.
     for (int i = current->localCount - 1; i >= 0 && current->locals[i].depth > innermostLoopScopeDepth; i--) {
@@ -1172,20 +1188,22 @@ static void continueStatement() {
 }
 
 static void breakStatement() {
-    if (innermostLoopStart == -1) {
-        error(L"Can't use '打断' outside of a loop.");
+    if (innermostLoopStart == -1 && innermostSwitchStart == -1) {
+        error(L"不能在循环外或切换使用「打断」。");
     }
 
-    consume(TOKEN_SEMICOLON, L"Expect '；' after '打断'.");
+    consume(TOKEN_SEMICOLON, L"在「打断」之后期待「 ；」。");
 
-    // Discard any locals created inside the loop.
-    for (int i = current->localCount - 1; i >= 0 && current->locals[i].depth > innermostLoopScopeDepth; i--) {
-        emitByte(OP_POP);
+    if (innermostLoopStart > innermostSwitchStart) {
+        // Discard any locals created inside the loop.
+        for (int i = current->localCount - 1; i >= 0 && current->locals[i].depth > innermostLoopScopeDepth; i--) {
+            emitByte(OP_POP);
+        }
     }
 
     // Emit a placeholder instruction for the jump to the end of the body. When
     // we're done compiling the loop body and know where the end is, we'll
-    // replace these with `CODE_JUMP` instructions with appropriate offsets.
+    // replace these with `OP_END` instructions with appropriate offsets.
     // We use `OP_END` here because that can't occur in the middle of
     // bytecode.
     emitJump(OP_END);
