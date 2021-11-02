@@ -1,5 +1,5 @@
 类 Tree「
-  init（depth）「
+  初始化（depth）「
     这。depth = depth；
     如果（depth 大 0）「
       这。a = Tree（depth - 1）；
@@ -24,6 +24,6 @@
 变量 tree = Tree（8）；
 变量 start = 时钟（）；
 对于（变量 i = 0； i 小 100； i = i + 1）「
-  如果（tree。walk（）不等 122068）打印条（"Error"）；
+  如果（tree。walk（）不等 122068）打印行（"错误"）；
 」
-打印条（时钟（）- start）；
+打印行（时钟（）- start）；

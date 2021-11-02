@@ -1,5 +1,5 @@
 类 Toggle「
-  init（startState）「
+  初始化（startState）「
     这。state = startState；
   」
 
@@ -12,8 +12,8 @@
 」
 
 类 NthToggle：Toggle「
-  init（startState，maxCounter）「
-    超。init（startState）；
+  初始化（startState，maxCounter）「
+    超。初始化（startState）；
     这。countMax = maxCounter；
     这。count = 0；
   」
@@ -47,7 +47,7 @@
   val = toggle。activate（）。value（）；
 」
 
-打印条（toggle。value（））；
+打印行（toggle。value（））；
 
 val = 真；
 变量 ntoggle = NthToggle（val，3）；
@@ -65,5 +65,5 @@ val = 真；
   val = ntoggle。activate（）。value（）；
 」
 
-打印条（ntoggle。value（））；
-打印条（时钟（）- start）；
+打印行（ntoggle。value（））；
+打印行（时钟（）- start）；
