@@ -145,10 +145,10 @@ ObjUpvalue* newUpvalue(Value* slot) {
 
 static void printfunction(ObjFunction* function) {
     if (function->name == NULL) {
-        wprintf(L"<script>");
+        wprintf(L"《脚本》");
         return;
     }
-    wprintf(L"<fn %ls>", function->name->chars);
+    wprintf(L"《功能 %ls》", function->name->chars);
 }
 
 static void printList(ObjList* list) {
@@ -222,16 +222,16 @@ void printObject(Value value) {
             printfunction(AS_FUNCTION(value));
             break;
         case OBJ_INSTANCE:
-            wprintf(L"%ls instance", AS_INSTANCE(value)->klass->name->chars);
+            wprintf(L"%ls 实例", AS_INSTANCE(value)->klass->name->chars);
             break;
         case OBJ_NATIVE:
-            wprintf(L"<native fn>");
+            wprintf(L"《本机功能》");
             break;
         case OBJ_STRING:
             wprintf(L"%ls", AS_WCSTRING(value));
             break;
         case OBJ_UPVALUE:
-            wprintf(L"upvalue");
+            wprintf(L"升值");
             break;
         case OBJ_LIST:
             printList(AS_LIST(value));
