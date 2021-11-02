@@ -110,12 +110,12 @@ static TokenType identifierType() {
         case L'打': return checkKeyword(1, 1, L"断", TOKEN_BREAK);
         case L'继': return checkKeyword(1, 1, L"续", TOKEN_CONTINUE);
         case L'类': return checkKeyword(1, 0, L"", TOKEN_CLASS);
-        case L'切': return checkKeyword(1, 0, L"换", TOKEN_SWITCH);
+        case L'切': return checkKeyword(1, 1, L"换", TOKEN_SWITCH);
         case L'案': return checkKeyword(1, 1, L"例", TOKEN_CASE);
         case L'预': return checkKeyword(1, 1, L"设", TOKEN_DEFAULT);
         case L'否': return checkKeyword(1, 1, L"则", TOKEN_ELSE);
         case L'功': return checkKeyword(1, 1, L"能", TOKEN_FUN);
-        case L'循': return checkKeyword(1, 1, L"环", TOKEN_WHILE);
+        case L'而': return checkKeyword(1, 0, L"", TOKEN_WHILE);
         case L'对': return checkKeyword(1, 1, L"于", TOKEN_FOR);
         case L'如': return checkKeyword(1, 1, L"果", TOKEN_IF);
         case L'空': return checkKeyword(1, 0, L"", TOKEN_NIL);
@@ -200,7 +200,9 @@ Token scanToken() {
     switch (c) {
         case L'（': return makeToken(TOKEN_LEFT_PAREN);
         case L'）': return makeToken(TOKEN_RIGHT_PAREN);
+        case L'『':
         case L'「': return makeToken(TOKEN_LEFT_BRACE);
+        case L'』':
         case L'」': return makeToken(TOKEN_RIGHT_BRACE);
         case L'；': return makeToken(TOKEN_SEMICOLON);
         case L'，': return makeToken(TOKEN_COMMA);
