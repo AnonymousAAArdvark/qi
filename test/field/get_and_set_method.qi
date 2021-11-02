@@ -1,12 +1,12 @@
 // Bound methods have identity equality。
 类 Foo「
   method（a）「
-    打印条（"method"）；
-    打印条（a）；
+    打印行（"method"）；
+    打印行（a）；
   」
   other（a）「
-    打印条（"other"）；
-    打印条（a）；
+    打印行（"other"）；
+    打印行（a）；
   」
 」
 

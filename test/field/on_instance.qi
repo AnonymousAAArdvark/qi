@@ -2,8 +2,8 @@
 
 变量 foo = Foo（）；
 
-打印条（foo。bar = "bar value"）； // expect: bar value
-打印条（foo。baz = "baz value"）； // expect: baz value
+打印行（foo。bar = "bar value"）； // expect: bar value
+打印行（foo。baz = "baz value"）； // expect: baz value
 
-打印条（foo。bar）； // expect: bar value
-打印条（foo。baz）； // expect: baz value
+打印行（foo。bar）； // expect: bar value
+打印行（foo。baz）； // expect: baz value
