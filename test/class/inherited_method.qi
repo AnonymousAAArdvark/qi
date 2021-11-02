@@ -1,18 +1,18 @@
 类 Foo「
   inFoo（）「
-    打印条（"in foo"）；
+    打印行（"in foo"）；
   」
 」
 
 类 Bar：Foo「
   inBar（）「
-    打印条（"in bar"）；
+    打印行（"in bar"）；
   」
 」
 
 类 Baz：Bar「
   inBaz（）「
-    打印条（"in baz"）；
+    打印行（"in baz"）；
   」
 」
 
