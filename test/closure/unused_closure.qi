@@ -10,4 +10,4 @@
 」
 
 // If we get here，we didn't segfault when a went out of scope.
-打印条（"ok"）； // expect: ok
+打印行（"ok"）； // expect: ok

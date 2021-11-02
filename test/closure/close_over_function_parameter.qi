@@ -2,7 +2,7 @@
 
 功能 foo（param）「
   功能 f下（）「
-    打印条（param）；
+    打印行（param）；
   」
   f = f下；
 」

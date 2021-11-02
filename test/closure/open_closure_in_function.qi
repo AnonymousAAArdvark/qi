@@ -1,7 +1,7 @@
 「
   变量 local = "local"；
   功能 f（）「
-    打印条（local）； // expect: local
+    打印行（local）； // expect: local
   」
   f（）；
 」
