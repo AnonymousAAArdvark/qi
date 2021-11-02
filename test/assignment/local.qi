@@ -1,10 +1,10 @@
 「
   变量 a = "before"；
-  打印条（a）； // expect: before
+  打印行（a）； // expect: before
 
   a = "after"；
-  打印条（a）； // expect: after
+  打印行（a）； // expect: after
 
-  打印条（a = "arg"）； // expect: arg
-  打印条（a）； // expect: arg
+  打印行（a = "arg"）； // expect: arg
+  打印行（a）； // expect: arg
 」

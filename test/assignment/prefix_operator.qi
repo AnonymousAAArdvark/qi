@@ -1,2 +1,2 @@
 变量 a = "a"；
-不 a = "value"； // Error at '=': Invalid assignment target.
+不 a = "value"； // 错误在「=」：分配目标无效。

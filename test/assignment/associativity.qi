@@ -4,6 +4,6 @@
 
 // Assignment is right-associative。
 a = b = c；
-打印条（a）； // expect: c
-打印条（b）； // expect: c
-打印条（c）； // expect: c
+打印行（a）； // expect: c
+打印行（b）； // expect: c
+打印行（c）； // expect: c

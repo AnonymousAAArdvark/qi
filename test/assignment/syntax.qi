@@ -1,5 +1,5 @@
 // Assignment on RHS of 变量。
 变量 a = "before"；
 变量 c = a = "变量"；
-打印条（a）； // expect: 变量
-打印条（c）； // expect: 变量
+打印行（a）； // expect: 变量
+打印行（c）； // expect: 变量
