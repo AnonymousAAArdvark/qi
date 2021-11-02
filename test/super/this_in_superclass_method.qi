@@ -1,12 +1,12 @@
 类 Base「
-  init（a）「
+  初始化（a）「
     这。a = a；
   」
 」
 
 类 Derived：Base「
-  init（a，b）「
-    超。init（a）；
+  初始化（a，b）「
+    超。初始化（a）；
     这。b = b；
   」
 」

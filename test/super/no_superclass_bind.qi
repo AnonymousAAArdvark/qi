@@ -1,6 +1,6 @@
 类 Base「
   foo（）「
-    超。doesNotExist； // 错误在「超」：Can't use '超' in a 类 with no 超类.
+    超。doesNotExist； // 错误在「超」：不能在没有超类的类中使用「超」。
   」
 」
 

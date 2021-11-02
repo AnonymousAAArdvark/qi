@@ -1,16 +1,16 @@
 类 Base「
-  init（a，b）「
-    打印行（"Base。init（" + a + "，" + b + "）"）；
+  初始化（a，b）「
+    打印行（"Base。初始化（" + a + "，" + b + "）"）；
   」
 」
 
 类 Derived：Base「
-  init（）「
-    打印行（"Derived。init（）"）；
-    超。init（"a"，"b"）；
+  初始化（）「
+    打印行（"Derived。初始化（）"）；
+    超。初始化（"a"，"b"）；
   」
 」
 
 Derived（）；
-// expect: Derived。init（）
-// expect: Base。init（a，b）
+// expect: Derived。初始化（）
+// expect: Base。初始化（a，b）
