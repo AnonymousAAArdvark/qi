@@ -1,4 +1,4 @@
 功能 foo（）「」
-打印条（foo）； // expect: <fn foo>
+打印行（foo）； // expect:《功能 foo》
 
-打印条（时钟）； // expect: <native fn>
+打印行（时钟）； // expect: 《本机功能》

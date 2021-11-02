@@ -7,7 +7,7 @@
 」
 
 功能 printArg（arg）「
-  打印条（arg）；
+  打印行（arg）；
 」
 
 返回FunCallWithArg（printArg，"hello world"）； // expect: hello world
