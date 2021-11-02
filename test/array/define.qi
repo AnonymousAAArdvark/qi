@@ -1,5 +1,5 @@
 变量 foo =【"a"，"b"，"c"】；
-打印条（foo）； // expect:【a，b，c】
+打印行（foo）； // expect:【a，b，c】
 变量 bar =【】；
-打印条（bar）； // expect:【】
-打印条（【1，2，3】）； // expect:【1，2，3】
+打印行（bar）； // expect:【】
+打印行（【1，2，3】）； // expect:【1，2，3】
