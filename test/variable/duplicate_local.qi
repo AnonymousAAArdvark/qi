@@ -1,4 +1,4 @@
 「
   变量 a = "value"；
-  变量 a = "other"； // 错误在「a」：Already a 变量 with this name in this scope.
+  变量 a = "other"； // 错误在「a」：在这个范围内已经有了这个名字的变量。
 」
