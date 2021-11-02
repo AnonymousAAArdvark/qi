@@ -1,2 +1,2 @@
-// [line 2] Error at '「': Expect expression.
+//【行 2】错误在「「」：期待表达式。
 对于（变量 a = 1； a 小 2；「」）「」
