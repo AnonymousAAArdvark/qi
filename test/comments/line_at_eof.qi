@@ -1,2 +1,2 @@
-打印条（"ok"）； // expect: ok
+打印行（"ok"）； // expect: ok
 // comment
