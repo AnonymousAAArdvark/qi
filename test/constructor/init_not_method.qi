@@ -1,12 +1,12 @@
 类 Foo「
-  init（arg）「
-    打印条（"Foo。init（" + arg + "）"）；
-    这。field = "init"；
+  初始化（arg）「
+    打印行（"Foo。初始化（" + arg + "）"）；
+    这。field = "初始化"；
   」
 」
 
-功能 init（）「
-  打印条（"not initializer"）；
+功能 初始化（）「
+  打印行（"not initializer"）；
 」
 
-init（）； // expect: not initializer
+初始化（）； // expect: not initializer

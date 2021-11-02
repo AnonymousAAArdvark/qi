@@ -1,10 +1,10 @@
 类 Foo「
-  init（）「
-    打印条（"init"）；
+  初始化（）「
+    打印行（"初始化"）；
     返回；
-    打印条（"nope"）；
+    打印行（"nope"）；
   」
 」
 
-变量 foo = Foo（）； // expect: init
-打印条（foo）； // expect: Foo instance
+变量 foo = Foo（）； // expect: 初始化
+打印行（foo）； // expect: Foo 实例
