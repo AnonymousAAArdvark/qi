@@ -1,10 +1,10 @@
 // Evaluate the 'then' expression if the condition is 真。
-如果（真）打印条（"good"）； // expect: good
-如果（假）打印条（"bad"）；
+如果（真）打印行（"good"）； // expect: good
+如果（假）打印行（"bad"）；
 
 // Allow block body.
-如果（真）「 打印条（"block"）； 」// expect: block
+如果（真）「 打印行（"block"）； 」// expect: block
 
 // Assignment in if condition。
 变量 a = 假；
-如果（a = 真）打印条（a）； // expect: 真
+如果（a = 真）打印行（a）； // expect: 真

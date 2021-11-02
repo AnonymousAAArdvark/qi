@@ -1,2 +1,2 @@
-// [line 2] Error at '变量': Expect expression.
+//【行 2】错误在「变量」：期待表达式。
 如果（真）变量 foo；
