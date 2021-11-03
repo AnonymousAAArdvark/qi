@@ -4,7 +4,7 @@
     打印行（a）；
   」
 
-  foo（）； // expect: outer
+  foo（）； // 期待：outer
   变量 a = "inner"；
-  foo（）； // expect: outer
+  foo（）； // 期待：outer
 」

@@ -15,5 +15,5 @@ foo2。name = "foo2"；
 foo2。fn = foo1。sayName；
 // Still retains original receiver。
 foo2。fn（1）；
-// expect: foo1
-// expect: 1
+// 期待：foo1
+// 期待：1

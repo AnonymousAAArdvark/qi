@@ -6,5 +6,5 @@
   」
 」
 
-变量 foo = Foo（）； // expect: 初始化
-打印行（foo）； // expect: Foo 实例
+变量 foo = Foo（）； // 期待：初始化
+打印行（foo）； // 期待：Foo 实例

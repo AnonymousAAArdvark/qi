@@ -14,5 +14,5 @@
 」
 
 C（）。foo（）；
-// expect: C。foo（）
-// expect: A。foo（）
+// 期待：C。foo（）
+// 期待：A。foo（）

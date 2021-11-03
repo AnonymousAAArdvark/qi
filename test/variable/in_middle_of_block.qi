@@ -1,10 +1,10 @@
 「
   变量 a = "a"；
-  打印行（a）； // expect: a
+  打印行（a）； // 期待：a
   变量 b = a + " b"；
-  打印行（b）； // expect: a b
+  打印行（b）； // 期待：a b
   变量 c = a + " c"；
-  打印行（c）； // expect: a c
+  打印行（c）； // 期待：a c
   变量 d = b + " d"；
-  打印行（d）； // expect: a b d
+  打印行（d）； // 期待：a b d
 」

@@ -3,6 +3,6 @@
 」
 
 变量 foo =【1，2】；
-打印行（foo【foo【0】】）； // expect: 2
+打印行（foo【foo【0】】）； // 期待：2
 modifyList（foo）；
-打印行（foo）； // expect:【0，2】
+打印行（foo）； // 期待：【0，2】

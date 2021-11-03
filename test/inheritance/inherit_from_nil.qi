@@ -1,2 +1,2 @@
 变量 空字 = 空；
-类 Foo：空字「」// expect runtime error: 超类 must be a 类.
+类 Foo：空字「」// 期待运行时错误：超类 must be a 类.

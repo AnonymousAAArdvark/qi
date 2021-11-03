@@ -1,28 +1,28 @@
 // Single-expression body.
 对于（变量 c = 0； c 小 3；）打印行（c = c + 1）；
-// expect: 1
-// expect: 2
-// expect: 3
+// 期待：1
+// 期待：2
+// 期待：3
 
 // Block body.
 对于（变量 a = 0； a 小 3； a = a + 1）「
   打印行（a）；
 」
-// expect: 0
-// expect: 1
-// expect: 2
+// 期待：0
+// 期待：1
+// 期待：2
 
 // No clauses。
 功能 foo（）「
   对于（；；）返回 "done"；
 」
-打印行（foo（））； // expect: done
+打印行（foo（））； // 期待：done
 
 // No 变量。
 变量 i = 0；
 对于（； i 小 2； i = i + 1）打印行（i）；
-// expect: 0
-// expect: 1
+// 期待：0
+// 期待：1
 
 // No condition。
 功能 bar（）「
@@ -32,17 +32,17 @@
   」
 」
 bar（）；
-// expect: 0
-// expect: 1
-// expect: 2
+// 期待：0
+// 期待：1
+// 期待：2
 
 // No increment。
 对于（变量 i = 0； i 小 2；）「
   打印行（i）；
   i = i + 1；
 」
-// expect: 0
-// expect: 1
+// 期待：0
+// 期待：1
 
 // Statement bodies。
 对于（； 假；）如果（真）1； 否则 2；

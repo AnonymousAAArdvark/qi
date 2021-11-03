@@ -6,8 +6,8 @@
 
 类 Derived：Base「
   foo（）「
-    打印行（"Derived。foo（）"）； // expect: Derived。foo（）
-    超。foo（"a"，"b"，"c"，"d"）； // expect runtime error: Expected 2 arguments but got 4.
+    打印行（"Derived。foo（）"）； // 期待：Derived。foo（）
+    超。foo（"a"，"b"，"c"，"d"）； // 期待运行时错误：Expected 2 arguments but got 4.
   」
 」
 

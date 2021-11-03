@@ -1,8 +1,8 @@
 功能 modifyString（string，rep）「
-    string【0】= rep； // expect runtime error: Expected string of length 1 but got length 2.
+    string【0】= rep； // 期待运行时错误：Expected string of length 1 but got length 2.
 」
 
 变量 foo = "test"；
 modifyString（foo，"j"）；
-打印行（foo）； // expect: jest
+打印行（foo）； // 期待：jest
 modifyString（foo，"gu"）；

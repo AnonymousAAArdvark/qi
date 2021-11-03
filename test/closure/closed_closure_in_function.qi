@@ -8,4 +8,4 @@
   f = f下；
 」
 
-f（）； // expect: local
+f（）； // 期待：local

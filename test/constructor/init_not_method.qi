@@ -9,4 +9,4 @@
   打印行（"not initializer"）；
 」
 
-初始化（）； // expect: not initializer
+初始化（）； // 期待：not initializer

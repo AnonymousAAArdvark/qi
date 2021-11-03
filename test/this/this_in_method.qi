@@ -3,4 +3,4 @@
   baz（）「 返回 "baz"； 」
 」
 
-打印行（Foo（）。bar（）。baz（））； // expect: baz
+打印行（Foo（）。bar（）。baz（））； // 期待：baz

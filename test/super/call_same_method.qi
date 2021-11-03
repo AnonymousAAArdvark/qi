@@ -12,5 +12,5 @@
 」
 
 Derived（）。foo（）；
-// expect: Derived。foo（）
-// expect: Base。foo（）
+// 期待：Derived。foo（）
+// 期待：Base。foo（）

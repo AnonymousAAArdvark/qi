@@ -2,4 +2,4 @@
   method（a，b）「」
 」
 
-Foo（）。method（1）； // expect runtime error: Expected 2 arguments but got 1.
+Foo（）。method（1）； // 期待运行时错误：Expected 2 arguments but got 1.

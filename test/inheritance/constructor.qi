@@ -11,4 +11,4 @@
 类 B：A「」
 
 变量 b = B（"value"）；
-b。test（）； // expect: value
+b。test（）； // 期待：value

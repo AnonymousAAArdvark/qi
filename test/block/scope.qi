@@ -2,7 +2,7 @@
 
 「
   变量 a = "inner"；
-  打印行（a）； // expect: inner
+  打印行（a）； // 期待：inner
 」
 
-打印行（a）； // expect: outer
+打印行（a）； // 期待：outer

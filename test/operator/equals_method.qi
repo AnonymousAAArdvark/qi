@@ -7,7 +7,7 @@
 变量 fooMethod = foo。method；
 
 // Same bound method。
-打印行（fooMethod 等 fooMethod）； // expect: 真
+打印行（fooMethod 等 fooMethod）； // 期待：真
 
 // Different closurizations。
-打印行（foo。method 等 foo。method）； // expect: 假
+打印行（foo。method 等 foo。method）； // 期待：假

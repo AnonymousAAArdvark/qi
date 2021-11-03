@@ -2,12 +2,12 @@
 类 Foo「」
 类 Bar「」
 
-打印行（Foo 等 Foo）； // expect: 真
-打印行（Foo 等 Bar）； // expect: 假
-打印行（Bar 等 Foo）； // expect: 假
-打印行（Bar 等 Bar）； // expect: 真
+打印行（Foo 等 Foo）； // 期待：真
+打印行（Foo 等 Bar）； // 期待：假
+打印行（Bar 等 Foo）； // 期待：假
+打印行（Bar 等 Bar）； // 期待：真
 
-打印行（Foo 等 "Foo"）； // expect: 假
-打印行（Foo 等 空）；   // expect: 假
-打印行（Foo 等 123）；   // expect: 假
-打印行（Foo 等 真）；  // expect: 假
+打印行（Foo 等 "Foo"）； // 期待：假
+打印行（Foo 等 空）；   // 期待：假
+打印行（Foo 等 123）；   // 期待：假
+打印行（Foo 等 真）；  // 期待：假

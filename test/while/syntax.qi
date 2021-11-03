@@ -1,9 +1,9 @@
 // Single-expression body.
 变量 c = 0；
 而（c 小 3）打印行（c = c + 1）；
-// expect: 1
-// expect: 2
-// expect: 3
+// 期待：1
+// 期待：2
+// 期待：3
 
 // Block body.
 变量 a = 0；
@@ -11,9 +11,9 @@
   打印行（a）；
   a = a + 1；
 」
-// expect: 0
-// expect: 1
-// expect: 2
+// 期待：0
+// 期待：1
+// 期待：2
 
 // Statement bodies。
 而（假）如果（真）1； 否则 2；

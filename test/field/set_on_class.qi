@@ -1,2 +1,2 @@
 类 Foo「」
-Foo。bar = "value"； // expect runtime error: Only instances have fields.
+Foo。bar = "value"； // 期待运行时错误：Only instances have fields.

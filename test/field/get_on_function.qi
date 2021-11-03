@@ -1,3 +1,3 @@
 功能 foo（）「」
 
-foo。bar； // expect runtime error: Only instances have properties.
+foo。bar； // 期待运行时错误：Only instances have properties.

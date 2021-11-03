@@ -3,4 +3,4 @@
   打印行（b）；
 」
 
-f（1，2，3，4）； // expect runtime error: Expected 2 arguments but got 4.
+f（1，2，3，4）； // 期待运行时错误：Expected 2 arguments but got 4.

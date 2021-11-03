@@ -10,4 +10,4 @@
 」
 
 Foo（）。method（"param"）；
-f（）； // expect: param
+f（）； // 期待：param

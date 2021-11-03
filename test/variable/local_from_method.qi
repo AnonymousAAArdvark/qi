@@ -6,4 +6,4 @@
   」
 」
 
-Foo（）。method（）； // expect: 变量
+Foo（）。method（）； // 期待：变量

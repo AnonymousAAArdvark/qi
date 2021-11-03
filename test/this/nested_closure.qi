@@ -16,4 +16,4 @@
 」
 
 变量 closure = Foo（）。getClosure（）；
-打印行（closure（）（）（））； // expect: Foo
+打印行（closure（）（）（））； // 期待：Foo

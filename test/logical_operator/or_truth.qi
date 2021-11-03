@@ -1,8 +1,8 @@
 // 假 and 空 are 假。
-打印行（假 或 "ok"）； // expect: ok
-打印行（空 或 "ok"）； // expect: ok
+打印行（假 或 "ok"）； // 期待：ok
+打印行（空 或 "ok"）； // 期待：ok
 
 // Everything 否则 is 真。
-打印行（真 或 "ok"）； // expect: 真
-打印行（0 或 "ok"）； // expect: 0
-打印行（"s" 或 "ok"）； // expect: s
+打印行（真 或 "ok"）； // 期待：真
+打印行（0 或 "ok"）； // 期待：0
+打印行（"s" 或 "ok"）； // 期待：s

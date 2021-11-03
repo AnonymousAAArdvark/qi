@@ -4,4 +4,4 @@
 3
 "；
 
-err； // // expect runtime error: Undefined 变量 'err'.
+err； // // 期待运行时错误：Undefined 变量 'err'.

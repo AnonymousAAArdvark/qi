@@ -12,5 +12,5 @@
 」
 
 Derived（）；
-// expect: Derived。初始化（）
-// expect: Base。初始化（a，b）
+// 期待：Derived。初始化（）
+// 期待：Base。初始化（a，b）

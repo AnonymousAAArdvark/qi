@@ -1,1 +1,1 @@
-"1" 大等 1； // expect runtime error: Operands must be numbers.
+"1" 大等 1； // 期待运行时错误：Operands must be numbers.

@@ -1,5 +1,5 @@
 变量 i = 2；
 变量 j = "string"；
-打印行（++i）； // expect: 3
-打印行（1 + --i）； // expect: 3
-打印行（++j）； // expect runtime error: Operand must be a number.
+打印行（++i）； // 期待：3
+打印行（1 + --i）； // 期待：3
+打印行（++j）； // 期待运行时错误：Operand must be a number.

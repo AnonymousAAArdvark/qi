@@ -1,2 +1,2 @@
 类 Foo「」
-Foo。bar； // expect runtime error: Only instances have properties.
+Foo。bar； // 期待运行时错误：Only instances have properties.

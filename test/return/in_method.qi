@@ -5,4 +5,4 @@
   」
 」
 
-打印行（Foo（）。method（））； // expect: ok
+打印行（Foo（）。method（））； // 期待：ok

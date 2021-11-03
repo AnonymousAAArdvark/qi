@@ -14,4 +14,4 @@
 」
 
 变量 closure = Derived（）。getClosure（）；
-打印行（closure（））； // expect: Base
+打印行（closure（））； // 期待：Base
