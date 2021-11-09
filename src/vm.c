@@ -37,11 +37,11 @@ static void runtimeError(const wchar_t* format, ...) {
         CallFrame* frame = &vm.frames[i];
         ObjFunction* function = frame->closure->function;
         size_t instruction = frame->ip - function->chunk.code - 1;
-        fwprintf(stderr, L"[line %d] in ", function->chunk.lines[instruction]);
+        fwprintf(stderr, L"【行 %d】在 ", function->chunk.lines[instruction]);
         if (function->name == NULL) {
-            fwprintf(stderr, L"script\n");
+            fwprintf(stderr, L"脚本\n");
         } else {
-            fwprintf(stderr, L"%ls()\n", function->name->chars);
+            fwprintf(stderr, L"%ls（）\n", function->name->chars);
         }
     }
 
@@ -110,12 +110,12 @@ static Value peek(int distance) {
 
 static bool call(ObjClosure* closure, int argCount) {
     if (argCount != closure->function->arity) {
-        runtimeError(L"Expected %d arguments but got %d.", closure->function->arity, argCount);
+        runtimeError(L"需要 %d 个参数，但得到 %d。", closure->function->arity, argCount);
         return false;
     }
 
     if (vm.frameCount == FRAMES_MAX) {
-        runtimeError(L"Stack overflow.");
+        runtimeError(L"堆栈溢出。");
         return false;
     }
 
@@ -141,7 +141,7 @@ static bool callValue(Value callee, int argCount) {
                 if (tableGet(&klass->methods, vm.initString, &initializer)) {
                     return call(AS_CLOSURE(initializer), argCount);
                 } else if (argCount != 0) {
-                    runtimeError(L"Expected 0 arguments but got %d.", argCount);
+                    runtimeError(L"需要 0 个参数，但得到 %d。", argCount);
                     return false;
                 }
                 return true;
@@ -151,7 +151,7 @@ static bool callValue(Value callee, int argCount) {
             case OBJ_NATIVE: {
                 ObjNative* native = AS_NATIVE(callee);
                 if (native->arity != -1 && argCount != native->arity) {
-                    runtimeError(L"Expected %d arguments but got %d.", native->arity, argCount);
+                    runtimeError(L"需要 %d 个参数，但得到 %d。", native->arity, argCount);
                     return false;
                 }
                 if (native->function(argCount, vm.stackTop - argCount)) {
@@ -166,7 +166,7 @@ static bool callValue(Value callee, int argCount) {
                 break; // Non-callable object type.
         }
     }
-    runtimeError(L"Can only call functions and 类es.");
+    runtimeError(L"只能调用功能和类。");
     return false;
 }
 
@@ -174,7 +174,7 @@ static bool invokeFromClass(ObjClass* klass, ObjString* name, int argCount, Call
     Value method;
     if (!tableGet(&klass->methods, name, &method)) {
         frame->ip = ip;
-        runtimeError(L"Undefined property '%ls'.", name->chars);
+        runtimeError(L"未定义的属性 %ls", name->chars);
         return false;
     }
     return call(AS_CLOSURE(method), argCount);
