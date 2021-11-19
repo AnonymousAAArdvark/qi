@@ -581,7 +581,7 @@ static InterpretResult run() {
             case OP_GET_PROPERTY: {
                 if (!IS_INSTANCE(peek(0))) {
                     frame->ip = ip;
-                    runtimeError(L"Only instances have properties.");
+                    runtimeError(L"只有实例有属性。");
                     return INTERPRET_RUNTIME_ERROR;
                 }
                 ObjInstance *instance = AS_INSTANCE(peek(0));
@@ -602,7 +602,7 @@ static InterpretResult run() {
             case OP_SET_PROPERTY: {
                 if (!IS_INSTANCE(peek(1))) {
                     frame->ip = ip;
-                    runtimeError(L"Only instances have fields.");
+                    runtimeError(L"只有实例有字段。");
                     return INTERPRET_RUNTIME_ERROR;
                 }
 
@@ -648,7 +648,7 @@ static InterpretResult run() {
                     push(NUMBER_VAL(a + b));
                 } else {
                     frame->ip = ip;
-                    runtimeError(L"Operands must be two numbers or two strings.");
+                    runtimeError(L"操作数必须是两个数字或两个字符串。");
                     return INTERPRET_RUNTIME_ERROR;
                 }
                 break;
@@ -670,7 +670,7 @@ static InterpretResult run() {
             case OP_NEGATE:
                 if (!IS_NUMBER(peek(0))) {
                     frame->ip = ip;
-                    runtimeError(L"Operand must be a number.");
+                    runtimeError(L"操作数必须是数字。");
                     return INTERPRET_RUNTIME_ERROR;
                 }
                 push(NUMBER_VAL(-AS_NUMBER(pop())));
@@ -678,7 +678,7 @@ static InterpretResult run() {
             case OP_INCREMENT: {
                 if (!IS_NUMBER(peek(0))) {
                     frame->ip = ip;
-                    runtimeError(L"Operand must be a number.");
+                    runtimeError(L"操作数必须是数字。");
                     return INTERPRET_RUNTIME_ERROR;
                 }
                 push(NUMBER_VAL(AS_NUMBER(pop()) + 1));
@@ -687,7 +687,7 @@ static InterpretResult run() {
             case OP_DECREMENT: {
                 if (!IS_NUMBER(peek(0))) {
                     frame->ip = ip;
-                    runtimeError(L"Operand must be a number.");
+                    runtimeError(L"操作数必须是数字。");
                     return INTERPRET_RUNTIME_ERROR;
                 }
                 push(NUMBER_VAL(AS_NUMBER(pop()) - 1));
@@ -782,7 +782,7 @@ static InterpretResult run() {
                 Value superclass = peek(1);
                 if (!IS_CLASS(superclass)) {
                     frame->ip = ip;
-                    runtimeError(L"超类 must be a 类.");
+                    runtimeError(L"超类必须是个类。");
                     return INTERPRET_RUNTIME_ERROR;
                 }
                 ObjClass *subclass = AS_CLASS(peek(0));
@@ -825,7 +825,7 @@ static InterpretResult run() {
 
                     if (!IS_NUMBER(index)) {
                         frame->ip = ip;
-                        runtimeError(L"String index is not a number.");
+                        runtimeError(L"字符串索引不是数字。");
                         return INTERPRET_RUNTIME_ERROR;
                     }
                     int numIndex = AS_NUMBER(index);
@@ -833,7 +833,7 @@ static InterpretResult run() {
 
                     if (!isValidStringIndex(objString, numIndex)) {
                         frame->ip = ip;
-                        runtimeError(L"String index out of range.");
+                        runtimeError(L"字符串索引超出范围。");
                         return INTERPRET_RUNTIME_ERROR;
                     }
                     wchar_t* result = ALLOCATE(wchar_t, 1);
@@ -845,7 +845,7 @@ static InterpretResult run() {
 
                     if (!IS_NUMBER(index)) {
                         frame->ip = ip;
-                        runtimeError(L"List index is not a number.");
+                        runtimeError(L"列表索引不是数字。");
                         return INTERPRET_RUNTIME_ERROR;
                     }
                     int numIndex = AS_NUMBER(index);
@@ -853,7 +853,7 @@ static InterpretResult run() {
 
                     if (!isValidListIndex(objList, numIndex)) {
                         frame->ip = ip;
-                        runtimeError(L"List index out of range.");
+                        runtimeError(L"列表索引超出范围。");
                         return INTERPRET_RUNTIME_ERROR;
                     }
 
@@ -863,7 +863,7 @@ static InterpretResult run() {
                 }
 
                 frame->ip = ip;
-                runtimeError(L"Invalid type to index into.");
+                runtimeError(L"无效类型索引到。");
                 return INTERPRET_RUNTIME_ERROR;
             }
             case OP_STORE_SUBSCR: {
@@ -877,7 +877,7 @@ static InterpretResult run() {
 
                     if (!IS_NUMBER(index)) {
                         frame->ip = ip;
-                        runtimeError(L"String index is not a number.");
+                        runtimeError(L"字符串索引不是数字。");
                         return INTERPRET_RUNTIME_ERROR;
                     } else if (!IS_STRING(item)) {
                         frame->ip = ip;
