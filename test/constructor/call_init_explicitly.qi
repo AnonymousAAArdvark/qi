@@ -1,15 +1,15 @@
-类 Foo「
+类 丰富「
   初始化（arg）「
-    打印行（"Foo。初始化（" + arg + "）"）；
+    打印行（"丰富。初始化（" + arg + "）"）；
     这。field = "初始化"；
   」
 」
 
-变量 foo = Foo（"one"）； // 期待：Foo。初始化（one）
-foo。field = "field"；
+变量 富 = 丰富（"one"）； // 期待：丰富。初始化（one）
+富。field = "field"；
 
-变量 foo2 = foo。初始化（"two"）； // 期待：Foo。初始化（two）
-打印行（foo2）； // 期待：Foo 实例
+变量 富2 = 富。初始化（"two"）； // 期待：丰富。初始化（two）
+打印行（富2）； // 期待：丰富 实例
 
 // Make sure 初始化（）doesn't create a fresh instance。
-打印行（foo。field）； // 期待：初始化
+打印行（富。field）； // 期待：初始化
