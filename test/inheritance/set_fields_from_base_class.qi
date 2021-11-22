@@ -1,38 +1,38 @@
-类 Foo「
-  foo（a，b）「
+类 丰富「
+  富（a，b）「
     这。field1 = a；
     这。field2 = b；
   」
 
-  fooPrint（）「
+  富Print（）「
     打印行（这。field1）；
     打印行（这。field2）；
   」
 」
 
-类 Bar：Foo「
-  bar（a，b）「
+类 吧子：丰富「
+  吧（a，b）「
     这。field1 = a；
     这。field2 = b；
   」
 
-  barPrint（）「
+  吧Print（）「
     打印行（这。field1）；
     打印行（这。field2）；
   」
 」
 
-变量 bar = Bar（）；
-bar。foo（"foo 1"，"foo 2"）；
-bar。fooPrint（）；
-// 期待：foo 1
-// 期待：foo 2
+变量 吧 = 吧子（）；
+吧。富（"富 1"，"富 2"）；
+吧。富Print（）；
+// 期待：富 1
+// 期待：富 2
 
-bar。bar（"bar 1"，"bar 2"）；
-bar。barPrint（）；
-// 期待：bar 1
-// 期待：bar 2
+吧。吧（"吧 1"，"吧 2"）；
+吧。吧Print（）；
+// 期待：吧 1
+// 期待：吧 2
 
-bar。fooPrint（）；
-// 期待：bar 1
-// 期待：bar 2
+吧。富Print（）；
+// 期待：吧 1
+// 期待：吧 2
