@@ -1,9 +1,9 @@
-类 Foo「」
+类 丰富「」
 
-变量 foo = Foo（）；
+变量 富 = 丰富（）；
 
-打印行（foo。bar = "bar value"）； // 期待：bar value
-打印行（foo。baz = "baz value"）； // 期待：baz value
+打印行（富。吧 = "吧 值"）； // 期待：吧 值
+打印行（富。巴 = "巴值"）； // 期待：巴值
 
-打印行（foo。bar）； // 期待：bar value
-打印行（foo。baz）； // 期待：baz value
+打印行（富。吧）； // 期待：吧 值
+打印行（富。巴）； // 期待：巴值
