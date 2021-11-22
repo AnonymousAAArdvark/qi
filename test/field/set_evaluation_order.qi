@@ -1,2 +1,2 @@
-undefined1。bar // 期待运行时错误：Undefined 变量 'undefined1'.
+undefined1。吧 // 期待运行时错误：未定义的变量「undefined1」。
   = undefined2；
