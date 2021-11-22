@@ -1,1 +1,1 @@
-"str"。foo； // 期待运行时错误：Only instances have properties.
+"str"。富； // 期待运行时错误：只有实例有属性。
