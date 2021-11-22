@@ -1,1 +1,1 @@
-1 + 空； // 期待运行时错误：Operands must be two numbers or two strings.
+1 + 空； // 期待运行时错误：操作数必须是两个数字或两个字符串。
