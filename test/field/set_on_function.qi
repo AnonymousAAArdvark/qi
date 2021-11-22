@@ -1,3 +1,3 @@
-功能 foo（）「」
+功能 富（）「」
 
-foo。bar = "value"； // 期待运行时错误：Only instances have fields.
+富。吧 = "值"； // 期待运行时错误：只有实例有字段。
