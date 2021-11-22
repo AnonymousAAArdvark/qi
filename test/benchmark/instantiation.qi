@@ -1,42 +1,42 @@
 // This benchmark stresses instance creation and initializer calling。
 
-类 Foo「
+类 丰富「
   初始化（）「」
 」
 
 变量 start = 时钟（）；
 变量 i = 0；
 而（i 小 500000）「
-  Foo（）；
-  Foo（）；
-  Foo（）；
-  Foo（）；
-  Foo（）；
-  Foo（）；
-  Foo（）；
-  Foo（）；
-  Foo（）；
-  Foo（）；
-  Foo（）；
-  Foo（）；
-  Foo（）；
-  Foo（）；
-  Foo（）；
-  Foo（）；
-  Foo（）；
-  Foo（）；
-  Foo（）；
-  Foo（）；
-  Foo（）；
-  Foo（）；
-  Foo（）；
-  Foo（）；
-  Foo（）；
-  Foo（）；
-  Foo（）；
-  Foo（）；
-  Foo（）；
-  Foo（）；
+  丰富（）；
+  丰富（）；
+  丰富（）；
+  丰富（）；
+  丰富（）；
+  丰富（）；
+  丰富（）；
+  丰富（）；
+  丰富（）；
+  丰富（）；
+  丰富（）；
+  丰富（）；
+  丰富（）；
+  丰富（）；
+  丰富（）；
+  丰富（）；
+  丰富（）；
+  丰富（）；
+  丰富（）；
+  丰富（）；
+  丰富（）；
+  丰富（）；
+  丰富（）；
+  丰富（）；
+  丰富（）；
+  丰富（）；
+  丰富（）；
+  丰富（）；
+  丰富（）；
+  丰富（）；
   i = i + 1；
 」
 
