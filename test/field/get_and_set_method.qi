@@ -1,5 +1,5 @@
 // Bound methods have identity equality。
-类 Foo「
+类 丰富「
   method（a）「
     打印行（"method"）；
     打印行（a）；
@@ -10,12 +10,12 @@
   」
 」
 
-变量 foo = Foo（）；
-变量 method = foo。method；
+变量 富 = 丰富（）；
+变量 method = 富。method；
 
 // Setting a property shadows the instance method。
-foo。method = foo。other；
-foo。method（1）；
+富。method = 富。other；
+富。method（1）；
 // 期待：other
 // 期待：1
 
