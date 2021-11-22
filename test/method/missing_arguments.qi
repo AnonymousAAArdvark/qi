@@ -1,5 +1,5 @@
-类 Foo「
+类 丰富「
   method（a，b）「」
 」
 
-Foo（）。method（1）； // 期待运行时错误：Expected 2 arguments but got 1.
+丰富（）。method（1）； // 期待运行时错误：需要 2 个参数，但得到 1。
