@@ -1,4 +1,4 @@
-类 Foo「」
+类 丰富「」
 
-变量 foo = Foo（）；
-foo（）； // 期待运行时错误：Can only call functions and 类es.
+变量 富 = 丰富（）；
+富（）； // 期待运行时错误：只能调用功能和类。
