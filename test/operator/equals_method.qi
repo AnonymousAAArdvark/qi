@@ -1,13 +1,13 @@
 // Bound methods have identity equality。
-类 Foo「
+类 丰富「
   method（）「」
 」
 
-变量 foo = Foo（）；
-变量 fooMethod = foo。method；
+变量 富 = 丰富（）；
+变量 富Method = 富。method；
 
 // Same bound method。
-打印行（fooMethod 等 fooMethod）； // 期待：真
+打印行（富Method 等 富Method）； // 期待：真
 
 // Different closurizations。
-打印行（foo。method 等 foo。method）； // 期待：假
+打印行（富。method 等 富。method）； // 期待：假
