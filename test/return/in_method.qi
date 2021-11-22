@@ -1,8 +1,8 @@
-类 Foo「
+类 丰富「
   method（）「
     返回 "ok"；
     打印行（"bad"）；
   」
 」
 
-打印行（Foo（）。method（））； // 期待：ok
+打印行（丰富（）。method（））； // 期待：ok
