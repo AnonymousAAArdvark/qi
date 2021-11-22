@@ -1,9 +1,9 @@
-类 Foo「
-  bar（arg）「
+类 丰富「
+  吧（arg）「
     打印行（arg）；
   」
 」
 
-变量 bar = Foo（）。bar；
+变量 吧 = 丰富（）。吧；
 打印行（"got method"）； // 期待：got method
-bar（"arg"）；          // 期待：arg
+吧（"arg"）；          // 期待：arg
