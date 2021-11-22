@@ -1,5 +1,5 @@
 功能 modifyString（string，rep）「
-    string【0】= rep； // 期待运行时错误：需要 string of length 1 but got length 2.
+    string【0】= rep； // 期待运行时错误：期望长度为 1 的字符串，但长度为 2。
 」
 
 变量 富 = "test"；
