@@ -1,7 +1,7 @@
-类 Foo「
+类 丰富「
   method（）「
-    打印行（method）； // 期待运行时错误：Undefined 变量 'method'.
+    打印行（method）； // 期待运行时错误：未定义的变量「method」。
   」
 」
 
-Foo（）。method（）；
+丰富（）。method（）；
