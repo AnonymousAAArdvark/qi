@@ -1,14 +1,14 @@
-类 Foo「
-  methodOnFoo（）「 打印行（"foo"）； 」
-  override（）「 打印行（"foo"）； 」
+类 丰富「
+  methodOn丰富（）「 打印行（"富"）； 」
+  override（）「 打印行（"富"）； 」
 」
 
-类 Bar：Foo「
-  methodOnBar（）「 打印行（"bar"）； 」
-  override（）「 打印行（"bar"）； 」
+类 吧子：丰富「
+  methodOn吧子（）「 打印行（"吧"）； 」
+  override（）「 打印行（"吧"）； 」
 」
 
-变量 bar = Bar（）；
-bar。methodOnFoo（）； // 期待：foo
-bar。methodOnBar（）； // 期待：bar
-bar。override（）； // 期待：bar
+变量 吧 = 吧子（）；
+吧。methodOn丰富（）； // 期待：富
+吧。methodOn吧子（）； // 期待：吧
+吧。override（）； // 期待：吧
