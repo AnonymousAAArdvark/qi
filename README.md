@@ -17,7 +17,7 @@
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>qilang.tk »</strong></a>
     <br /><br />
     English |
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">中文</a>
+    <a href="https://github.com/AnonymousAAArdvark/qi/blob/master/README.zh.md">">中文</a>
   </p>
 </div>
 
@@ -40,7 +40,7 @@ After reading an article on how programming languages are created, I was inspire
 
 
 
-- Qi is <ins>light</ins>. With less than 5000 lines of code, the entire project could be read in a day. Although the code is short, everything is well-formatted and easy to understand. The final executable is only about 140 kb in size, allowing you to run it on nearly any unix device imaginable.
+- Qi is <ins>light</ins>. With less than 5000 lines of code, the entire project could be read in a day. Although the code is short, everything is well-formatted and easy to understand. The final executable is only about 140 kb in size, allowing you to run it on nearly any device imaginable.
 
 
 - Qi is <ins>object-oriented</ins>. Placing classes front and center, [object-oriented programming](https://en.wikipedia.org/wiki/Object-oriented_programming) provides a clear modular structure that is significantly better at handling complexity than functional programming though concepts such as [abstraction](https://en.wikipedia.org/wiki/Abstraction_principle_(computer_programming)) and [encapsulation](https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)). 
@@ -76,7 +76,7 @@ The code for the benchmarks can be found [in the test folder](https://github.com
 ### Installation
 
 1. Clone or download zip of git repo.
-6. Open terminal, and cd to ```/src/cmake-build-release```
+6. Open terminal, and ```cd``` to ```/src/cmake-build-release```
 7. Run ```make```.
 8. All done!
 
@@ -104,7 +104,7 @@ For a more extensive look into Qi, go to the [Language Guide]().
 - [x] Optimization
 - [x] Translate everything to Chinese
 - [x] Make a logo
-- [ ] Finish Readme
+- [x] Finish Readme
 - [ ] Translate Readme to Chinese
 - [ ] Create Website
   - [ ] Front Page 
