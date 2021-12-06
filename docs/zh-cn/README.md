@@ -1,27 +1,15 @@
-[![Lines of Code][loc-shield]][loc-url]
-[![License][license-shield]][license-url]
-[![Website][website-shield]][website-url]
-[![Size][size-shield]][size-url]
-<!-- PROJECT LOGO -->
-<br />
 <div align="center">
   <a href="https://github.com/anonymousaaardvark/qi">
-    <img src="docs/assets/images/logo.png" alt="Logo" width="80" height="80">
+    <img src="../assets/images/logo.png" alt="Logo" width="80" height="80">
   </a>
+</div>
 
 <h2 align="center">气 (qi) 语</h3>
 
   <p align="center">
     气是一种轻量级、快速、开源的中文编程语言。
     <br />
-    <a href="https://qilang.tk"><strong>qilang.tk »</strong></a>
-    <br /><br />
-    <a href="https://github.com/AnonymousAAArdvark/qi/blob/master/README.md">English</a> |
-    中文
   </p>
-</div>
-
-[![Background][background-img]]()
 
 <!-- ABOUT THE PROJECT -->
 ## 关于
@@ -103,9 +91,9 @@
 - [x] 制作徽标
 - [x] 完成自述文件
 - [x] 将自述文件翻译成中文
-- [ ] 创建网站
-    - [ ] 首页
-    - [ ] 入门
+- [x] 创建网站
+    - [x] 首页
+    - [x] 入门
     - [ ] 语言指南
 
 
@@ -162,5 +150,5 @@ Andrew Yang - [@anonymousaaardvark](https://twitter.com/anonymousaaardvark) - an
 [website-url]: https://qilang.tk
 [size-shield]: https://img.shields.io/github/repo-size/anonymousaaardvark/qi?style=for-the-badge
 [size-url]: https://github.com/anonymousaaardvark/qi
-[background-img]: docs/assets/images/background.jpeg
-[performance-img]: docs/assets/images/performance.png
+[background-img]: docs/images/background.jpeg
+[performance-img]: docs/images/performance.png

@@ -1,0 +1,34 @@
+#气-qi-lang {
+    pointer-events: none;
+    cursor: default;
+}
+
+#气-qi-lang span {
+    color: black;
+}
+
+.cover {
+    background: url("/assets/images/background.jpeg") center center / cover !important;
+}
+
+.cover::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    opacity: .8;
+}
+
+.cover-main {
+    z-index: 1;
+}
+
+:root {
+    --base-font-size: 14px;
+    --theme-color   : #ff2424;
+
+}

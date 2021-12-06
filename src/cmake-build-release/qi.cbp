@@ -17,6 +17,26 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/andrewyang/CLionProjects/qi/src/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/andrewyang/CLionProjects/qi/src/cmake-build-release"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/andrewyang/CLionProjects/qi/src/cmake-build-release/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/andrewyang/CLionProjects/qi/src/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/andrewyang/CLionProjects/qi/src/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/andrewyang/CLionProjects/qi/src/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/andrewyang/CLionProjects/qi/src/cmake-build-release"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/andrewyang/CLionProjects/qi/src/cmake-build-release/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/andrewyang/CLionProjects/qi/src/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/andrewyang/CLionProjects/qi/src/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/andrewyang/CLionProjects/qi/src/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="qi">
 				<Option output="/Users/andrewyang/CLionProjects/qi/src/cmake-build-release/qi" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/Users/andrewyang/CLionProjects/qi/src/cmake-build-release"/>
@@ -52,26 +72,6 @@
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j4 -f &quot;/Users/andrewyang/CLionProjects/qi/src/cmake-build-release/Makefile&quot;  VERBOSE=1 qi/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/andrewyang/CLionProjects/qi/src/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/andrewyang/CLionProjects/qi/src/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/andrewyang/CLionProjects/qi/src/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="/Users/andrewyang/CLionProjects/qi/src/cmake-build-release"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/andrewyang/CLionProjects/qi/src/cmake-build-release/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/andrewyang/CLionProjects/qi/src/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/andrewyang/CLionProjects/qi/src/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/andrewyang/CLionProjects/qi/src/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="rebuild_cache">
-				<Option working_dir="/Users/andrewyang/CLionProjects/qi/src/cmake-build-release"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/andrewyang/CLionProjects/qi/src/cmake-build-release/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/andrewyang/CLionProjects/qi/src/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/Users/andrewyang/CLionProjects/qi/src/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/andrewyang/CLionProjects/qi/src/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
