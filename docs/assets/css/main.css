@@ -8,7 +8,7 @@
 }
 
 .cover {
-    background: url("qi/assets/images/background.jpeg") center center / cover !important;
+    background: url("assets/images/background.jpeg") center center / cover !important;
 }
 
 .cover::after {

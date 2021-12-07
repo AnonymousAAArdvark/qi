@@ -1,6 +1,6 @@
 <!-- _coverpage.md -->
 
-<img src="qi/assets/images/logo_transp.png" alt="logo" width="150"/>
+<img src="assets/images/logo_transp.png" alt="logo" width="150"/>
 
 # 气 (qi) 语
 

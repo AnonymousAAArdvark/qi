@@ -21,7 +21,27 @@
       auto2top: true,
       loadSidebar: true,
       subMaxLevel: 2,
-      coverpage: ['/', '/zh-cn/']
+      coverpage: ['/', '/zh-cn/'],
+      baseurl: 'qi',
+
+      plugins: [
+        function (hook) {
+          hook.beforeEach(function (content) { //enabling relative paths
+            var url = window.location.href;     // Returns full URL
+            var lidx = url.lastIndexOf("/");
+            var xurl = url.substring(0,lidx);
+            var idx = xurl.indexOf("#");
+            var purl = xurl.substring(idx + 1, xurl.length);
+            return content.replace(/\[([^\]]*)\]\(([^)]*)\)/g,
+                    function(x){
+                      if (!x.includes("](/")){
+                        return x.replace("](","]("+purl+"/")
+                      }
+                      return x;
+                    }
+            )
+          })
+        }]
     }
   </script>
 
