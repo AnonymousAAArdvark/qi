@@ -2,7 +2,7 @@
 
 <img src="assets/images/logo_transp.png" alt="logo" width="150"/>
 
-# 气 (qi) 语
+# 气 (Qi) 语
 
 > 开源中文编程语言。
 

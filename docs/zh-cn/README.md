@@ -4,7 +4,7 @@
   </a>
 </div>
 
-<h2 align="center">气 (qi) 语</h3>
+<h2 align="center">气 (Qi) 语</h3>
 
   <p align="center">
     气是一种轻量级、快速、开源的中文编程语言。

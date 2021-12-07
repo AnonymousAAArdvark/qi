@@ -9,7 +9,7 @@
     <img src="docs/assets/images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-<h2 align="center">气 (qi) 语</h3>
+<h2 align="center">气 (Qi) 语</h3>
 
   <p align="center">
     气是一种轻量级、快速、开源的中文编程语言。
