@@ -6,4 +6,12 @@
 // Other stuff：ឃᢆ᯽₪ℜ↩⊗┺░
 // Emoji：☃☺♣
 
+/* Unicode characters are allowed in multi-line comments。
+
+Latin 1 Supplement：£§¶ÜÞ
+Latin Extended-A：ĐĦŋœ
+Latin Extended-B：ƂƢƩǁ
+Other stuff：ឃᢆ᯽₪ℜ↩⊗┺░
+Emoji：☃☺♣ */
+
 打印行（"ok"）； // 期待：ok

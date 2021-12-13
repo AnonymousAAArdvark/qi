@@ -1,4 +1,4 @@
-<!-- Quick Start -->
+# Quick Start
 ## Prerequisites
 * make
     * macOS
@@ -12,7 +12,7 @@
     * Linux
         * Should be built into the system
 
-## Installation
+##  Installation
 
 1. Clone or download zip of git repo.
 2. Open terminal, and ```cd``` to ```/src/cmake-build-release```
