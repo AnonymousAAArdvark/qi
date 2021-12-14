@@ -25,15 +25,15 @@ typedef struct {
 typedef enum {
     PREC_NONE,
     PREC_ASSIGNMENT,  // =
-    PREC_OR,          // or
-    PREC_AND,         // and
-    PREC_EQUALITY,    // == !=
-    PREC_COMPARISON,  // < > <= >=
+    PREC_OR,          // 或
+    PREC_AND,         // 和
+    PREC_EQUALITY,    // 等  不 等
+    PREC_COMPARISON,  // 大 小 大等 小等
     PREC_TERM,        // + -
     PREC_FACTOR,      // * /
     PREC_UNARY,       // ! -
-    PREC_CALL,        // . ()
-    PREC_SUBSCRIPT,   // [
+    PREC_CALL,        // 。（）
+    PREC_SUBSCRIPT,   // 【】
 } Precedence;
 
 typedef void (*ParseFn)(bool canAssign);

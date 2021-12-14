@@ -68,3 +68,17 @@ Typically, blocks contain a series of statements like:
     打印行（"三"）；
 }
 ```
+
+## Precedence Table
+| PREC 	| OPERATOR  	| DESCRIPTION                                       	| ASSOCIATES	|
+|---	|-----------	|---------------------------------------------------	|------------	|
+| 1 	| 【】        	| Subscript                                         	| Left-to-Right	|
+| 2 	| 。（）++ --   	| Method Call, Grouping, Postfix Increment & Decrement	| Left-to-Right	|
+| 3 	| 不 - ++ --  	| Not, Negate, Prefix Increment & Decrement            	| Right-to-Left	|
+| 4 	| * /       	| Multiply, Divide                                  	| Left-to-Right	|
+| 5 	| + -       	| Add, Subtract                                     	| Left-to-Right	|
+| 6 	| 大 小 大等 小等	| Comparison                                        	| Left-to-Right	|
+| 7 	| 等 不等    	| Equality                                           	| Left-to-Right	|
+| 8 	| 和        	| Logical And                                       	| Left-to-Right	|
+| 9 	| 或        	| Logical Or                                        	| Left-to-Right	|
+| 10 	| = += -=   	| Assignment, Setter                                	| Right-to-Left	|
