@@ -1,16 +1,4 @@
 /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=/usr/bin/g++ -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /Users/andrewyang/CLionProjects/qi/src
--- The C compiler identification is AppleClang 12.0.5.12050022
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
--- Check for working C compiler: /Library/Developer/CommandLineTools/usr/bin/cc - skipped
--- Detecting C compile features
--- Detecting C compile features - done
 -- Configuring done
 -- Generating done
-CMake Warning:
-  Manually-specified variables were not used by the project:
-
-    CMAKE_CXX_COMPILER
-
-
 -- Build files have been written to: /Users/andrewyang/CLionProjects/qi/src/cmake-build-release

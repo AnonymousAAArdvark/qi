@@ -110,6 +110,9 @@ For a more extensive look into Qi, go to the [Language Guide]().
   - [x] Front Page 
   - [ ] Quick Start
   - [ ] Language Guide
+- [ ] Escape Sequences
+- [ ] Bitwise operators
+- [ ] Remove semicolons
     
 
 
