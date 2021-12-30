@@ -1,40 +1,40 @@
-# 字符串 (string)
-Strings are a mutable list of characters. All characters encoded in unicode are supported.
+# 字符串
+字符串是一个可变的字符列表。支持所有以 unicode 编码的字符。
 
-To declare a literal, surround text in two double quotes ("").
+要声明文字，请将文本括在两个双引号 ("") 中。
 ```c
 "你好，世界"
 ```
 
-## Static Methods
+## 静态方法
 
-#### string。**长度**（）
-Returns the length of the string.
+#### 字符串。**长度**（）
+返回字符串的长度。
 ```c
-变量 str = "你好"；
-打印行（str。长度（））；  // 2
+变量 符串 = "你好"；
+打印行（符串。长度（））；  // 2
 ```
-#### string。**大写**（）
-Returns a string where all characters are in upper case.
+#### 字符串。**大写**（）
+返回一个字符串，其中所有字符都为大写。
 ```c
-变量 str = "test"；
-打印行（str。长度（））；  // TEST
+变量 符串 = "test"；
+打印行（符串。长度（））；  // TEST
 ```
-#### string。**小写**（）
-Returns a string where all characters are in lower case.
+#### 字符串。**小写**（）
+返回一个字符串，其中所有字符都是小写。
 ```c
-变量 str = "TEST"；
-打印行（str。长度（））；  // test
+变量 符串 = "TEST"；
+打印行（符串。长度（））；  // test
 ```
-#### string。**子串**（number）
-Returns a part of a string between starting index and the end of the string.
+#### 字符串。**子串**（数字）
+返回字符串的起始索引和字符串结尾之间的一部分。
 ```c
-变量 str = "零一二三"；
-打印行（str。子串（1））；  // 一二三
+变量 符串 = "零一二三"；
+打印行（符串。子串（1））；  // 一二三
 ```
-#### string。**子串**（number, number）
-Returns a part of a string between starting index and ending index.
+#### 字符串。**子串**（数字, 数字）
+返回起始索引和结束索引之间的字符串的一部分。
 ```c
-变量 str = "零一二三"；
-打印行（str。子串（1，3））；  // 一二
+变量 符串 = "零一二三"；
+打印行（符串。子串（1，3））；  // 一二
 ```

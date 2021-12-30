@@ -1,8 +1,8 @@
-# 功能 (Function)
-Functions are pieces of code that you can execute in various areas of a program. They can be stored in variables, passed into functions, returned by functions, and even put in lists.
+# 功能
+函数是可以在程序的各个区域执行的代码段。它们可以存储在变量中，传递给函数，由函数返回，甚至放在列表中。
 
-## Defining a Function
-To declare a function, use the ```功能``` keyword followed by the function name:
+## 定义函数
+要声明函数，请使用```功能``` 关键字，后跟函数名称：
 ```c
 功能 说你好（）「
     打印行（"你好"）；
@@ -11,10 +11,10 @@ To declare a function, use the ```功能``` keyword followed by the function nam
 说你好（）；  // 你好
 ```
 
-## Parameters
-To pass values to a function, you can provide a parameter list in the function declaration.
+## 参数
+要将值传递给函数，您可以在函数声明中提供参数列表。
 
-Parameters can be added by listing out argument names separated by commas (，).
+可以通过列出以逗号（，）分隔的参数名称来添加参数。
 ```c
 功能 说你好（名字）「
     打印行（"你好" + 名字）；
@@ -22,10 +22,10 @@ Parameters can be added by listing out argument names separated by commas (，).
 
 说你好（"世界"）；  // 你好世界
 ```
-It’s an error to call a function with fewer arguments than its parameter list expects. If you pass too *many* arguments, the extras are ignored.
+调用参数少于其参数列表预期的函数是错误的。如果传递*太多*参数，则会忽略额外的参数。
 
-## Returning values
-Functions without the ```返回``` (return) keyword returns ```空``` by default. You can explicitly return a value using a ```返回``` statement, followed by the value you want returned.
+## 返回值
+没有```返回```关键字的函数默认返回```空```。您可以使用 ```返回``` 语句显式返回一个值，后跟您想要返回的值。
 ```c
 功能 加一（数字）「
     返回 数字 + 1；
@@ -34,8 +34,8 @@ Functions without the ```返回``` (return) keyword returns ```空``` by default
 打印行（加一（1））；  // 2
 ```
 
-## Recursion
-Function recursion is fully supported in Qi:
+## 递归
+气完全支持函数递归：
 ```c
 功能 斐波（数字）「
     如果（数字 小 2）返回 数字；

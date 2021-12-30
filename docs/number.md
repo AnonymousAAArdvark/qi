@@ -1,5 +1,5 @@
 # 数字 (number)
-Like most other scripting languages, Qi represents all numeric values with a C double-precision floating point. Number literals look very similar to other languages:
+Like most other scripting languages, Qi represents all numeric values with a double-precision floating point. Number literals look very similar to other languages:
 ```c
 123
 0

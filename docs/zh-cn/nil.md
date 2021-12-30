@@ -1,6 +1,6 @@
-# 空 (Nil)
-The value ```空``` functions similarly to ```null``` in some languages. It indicates the absence of a value. A called function/method that doesn't return anything returns a ```空``` back. ```空``` is also the default value that uninitialized variables contain.
+# 空
+在某些语言中，值 ```空``` 的功能类似于 ```null```。它表示没有值。一个不返回任何内容的被调用函数/方法返回一个 ```空```。 ```空``` 也是未初始化的变量包含的默认值。
 ```c
-变量 uninitialized；
-打印行（uinitialized）；  // 空
+变量 未初始化；
+打印行（未初始化）；  // 空
 ```
