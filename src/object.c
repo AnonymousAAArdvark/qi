@@ -120,6 +120,47 @@ ObjString* copyString(const wchar_t* chars, int length) {
     return allocateString(heapChars, length, hash);
 }
 
+ObjString* handleEscapeSequences(ObjString* string) {
+    wchar_t *here = string->chars;
+    size_t len = string->length;
+    int num;
+    int num_len;
+
+    while (NULL != (here = wcschr(here,L'·'))) {
+        num_len = 1;
+        switch (here[1]) {
+            case L'r':
+                *here = L'\r';
+                break;
+            case L'b':
+                *here = L'\b';
+                break;
+            case L'f':
+                *here = L'\f';
+                break;
+            case L'n':
+                *here = L'\n';
+                break;
+            case L't':
+                *here = L'\t';
+                break;
+            case L'v':
+                *here = L'\v';
+                break;
+            case L'a':
+                *here = L'\a';
+                break;
+            default:
+                *here = here[1];
+                break;
+        }
+        num = here - string->chars + num_len;
+        here++;
+        wmemmove(here, here + num_len, len - num);
+    }
+    return string;
+}
+
 void storeToString(ObjString* string, int index, wchar_t value) {
     string->chars[index] = value;
 }

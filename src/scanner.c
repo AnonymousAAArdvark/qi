@@ -183,6 +183,7 @@ static Token number() {
 static Token string() {
     while (peek() != L'"' && !isAtEnd()) {
         if (peek() == L'\n') scanner.line++;
+        else if (peek() == L'·') advance();
         advance();
     }
 

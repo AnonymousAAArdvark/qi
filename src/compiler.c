@@ -433,7 +433,7 @@ static void binary(bool canAssign) {
 static void postfix(bool canAssign) {
     TokenType operatorType = parser.previous.type;
 
-    switch(parser.previous.type) {
+    switch (parser.previous.type) {
         case TOKEN_PLUS_PLUS:
         case TOKEN_MINUS_MINUS: {
             uint8_t op1 = -1, op2 = -1;
@@ -528,8 +528,8 @@ static void or_(bool canAssign) {
 }
 
 static void string(bool canAssign) {
-    emitConstant(OBJ_VAL(copyString(parser.previous.start + 1,
-                                    parser.previous.length - 2)));
+    emitConstant(OBJ_VAL(handleEscapeSequences(copyString(parser.previous.start + 1,
+                                    parser.previous.length - 2))));
 }
 
 static void list(bool canAssign) {

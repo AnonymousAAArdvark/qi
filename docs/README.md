@@ -61,9 +61,12 @@ For a more extensive look into Qi, go to the [Language Guide](syntax.md).
   - [x] Front Page 
   - [x] Quick Start
   - [x] Language Guide
-- [ ] Escape Sequences
+- [x] Escape Sequences
 - [ ] Bitwise operators
 - [ ] Remove semicolons
+- [ ] Support scientific notation, binary, etc. numbers
+- [ ] More string methods
+- [ ] More list methods
 
 <!-- LICENSE -->
 ## License

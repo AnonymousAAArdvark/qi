@@ -119,6 +119,7 @@ ObjInstance* newInstance(ObjClass* klass);
 ObjNative* newNative(NativeFn function, int arity);
 ObjString* takeString(wchar_t* chars, int length);
 ObjString* copyString(const wchar_t* chars, int length);
+ObjString* handleEscapeSequences(ObjString* string);
 void storeToString(ObjString* string, int index, wchar_t value);
 wchar_t indexFromString(ObjString* string, int index);
 bool isValidStringIndex(ObjString* string, int index);
