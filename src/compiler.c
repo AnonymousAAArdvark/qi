@@ -1057,7 +1057,8 @@ static void returnStatement() {
         error(L"无法从顶级代码返回。");
     }
 
-    if (match(TOKEN_SEMICOLON) || check(TOKEN_RIGHT_BRACE)) {
+//    if (match(TOKEN_SEMICOLON) || check(TOKEN_RIGHT_BRACE)) {
+    if (match(TOKEN_SEMICOLON) || parser.previous.line != parser.current.line) {
         emitReturn();
     } else {
         if (current->type == TYPE_INITIALIZER) {
