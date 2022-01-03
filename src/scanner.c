@@ -144,8 +144,7 @@ static TokenType identifierType() {
         case L'大':
             if (scanner.current - scanner.start > 1) {
                 switch (scanner.start[1]) {
-                    case L'等':
-                        return checkKeyword(2, 0, L"", TOKEN_GREATER_EQUAL);
+                    case L'等': return checkKeyword(2, 0, L"", TOKEN_GREATER_EQUAL);
                 }
             }
             return checkKeyword(1, 0, L"", TOKEN_GREATER);
@@ -156,6 +155,18 @@ static TokenType identifierType() {
                 }
             }
             return checkKeyword(1, 0, L"", TOKEN_LESS);
+        case L'位':
+            if (scanner.current - scanner.start > 1) {
+                switch (scanner.start[1]) {
+                    case L'不': return checkKeyword(2, 0, L"", TOKEN_BITWISE_NOT);
+                    case L'和': return checkKeyword(2, 0, L"", TOKEN_BITWISE_AND);
+                    case L'或': return checkKeyword(2, 0, L"", TOKEN_BITWISE_OR);
+                    case L'异': return checkKeyword(2, 1, L"或", TOKEN_BITWISE_XOR);
+                    case L'左': return checkKeyword(2, 1, L"移", TOKEN_BITWISE_LEFT_SHIFT);
+                    case L'右': return checkKeyword(2, 1, L"移", TOKEN_BITWISE_RIGHT_SHIFT);
+                }
+            }
+            break;
     }
 
     return TOKEN_IDENTIFIER;

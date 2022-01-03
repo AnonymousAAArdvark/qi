@@ -1,5 +1,5 @@
 如果（假）「
-  打印行（notDefined）；
+  打印行（notDefined）
 」
 
 打印行（"ok"）； // 期待：ok

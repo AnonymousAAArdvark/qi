@@ -1,5 +1,5 @@
 「
-  变量 a = "outer"；
+  变量 a = "outer"
  「
     打印行（a）； // 期待：outer
   」

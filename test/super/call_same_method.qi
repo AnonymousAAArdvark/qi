@@ -1,16 +1,16 @@
 类 Base「
   富（）「
-    打印行（"Base。富（）"）；
+    打印行（"Base。富（）"）
   」
 」
 
 类 Derived：Base「
   富（）「
-    打印行（"Derived。富（）"）；
-    超。富（）；
+    打印行（"Derived。富（）"）
+    超。富（）
   」
 」
 
-Derived（）。富（）；
+Derived（）。富（）
 // 期待：Derived。富（）
 // 期待：Base。富（）

@@ -1,16 +1,16 @@
 类 Base「
   初始化（a，b）「
-    打印行（"Base。初始化（" + a + "，" + b + "）"）；
+    打印行（"Base。初始化（" + a + "，" + b + "）"）
   」
 」
 
 类 Derived：Base「
   初始化（）「
-    打印行（"Derived。初始化（）"）；
-    超。初始化（"a"，"b"）；
+    打印行（"Derived。初始化（）"）
+    超。初始化（"a"，"b"）
   」
 」
 
-Derived（）；
+Derived（）
 // 期待：Derived。初始化（）
 // 期待：Base。初始化（a，b）

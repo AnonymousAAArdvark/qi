@@ -1,12 +1,12 @@
-变量 a = "global"；
+变量 a = "global"
 
 「
   功能 assign（）「
-    a = "assigned"；
+    a = "assigned"
   」
 
-  变量 a = "inner"；
-  assign（）；
+  变量 a = "inner"
+  assign（）
   打印行（a）； // 期待：inner
 」
 

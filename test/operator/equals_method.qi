@@ -3,8 +3,8 @@
   method（）「」
 」
 
-变量 富 = 丰富（）；
-变量 富Method = 富。method；
+变量 富 = 丰富（）
+变量 富Method = 富。method
 
 // Same bound method。
 打印行（富Method 等 富Method）； // 期待：真

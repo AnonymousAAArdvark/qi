@@ -1,29 +1,29 @@
 类 Tree「
   初始化（depth）「
-    这。depth = depth；
+    这。depth = depth
     如果（depth 大 0）「
-      这。a = Tree（depth - 1）；
-      这。b = Tree（depth - 1）；
-      这。c = Tree（depth - 1）；
-      这。d = Tree（depth - 1）；
-      这。e = Tree（depth - 1）；
+      这。a = Tree（depth - 1）
+      这。b = Tree（depth - 1）
+      这。c = Tree（depth - 1）
+      这。d = Tree（depth - 1）
+      这。e = Tree（depth - 1）
     」
   」
 
   walk（）「
-    如果（这。depth 等 0）返回 0；
+    如果（这。depth 等 0）返回 0
     返回 这。depth
         + 这。a。walk（）
         + 这。b。walk（）
         + 这。c。walk（）
         + 这。d。walk（）
-        + 这。e。walk（）；
+        + 这。e。walk（）
   」
 」
 
-变量 tree = Tree（8）；
-变量 start = 时钟（）；
+变量 tree = Tree（8）
+变量 start = 时钟（）
 对于（变量 i = 0； i 小 100； i = i + 1）「
-  如果（tree。walk（）不等 122068）打印行（"错误"）；
+  如果（tree。walk（）不等 122068）打印行（"错误"）
 」
-打印行（时钟（）- start）；
+打印行（时钟（）- start）

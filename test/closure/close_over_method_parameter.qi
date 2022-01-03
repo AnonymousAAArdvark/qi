@@ -1,13 +1,13 @@
-变量 f；
+变量 f
 
 类 丰富「
   method（param）「
     功能 f下（）「
-      打印行（param）；
+      打印行（param）
     」
-    f = f下；
+    f = f下
   」
 」
 
-丰富（）。method（"param"）；
+丰富（）。method（"param"）
 f（）； // 期待：param

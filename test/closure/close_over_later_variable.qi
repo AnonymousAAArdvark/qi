@@ -4,12 +4,12 @@
 // then didn't handle not finding the 变量。
 
 功能 f（）「
-  变量 a = "a"；
-  变量 b = "b"；
+  变量 a = "a"
+  变量 b = "b"
   功能 g（）「
     打印行（b）； // 期待：b
     打印行（a）； // 期待：a
   」
-  g（）；
+  g（）
 」
-f（）；
+f（）

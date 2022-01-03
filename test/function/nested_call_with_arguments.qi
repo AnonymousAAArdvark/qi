@@ -1,13 +1,13 @@
 功能 返回Arg（arg）「
-  返回 arg；
+  返回 arg
 」
 
 功能 返回FunCallWithArg（func，arg）「
-  返回 返回Arg（func）（arg）；
+  返回 返回Arg（func）（arg）
 」
 
 功能 printArg（arg）「
-  打印行（arg）；
+  打印行（arg）
 」
 
 返回FunCallWithArg（printArg，"hello world"）； // 期待：hello world

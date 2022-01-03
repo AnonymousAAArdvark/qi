@@ -3,17 +3,17 @@
     功能 f（）「
       功能 g（）「
         功能 h（）「
-          返回 这。toString（）；
+          返回 这。toString（）
         」
-        返回 h；
+        返回 h
       」
-      返回 g；
+      返回 g
     」
-    返回 f；
+    返回 f
   」
 
   toString（）「 返回 "丰富"； 」
 」
 
-变量 closure = 丰富（）。getClosure（）；
+变量 closure = 丰富（）。getClosure（）
 打印行（closure（）（）（））； // 期待：丰富

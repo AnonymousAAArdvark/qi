@@ -1,9 +1,9 @@
-变量 a = "a"；
-变量 b = "b"；
-变量 c = "c"；
+变量 a = "a"
+变量 b = "b"
+变量 c = "c"
 
 // Assignment is right-associative。
-a = b = c；
+a = b = c
 打印行（a）； // 期待：c
 打印行（b）； // 期待：c
 打印行（c）； // 期待：c

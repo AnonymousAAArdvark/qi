@@ -1,103 +1,103 @@
 功能 f（）「
-  变量 v00； 变量 v01； 变量 v02； 变量 v03； 变量 v04； 变量 v05； 变量 v06； 变量 v07；
-  变量 v08； 变量 v09； 变量 v0a； 变量 v0b； 变量 v0c； 变量 v0d； 变量 v0e； 变量 v0f；
+  变量 v00； 变量 v01； 变量 v02； 变量 v03； 变量 v04； 变量 v05； 变量 v06； 变量 v07
+  变量 v08； 变量 v09； 变量 v0a； 变量 v0b； 变量 v0c； 变量 v0d； 变量 v0e； 变量 v0f
 
-  变量 v10； 变量 v11； 变量 v12； 变量 v13； 变量 v14； 变量 v15； 变量 v16； 变量 v17；
-  变量 v18； 变量 v19； 变量 v1a； 变量 v1b； 变量 v1c； 变量 v1d； 变量 v1e； 变量 v1f；
+  变量 v10； 变量 v11； 变量 v12； 变量 v13； 变量 v14； 变量 v15； 变量 v16； 变量 v17
+  变量 v18； 变量 v19； 变量 v1a； 变量 v1b； 变量 v1c； 变量 v1d； 变量 v1e； 变量 v1f
 
-  变量 v20； 变量 v21； 变量 v22； 变量 v23； 变量 v24； 变量 v25； 变量 v26； 变量 v27；
-  变量 v28； 变量 v29； 变量 v2a； 变量 v2b； 变量 v2c； 变量 v2d； 变量 v2e； 变量 v2f；
+  变量 v20； 变量 v21； 变量 v22； 变量 v23； 变量 v24； 变量 v25； 变量 v26； 变量 v27
+  变量 v28； 变量 v29； 变量 v2a； 变量 v2b； 变量 v2c； 变量 v2d； 变量 v2e； 变量 v2f
 
-  变量 v30； 变量 v31； 变量 v32； 变量 v33； 变量 v34； 变量 v35； 变量 v36； 变量 v37；
-  变量 v38； 变量 v39； 变量 v3a； 变量 v3b； 变量 v3c； 变量 v3d； 变量 v3e； 变量 v3f；
+  变量 v30； 变量 v31； 变量 v32； 变量 v33； 变量 v34； 变量 v35； 变量 v36； 变量 v37
+  变量 v38； 变量 v39； 变量 v3a； 变量 v3b； 变量 v3c； 变量 v3d； 变量 v3e； 变量 v3f
 
-  变量 v40； 变量 v41； 变量 v42； 变量 v43； 变量 v44； 变量 v45； 变量 v46； 变量 v47；
-  变量 v48； 变量 v49； 变量 v4a； 变量 v4b； 变量 v4c； 变量 v4d； 变量 v4e； 变量 v4f；
+  变量 v40； 变量 v41； 变量 v42； 变量 v43； 变量 v44； 变量 v45； 变量 v46； 变量 v47
+  变量 v48； 变量 v49； 变量 v4a； 变量 v4b； 变量 v4c； 变量 v4d； 变量 v4e； 变量 v4f
 
-  变量 v50； 变量 v51； 变量 v52； 变量 v53； 变量 v54； 变量 v55； 变量 v56； 变量 v57；
-  变量 v58； 变量 v59； 变量 v5a； 变量 v5b； 变量 v5c； 变量 v5d； 变量 v5e； 变量 v5f；
+  变量 v50； 变量 v51； 变量 v52； 变量 v53； 变量 v54； 变量 v55； 变量 v56； 变量 v57
+  变量 v58； 变量 v59； 变量 v5a； 变量 v5b； 变量 v5c； 变量 v5d； 变量 v5e； 变量 v5f
 
-  变量 v60； 变量 v61； 变量 v62； 变量 v63； 变量 v64； 变量 v65； 变量 v66； 变量 v67；
-  变量 v68； 变量 v69； 变量 v6a； 变量 v6b； 变量 v6c； 变量 v6d； 变量 v6e； 变量 v6f；
+  变量 v60； 变量 v61； 变量 v62； 变量 v63； 变量 v64； 变量 v65； 变量 v66； 变量 v67
+  变量 v68； 变量 v69； 变量 v6a； 变量 v6b； 变量 v6c； 变量 v6d； 变量 v6e； 变量 v6f
 
-  变量 v70； 变量 v71； 变量 v72； 变量 v73； 变量 v74； 变量 v75； 变量 v76； 变量 v77；
-  变量 v78； 变量 v79； 变量 v7a； 变量 v7b； 变量 v7c； 变量 v7d； 变量 v7e； 变量 v7f；
+  变量 v70； 变量 v71； 变量 v72； 变量 v73； 变量 v74； 变量 v75； 变量 v76； 变量 v77
+  变量 v78； 变量 v79； 变量 v7a； 变量 v7b； 变量 v7c； 变量 v7d； 变量 v7e； 变量 v7f
 
   功能 g（）「
-    变量 v80； 变量 v81； 变量 v82； 变量 v83； 变量 v84； 变量 v85； 变量 v86； 变量 v87；
-    变量 v88； 变量 v89； 变量 v8a； 变量 v8b； 变量 v8c； 变量 v8d； 变量 v8e； 变量 v8f；
+    变量 v80； 变量 v81； 变量 v82； 变量 v83； 变量 v84； 变量 v85； 变量 v86； 变量 v87
+    变量 v88； 变量 v89； 变量 v8a； 变量 v8b； 变量 v8c； 变量 v8d； 变量 v8e； 变量 v8f
 
-    变量 v90； 变量 v91； 变量 v92； 变量 v93； 变量 v94； 变量 v95； 变量 v96； 变量 v97；
-    变量 v98； 变量 v99； 变量 v9a； 变量 v9b； 变量 v9c； 变量 v9d； 变量 v9e； 变量 v9f；
+    变量 v90； 变量 v91； 变量 v92； 变量 v93； 变量 v94； 变量 v95； 变量 v96； 变量 v97
+    变量 v98； 变量 v99； 变量 v9a； 变量 v9b； 变量 v9c； 变量 v9d； 变量 v9e； 变量 v9f
 
-    变量 va0； 变量 va1； 变量 va2； 变量 va3； 变量 va4； 变量 va5； 变量 va6； 变量 va7；
-    变量 va8； 变量 va9； 变量 vaa； 变量 vab； 变量 vac； 变量 vad； 变量 vae； 变量 vaf；
+    变量 va0； 变量 va1； 变量 va2； 变量 va3； 变量 va4； 变量 va5； 变量 va6； 变量 va7
+    变量 va8； 变量 va9； 变量 vaa； 变量 vab； 变量 vac； 变量 vad； 变量 vae； 变量 vaf
 
-    变量 vb0； 变量 vb1； 变量 vb2； 变量 vb3； 变量 vb4； 变量 vb5； 变量 vb6； 变量 vb7；
-    变量 vb8； 变量 vb9； 变量 vba； 变量 vbb； 变量 vbc； 变量 vbd； 变量 vbe； 变量 vbf；
+    变量 vb0； 变量 vb1； 变量 vb2； 变量 vb3； 变量 vb4； 变量 vb5； 变量 vb6； 变量 vb7
+    变量 vb8； 变量 vb9； 变量 vba； 变量 vbb； 变量 vbc； 变量 vbd； 变量 vbe； 变量 vbf
 
-    变量 vc0； 变量 vc1； 变量 vc2； 变量 vc3； 变量 vc4； 变量 vc5； 变量 vc6； 变量 vc7；
-    变量 vc8； 变量 vc9； 变量 vca； 变量 vcb； 变量 vcc； 变量 vcd； 变量 vce； 变量 vcf；
+    变量 vc0； 变量 vc1； 变量 vc2； 变量 vc3； 变量 vc4； 变量 vc5； 变量 vc6； 变量 vc7
+    变量 vc8； 变量 vc9； 变量 vca； 变量 vcb； 变量 vcc； 变量 vcd； 变量 vce； 变量 vcf
 
-    变量 vd0； 变量 vd1； 变量 vd2； 变量 vd3； 变量 vd4； 变量 vd5； 变量 vd6； 变量 vd7；
-    变量 vd8； 变量 vd9； 变量 vda； 变量 vdb； 变量 vdc； 变量 vdd； 变量 vde； 变量 vdf；
+    变量 vd0； 变量 vd1； 变量 vd2； 变量 vd3； 变量 vd4； 变量 vd5； 变量 vd6； 变量 vd7
+    变量 vd8； 变量 vd9； 变量 vda； 变量 vdb； 变量 vdc； 变量 vdd； 变量 vde； 变量 vdf
 
-    变量 ve0； 变量 ve1； 变量 ve2； 变量 ve3； 变量 ve4； 变量 ve5； 变量 ve6； 变量 ve7；
-    变量 ve8； 变量 ve9； 变量 vea； 变量 veb； 变量 vec； 变量 ved； 变量 vee； 变量 vef；
+    变量 ve0； 变量 ve1； 变量 ve2； 变量 ve3； 变量 ve4； 变量 ve5； 变量 ve6； 变量 ve7
+    变量 ve8； 变量 ve9； 变量 vea； 变量 veb； 变量 vec； 变量 ved； 变量 vee； 变量 vef
 
-    变量 vf0； 变量 vf1； 变量 vf2； 变量 vf3； 变量 vf4； 变量 vf5； 变量 vf6； 变量 vf7；
-    变量 vf8； 变量 vf9； 变量 vfa； 变量 vfb； 变量 vfc； 变量 vfd； 变量 vfe； 变量 vff；
+    变量 vf0； 变量 vf1； 变量 vf2； 变量 vf3； 变量 vf4； 变量 vf5； 变量 vf6； 变量 vf7
+    变量 vf8； 变量 vf9； 变量 vfa； 变量 vfb； 变量 vfc； 变量 vfd； 变量 vfe； 变量 vff
 
-    变量 oops；
+    变量 oops
 
     功能 h（）「
-      v00； v01； v02； v03； v04； v05； v06； v07；
-      v08； v09； v0a； v0b； v0c； v0d； v0e； v0f；
+      v00； v01； v02； v03； v04； v05； v06； v07
+      v08； v09； v0a； v0b； v0c； v0d； v0e； v0f
 
-      v10； v11； v12； v13； v14； v15； v16； v17；
-      v18； v19； v1a； v1b； v1c； v1d； v1e； v1f；
+      v10； v11； v12； v13； v14； v15； v16； v17
+      v18； v19； v1a； v1b； v1c； v1d； v1e； v1f
 
-      v20； v21； v22； v23； v24； v25； v26； v27；
-      v28； v29； v2a； v2b； v2c； v2d； v2e； v2f；
+      v20； v21； v22； v23； v24； v25； v26； v27
+      v28； v29； v2a； v2b； v2c； v2d； v2e； v2f
 
-      v30； v31； v32； v33； v34； v35； v36； v37；
-      v38； v39； v3a； v3b； v3c； v3d； v3e； v3f；
+      v30； v31； v32； v33； v34； v35； v36； v37
+      v38； v39； v3a； v3b； v3c； v3d； v3e； v3f
 
-      v40； v41； v42； v43； v44； v45； v46； v47；
-      v48； v49； v4a； v4b； v4c； v4d； v4e； v4f；
+      v40； v41； v42； v43； v44； v45； v46； v47
+      v48； v49； v4a； v4b； v4c； v4d； v4e； v4f
 
-      v50； v51； v52； v53； v54； v55； v56； v57；
-      v58； v59； v5a； v5b； v5c； v5d； v5e； v5f；
+      v50； v51； v52； v53； v54； v55； v56； v57
+      v58； v59； v5a； v5b； v5c； v5d； v5e； v5f
 
-      v60； v61； v62； v63； v64； v65； v66； v67；
-      v68； v69； v6a； v6b； v6c； v6d； v6e； v6f；
+      v60； v61； v62； v63； v64； v65； v66； v67
+      v68； v69； v6a； v6b； v6c； v6d； v6e； v6f
 
-      v70； v71； v72； v73； v74； v75； v76； v77；
-      v78； v79； v7a； v7b； v7c； v7d； v7e； v7f；
+      v70； v71； v72； v73； v74； v75； v76； v77
+      v78； v79； v7a； v7b； v7c； v7d； v7e； v7f
 
-      v80； v81； v82； v83； v84； v85； v86； v87；
-      v88； v89； v8a； v8b； v8c； v8d； v8e； v8f；
+      v80； v81； v82； v83； v84； v85； v86； v87
+      v88； v89； v8a； v8b； v8c； v8d； v8e； v8f
 
-      v90； v91； v92； v93； v94； v95； v96； v97；
-      v98； v99； v9a； v9b； v9c； v9d； v9e； v9f；
+      v90； v91； v92； v93； v94； v95； v96； v97
+      v98； v99； v9a； v9b； v9c； v9d； v9e； v9f
 
-      va0； va1； va2； va3； va4； va5； va6； va7；
-      va8； va9； vaa； vab； vac； vad； vae； vaf；
+      va0； va1； va2； va3； va4； va5； va6； va7
+      va8； va9； vaa； vab； vac； vad； vae； vaf
 
-      vb0； vb1； vb2； vb3； vb4； vb5； vb6； vb7；
-      vb8； vb9； vba； vbb； vbc； vbd； vbe； vbf；
+      vb0； vb1； vb2； vb3； vb4； vb5； vb6； vb7
+      vb8； vb9； vba； vbb； vbc； vbd； vbe； vbf
 
-      vc0； vc1； vc2； vc3； vc4； vc5； vc6； vc7；
-      vc8； vc9； vca； vcb； vcc； vcd； vce； vcf；
+      vc0； vc1； vc2； vc3； vc4； vc5； vc6； vc7
+      vc8； vc9； vca； vcb； vcc； vcd； vce； vcf
 
-      vd0； vd1； vd2； vd3； vd4； vd5； vd6； vd7；
-      vd8； vd9； vda； vdb； vdc； vdd； vde； vdf；
+      vd0； vd1； vd2； vd3； vd4； vd5； vd6； vd7
+      vd8； vd9； vda； vdb； vdc； vdd； vde； vdf
 
-      ve0； ve1； ve2； ve3； ve4； ve5； ve6； ve7；
-      ve8； ve9； vea； veb； vec； ved； vee； vef；
+      ve0； ve1； ve2； ve3； ve4； ve5； ve6； ve7
+      ve8； ve9； vea； veb； vec； ved； vee； vef
 
-      vf0； vf1； vf2； vf3； vf4； vf5； vf6； vf7；
-      vf8； vf9； vfa； vfb； vfc； vfd； vfe； vff；
+      vf0； vf1； vf2； vf3； vf4； vf5； vf6； vf7
+      vf8； vf9； vfa； vfb； vfc； vfd； vfe； vff
 
       oops； // 错误在「oops」：功能中的闭包变量太多。
     」

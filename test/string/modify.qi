@@ -2,7 +2,7 @@
     string【0】= rep； // 期待运行时错误：期望长度为 1 的字符串，但长度为 2。
 」
 
-变量 富 = "test"；
-modifyString（富，"j"）；
+变量 富 = "test"
+modifyString（富，"j"）
 打印行（富）； // 期待：jest
-modifyString（富，"gu"）；
+modifyString（富，"gu"）

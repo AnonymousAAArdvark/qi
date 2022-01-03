@@ -20,7 +20,7 @@
 "·t" // 选项卡。
 "·v" // 垂直制表符。
 ```
-> 有关转义序列的更多信息，请参考 [这篇文章](https://en.wikipedia.org/wiki/Escape_sequences_in_C)。
+> 有关转义序列的更多信息，请参考 [这篇文章]( https://en.wikipedia.org/wiki/Escape_sequences_in_C )。
 
 ## 静态方法
 

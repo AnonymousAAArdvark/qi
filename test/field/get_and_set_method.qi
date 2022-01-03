@@ -1,25 +1,25 @@
 // Bound methods have identity equality。
 类 丰富「
   method（a）「
-    打印行（"method"）；
-    打印行（a）；
+    打印行（"method"）
+    打印行（a）
   」
   other（a）「
-    打印行（"other"）；
-    打印行（a）；
+    打印行（"other"）
+    打印行（a）
   」
 」
 
-变量 富 = 丰富（）；
-变量 method = 富。method；
+变量 富 = 丰富（）
+变量 method = 富。method
 
 // Setting a property shadows the instance method。
-富。method = 富。other；
-富。method（1）；
+富。method = 富。other
+富。method（1）
 // 期待：other
 // 期待：1
 
 // The old method handle still points to the original method。
-method（2）；
+method（2）
 // 期待：method
 // 期待：2
