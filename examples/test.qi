@@ -1,25 +1,37 @@
-//var foo = [1, 2, 3];
-
-// push returns nil because it modifies foo in place
-//foo.push(4);
-//print foo;
-
-//foo.delete(2);
-//print foo;
-//foo.insert("te", 1);
-//print foo;
-//print foo.length();
-//foo.pop();
-//print foo;
-
-//for (var i = 1; i <= foo.length(); i = i + 1) {
-//    print foo[-i];
+var list = [[1,2], 1, 4, 4, 2];
+var i = 1;
+class t {}
+var e = t();
+e.t = [1, 2];
+e.i = 0;
+++e.i;
+e.i++;
+++e.t[0];
+e.t[0]++;
+++list[0][0];
+list[0][0]++;
+++i;
+i++;
+print i-- + --i;
+print i;
+//class test {
+//    test2() {}
 //}
+//class test2 {
 
-//var list = ["one", "two", "three", "four", "five"];
-//for (var i = 0; i < list.length(); i = i + 1) {
-//    for (var j = 0; j < list[i].length(); j = j + 1) {
-//        print " ";
-//        print list[i][j];
-//    }
+//}
+//var t = test();
+//t.n = 10;
+//t.n++;
+//print t.n;
+//t.n += 1;
+//print t.n;
+//t.t = test2();
+//t.t.res = "";
+//t.t.res += "a";
+//for (var i = "a"; i != "aaaaaa"; i += "a") {
+//    t.n -= 2;
+//    t.t.res += "a";
+//    print t.t.res;
+//    print t.n;
 //}
