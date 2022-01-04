@@ -425,7 +425,47 @@ static void binary(bool canAssign) {
         case TOKEN_STAR:          emitByte(OP_MULTIPLY); break;
         case TOKEN_SLASH:         emitByte(OP_DIVIDE); break;
         case TOKEN_PERCENT:       emitByte(OP_MODULO); break;
-        default: return; // Unreachable
+        default: return; // Unreachable.
+    }
+}
+
+static void postfix(bool canAssign) {
+    TokenType operatorType = parser.previous.type;
+
+    switch(parser.previous.type) {
+        case TOKEN_PLUS_PLUS:
+        case TOKEN_MINUS_MINUS: {
+            uint8_t op1 = -1, op2 = -1;
+            if (currentChunk()->count - 2 >= 0) {
+                op1 = currentChunk()->code[currentChunk()->count - 2];
+                op2 = currentChunk()->code[currentChunk()->count - 1];
+            }
+            if (op1 == OP_GET_PROPERTY) {
+                emitByte(op2);
+                currentChunk()->code[currentChunk()->count - 2] = OP_GET_PROPERTY;
+                currentChunk()->code[currentChunk()->count - 3] = OP_DUP;
+                emitByte(operatorType == TOKEN_PLUS_PLUS ? OP_INCREMENT : OP_DECREMENT);
+                emitBytes(OP_SET_PROPERTY, op2);
+                emitByte(operatorType == TOKEN_PLUS_PLUS ? OP_DECREMENT : OP_INCREMENT);
+                break;
+            } else if (op1 == OP_GET_GLOBAL || op1 == OP_GET_LOCAL || op1 == OP_GET_UPVALUE) {
+                emitByte(operatorType == TOKEN_PLUS_PLUS ? OP_INCREMENT : OP_DECREMENT);
+                emitBytes(op1 == OP_GET_GLOBAL ? OP_SET_GLOBAL
+                                               : op1 == OP_GET_LOCAL ? OP_SET_LOCAL : OP_SET_UPVALUE, op2);
+                emitByte(operatorType == TOKEN_PLUS_PLUS ? OP_DECREMENT : OP_INCREMENT);
+                break;
+            } else if (op2 == OP_INDEX_SUBSCR) {
+                emitByte(op2);
+                currentChunk()->code[currentChunk()->count - 2] = OP_DOUBLE_DUP;
+                emitByte(operatorType == TOKEN_PLUS_PLUS ? OP_INCREMENT : OP_DECREMENT);
+                emitByte(OP_STORE_SUBSCR);
+                emitByte(operatorType == TOKEN_PLUS_PLUS ? OP_DECREMENT : OP_INCREMENT);
+                break;
+            }
+            error("Cannot increment/decrement this operand");
+            break;
+        }
+        default: return; // Unreachable.
     }
 }
 
@@ -440,6 +480,13 @@ static void dot(bool canAssign) {
 
     if (canAssign && match(TOKEN_EQUAL)) {
         expression();
+        emitBytes(OP_SET_PROPERTY, name);
+    } else if (canAssign && (match(TOKEN_PLUS_EQUAL) || match(TOKEN_MINUS_EQUAL))) {
+        TokenType type = parser.previous.type;
+        emitByte(OP_DUP);
+        emitBytes(OP_GET_PROPERTY, name);
+        expression();
+        emitByte(type == TOKEN_PLUS_EQUAL ? OP_ADD : OP_SUBTRACT);
         emitBytes(OP_SET_PROPERTY, name);
     } else if (match(TOKEN_LEFT_PAREN)) {
         uint8_t argCount = argumentList();
@@ -516,6 +563,13 @@ static void subscript(bool canAssign) {
     if (canAssign && match(TOKEN_EQUAL)) {
         expression();
         emitByte(OP_STORE_SUBSCR);
+    } else if (canAssign && (match(TOKEN_PLUS_EQUAL) || match(TOKEN_MINUS_EQUAL))) {
+        TokenType type = parser.previous.type;
+        emitByte(OP_DOUBLE_DUP);
+        emitByte(OP_INDEX_SUBSCR);
+        expression();
+        emitByte(type == TOKEN_PLUS_EQUAL ? OP_ADD : OP_SUBTRACT);
+        emitByte(OP_STORE_SUBSCR);
     } else {
         emitByte(OP_INDEX_SUBSCR);
     }
@@ -538,7 +592,13 @@ static void namedVariable(Token name, bool canAssign) {
 
     if (canAssign && match(TOKEN_EQUAL)) {
         expression();
-        emitBytes(setOp, (uint8_t)arg);
+        emitBytes(setOp, (uint8_t) arg);
+    } else if (canAssign && (match(TOKEN_PLUS_EQUAL) || match(TOKEN_MINUS_EQUAL))) {
+        TokenType type = parser.previous.type;
+        emitBytes(getOp, (uint8_t) arg);
+        expression();
+        emitByte(type == TOKEN_PLUS_EQUAL ? OP_ADD : OP_SUBTRACT);
+        emitBytes(setOp, (uint8_t) arg);
     } else {
         emitBytes(getOp, (uint8_t)arg);
     }
@@ -597,6 +657,35 @@ static void unary(bool canAssign) {
     switch (operatorType) {
         case TOKEN_BANG: emitByte(OP_NOT); break;
         case TOKEN_MINUS: emitByte(OP_NEGATE); break;
+        case TOKEN_PLUS_PLUS:
+        case TOKEN_MINUS_MINUS: {
+            uint8_t op1 = -1, op2 = -1;
+            if (currentChunk()->count - 2 >= 0) {
+                op1 = currentChunk()->code[currentChunk()->count - 2];
+                op2 = currentChunk()->code[currentChunk()->count - 1];
+            }
+            if (op1 == OP_GET_PROPERTY) {
+                emitByte(op2);
+                currentChunk()->code[currentChunk()->count - 2] = OP_GET_PROPERTY;
+                currentChunk()->code[currentChunk()->count - 3] = OP_DUP;
+                emitByte(operatorType == TOKEN_PLUS_PLUS ? OP_INCREMENT : OP_DECREMENT);
+                emitBytes(OP_SET_PROPERTY, op2);
+                break;
+            } else if (op1 == OP_GET_GLOBAL || op1 == OP_GET_LOCAL || op1 == OP_GET_UPVALUE) {
+                emitByte(operatorType == TOKEN_PLUS_PLUS ? OP_INCREMENT : OP_DECREMENT);
+                emitBytes(op1 == OP_GET_GLOBAL ? OP_SET_GLOBAL
+                                               : op1 == OP_GET_LOCAL ? OP_SET_LOCAL : OP_SET_UPVALUE, op2);
+                break;
+            } else if (op2 == OP_INDEX_SUBSCR) {
+                emitByte(op2);
+                currentChunk()->code[currentChunk()->count - 2] = OP_DOUBLE_DUP;
+                emitByte(operatorType == TOKEN_PLUS_PLUS ? OP_INCREMENT : OP_DECREMENT);
+                emitByte(OP_STORE_SUBSCR);
+                break;
+            }
+            error("Cannot increment/decrement this operand");
+            break;
+        }
         default: return; // Unreachable.
     }
 }
@@ -610,6 +699,8 @@ ParseRule rules[] = {
         [TOKEN_DOT]           = {NULL,     dot,   PREC_CALL},
         [TOKEN_MINUS]         = {unary,    binary, PREC_TERM},
         [TOKEN_PLUS]          = {NULL,     binary, PREC_TERM},
+        [TOKEN_MINUS_MINUS]   = {unary,    postfix,   PREC_CALL},
+        [TOKEN_PLUS_PLUS]   = {unary,    postfix,   PREC_CALL},
         [TOKEN_SEMICOLON]     = {NULL,     NULL,   PREC_NONE},
         [TOKEN_SLASH]         = {NULL,     binary, PREC_FACTOR},
         [TOKEN_STAR]          = {NULL,     binary, PREC_FACTOR},
@@ -617,6 +708,8 @@ ParseRule rules[] = {
         [TOKEN_BANG]          = {unary,     NULL,   PREC_NONE},
         [TOKEN_BANG_EQUAL]    = {NULL,     binary,   PREC_EQUALITY},
         [TOKEN_EQUAL]         = {NULL,     NULL,   PREC_NONE},
+        [TOKEN_PLUS_EQUAL]    = {NULL,     NULL,   PREC_NONE},
+        [TOKEN_MINUS_EQUAL]   = {NULL,     NULL,   PREC_NONE},
         [TOKEN_EQUAL_EQUAL]   = {NULL,     binary, PREC_EQUALITY},
         [TOKEN_GREATER]       = {NULL,     binary, PREC_COMPARISON},
         [TOKEN_GREATER_EQUAL] = {NULL,     binary, PREC_COMPARISON},
@@ -664,7 +757,7 @@ static void parsePrecedence(Precedence precedence) {
         infixRule(canAssign);
     }
 
-    if (canAssign && match(TOKEN_EQUAL)) {
+    if (canAssign && (match(TOKEN_EQUAL) || match(TOKEN_PLUS_EQUAL) || match(TOKEN_PLUS_EQUAL))) {
         error("Invalid assignment target.");
     }
 }
