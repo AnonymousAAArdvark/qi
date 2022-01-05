@@ -1,37 +1,29 @@
-var list = [[1,2], 1, 4, 4, 2];
-var i = 1;
-class t {}
-var e = t();
-e.t = [1, 2];
-e.i = 0;
-++e.i;
-e.i++;
-++e.t[0];
-e.t[0]++;
-++list[0][0];
-list[0][0]++;
-++i;
-i++;
-print i-- + --i;
-print i;
-//class test {
-//    test2() {}
-//}
-//class test2 {
+class Tree {
+  init(depth) {
+    this.depth = depth;
+    if (depth > 0) {
+      this.a = Tree(depth - 1);
+      this.b = Tree(depth - 1);
+      this.c = Tree(depth - 1);
+      this.d = Tree(depth - 1);
+      this.e = Tree(depth - 1);
+    }
+  }
 
-//}
-//var t = test();
-//t.n = 10;
-//t.n++;
-//print t.n;
-//t.n += 1;
-//print t.n;
-//t.t = test2();
-//t.t.res = "";
-//t.t.res += "a";
-//for (var i = "a"; i != "aaaaaa"; i += "a") {
-//    t.n -= 2;
-//    t.t.res += "a";
-//    print t.t.res;
-//    print t.n;
-//}
+  walk() {
+    if (this.depth == 0) return 0;
+    return this.depth
+        + this.a.walk()
+        + this.b.walk()
+        + this.c.walk()
+        + this.d.walk()
+        + this.e.walk();
+  }
+}
+
+var tree = Tree(8);
+var start = clock();
+for (var i = 0; i < 100; i = i + 1) {
+  if (tree.walk() != 122068) print "Error";
+}
+print clock() - start;

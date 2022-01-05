@@ -20,7 +20,7 @@
 
 #endif //QI_COMMON_H
 
-//#undef DEBUG_PRINT_CODE
+#undef DEBUG_PRINT_CODE
 #undef DEBUG_TRACE_EXECUTION
 #undef DEBUG_STRESS_GC
 #undef DEBUG_LOG_GC

@@ -26,7 +26,7 @@ char* getType(Value value) {
     else if (IS_NUMBER(value)) return "number";
     else if (IS_NIL(value)) return "nil";
     else if (IS_OBJ(value)) {
-        switch (objType(AS_OBJ(value))) {
+        switch (AS_OBJ(value)->type) {
             case OBJ_NATIVE: return "native function";
             case OBJ_BOUND_METHOD: return "bound method";
             case OBJ_INSTANCE: return "instance";
