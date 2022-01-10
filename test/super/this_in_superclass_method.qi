@@ -12,5 +12,5 @@ class Derived < Base {
 }
 
 var derived = Derived("a", "b");
-print derived.a; // expect: a
-print derived.b; // expect: b
+println(derived.a); // expect: a
+println(derived.b); // expect: b

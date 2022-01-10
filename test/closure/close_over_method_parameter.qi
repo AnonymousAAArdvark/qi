@@ -3,7 +3,7 @@ var f;
 class Foo {
   method(param) {
     fun f_() {
-      print param;
+      println(param);
     }
     f = f_;
   }

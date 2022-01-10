@@ -5,4 +5,4 @@ fun f() {
   return B;
 }
 
-print f(); // expect: B
+println(f()); // expect: B

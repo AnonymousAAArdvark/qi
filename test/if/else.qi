@@ -1,6 +1,6 @@
 // Evaluate the 'else' expression if the condition is false.
-if (true) print "good"; else print "bad"; // expect: good
-if (false) print "bad"; else print "good"; // expect: good
+if (true) println("good"); else println("bad"); // expect: good
+if (false) println("bad"); else println("good"); // expect: good
 
 // Allow block body.
-if (false) nil; else { print "block"; } // expect: block
+if (false) nil; else { println("block"); } // expect: block

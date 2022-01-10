@@ -7,7 +7,7 @@ fun returnFunCallWithArg(func, arg) {
 }
 
 fun printArg(arg) {
-  print arg;
+  println(arg);
 }
 
 returnFunCallWithArg(printArg, "hello world"); // expect: hello world

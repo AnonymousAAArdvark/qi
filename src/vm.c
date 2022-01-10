@@ -72,6 +72,8 @@ void initVM() {
     vm.initString = copyString("init", 4);
     vm.markValue = true;
 
+    defineNative("print", printNative, 1);
+    defineNative("println", printlnNative, 1);
     defineNative("clock", clockNative, 0);
     defineNative("sqrt", sqrtNative, 1);
     defineNative("pow", powNative, 2);
@@ -79,7 +81,7 @@ void initVM() {
     defineNative("max", maxNative, 2);
     defineNative("round", roundNative, -1);
     defineNative("ston", stonNative, 1);
-    defineNative("nots", notsNative, 1);
+    defineNative("ntos", ntosNative, 1);
     defineNative("type", typeNative, 1);
 }
 
@@ -687,11 +689,6 @@ static InterpretResult run() {
                     return INTERPRET_RUNTIME_ERROR;
                 }
                 push(NUMBER_VAL(AS_NUMBER(pop()) - 1));
-                break;
-            }
-            case OP_PRINT: {
-                printValue(pop());
-                printf("\n");
                 break;
             }
             case OP_JUMP: {

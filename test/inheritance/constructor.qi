@@ -4,7 +4,7 @@ class A {
   }
 
   test() {
-    print this.field;
+    println(this.field);
   }
 }
 

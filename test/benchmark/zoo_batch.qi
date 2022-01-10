@@ -31,6 +31,6 @@ while (clock() - start < 10) {
   batch = batch + 1;
 }
 
-print sum;
-print batch;
-print clock() - start;
+println(sum);
+println(batch);
+println(clock() - start);

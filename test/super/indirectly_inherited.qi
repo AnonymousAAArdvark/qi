@@ -1,6 +1,6 @@
 class A {
   foo() {
-    print "A.foo()";
+    println("A.foo()");
   }
 }
 
@@ -8,7 +8,7 @@ class B < A {}
 
 class C < B {
   foo() {
-    print "C.foo()";
+    println("C.foo()");
     super.foo();
   }
 }

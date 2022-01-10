@@ -47,7 +47,7 @@ for (var i = 0; i < n; i = i + 1) {
   val = toggle.activate().value();
 }
 
-print toggle.value();
+println(toggle.value());
 
 val = true;
 var ntoggle = NthToggle(val, 3);
@@ -65,5 +65,5 @@ for (var i = 0; i < n; i = i + 1) {
   val = ntoggle.activate().value();
 }
 
-print ntoggle.value();
-print clock() - start;
+println(ntoggle.value());
+println(clock() - start);

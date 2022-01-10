@@ -1,2 +1,2 @@
-print "ok"; // expect: ok
+println("ok"); // expect: ok
 // comment

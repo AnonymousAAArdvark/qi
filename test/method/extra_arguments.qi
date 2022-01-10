@@ -1,7 +1,7 @@
 class Foo {
   method(a, b) {
-    print a;
-    print b;
+    println(a);
+    println(b);
   }
 }
 
