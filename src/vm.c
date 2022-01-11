@@ -74,6 +74,7 @@ void initVM() {
 
     defineNative("print", printNative, 1);
     defineNative("println", printlnNative, 1);
+    defineNative("scan", scanNative, 0);
     defineNative("clock", clockNative, 0);
     defineNative("sqrt", sqrtNative, 1);
     defineNative("pow", powNative, 2);

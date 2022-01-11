@@ -13,6 +13,7 @@
 char* getType(Value value);
 bool printNative(int argCount, Value* args);
 bool printlnNative(int argCount, Value* args);
+bool scanNative(int argCount, Value* args);
 bool clockNative(__attribute__((unused)) int argCount, Value* args);
 bool sqrtNative(int argCount, Value* args);
 bool powNative(int argCount, Value* args);
