@@ -1,3 +1,1 @@
 // nontest
-var c = 2;
-println(c += 1);
