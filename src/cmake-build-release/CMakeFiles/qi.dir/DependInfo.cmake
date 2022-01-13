@@ -10,8 +10,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_C
   "/Users/andrewyang/CLionProjects/qi/src/chunk.c" "/Users/andrewyang/CLionProjects/qi/src/cmake-build-release/CMakeFiles/qi.dir/chunk.c.o"
   "/Users/andrewyang/CLionProjects/qi/src/compiler.c" "/Users/andrewyang/CLionProjects/qi/src/cmake-build-release/CMakeFiles/qi.dir/compiler.c.o"
+  "/Users/andrewyang/CLionProjects/qi/src/core_module.c" "/Users/andrewyang/CLionProjects/qi/src/cmake-build-release/CMakeFiles/qi.dir/core_module.c.o"
   "/Users/andrewyang/CLionProjects/qi/src/debug.c" "/Users/andrewyang/CLionProjects/qi/src/cmake-build-release/CMakeFiles/qi.dir/debug.c.o"
-  "/Users/andrewyang/CLionProjects/qi/src/lib.c" "/Users/andrewyang/CLionProjects/qi/src/cmake-build-release/CMakeFiles/qi.dir/lib.c.o"
   "/Users/andrewyang/CLionProjects/qi/src/main.c" "/Users/andrewyang/CLionProjects/qi/src/cmake-build-release/CMakeFiles/qi.dir/main.c.o"
   "/Users/andrewyang/CLionProjects/qi/src/memory.c" "/Users/andrewyang/CLionProjects/qi/src/cmake-build-release/CMakeFiles/qi.dir/memory.c.o"
   "/Users/andrewyang/CLionProjects/qi/src/object.c" "/Users/andrewyang/CLionProjects/qi/src/cmake-build-release/CMakeFiles/qi.dir/object.c.o"

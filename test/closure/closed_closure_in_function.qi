@@ -3,9 +3,9 @@
 「
   变量 local = "local"
   功能 f下（）「
-    打印行（local）
+    系统。打印行（local）
   」
   f = f下
 」
 
-f（）； // 期待：local
+f（） // 期待：local

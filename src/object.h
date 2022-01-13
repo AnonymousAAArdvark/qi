@@ -96,12 +96,14 @@ typedef struct {
     Obj obj;
     ObjClass* klass;
     Table fields;
+    bool isStatic;
 } ObjInstance;
 
 typedef struct {
     Obj obj;
     Value receiver;
     ObjClosure* method;
+    ObjNative* native;
 } ObjBoundMethod;
 
 typedef struct {
@@ -112,10 +114,11 @@ typedef struct {
 } ObjList;
 
 ObjBoundMethod* newBoundMethod(Value receiver, ObjClosure* method);
+ObjBoundMethod* newBoundNative(Value reciever, ObjNative* native);
 ObjClass* newClass(ObjString* name);
 ObjClosure* newClosure(ObjFunction* function);
 ObjFunction* newFunction();
-ObjInstance* newInstance(ObjClass* klass);
+ObjInstance* newInstance(ObjClass* klass, bool isStatic);
 ObjNative* newNative(NativeFn function, int arity);
 ObjString* takeString(wchar_t* chars, int length);
 ObjString* copyString(const wchar_t* chars, int length);

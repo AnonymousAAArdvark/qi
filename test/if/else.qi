@@ -1,6 +1,6 @@
 // Evaluate the 'else' expression if the condition is 假。
-如果（真）打印行（"good"）； 否则 打印行（"bad"）； // 期待：good
-如果（假）打印行（"bad"）； 否则 打印行（"good"）； // 期待：good
+如果（真）系统。打印行（"good"） 否则 系统。打印行（"bad"） // 期待：good
+如果（假）系统。打印行（"bad"） 否则 系统。打印行（"good"） // 期待：good
 
 // Allow block body.
-如果（假）空； 否则「 打印行（"block"）； 」// 期待：block
+如果（假）空 否则「 系统。打印行（"block"） 」// 期待：block

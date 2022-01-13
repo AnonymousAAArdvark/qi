@@ -3,11 +3,11 @@
 类 丰富「
   method（param）「
     功能 f下（）「
-      打印行（param）
+      系统。打印行（param）
     」
     f = f下
   」
 」
 
 丰富（）。method（"param"）
-f（）； // 期待：param
+f（） // 期待：param

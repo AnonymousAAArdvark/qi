@@ -1,10 +1,10 @@
 // Evaluate the 'then' expression if the condition is 真。
-如果（真）打印行（"good"）； // 期待：good
-如果（假）打印行（"bad"）
+如果（真）系统。打印行（"good"） // 期待：good
+如果（假）系统。打印行（"bad"）
 
 // Allow block body.
-如果（真）「 打印行（"block"）； 」// 期待：block
+如果（真）「 系统。打印行（"block"） 」// 期待：block
 
 // Assignment in if condition。
 变量 a = 假
-如果（a = 真）打印行（a）； // 期待：真
+如果（a = 真）系统。打印行（a） // 期待：真

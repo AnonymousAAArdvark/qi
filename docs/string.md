@@ -27,30 +27,30 @@ A handful of escape characters are supported:
 #### string。**长度**（）
 Returns the length of the string.
 ```c
-变量 str = "你好"；
-打印行（str。长度（））；  // 2
+变量 str = "你好"
+打印行（str。长度（））  // 2
 ```
 #### string。**大写**（）
 Returns a string where all characters are in upper case.
 ```c
-变量 str = "test"；
-打印行（str。长度（））；  // TEST
+变量 str = "test"
+打印行（str。长度（））  // TEST
 ```
 #### string。**小写**（）
 Returns a string where all characters are in lower case.
 ```c
-变量 str = "TEST"；
-打印行（str。长度（））；  // test
+变量 str = "TEST"
+打印行（str。长度（））  // test
 ```
 #### string。**子串**（number）
 Returns a part of a string between starting index and the end of the string.
 ```c
-变量 str = "零一二三"；
-打印行（str。子串（1））；  // 一二三
+变量 str = "零一二三"
+打印行（str。子串（1））  // 一二三
 ```
 #### string。**子串**（number, number）
 Returns a part of a string between starting index and ending index.
 ```c
-变量 str = "零一二三"；
-打印行（str。子串（1，3））；  // 一二
+变量 str = "零一二三"
+打印行（str。子串（1，3））  // 一二
 ```

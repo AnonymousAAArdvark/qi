@@ -177,6 +177,30 @@ compiler.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/qi.dir/build.make CMakeFiles/qi.dir/compiler.c.s
 .PHONY : compiler.c.s
 
+core_module.o: core_module.c.o
+.PHONY : core_module.o
+
+# target to build an object file
+core_module.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qi.dir/build.make CMakeFiles/qi.dir/core_module.c.o
+.PHONY : core_module.c.o
+
+core_module.i: core_module.c.i
+.PHONY : core_module.i
+
+# target to preprocess a source file
+core_module.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qi.dir/build.make CMakeFiles/qi.dir/core_module.c.i
+.PHONY : core_module.c.i
+
+core_module.s: core_module.c.s
+.PHONY : core_module.s
+
+# target to generate assembly for a file
+core_module.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qi.dir/build.make CMakeFiles/qi.dir/core_module.c.s
+.PHONY : core_module.c.s
+
 debug.o: debug.c.o
 .PHONY : debug.o
 
@@ -200,30 +224,6 @@ debug.s: debug.c.s
 debug.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/qi.dir/build.make CMakeFiles/qi.dir/debug.c.s
 .PHONY : debug.c.s
-
-lib.o: lib.c.o
-.PHONY : lib.o
-
-# target to build an object file
-lib.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qi.dir/build.make CMakeFiles/qi.dir/lib.c.o
-.PHONY : lib.c.o
-
-lib.i: lib.c.i
-.PHONY : lib.i
-
-# target to preprocess a source file
-lib.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qi.dir/build.make CMakeFiles/qi.dir/lib.c.i
-.PHONY : lib.c.i
-
-lib.s: lib.c.s
-.PHONY : lib.s
-
-# target to generate assembly for a file
-lib.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qi.dir/build.make CMakeFiles/qi.dir/lib.c.s
-.PHONY : lib.c.s
 
 main.o: main.c.o
 .PHONY : main.o
@@ -408,12 +408,12 @@ help:
 	@echo "... compiler.o"
 	@echo "... compiler.i"
 	@echo "... compiler.s"
+	@echo "... core_module.o"
+	@echo "... core_module.i"
+	@echo "... core_module.s"
 	@echo "... debug.o"
 	@echo "... debug.i"
 	@echo "... debug.s"
-	@echo "... lib.o"
-	@echo "... lib.i"
-	@echo "... lib.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

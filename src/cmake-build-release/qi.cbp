@@ -93,16 +93,16 @@
 		<Unit filename="/Users/andrewyang/CLionProjects/qi/src/compiler.h">
 			<Option target="qi"/>
 		</Unit>
+		<Unit filename="/Users/andrewyang/CLionProjects/qi/src/core_module.c">
+			<Option target="qi"/>
+		</Unit>
+		<Unit filename="/Users/andrewyang/CLionProjects/qi/src/core_module.h">
+			<Option target="qi"/>
+		</Unit>
 		<Unit filename="/Users/andrewyang/CLionProjects/qi/src/debug.c">
 			<Option target="qi"/>
 		</Unit>
 		<Unit filename="/Users/andrewyang/CLionProjects/qi/src/debug.h">
-			<Option target="qi"/>
-		</Unit>
-		<Unit filename="/Users/andrewyang/CLionProjects/qi/src/lib.c">
-			<Option target="qi"/>
-		</Unit>
-		<Unit filename="/Users/andrewyang/CLionProjects/qi/src/lib.h">
 			<Option target="qi"/>
 		</Unit>
 		<Unit filename="/Users/andrewyang/CLionProjects/qi/src/main.c">

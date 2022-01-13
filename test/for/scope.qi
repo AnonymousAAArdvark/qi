@@ -2,25 +2,25 @@
   变量 i = "before"
 
   // New 变量 is in inner scope.
-  对于（变量 i = 0； i 小 1； i = i + 1）「
-    打印行（i）； // 期待：0
+  对于（变量 i = 0；i 小 1；i = i + 1）「
+    系统。打印行（i） // 期待：0
 
     // Loop body is in second inner scope.
     变量 i = -1
-    打印行（i）； // 期待：-1
+    系统。打印行（i） // 期待：-1
   」
 」
 
 「
   // New 变量 shadows outer 变量。
-  对于（变量 i = 0； i 大 0； i = i + 1）「」
+  对于（变量 i = 0；i 大 0；i = i + 1）「」
 
   // Goes out of scope after loop.
   变量 i = "after"
-  打印行（i）； // 期待：after
+  系统。打印行（i） // 期待：after
 
   // Can reuse an existing 变量。
-  对于（i = 0； i 小 1； i = i + 1）「
-    打印行（i）； // 期待：0
+  对于（i = 0；i 小 1；i = i + 1）「
+    系统。打印行（i） // 期待：0
   」
 」

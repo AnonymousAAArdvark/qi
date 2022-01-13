@@ -2,11 +2,11 @@
   变量 富 = "closure"
   功能 f（）「
    「
-      打印行（富）； // 期待：closure
+      系统。打印行（富） // 期待：closure
       变量 富 = "shadow"
-      打印行（富）； // 期待：shadow
+      系统。打印行（富） // 期待：shadow
     」
-    打印行（富）； // 期待：closure
+    系统。打印行（富） // 期待：closure
   」
   f（）
 」

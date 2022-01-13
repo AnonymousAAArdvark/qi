@@ -16,7 +16,7 @@
 #include "object.h"
 #include "memory.h"
 #include "vm.h"
-#include "lib.h"
+#include "core_module.h"
 
 VM vm;
 
@@ -48,10 +48,26 @@ static void runtimeError(const wchar_t* format, ...) {
     resetStack();
 }
 
-static void defineNative(const wchar_t* name, NativeFn function, int arity) {
+void defineNativeInstance(wchar_t* name, ObjInstance* instance) {
+    push(OBJ_VAL(copyString(name, (int)wcslen(name))));
+    push(OBJ_VAL(instance));
+    tableSet(&vm.globals, AS_STRING(vm.stack[0]), vm.stack[1]);
+    pop();
+    pop();
+}
+
+void defineNative(const wchar_t* name, NativeFn function, int arity, ObjClass* klass) {
     push(OBJ_VAL(copyString(name, (int)wcslen(name))));
     push(OBJ_VAL(newNative(function, arity)));
-    tableSet(&vm.globals, AS_STRING(vm.stack[0]), vm.stack[1]);
+    tableSet(&klass->methods, AS_STRING(vm.stack[0]), vm.stack[1]);
+    pop();
+    pop();
+}
+
+void defineProperty(const wchar_t* name, Value value, ObjInstance* instance) {
+    push(OBJ_VAL(copyString(name, (int)wcslen(name))));
+    push(value);
+    tableSet(&instance->fields, AS_STRING(vm.stack[0]), vm.stack[1]);
     pop();
     pop();
 }
@@ -73,18 +89,7 @@ void initVM() {
     vm.initString = copyString(L"初始化", 3);
     vm.markValue = true;
 
-    defineNative(L"打印", printNative, 1);
-    defineNative(L"打印行", printlnNative, 1);
-    defineNative(L"扫描", scanNative, 0);
-    defineNative(L"时钟", clockNative, 0);
-    defineNative(L"平方根", sqrtNative, 1);
-    defineNative(L"次方", powNative, 2);
-    defineNative(L"最小", minNative, 2);
-    defineNative(L"最大", maxNative, 2);
-    defineNative(L"四舍五入", roundNative, -1);
-    defineNative(L"串到数", stonNative, 1);
-    defineNative(L"数到串", ntosNative, 1);
-    defineNative(L"型", typeofNative, 1);
+    initCoreClass();
 }
 
 void freeVM() {
@@ -136,7 +141,7 @@ static bool callValue(Value callee, int argCount) {
             }
             case OBJ_CLASS: {
                 ObjClass* klass = AS_CLASS(callee);
-                vm.stackTop[-argCount - 1] = OBJ_VAL(newInstance(klass));
+                vm.stackTop[-argCount - 1] = OBJ_VAL(newInstance(klass, false));
                 Value initializer;
                 if (tableGet(&klass->methods, vm.initString, &initializer)) {
                     return call(AS_CLOSURE(initializer), argCount);
@@ -148,20 +153,6 @@ static bool callValue(Value callee, int argCount) {
             }
             case OBJ_CLOSURE:
                 return call(AS_CLOSURE(callee), argCount);
-            case OBJ_NATIVE: {
-                ObjNative* native = AS_NATIVE(callee);
-                if (native->arity != -1 && argCount != native->arity) {
-                    runtimeError(L"需要 %d 个参数，但得到 %d。", native->arity, argCount);
-                    return false;
-                }
-                if (native->function(argCount, vm.stackTop - argCount)) {
-                    vm.stackTop -= argCount;
-                    return true;
-                } else {
-                    runtimeError(AS_STRING(vm.stackTop[-argCount - 1])->chars);
-                    return false;
-                }
-            }
             default:
                 break; // Non-callable object type.
         }
@@ -170,14 +161,27 @@ static bool callValue(Value callee, int argCount) {
     return false;
 }
 
-static bool invokeFromClass(ObjClass* klass, ObjString* name, int argCount, CallFrame* frame, uint8_t* ip) {
+static bool invokeFromClass(ObjClass* klass, bool isStatic, ObjString* name, int argCount, CallFrame* frame, uint8_t* ip) {
     Value method;
     if (!tableGet(&klass->methods, name, &method)) {
         frame->ip = ip;
         runtimeError(L"未定义的属性「%ls」。", name->chars);
         return false;
     }
-    return call(AS_CLOSURE(method), argCount);
+    if (!isStatic) return call(AS_CLOSURE(method), argCount);
+
+    ObjNative* native = AS_NATIVE(method);
+    if (native->arity != -1 && argCount != native->arity) {
+        runtimeError(L"需要 %d 个参数，但得到 %d。", native->arity, argCount);
+        return false;
+    }
+    if (native->function(argCount, vm.stackTop - argCount)) {
+        vm.stackTop -= argCount;
+        return true;
+    } else {
+        runtimeError(AS_STRING(vm.stackTop[-argCount - 1])->chars);
+        return false;
+    }
 }
 
 static bool invokeInstance(const Value* receiver, ObjString* name, int argCount, CallFrame* frame, uint8_t* ip) {
@@ -189,7 +193,7 @@ static bool invokeInstance(const Value* receiver, ObjString* name, int argCount,
         return callValue(value, argCount);
     }
 
-    return invokeFromClass(instance->klass, name, argCount, frame, ip);
+    return invokeFromClass(instance->klass, instance->isStatic, name, argCount, frame, ip);
 }
 
 static bool invokeString(const Value* receiver, ObjString* name, int argCount, CallFrame* frame, uint8_t* ip) {
@@ -404,8 +408,11 @@ static bool bindMethod(ObjClass* klass, ObjString* name, CallFrame* frame, uint8
         runtimeError(L"未定义的属性「%ls」。", name->chars);
         return false;
     }
-
-    ObjBoundMethod* bound = newBoundMethod(peek(0), AS_CLOSURE(method));
+    ObjBoundMethod* bound;
+    if (IS_NATIVE(method))
+        bound = newBoundNative(peek(0), AS_NATIVE(method));
+    else
+        bound = newBoundMethod(peek(0), AS_CLOSURE(method));
     pop();
     push(OBJ_VAL(bound));
     return true;
@@ -618,6 +625,12 @@ static InterpretResult run() {
                 }
 
                 ObjInstance *instance = AS_INSTANCE(peek(1));
+                if (instance->isStatic) {
+                    frame->ip = ip;
+                    runtimeError(L"不能修改常量属性。");
+                    return INTERPRET_RUNTIME_ERROR;
+                }
+
                 tableSet(&instance->fields, READ_STRING(), peek(0));
                 Value value = pop();
                 pop();
@@ -768,7 +781,7 @@ static InterpretResult run() {
                 int argCount = READ_BYTE();
                 frame->ip = ip;
                 ObjClass *superclass = AS_CLASS(pop());
-                if (!invokeFromClass(superclass, method, argCount, frame, ip)) {
+                if (!invokeFromClass(superclass, false, method, argCount, frame, ip)) {
                     return INTERPRET_RUNTIME_ERROR;
                 }
                 frame = &vm.frames[vm.frameCount - 1];

@@ -52,5 +52,7 @@ void freeVM();
 InterpretResult interpret(const char* source);
 void push(Value value);
 Value pop();
-
+void defineNativeInstance(wchar_t* name, ObjInstance* instance);
+void defineNative(const wchar_t* name, NativeFn function, int arity, ObjClass* klass);
+void defineProperty(const wchar_t* name, Value value, ObjInstance* instance);
 #endif //QI_VM_H

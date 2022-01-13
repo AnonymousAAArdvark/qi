@@ -1,6 +1,6 @@
 类 A「
   method（arg）「
-    打印行（"A。method（" + arg + "）"）
+    系统。打印行（"A。method（" + arg + "）"）
   」
 」
 
@@ -10,10 +10,10 @@
   」
 
   method（arg）「
-    打印行（"B。method（" + arg + "）"）
+    系统。打印行（"B。method（" + arg + "）"）
   」
 」
 
 
 变量 closure = B（）。getClosure（）
-closure（"arg"）； // 期待：A。method（arg）
+closure（"arg"） // 期待：A。method（arg）

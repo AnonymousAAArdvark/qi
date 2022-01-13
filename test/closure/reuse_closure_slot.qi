@@ -3,7 +3,7 @@
 
  「
     变量 a = "a"
-    功能 f下（）「 打印行（a）； 」
+    功能 f下（）「 系统。打印行（a） 」
     f = f下
   」
 
@@ -11,6 +11,6 @@
     // Since a is out of scope，the local slot will be reused by b。 Make sure
     // that f still closes over a。
     变量 b = "b"
-    f（）； // 期待：a
+    f（） // 期待：a
   」
 」

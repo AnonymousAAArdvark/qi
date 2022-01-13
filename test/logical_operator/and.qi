@@ -1,13 +1,13 @@
 // Note：These tests implicitly depend on ints being truthy。
 
 // 返回 the first non-真 argument。
-打印行（假 和 1）； // 期待：假
-打印行（真 和 1）； // 期待：1
-打印行（1 和 2 和 假）； // 期待：假
+系统。打印行（假 和 1） // 期待：假
+系统。打印行（真 和 1） // 期待：1
+系统。打印行（1 和 2 和 假） // 期待：假
 
 // 返回 the last argument if all are 真。
-打印行（1 和 真）； // 期待：真
-打印行（1 和 2 和 3）； // 期待：3
+系统。打印行（1 和 真） // 期待：真
+系统。打印行（1 和 2 和 3） // 期待：3
 
 // Short-circuit at the first 假 argument。
 变量 a = "before"
@@ -15,5 +15,5 @@
 （a = 真）和
    （b = 假）和
    （a = "bad"）
-打印行（a）； // 期待：真
-打印行（b）； // 期待：假
+系统。打印行（a） // 期待：真
+系统。打印行（b） // 期待：假

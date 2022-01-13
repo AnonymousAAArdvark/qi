@@ -1,34 +1,34 @@
 变量 i = 0
 
-变量 loopStart = 时钟（）
+变量 loopStart = 系统。时钟（）
 
 而（i 小 10000000）「
   i = i + 1
 
-  1； 1； 1； 2； 1； 空； 1； "str"； 1； 真
-  空； 空； 空； 1； 空； "str"； 空； 真
-  真； 真； 真； 1； 真； 假； 真； "str"； 真； 空
-  "str"； "str"； "str"； "stru"； "str"； 1； "str"； 空； "str"； 真
+  1；1；1；2；1；空；1；"str"；1；真
+  空；空；空；1；空；"str"；空；真
+  真；真；真；1；真；假；真；"str"；真；空
+  "str"；"str"；"str"；"stru"；"str"；1；"str"；空；"str"；真
 」
 
-变量 loopTime = 时钟（）- loopStart
+变量 loopTime = 系统。时钟（）- loopStart
 
-变量 start = 时钟（）
+变量 start = 系统。时钟（）
 
 i = 0
 而（i 小 10000000）「
   i = i + 1
 
-  1 等 1； 1 等 2； 1 等 空； 1 等 "str"； 1 等 真
-  空 等 空； 空 等 1； 空 等 "str"； 空 等 真
-  真 等 真； 真 等 1； 真 等 假； 真 等 "str"； 真 等 空
-  "str" 等 "str"； "str" 等 "stru"； "str" 等 1； "str" 等 空； "str" 等 真
+  1 等 1；1 等 2；1 等 空；1 等 "str"；1 等 真
+  空 等 空；空 等 1；空 等 "str"；空 等 真
+  真 等 真；真 等 1；真 等 假；真 等 "str"；真 等 空
+  "str" 等 "str"；"str" 等 "stru"；"str" 等 1；"str" 等 空；"str" 等 真
 」
 
-变量 elapsed = 时钟（）- start
-打印行（"loop"）
-打印行（loopTime）
-打印行（"elapsed"）
-打印行（elapsed）
-打印行（"equals"）
-打印行（elapsed - loopTime）
+变量 elapsed = 系统。时钟（）- start
+系统。打印行（"loop"）
+系统。打印行（loopTime）
+系统。打印行（"elapsed"）
+系统。打印行（elapsed）
+系统。打印行（"equals"）
+系统。打印行（elapsed - loopTime）

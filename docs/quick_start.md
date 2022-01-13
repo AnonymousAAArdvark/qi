@@ -35,5 +35,5 @@
 
 Here is a simple "Hello, World!" program written in Qi.
 ```c
-打印行（"你好，世界"）；
+打印行（"你好，世界"）
 ```
