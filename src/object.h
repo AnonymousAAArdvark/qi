@@ -132,6 +132,7 @@ void insertToList(ObjList* list, Value value, int index);
 void storeToList(ObjList* list, int index, Value value);
 Value indexFromList(ObjList* list, int index);
 void deleteFromList(ObjList* list, int index);
+bool sortList(ObjList* list, int low, int high, ObjClosure* pred);
 bool isValidListIndex(ObjList* list, int index);
 void printObject(Value value);
 

@@ -271,7 +271,8 @@ bool randNative(int argCount, Value* args) {
         max = (int)round(AS_NUMBER(args[1]));
     }
 
-    args[-1] = NUMBER_VAL(rand() % max + 1 - min) + min;
+    srand(time(NULL));
+    args[-1] = NUMBER_VAL(rand() % (max + 1 - min) + min) ;
     return true;
 }
 

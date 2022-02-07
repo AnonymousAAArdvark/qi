@@ -1065,7 +1065,7 @@ static void forStatement() {
 static void ifStatement() {
     consume(TOKEN_LEFT_PAREN, L"在「如果」之后期待「（ 」。");
     expression();
-    consume(TOKEN_RIGHT_PAREN, L"套件后期待「（ 」。");
+    consume(TOKEN_RIGHT_PAREN, L"套件后期待「 ）」。");
 
     int thenJump = emitJump(OP_JUMP_IF_FALSE);
     emitByte(OP_POP);
@@ -1085,7 +1085,6 @@ static void returnStatement() {
         error(L"无法从顶级代码返回。");
     }
 
-//    if (match(TOKEN_SEMICOLON) || check(TOKEN_RIGHT_BRACE)) {
     if (match(TOKEN_SEMICOLON) || parser.previous.line != parser.current.line) {
         emitReturn();
     } else {
@@ -1094,7 +1093,6 @@ static void returnStatement() {
         }
 
         expression();
-//        consume(TOKEN_SEMICOLON, L"返回值后期得「 ；」。");
         match(TOKEN_SEMICOLON);
 
         emitByte(OP_RETURN);
