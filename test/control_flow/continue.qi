@@ -10,3 +10,6 @@ while (--i >= 0) {
     list.delete(i);
 }
 println(list); // expect: [3, 9]
+{
+continue; // Error at 'continue': Can't use 'continue' outside of a loop.
+}
