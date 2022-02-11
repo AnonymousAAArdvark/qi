@@ -1,0 +1,8 @@
+fun modifyList(list) {
+    list[0] = 0;
+}
+
+var foo = [1, 2];
+println(foo[foo[0]]); // expect: 2
+modifyList(foo);
+println(foo); // expect: [0, 2]
