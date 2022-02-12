@@ -70,6 +70,7 @@ int main(int argc, const char* argv[]) {
 //        if(chinese[i] == L'\u4E0D')
 //            printf("also found\n");
 //    }
+
     initVM();
 
     if (argc == 1) {
