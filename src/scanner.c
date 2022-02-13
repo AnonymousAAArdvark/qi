@@ -307,7 +307,7 @@ Token scanToken() {
             if (iswdigit(c)) return decimal();
     }
 
-    return errorToken(L"Unexpected character.");
+    return errorToken(L"意想不到的性格。");
 }
 
 Scanner scanner;

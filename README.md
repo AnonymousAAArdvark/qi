@@ -146,11 +146,12 @@ For a more extensive look into Qi, go to the [Language Guide]().
   - [x] Quick Start
   - [x] Language Guide
 - [x] Escape Sequences
-- [ ] Bitwise operators
-- [ ] Remove semicolons
-- [ ] Support scientific notation, binary, etc. numbers
-- [ ] More string methods
-- [ ] More list methods
+- [x] Bitwise operators
+- [x] Remove semicolons
+- [x] Support scientific notation, binary, etc. numbers
+- [x] More string methods
+- [x] More list methods
+- [ ] Modules system
     
 
 
