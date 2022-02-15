@@ -1,5 +1,2 @@
 // nontest
-fun function() {}
-class klass {
-    method() {}
-}
+println(els0);

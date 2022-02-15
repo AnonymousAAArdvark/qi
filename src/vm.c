@@ -4,6 +4,7 @@
 
 #include <stdarg.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <time.h>
 #include <ctype.h>
@@ -25,10 +26,10 @@ static void resetStack() {
     vm.openUpvalues = NULL;
 }
 
-static void runtimeError(const char* format, ...) {
+static void runtimeError(const wchar_t* format, ...) {
     va_list args;
     va_start(args, format);
-    vfprintf(stderr, format, args);
+    vfwprintf(stderr, format, args);
     va_end(args);
     fputs("\n", stderr);
 
@@ -36,19 +37,19 @@ static void runtimeError(const char* format, ...) {
         CallFrame* frame = &vm.frames[i];
         ObjFunction* function = frame->closure->function;
         size_t instruction = frame->ip - function->chunk.code - 1;
-        fprintf(stderr, "[line %d] in ", function->chunk.lines[instruction]);
+        fwprintf(stderr, L"[line %d] in L", function->chunk.lines[instruction]);
         if (function->name == NULL) {
-            fprintf(stderr, "script\n");
+            fwprintf(stderr, L"script\n");
         } else {
-            fprintf(stderr, "%s()\n", function->name->chars);
+            fwprintf(stderr, L"%ls()\n", function->name->chars);
         }
     }
 
     resetStack();
 }
 
-static void defineNative(const char* name, NativeFn function, int arity) {
-    push(OBJ_VAL(copyString(name, (int)strlen(name))));
+static void defineNative(const wchar_t* name, NativeFn function, int arity) {
+    push(OBJ_VAL(copyString(name, (int)wcslen(name))));
     push(OBJ_VAL(newNative(function, arity)));
     tableSet(&vm.globals, AS_STRING(vm.stack[0]), vm.stack[1]);
     pop();
@@ -69,21 +70,21 @@ void initVM() {
     initTable(&vm.strings);
 
     vm.initString = NULL;
-    vm.initString = copyString("init", 4);
+    vm.initString = copyString(L"init", 4);
     vm.markValue = true;
 
-    defineNative("print", printNative, 1);
-    defineNative("println", printlnNative, 1);
-    defineNative("scan", scanNative, 0);
-    defineNative("clock", clockNative, 0);
-    defineNative("sqrt", sqrtNative, 1);
-    defineNative("pow", powNative, 2);
-    defineNative("min", minNative, 2);
-    defineNative("max", maxNative, 2);
-    defineNative("round", roundNative, -1);
-    defineNative("ston", stonNative, 1);
-    defineNative("ntos", ntosNative, 1);
-    defineNative("typeof", typeofNative, 1);
+    defineNative(L"print", printNative, 1);
+    defineNative(L"println", printlnNative, 1);
+    defineNative(L"scan", scanNative, 0);
+    defineNative(L"clock", clockNative, 0);
+    defineNative(L"sqrt", sqrtNative, 1);
+    defineNative(L"pow", powNative, 2);
+    defineNative(L"min", minNative, 2);
+    defineNative(L"max", maxNative, 2);
+    defineNative(L"round", roundNative, -1);
+    defineNative(L"ston", stonNative, 1);
+    defineNative(L"ntos", ntosNative, 1);
+    defineNative(L"typeof", typeofNative, 1);
 }
 
 void freeVM() {
@@ -109,12 +110,12 @@ static Value peek(int distance) {
 
 static bool call(ObjClosure* closure, int argCount) {
     if (argCount != closure->function->arity) {
-        runtimeError("Expected %d arguments but got %d.", closure->function->arity, argCount);
+        runtimeError(L"Expected %d arguments but got %d.", closure->function->arity, argCount);
         return false;
     }
 
     if (vm.frameCount == FRAMES_MAX) {
-        runtimeError("Stack overflow.");
+        runtimeError(L"Stack overflow.");
         return false;
     }
 
@@ -140,7 +141,7 @@ static bool callValue(Value callee, int argCount) {
                 if (tableGet(&klass->methods, vm.initString, &initializer)) {
                     return call(AS_CLOSURE(initializer), argCount);
                 } else if (argCount != 0) {
-                    runtimeError("Expected 0 arguments but got %d.", argCount);
+                    runtimeError(L"Expected 0 arguments but got %d.", argCount);
                     return false;
                 }
                 return true;
@@ -150,7 +151,7 @@ static bool callValue(Value callee, int argCount) {
             case OBJ_NATIVE: {
                 ObjNative* native = AS_NATIVE(callee);
                 if (native->arity != -1 && argCount != native->arity) {
-                    runtimeError("Expected %d arguments but got %d.", native->arity, argCount);
+                    runtimeError(L"Expected %d arguments but got %d.", native->arity, argCount);
                     return false;
                 }
                 if (native->function(argCount, vm.stackTop - argCount)) {
@@ -165,7 +166,7 @@ static bool callValue(Value callee, int argCount) {
                 break; // Non-callable object type.
         }
     }
-    runtimeError("Can only call functions and classes.");
+    runtimeError(L"Can only call functions and classes.");
     return false;
 }
 
@@ -173,7 +174,7 @@ static bool invokeFromClass(ObjClass* klass, ObjString* name, int argCount, Call
     Value method;
     if (!tableGet(&klass->methods, name, &method)) {
         frame->ip = ip;
-        runtimeError("Undefined property '%s'.", name->chars);
+        runtimeError(L"Undefined property '%ls'.", name->chars);
         return false;
     }
     return call(AS_CLOSURE(method), argCount);
@@ -192,21 +193,21 @@ static bool invokeInstance(const Value* receiver, ObjString* name, int argCount,
 }
 
 static bool invokeString(const Value* receiver, ObjString* name, int argCount, CallFrame* frame, uint8_t* ip) {
-    if (strcmp(name->chars, "length") == 0) {
+    if (wcscmp(name->chars, L"length") == 0) {
         // Returns the length of the string
         vm.stackTop -= argCount + 1;
         push(NUMBER_VAL(AS_STRING(*receiver)->length));
         return true;
-    } else if (strcmp(name->chars, "upper") == 0) {
+    } else if (wcscmp(name->chars, L"upper") == 0) {
         // Returns a string where all characters are in upper case.
         ObjString* str = AS_STRING(*receiver);
 
-        char* chars = ALLOCATE(char, str->length + 1);
-        memcpy(chars, str->chars, str->length);
-        chars[str->length + 1] = '\0';
-        char* c = chars;
+        wchar_t* chars = ALLOCATE(wchar_t, str->length + 1);
+        memcpy(chars, str->chars, str->length * sizeof(wchar_t));
+        chars[str->length + 1] = L'\0';
+        wchar_t* c = chars;
         while (*c) {
-            *c = (char)toupper(*c);
+            *c = towupper(*c);
             c++;
         }
         ObjString* result = takeString(chars, str->length + 1);
@@ -214,16 +215,16 @@ static bool invokeString(const Value* receiver, ObjString* name, int argCount, C
         vm.stackTop -= argCount + 1;
         push(OBJ_VAL(result));
         return true;
-    } else if (strcmp(name->chars, "lower") == 0) {
+    } else if (wcscmp(name->chars, L"lower") == 0) {
         // Returns a string where all characters are in lower case.
         ObjString* str = AS_STRING(*receiver);
 
-        char* chars = ALLOCATE(char, str->length + 1);
-        memcpy(chars, str->chars, str->length);
-        chars[str->length + 1] = '\0';
-        char* c = chars;
+        wchar_t* chars = ALLOCATE(wchar_t, str->length + 1);
+        memcpy(chars, str->chars, str->length * sizeof(wchar_t));
+        chars[str->length + 1] = L'\0';
+        wchar_t* c = chars;
         while (*c) {
-            *c = (char)tolower(*c);
+            *c = towlower(*c);
             c++;
         }
         ObjString* result = takeString(chars, str->length + 1);
@@ -231,19 +232,19 @@ static bool invokeString(const Value* receiver, ObjString* name, int argCount, C
         vm.stackTop -= argCount + 1;
         push(OBJ_VAL(result));
         return true;
-    } else if (strcmp(name->chars, "substring") == 0) {
+    } else if (wcscmp(name->chars, L"substring") == 0) {
         // Returns a part of a string between given indexes
         if (argCount != 2) {
             frame->ip = ip;
-            runtimeError("Expected 2 arguments but got %d.", argCount);
+            runtimeError(L"Expected 2 arguments but got %d.", argCount);
             return false;
         } else if (!IS_NUMBER(peek(argCount - 1))) {
             frame->ip = ip;
-            runtimeError("Argument 1 (begin) must be of type 'number', not '%s'.", getType(vm.stackTop[-argCount]));
+            runtimeError(L"Argument 1 (begin) must be of type 'number', not '%ls'.", getType(vm.stackTop[-argCount]));
             return false;
         } else if (!IS_NUMBER(peek(argCount - 2))) {
             frame->ip = ip;
-            runtimeError("Argument 2 (end) must be of type 'number', not '%s'.", getType(vm.stackTop[-argCount]));
+            runtimeError(L"Argument 2 (end) must be of type 'number', not '%ls'.", getType(vm.stackTop[-argCount]));
             return false;
         }
 
@@ -255,21 +256,21 @@ static bool invokeString(const Value* receiver, ObjString* name, int argCount, C
 
         if (!isValidStringIndex(str, begin)) {
             frame->ip = ip;
-            runtimeError("Argument 1 is not a valid index");
+            runtimeError(L"Argument 1 is not a valid index");
             return false;
         } else if (!isValidStringIndex(str, end - 1)) { // Ending index is exclusive
             frame->ip = ip;
-            runtimeError("Argument 2 is not a valid index");
+            runtimeError(L"Argument 2 is not a valid index");
             return false;
         } else if (end < begin) {
             frame->ip = ip;
-            runtimeError("End index cannot be before begin index.");
+            runtimeError(L"End index cannot be before begin index.");
             return false;
         }
 
-        char* chars = ALLOCATE(char, end - begin + 1);
-        memcpy( chars, &str->chars[begin], end - begin );
-        chars[end - begin] = '\0';
+        wchar_t* chars = ALLOCATE(wchar_t, end - begin + 1);
+        memcpy( chars, &str->chars[begin], (end - begin) * sizeof(wchar_t) );
+        chars[end - begin] = L'\0';
         ObjString* result = takeString(chars, end - begin + 1);
 
         vm.stackTop -= argCount + 1;
@@ -277,16 +278,16 @@ static bool invokeString(const Value* receiver, ObjString* name, int argCount, C
         return true;
     }
     frame->ip = ip;
-    runtimeError("Undefined property '%s'.", name->chars);
+    runtimeError(L"Undefined property '%ls'.", name->chars);
     return false;
 }
 
 static bool invokeList(const Value* receiver, ObjString* name, int argCount, CallFrame* frame, uint8_t* ip) {
-    if (strcmp(name->chars, "push") == 0) {
+    if (wcscmp(name->chars, L"push") == 0) {
         // Push a value to the end of a list increasing the list's length by 1
         if (argCount != 1) {
             frame->ip = ip;
-            runtimeError("Expected 1 argument but got %d.", argCount);
+            runtimeError(L"Expected 1 argument but got %d.", argCount);
             return false;
         }
         ObjList *list = AS_LIST(*receiver);
@@ -295,11 +296,11 @@ static bool invokeList(const Value* receiver, ObjString* name, int argCount, Cal
         vm.stackTop -= argCount + 1;
         push(NIL_VAL);
         return true;
-    } else if (strcmp(name->chars, "pop") == 0) {
+    } else if (wcscmp(name->chars, L"pop") == 0) {
         // Pop a value from the end of a list decreasing the list's length by 1
         if (argCount != 0) {
             frame->ip = ip;
-            runtimeError("Expected 0 arguments but got %d.", argCount);
+            runtimeError(L"Expected 0 arguments but got %d.", argCount);
             return false;
         }
 
@@ -307,7 +308,7 @@ static bool invokeList(const Value* receiver, ObjString* name, int argCount, Cal
 
         if (!isValidListIndex(list, list->count - 1)) {
             frame->ip = ip;
-            runtimeError("Cannot pop from an empty list.");
+            runtimeError(L"Cannot pop from an empty list.");
             return false;
         }
 
@@ -315,15 +316,15 @@ static bool invokeList(const Value* receiver, ObjString* name, int argCount, Cal
         vm.stackTop -= argCount + 1;
         push(NIL_VAL);
         return true;
-    } else if (strcmp(name->chars, "insert") == 0) {
+    } else if (wcscmp(name->chars, L"insert") == 0) {
         // Insert a value to the specified index of a list increasing the list's length by 1
         if (argCount != 2) {
             frame->ip = ip;
-            runtimeError("Expected 2 arguments but got %d.", argCount);
+            runtimeError(L"Expected 2 arguments but got %d.", argCount);
             return false;
         } else if (!IS_NUMBER(peek(argCount - 1))) {
             frame->ip = ip;
-            runtimeError("Argument 1 (index) must be of type 'number', not '%s'.", getType(vm.stackTop[-argCount]));
+            runtimeError(L"Argument 1 (index) must be of type 'number', not '%ls'.", getType(vm.stackTop[-argCount]));
             return false;
         }
 
@@ -334,7 +335,7 @@ static bool invokeList(const Value* receiver, ObjString* name, int argCount, Cal
 
         if (!isValidListIndex(list, index)) {
             frame->ip = ip;
-            runtimeError("Argument 1 is not a valid index");
+            runtimeError(L"Argument 1 is not a valid index");
             return false;
         }
 
@@ -342,15 +343,15 @@ static bool invokeList(const Value* receiver, ObjString* name, int argCount, Cal
         vm.stackTop -= argCount + 1;
         push(NIL_VAL);
         return true;
-    } else if (strcmp(name->chars, "delete") == 0) {
+    } else if (wcscmp(name->chars, L"delete") == 0) {
         // Delete an item from a list at the given index.
         if (argCount != 1) {
             frame->ip = ip;
-            runtimeError("Expected 1 argument but got %d.", argCount);
+            runtimeError(L"Expected 1 argument but got %d.", argCount);
             return false;
         } else if (!IS_NUMBER(peek(argCount - 1))) {
             frame->ip = ip;
-            runtimeError("Argument 1 (index) must be of type 'number', not '%s'.", getType(vm.stackTop[-argCount]));
+            runtimeError(L"Argument 1 (index) must be of type 'number', not '%ls'.", getType(vm.stackTop[-argCount]));
             return false;
         }
 
@@ -360,7 +361,7 @@ static bool invokeList(const Value* receiver, ObjString* name, int argCount, Cal
 
         if (!isValidListIndex(list, index)) {
             frame->ip = ip;
-            runtimeError("Argument 1 is not a valid index");
+            runtimeError(L"Argument 1 is not a valid index");
             return false;
         }
 
@@ -368,7 +369,7 @@ static bool invokeList(const Value* receiver, ObjString* name, int argCount, Cal
         vm.stackTop -= argCount + 1;
         push(NIL_VAL);
         return true;
-    } else if (strcmp(name->chars, "length") == 0) {
+    } else if (wcscmp(name->chars, L"length") == 0) {
         // Returns the length of the list
         vm.stackTop -= argCount + 1;
         push(NUMBER_VAL(AS_LIST(*receiver)->count));
@@ -376,7 +377,7 @@ static bool invokeList(const Value* receiver, ObjString* name, int argCount, Cal
     }
 
     frame->ip = ip;
-    runtimeError("Undefined property '%s'.", name->chars);
+    runtimeError(L"Undefined property '%ls'.", name->chars);
     return false;
 }
 
@@ -392,7 +393,7 @@ static bool invoke(ObjString* name, int argCount, CallFrame* frame, uint8_t* ip)
     }
 
     frame->ip = ip;
-    runtimeError("Only instances, strings, and lists have methods");
+    runtimeError(L"Only instances, strings, and lists have methods");
     return false;
 }
 
@@ -400,7 +401,7 @@ static bool bindMethod(ObjClass* klass, ObjString* name, CallFrame* frame, uint8
     Value method;
     if (!tableGet(&klass->methods, name, &method)) {
         frame->ip = ip;
-        runtimeError("Undefined property '%s'.", name->chars);
+        runtimeError(L"Undefined property '%ls'.", name->chars);
         return false;
     }
 
@@ -455,10 +456,10 @@ static bool isFalsey(Value value) {
 
 static ObjString* concatenate(ObjString* a, ObjString* b) {
     int length = a->length + b->length;
-    char* chars = ALLOCATE(char, length + 1);
-    memcpy(chars, a->chars, a->length);
-    memcpy(chars + a->length, b->chars, b->length);
-    chars[length] = '\0';
+    wchar_t* chars = ALLOCATE(wchar_t, length + 1);
+    memcpy(chars, a->chars, a->length * sizeof(wchar_t));
+    memcpy(chars + a->length, b->chars, b->length * sizeof(wchar_t));
+    chars[length] = L'\0';
 
     ObjString* result = takeString(chars, length);
     return result;
@@ -481,7 +482,7 @@ static InterpretResult run() {
     do { \
       if (!IS_NUMBER(peek(0)) || !IS_NUMBER(peek(1))) { \
         frame->ip = ip; \
-        runtimeError("Operands must be numbers."); \
+        runtimeError(L"Operands must be numbers."); \
         return INTERPRET_RUNTIME_ERROR; \
       } \
       double b = AS_NUMBER(pop()); \
@@ -492,7 +493,7 @@ static InterpretResult run() {
     do { \
       if (!IS_NUMBER(peek(0)) || !IS_NUMBER(peek(1))) { \
         frame->ip = ip; \
-        runtimeError("Operands must be numbers."); \
+        runtimeError(L"Operands must be numbers."); \
         return INTERPRET_RUNTIME_ERROR; \
       } \
       double b = AS_NUMBER(pop()); \
@@ -502,13 +503,13 @@ static InterpretResult run() {
 
     for(;;) {
 #ifdef DEBUG_TRACE_EXECUTION
-        printf("          ");
+        wprintf(L"          ");
         for (Value *slot = vm.stack; slot < vm.stackTop; slot++) {
-            printf("[ ");
+            wprintf(L"[ ");
             printValue(*slot);
-            printf(" ]");
+            wprintf(L" ]");
         }
-        printf("\n");
+        wprintf(L"\n");
         disassembleInstruction(&frame->closure->function->chunk,
                                (int) (frame->ip - frame->closure->function->chunk.code));
 #endif
@@ -545,7 +546,7 @@ static InterpretResult run() {
                 Value value;
                 if (!tableGet(&vm.globals, name, &value)) {
                     frame->ip = ip;
-                    runtimeError("Undefined variable '%s'.", name->chars);
+                    runtimeError(L"Undefined variable '%ls'.", name->chars);
                     return INTERPRET_RUNTIME_ERROR;
                 }
                 push(value);
@@ -562,7 +563,7 @@ static InterpretResult run() {
                 if (tableSet(&vm.globals, name, peek(0))) {
                     tableDelete(&vm.globals, name);
                     frame->ip = ip;
-                    runtimeError("Undefined variable '%s'.", name->chars);
+                    runtimeError(L"Undefined variable '%ls'.", name->chars);
                     return INTERPRET_RUNTIME_ERROR;
                 }
                 break;
@@ -580,7 +581,7 @@ static InterpretResult run() {
             case OP_GET_PROPERTY: {
                 if (!IS_INSTANCE(peek(0))) {
                     frame->ip = ip;
-                    runtimeError("Only instances have properties.");
+                    runtimeError(L"Only instances have properties.");
                     return INTERPRET_RUNTIME_ERROR;
                 }
                 ObjInstance *instance = AS_INSTANCE(peek(0));
@@ -601,7 +602,7 @@ static InterpretResult run() {
             case OP_SET_PROPERTY: {
                 if (!IS_INSTANCE(peek(1))) {
                     frame->ip = ip;
-                    runtimeError("Only instances have fields.");
+                    runtimeError(L"Only instances have fields.");
                     return INTERPRET_RUNTIME_ERROR;
                 }
 
@@ -647,7 +648,7 @@ static InterpretResult run() {
                     push(NUMBER_VAL(a + b));
                 } else {
                     frame->ip = ip;
-                    runtimeError("Operands must be two numbers or two strings.");
+                    runtimeError(L"Operands must be two numbers or two strings.");
                     return INTERPRET_RUNTIME_ERROR;
                 }
                 break;
@@ -669,7 +670,7 @@ static InterpretResult run() {
             case OP_NEGATE:
                 if (!IS_NUMBER(peek(0))) {
                     frame->ip = ip;
-                    runtimeError("Operand must be a number.");
+                    runtimeError(L"Operand must be a number.");
                     return INTERPRET_RUNTIME_ERROR;
                 }
                 push(NUMBER_VAL(-AS_NUMBER(pop())));
@@ -677,7 +678,7 @@ static InterpretResult run() {
             case OP_INCREMENT: {
                 if (!IS_NUMBER(peek(0))) {
                     frame->ip = ip;
-                    runtimeError("Operand must be a number.");
+                    runtimeError(L"Operand must be a number.");
                     return INTERPRET_RUNTIME_ERROR;
                 }
                 push(NUMBER_VAL(AS_NUMBER(pop()) + 1));
@@ -686,7 +687,7 @@ static InterpretResult run() {
             case OP_DECREMENT: {
                 if (!IS_NUMBER(peek(0))) {
                     frame->ip = ip;
-                    runtimeError("Operand must be a number.");
+                    runtimeError(L"Operand must be a number.");
                     return INTERPRET_RUNTIME_ERROR;
                 }
                 push(NUMBER_VAL(AS_NUMBER(pop()) - 1));
@@ -781,7 +782,7 @@ static InterpretResult run() {
                 Value superclass = peek(1);
                 if (!IS_CLASS(superclass)) {
                     frame->ip = ip;
-                    runtimeError("Superclass must be a class.");
+                    runtimeError(L"Superclass must be a class.");
                     return INTERPRET_RUNTIME_ERROR;
                 }
                 ObjClass *subclass = AS_CLASS(peek(0));
@@ -824,7 +825,7 @@ static InterpretResult run() {
 
                     if (!IS_NUMBER(index)) {
                         frame->ip = ip;
-                        runtimeError("String index is not a number.");
+                        runtimeError(L"String index is not a number.");
                         return INTERPRET_RUNTIME_ERROR;
                     }
                     int numIndex = AS_NUMBER(index);
@@ -832,10 +833,10 @@ static InterpretResult run() {
 
                     if (!isValidStringIndex(objString, numIndex)) {
                         frame->ip = ip;
-                        runtimeError("String index out of range.");
+                        runtimeError(L"String index out of range.");
                         return INTERPRET_RUNTIME_ERROR;
                     }
-                    char* result = ALLOCATE(char, 1);
+                    wchar_t* result = ALLOCATE(wchar_t, 1);
                     result[0] = indexFromString(objString, numIndex);
                     push(OBJ_VAL(takeString(result, 1)));
                     break;
@@ -844,7 +845,7 @@ static InterpretResult run() {
 
                     if (!IS_NUMBER(index)) {
                         frame->ip = ip;
-                        runtimeError("List index is not a number.");
+                        runtimeError(L"List index is not a number.");
                         return INTERPRET_RUNTIME_ERROR;
                     }
                     int numIndex = AS_NUMBER(index);
@@ -852,7 +853,7 @@ static InterpretResult run() {
 
                     if (!isValidListIndex(objList, numIndex)) {
                         frame->ip = ip;
-                        runtimeError("List index out of range.");
+                        runtimeError(L"List index out of range.");
                         return INTERPRET_RUNTIME_ERROR;
                     }
 
@@ -862,7 +863,7 @@ static InterpretResult run() {
                 }
 
                 frame->ip = ip;
-                runtimeError("Invalid type to index into.");
+                runtimeError(L"Invalid type to index into.");
                 return INTERPRET_RUNTIME_ERROR;
             }
             case OP_STORE_SUBSCR: {
@@ -876,11 +877,11 @@ static InterpretResult run() {
 
                     if (!IS_NUMBER(index)) {
                         frame->ip = ip;
-                        runtimeError("String index is not a number.");
+                        runtimeError(L"String index is not a number.");
                         return INTERPRET_RUNTIME_ERROR;
                     } else if (!IS_STRING(item)) {
                         frame->ip = ip;
-                        runtimeError("Only characters can be stored in strings.");
+                        runtimeError(L"Only characters can be stored in strings.");
                         return INTERPRET_RUNTIME_ERROR;
                     }
 
@@ -890,12 +891,12 @@ static InterpretResult run() {
 
                     if (!isValidStringIndex(objString, numIndex)) {
                         frame->ip = ip;
-                        runtimeError("Invalid string index.");
+                        runtimeError(L"Invalid string index.");
                         return INTERPRET_RUNTIME_ERROR;
-                    } else if (strlen(itemString->chars) != 1) {
+                    } else if (wcslen(itemString->chars) != 1) {
                         frame->ip = ip;
                         runtimeError(
-                                "Expected string of length 1 but got length %d.", strlen(itemString->chars));
+                                L"Expected string of length 1 but got length %d.", wcslen(itemString->chars));
                         return INTERPRET_RUNTIME_ERROR;
                     }
 
@@ -907,7 +908,7 @@ static InterpretResult run() {
 
                     if (!IS_NUMBER(index)) {
                         frame->ip = ip;
-                        runtimeError("List index is not a number.");
+                        runtimeError(L"List index is not a number.");
                         return INTERPRET_RUNTIME_ERROR;
                     }
                     int numIndex = AS_NUMBER(index);
@@ -915,7 +916,7 @@ static InterpretResult run() {
 
                     if (!isValidListIndex(objList, numIndex)) {
                         frame->ip = ip;
-                        runtimeError("Invalid list index.");
+                        runtimeError(L"Invalid list index.");
                         return INTERPRET_RUNTIME_ERROR;
                     }
 
@@ -925,7 +926,7 @@ static InterpretResult run() {
                 }
 
                 frame->ip = ip;
-                runtimeError("Cannot store value: variable is not a string or list.");
+                runtimeError(L"Cannot store value: variable is not a string or list.");
                 return INTERPRET_RUNTIME_ERROR;
             }
         }
@@ -940,7 +941,9 @@ static InterpretResult run() {
 }
 
 InterpretResult interpret(const char* source) {
-    ObjFunction* function = compile(source);
+    wchar_t* wsource = ALLOCATE(wchar_t, strlen(source) + 1);
+    mbstowcs(wsource, source, strlen(source) + 1);
+    ObjFunction* function = compile(wsource);
     if (function == NULL) return INTERPRET_COMPILE_ERROR;
 
     push(OBJ_VAL(function));

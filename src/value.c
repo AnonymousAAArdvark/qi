@@ -34,21 +34,21 @@ void freeValueArray(ValueArray* array) {
 void printValue(Value value) {
 #ifdef NAN_BOXING
     if (IS_BOOL(value)) {
-        printf(AS_BOOL(value) ? "true" : "false");
+        wprintf(AS_BOOL(value) ? L"true" : L"false");
     } else if (IS_NIL(value)) {
-        printf("nil");
+        wprintf(L"nil");
     } else if (IS_NUMBER(value)) {
-        printf("%g", AS_NUMBER(value));
+        wprintf(L"%g", AS_NUMBER(value));
     } else if (IS_OBJ(value)) {
         printObject(value);
     }
 #else
     switch (value.type) {
         case VAL_BOOL:
-            printf(AS_BOOL(value) ? "true" : "false");
+            wprintf(AS_BOOL(value) ? L"true" : L"false");
             break;
-        case VAL_NIL: printf("nil"); break;
-        case VAL_NUMBER: printf("%g", AS_NUMBER(value)); break;
+        case VAL_NIL: wprintf(L"nil"); break;
+        case VAL_NUMBER: wprintf(L"%g", AS_NUMBER(value)); break;
         case VAL_OBJ: printObject(value); break;
     }
 #endif

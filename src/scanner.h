@@ -34,12 +34,12 @@ typedef enum {
 
 typedef struct {
     TokenType type;
-    const char* start;
+    const wchar_t* start;
     int length;
     int line;
 } Token;
 
-void initScanner(const char* source);
+void initScanner(const wchar_t* source);
 Token scanToken();
 
 #endif //QI_SCANNER_H

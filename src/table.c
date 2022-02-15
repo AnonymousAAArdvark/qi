@@ -116,7 +116,7 @@ void tableAddAll(Table* from, Table* to) {
     }
 }
 
-ObjString* tableFindString(Table* table, const char* chars, int length, uint32_t hash) {
+ObjString* tableFindString(Table* table, const wchar_t* chars, int length, uint32_t hash) {
     if (table->count == 0) return NULL;
 
     uint32_t index = hash & (table->capacity - 1);
@@ -127,7 +127,7 @@ ObjString* tableFindString(Table* table, const char* chars, int length, uint32_t
             if (IS_NIL(entry->value)) return NULL;
         } else if (entry->key->length == length &&
                    entry->key->hash == hash &&
-                   memcmp(entry->key->chars, chars, length) == 0) {
+                   memcmp(entry->key->chars, chars, length * sizeof(wchar_t)) == 0) {
             // We found it.
             return entry->key;
         }
