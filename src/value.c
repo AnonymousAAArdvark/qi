@@ -34,7 +34,7 @@ void freeValueArray(ValueArray* array) {
 void printValue(Value value) {
 #ifdef NAN_BOXING
     if (IS_BOOL(value)) {
-        wprintf(AS_BOOL(value) ? L"true" : L"false");
+        wprintf(AS_BOOL(value) ? L"真" : L"假");
     } else if (IS_NIL(value)) {
         wprintf(L"nil");
     } else if (IS_NUMBER(value)) {

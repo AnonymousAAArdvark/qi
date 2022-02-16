@@ -11,16 +11,16 @@ println(2 + 6 / 3); // expect: 4
 println(2 - 6 / 3); // expect: 0
 
 // < has higher precedence than ==.
-println(false == 2 < 1); // expect: true
+println(假 == 2 < 1); // expect: 真
 
 // > has higher precedence than ==.
-println(false == 1 > 2); // expect: true
+println(假 == 1 > 2); // expect: 真
 
 // <= has higher precedence than ==.
-println(false == 2 <= 1); // expect: true
+println(假 == 2 <= 1); // expect: 真
 
 // >= has higher precedence than ==.
-println(false == 1 >= 2); // expect: true
+println(假 == 1 >= 2); // expect: 真
 
 // 1 - 1 is not space-sensitive.
 println(1 - 1); // expect: 0

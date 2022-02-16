@@ -17,7 +17,7 @@ var closure;
 
     closure = returnA;
 
-    if (false) {
+    如果 (假) {
       fun returnB() {
         return b;
       }

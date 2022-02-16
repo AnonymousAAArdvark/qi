@@ -1,14 +1,14 @@
-println(nil == nil); // expect: true
+println(nil == nil); // expect: 真
 
-println(true == true); // expect: true
-println(true == false); // expect: false
+println(真 == 真); // expect: 真
+println(真 == 假); // expect: 假
 
-println(1 == 1); // expect: true
-println(1 == 2); // expect: false
+println(1 == 1); // expect: 真
+println(1 == 2); // expect: 假
 
-println("str" == "str"); // expect: true
-println("str" == "ing"); // expect: false
+println("str" == "str"); // expect: 真
+println("str" == "ing"); // expect: 假
 
-println(nil == false); // expect: false
-println(false == 0); // expect: false
-println(0 == "0"); // expect: false
+println(nil == 假); // expect: 假
+println(假 == 0); // expect: 假
+println(0 == "0"); // expect: 假

@@ -7,9 +7,9 @@ while (i < 4) {
   var j = i;
   fun f() { println(j); }
 
-  if (j == 1) f1 = f;
-  else if (j == 2) f2 = f;
-  else f3 = f;
+  如果 (j == 1) f1 = f;
+  否则 如果 (j == 2) f2 = f;
+  否则 f3 = f;
 
   i = i + 1;
 }

@@ -4,7 +4,7 @@
 
 {
   var a = "a";
-  if (false) {
+  如果 (假) {
     fun foo() { a; }
   }
 }

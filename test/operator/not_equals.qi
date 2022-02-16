@@ -1,14 +1,14 @@
-println(nil != nil); // expect: false
+println(nil != nil); // expect: 假
 
-println(true != true); // expect: false
-println(true != false); // expect: true
+println(真 != 真); // expect: 假
+println(真 != 假); // expect: 真
 
-println(1 != 1); // expect: false
-println(1 != 2); // expect: true
+println(1 != 1); // expect: 假
+println(1 != 2); // expect: 真
 
-println("str" != "str"); // expect: false
-println("str" != "ing"); // expect: true
+println("str" != "str"); // expect: 假
+println("str" != "ing"); // expect: 真
 
-println(nil != false); // expect: true
-println(false != 0); // expect: true
-println(0 != "0"); // expect: true
+println(nil != 假); // expect: 真
+println(假 != 0); // expect: 真
+println(0 != "0"); // expect: 真

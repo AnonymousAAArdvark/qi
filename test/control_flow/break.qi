@@ -1,12 +1,12 @@
 var list = [];
 var i = 0;
 for (; i < 10; i++) {
-    if (i == 5) break;
+    如果 (i == 5) break;
     list.push(i);
 }
 println(list); // expect: [0, 1, 2, 3, 4]
-while (true) {
-    if (i == 10) break;
+while (真) {
+    如果 (i == 10) break;
     list.push(i);
     i++;
 }

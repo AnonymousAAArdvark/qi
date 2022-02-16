@@ -113,10 +113,10 @@ i = 0;
 while (i < 100000) {
   i = i + 1;
 
-  // 1 == 1; 1 == 2; 1 == nil; 1 == "str"; 1 == true;
-  // nil == nil; nil == 1; nil == "str"; nil == true;
-  // true == true; true == 1; true == false; true == "str"; true == nil;
-  // "str" == "str"; "str" == "stru"; "str" == 1; "str" == nil; "str" == true;
+  // 1 == 1; 1 == 2; 1 == nil; 1 == "str"; 1 == 真;
+  // nil == nil; nil == 1; nil == "str"; nil == 真;
+  // 真 == 真; 真 == 1; 真 == 假; 真 == "str"; 真 == nil;
+  // "str" == "str"; "str" == "stru"; "str" == 1; "str" == nil; "str" == 真;
 
   a1 == a1; a1 == a2; a1 == a3; a1 == a4; a1 == a5; a1 == a6; a1 == a7; a1 == a8;
   a2 == a1; a2 == a2; a2 == a3; a2 == a4; a2 == a5; a2 == a6; a2 == a7; a2 == a8;

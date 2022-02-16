@@ -1,7 +1,7 @@
 class Foo {
   getClosure() {
     fun closure() {
-      return this.toString();
+      return 这.toString();
     }
     return closure;
   }

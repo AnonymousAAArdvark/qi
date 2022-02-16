@@ -1,2 +1,2 @@
 // [line 2] Error at 'fun': Expect expression.
-if (true) fun foo() {}
+如果 (真) fun foo() {}

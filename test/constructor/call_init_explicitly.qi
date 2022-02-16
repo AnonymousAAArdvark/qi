@@ -1,7 +1,7 @@
 class Foo {
   init(arg) {
     println("Foo.init(" + arg + ")");
-    this.field = "init";
+    这.field = "init";
   }
 }
 

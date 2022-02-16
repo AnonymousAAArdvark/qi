@@ -1,8 +1,8 @@
-// False and nil are false.
-println(false || "ok"); // expect: ok
+// 假 and nil are 假.
+println(假 || "ok"); // expect: ok
 println(nil || "ok"); // expect: ok
 
-// Everything else is true.
-println(true || "ok"); // expect: true
+// Everything 否则 is 真.
+println(真 || "ok"); // expect: 真
 println(0 || "ok"); // expect: 0
 println("s" || "ok"); // expect: s

@@ -28,7 +28,7 @@ for (; i < 2; i = i + 1) println(i);
 fun bar() {
   for (var i = 0;; i = i + 1) {
     println(i);
-    if (i >= 2) return;
+    如果 (i >= 2) return;
   }
 }
 bar();
@@ -45,6 +45,6 @@ for (var i = 0; i < 2;) {
 // expect: 1
 
 // Statement bodies.
-for (; false;) if (true) 1; else 2;
-for (; false;) while (true) 1;
-for (; false;) for (;;) 1;
+for (; 假;) 如果 (真) 1; 否则 2;
+for (; 假;) while (真) 1;
+for (; 假;) for (;;) 1;

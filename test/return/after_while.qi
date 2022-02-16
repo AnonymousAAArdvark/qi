@@ -1,5 +1,5 @@
 fun f() {
-  while (true) return "ok";
+  while (真) return "ok";
 }
 
 println(f()); // expect: ok

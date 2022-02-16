@@ -1,5 +1,5 @@
 fun f() {
-  while (true) {
+  while (真) {
     var i = "i";
     return i;
   }
