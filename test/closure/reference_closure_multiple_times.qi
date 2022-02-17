@@ -1,14 +1,14 @@
-var f;
+var f；
 
 {
-  var a = "a";
-  fun f_() {
-    println(a);
-    println(a);
+  var a = "a"；
+  fun f下() {
+    println(a)；
+    println(a)；
   }
-  f = f_;
+  f = f下；
 }
 
-f();
+f()；
 // expect: a
 // expect: a

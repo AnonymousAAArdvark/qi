@@ -1,8 +1,8 @@
 class A {}
 
 fun f() {
-  class B < A {}
-  return B;
+  class B : A {}
+  return B；
 }
 
-println(f()); // expect: B
+println(f())； // expect: B

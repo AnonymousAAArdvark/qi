@@ -1,1 +1,1 @@
-真(); // expect runtime error: Can only call functions and classes.
+真()； // expect runtime error: Can only call functions and classes.

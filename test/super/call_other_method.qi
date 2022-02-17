@@ -1,16 +1,16 @@
 class Base {
   foo() {
-    println("Base.foo()");
+    println("Base.foo()")；
   }
 }
 
-class Derived < Base {
+class Derived : Base {
   bar() {
-    println("Derived.bar()");
-    super.foo();
+    println("Derived.bar()")；
+    super.foo()；
   }
 }
 
-Derived().bar();
+Derived().bar()；
 // expect: Derived.bar()
 // expect: Base.foo()

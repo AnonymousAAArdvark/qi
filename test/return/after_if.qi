@@ -1,5 +1,5 @@
 fun f() {
-  如果 (真) return "ok";
+  如果 (真) return "ok"；
 }
 
-println(f()); // expect: ok
+println(f())； // expect: ok

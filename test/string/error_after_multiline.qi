@@ -2,6 +2,6 @@
 var a = "1
 2
 3
-";
+"；
 
-err; // // expect runtime error: Undefined variable 'err'.
+err； // // expect runtime error: Undefined variable 'err'.

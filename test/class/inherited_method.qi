@@ -1,22 +1,22 @@
 class Foo {
   inFoo() {
-    println("in foo");
+    println("in foo")；
   }
 }
 
-class Bar < Foo {
+class Bar : Foo {
   inBar() {
-    println("in bar");
+    println("in bar")；
   }
 }
 
-class Baz < Bar {
+class Baz : Bar {
   inBaz() {
-    println("in baz");
+    println("in baz")；
   }
 }
 
-var baz = Baz();
-baz.inFoo(); // expect: in foo
-baz.inBar(); // expect: in bar
-baz.inBaz(); // expect: in baz
+var baz = Baz()；
+baz.inFoo()； // expect: in foo
+baz.inBar()； // expect: in bar
+baz.inBaz()； // expect: in baz

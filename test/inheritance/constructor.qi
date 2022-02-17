@@ -1,14 +1,14 @@
 class A {
   init(param) {
-    这.field = param;
+    这.field = param；
   }
 
   test() {
-    println(这.field);
+    println(这.field)；
   }
 }
 
-class B < A {}
+class B : A {}
 
-var b = B("value");
-b.test(); // expect: value
+var b = B("value")；
+b.test()； // expect: value

@@ -1,10 +1,10 @@
 fun f() {
-  for (;;) {
-    var i = "i";
-    fun g() { println(i); }
-    return g;
+  for (；；) {
+    var i = "i"；
+    fun g() { println(i)； }
+    return g；
   }
 }
 
-var h = f();
-h(); // expect: i
+var h = f()；
+h()； // expect: i

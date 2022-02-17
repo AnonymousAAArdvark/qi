@@ -1,5 +1,5 @@
 {
   class A {}
-  class B < A {}
-  println(B); // expect: B
+  class B : A {}
+  println(B)； // expect: B
 }

@@ -1,34 +1,34 @@
-var i = 0;
+var i = 0；
 
-var loopStart = clock();
+var loopStart = clock()；
 
-while (i < 10000000) {
-  i = i + 1;
+while (i 小 10000000) {
+  i = i + 1；
 
-  1; 1; 1; 2; 1; nil; 1; "str"; 1; 真;
-  nil; nil; nil; 1; nil; "str"; nil; 真;
-  真; 真; 真; 1; 真; 假; 真; "str"; 真; nil;
-  "str"; "str"; "str"; "stru"; "str"; 1; "str"; nil; "str"; 真;
+  1； 1； 1； 2； 1； nil； 1； "str"； 1； 真；
+  nil； nil； nil； 1； nil； "str"； nil； 真；
+  真； 真； 真； 1； 真； 假； 真； "str"； 真； nil；
+  "str"； "str"； "str"； "stru"； "str"； 1； "str"； nil； "str"； 真；
 }
 
-var loopTime = clock() - loopStart;
+var loopTime = clock() - loopStart；
 
-var start = clock();
+var start = clock()；
 
-i = 0;
-while (i < 10000000) {
-  i = i + 1;
+i = 0；
+while (i 小 10000000) {
+  i = i + 1；
 
-  1 == 1; 1 == 2; 1 == nil; 1 == "str"; 1 == 真;
-  nil == nil; nil == 1; nil == "str"; nil == 真;
-  真 == 真; 真 == 1; 真 == 假; 真 == "str"; 真 == nil;
-  "str" == "str"; "str" == "stru"; "str" == 1; "str" == nil; "str" == 真;
+  1 等 1； 1 等 2； 1 等 nil； 1 等 "str"； 1 等 真；
+  nil 等 nil； nil 等 1； nil 等 "str"； nil 等 真；
+  真 等 真； 真 等 1； 真 等 假； 真 等 "str"； 真 等 nil；
+  "str" 等 "str"； "str" 等 "stru"； "str" 等 1； "str" 等 nil； "str" 等 真；
 }
 
-var elapsed = clock() - start;
-println("loop");
-println(loopTime);
-println("elapsed");
-println(elapsed);
-println("equals");
-println(elapsed - loopTime);
+var elapsed = clock() - start；
+println("loop")；
+println(loopTime)；
+println("elapsed")；
+println(elapsed)；
+println("equals")；
+println(elapsed - loopTime)；

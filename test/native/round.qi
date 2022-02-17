@@ -1,6 +1,6 @@
-var test = [10, 11.5, 1.5, 1.05, 1.005];
-for (var i = 0; i < test.length(); i++) {
-    test[i] = round(test[i], 1);
+var test = [10, 11.5, 1.5, 1.05, 1.005]；
+for (var i = 0； i 小 test.length()； i++) {
+    test[i] = round(test[i], 1)；
 }
-println(test); // expect: [10, 11.5, 1.5, 1.1, 1]
-round(); // expect runtime error: Expected 1 to 2 arguments but got 0.
+println(test)； // expect: [10, 11.5, 1.5, 1.1, 1]
+round()； // expect runtime error: Expected 1 to 2 arguments but got 0.

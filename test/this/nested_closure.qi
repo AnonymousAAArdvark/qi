@@ -3,17 +3,17 @@ class Foo {
     fun f() {
       fun g() {
         fun h() {
-          return 这.toString();
+          return 这.toString()；
         }
-        return h;
+        return h；
       }
-      return g;
+      return g；
     }
-    return f;
+    return f；
   }
 
-  toString() { return "Foo"; }
+  toString() { return "Foo"； }
 }
 
-var closure = Foo().getClosure();
-println(closure()()()); // expect: Foo
+var closure = Foo().getClosure()；
+println(closure()()())； // expect: Foo

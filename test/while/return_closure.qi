@@ -1,10 +1,10 @@
 fun f() {
   while (真) {
-    var i = "i";
-    fun g() { println(i); }
-    return g;
+    var i = "i"；
+    fun g() { println(i)； }
+    return g；
   }
 }
 
-var h = f();
-h(); // expect: i
+var h = f()；
+h()； // expect: i

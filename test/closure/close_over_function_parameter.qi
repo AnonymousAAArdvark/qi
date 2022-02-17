@@ -1,11 +1,11 @@
-var f;
+var f；
 
 fun foo(param) {
-  fun f_() {
-    println(param);
+  fun f下() {
+    println(param)；
   }
-  f = f_;
+  f = f下；
 }
-foo("param");
+foo("param")；
 
-f(); // expect: param
+f()； // expect: param

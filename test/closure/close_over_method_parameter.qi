@@ -1,13 +1,13 @@
-var f;
+var f；
 
 class Foo {
   method(param) {
-    fun f_() {
-      println(param);
+    fun f下() {
+      println(param)；
     }
-    f = f_;
+    f = f下；
   }
 }
 
-Foo().method("param");
-f(); // expect: param
+Foo().method("param")；
+f()； // expect: param

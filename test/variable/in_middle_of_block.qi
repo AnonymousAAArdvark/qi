@@ -1,10 +1,10 @@
 {
-  var a = "a";
-  println(a); // expect: a
-  var b = a + " b";
-  println(b); // expect: a b
-  var c = a + " c";
-  println(c); // expect: a c
-  var d = b + " d";
-  println(d); // expect: a b d
+  var a = "a"；
+  println(a)； // expect: a
+  var b = a + " b"；
+  println(b)； // expect: a b
+  var c = a + " c"；
+  println(c)； // expect: a c
+  var d = b + " d"；
+  println(d)； // expect: a b d
 }

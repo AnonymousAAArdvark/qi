@@ -1,11 +1,11 @@
-var f;
+var f；
 
 {
-  var local = "local";
-  fun f_() {
-    println(local);
+  var local = "local"；
+  fun f下() {
+    println(local)；
   }
-  f = f_;
+  f = f下；
 }
 
-f(); // expect: local
+f()； // expect: local

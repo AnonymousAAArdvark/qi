@@ -1,170 +1,170 @@
 class Foo {}
 
-var foo = Foo();
+var foo = Foo()；
 fun setFields() {
-  foo.bilberry = "bilberry";
-  foo.lime = "lime";
-  foo.elderberry = "elderberry";
-  foo.raspberry = "raspberry";
-  foo.gooseberry = "gooseberry";
-  foo.longan = "longan";
-  foo.mandarine = "mandarine";
-  foo.kiwifruit = "kiwifruit";
-  foo.orange = "orange";
-  foo.pomegranate = "pomegranate";
-  foo.tomato = "tomato";
-  foo.banana = "banana";
-  foo.juniper = "juniper";
-  foo.damson = "damson";
-  foo.blackcurrant = "blackcurrant";
-  foo.peach = "peach";
-  foo.grape = "grape";
-  foo.mango = "mango";
-  foo.redcurrant = "redcurrant";
-  foo.watermelon = "watermelon";
-  foo.plumcot = "plumcot";
-  foo.papaya = "papaya";
-  foo.cloudberry = "cloudberry";
-  foo.rambutan = "rambutan";
-  foo.salak = "salak";
-  foo.physalis = "physalis";
-  foo.huckleberry = "huckleberry";
-  foo.coconut = "coconut";
-  foo.date = "date";
-  foo.tamarind = "tamarind";
-  foo.lychee = "lychee";
-  foo.raisin = "raisin";
-  foo.apple = "apple";
-  foo.avocado = "avocado";
-  foo.nectarine = "nectarine";
-  foo.pomelo = "pomelo";
-  foo.melon = "melon";
-  foo.currant = "currant";
-  foo.plum = "plum";
-  foo.persimmon = "persimmon";
-  foo.olive = "olive";
-  foo.cranberry = "cranberry";
-  foo.boysenberry = "boysenberry";
-  foo.blackberry = "blackberry";
-  foo.passionfruit = "passionfruit";
-  foo.mulberry = "mulberry";
-  foo.marionberry = "marionberry";
-  foo.plantain = "plantain";
-  foo.lemon = "lemon";
-  foo.yuzu = "yuzu";
-  foo.loquat = "loquat";
-  foo.kumquat = "kumquat";
-  foo.salmonberry = "salmonberry";
-  foo.tangerine = "tangerine";
-  foo.durian = "durian";
-  foo.pear = "pear";
-  foo.cantaloupe = "cantaloupe";
-  foo.quince = "quince";
-  foo.guava = "guava";
-  foo.strawberry = "strawberry";
-  foo.nance = "nance";
-  foo.apricot = "apricot";
-  foo.jambul = "jambul";
-  foo.grapefruit = "grapefruit";
-  foo.clementine = "clementine";
-  foo.jujube = "jujube";
-  foo.cherry = "cherry";
-  foo.feijoa = "feijoa";
-  foo.jackfruit = "jackfruit";
-  foo.fig = "fig";
-  foo.cherimoya = "cherimoya";
-  foo.pineapple = "pineapple";
-  foo.blueberry = "blueberry";
-  foo.jabuticaba = "jabuticaba";
-  foo.miracle = "miracle";
-  foo.dragonfruit = "dragonfruit";
-  foo.satsuma = "satsuma";
-  foo.tamarillo = "tamarillo";
-  foo.honeydew = "honeydew";
+  foo.bilberry = "bilberry"；
+  foo.lime = "lime"；
+  foo.elderberry = "elderberry"；
+  foo.raspberry = "raspberry"；
+  foo.gooseberry = "gooseberry"；
+  foo.longan = "longan"；
+  foo.mandarine = "mandarine"；
+  foo.kiwifruit = "kiwifruit"；
+  foo.orange = "orange"；
+  foo.pomegranate = "pomegranate"；
+  foo.tomato = "tomato"；
+  foo.banana = "banana"；
+  foo.juniper = "juniper"；
+  foo.damson = "damson"；
+  foo.blackcurrant = "blackcurrant"；
+  foo.peach = "peach"；
+  foo.grape = "grape"；
+  foo.mango = "mango"；
+  foo.redcurrant = "redcurrant"；
+  foo.watermelon = "watermelon"；
+  foo.plumcot = "plumcot"；
+  foo.papaya = "papaya"；
+  foo.cloudberry = "cloudberry"；
+  foo.rambutan = "rambutan"；
+  foo.salak = "salak"；
+  foo.physalis = "physalis"；
+  foo.huckleberry = "huckleberry"；
+  foo.coconut = "coconut"；
+  foo.date = "date"；
+  foo.tamarind = "tamarind"；
+  foo.lychee = "lychee"；
+  foo.raisin = "raisin"；
+  foo.apple = "apple"；
+  foo.avocado = "avocado"；
+  foo.nectarine = "nectarine"；
+  foo.pomelo = "pomelo"；
+  foo.melon = "melon"；
+  foo.currant = "currant"；
+  foo.plum = "plum"；
+  foo.persimmon = "persimmon"；
+  foo.olive = "olive"；
+  foo.cranberry = "cranberry"；
+  foo.boysenberry = "boysenberry"；
+  foo.blackberry = "blackberry"；
+  foo.passionfruit = "passionfruit"；
+  foo.mulberry = "mulberry"；
+  foo.marionberry = "marionberry"；
+  foo.plantain = "plantain"；
+  foo.lemon = "lemon"；
+  foo.yuzu = "yuzu"；
+  foo.loquat = "loquat"；
+  foo.kumquat = "kumquat"；
+  foo.salmonberry = "salmonberry"；
+  foo.tangerine = "tangerine"；
+  foo.durian = "durian"；
+  foo.pear = "pear"；
+  foo.cantaloupe = "cantaloupe"；
+  foo.quince = "quince"；
+  foo.guava = "guava"；
+  foo.strawberry = "strawberry"；
+  foo.nance = "nance"；
+  foo.apricot = "apricot"；
+  foo.jambul = "jambul"；
+  foo.grapefruit = "grapefruit"；
+  foo.clementine = "clementine"；
+  foo.jujube = "jujube"；
+  foo.cherry = "cherry"；
+  foo.feijoa = "feijoa"；
+  foo.jackfruit = "jackfruit"；
+  foo.fig = "fig"；
+  foo.cherimoya = "cherimoya"；
+  foo.pineapple = "pineapple"；
+  foo.blueberry = "blueberry"；
+  foo.jabuticaba = "jabuticaba"；
+  foo.miracle = "miracle"；
+  foo.dragonfruit = "dragonfruit"；
+  foo.satsuma = "satsuma"；
+  foo.tamarillo = "tamarillo"；
+  foo.honeydew = "honeydew"；
 }
 
-setFields();
+setFields()；
 
 fun printFields() {
-  println(foo.apple); // expect: apple
-  println(foo.apricot); // expect: apricot
-  println(foo.avocado); // expect: avocado
-  println(foo.banana); // expect: banana
-  println(foo.bilberry); // expect: bilberry
-  println(foo.blackberry); // expect: blackberry
-  println(foo.blackcurrant); // expect: blackcurrant
-  println(foo.blueberry); // expect: blueberry
-  println(foo.boysenberry); // expect: boysenberry
-  println(foo.cantaloupe); // expect: cantaloupe
-  println(foo.cherimoya); // expect: cherimoya
-  println(foo.cherry); // expect: cherry
-  println(foo.clementine); // expect: clementine
-  println(foo.cloudberry); // expect: cloudberry
-  println(foo.coconut); // expect: coconut
-  println(foo.cranberry); // expect: cranberry
-  println(foo.currant); // expect: currant
-  println(foo.damson); // expect: damson
-  println(foo.date); // expect: date
-  println(foo.dragonfruit); // expect: dragonfruit
-  println(foo.durian); // expect: durian
-  println(foo.elderberry); // expect: elderberry
-  println(foo.feijoa); // expect: feijoa
-  println(foo.fig); // expect: fig
-  println(foo.gooseberry); // expect: gooseberry
-  println(foo.grape); // expect: grape
-  println(foo.grapefruit); // expect: grapefruit
-  println(foo.guava); // expect: guava
-  println(foo.honeydew); // expect: honeydew
-  println(foo.huckleberry); // expect: huckleberry
-  println(foo.jabuticaba); // expect: jabuticaba
-  println(foo.jackfruit); // expect: jackfruit
-  println(foo.jambul); // expect: jambul
-  println(foo.jujube); // expect: jujube
-  println(foo.juniper); // expect: juniper
-  println(foo.kiwifruit); // expect: kiwifruit
-  println(foo.kumquat); // expect: kumquat
-  println(foo.lemon); // expect: lemon
-  println(foo.lime); // expect: lime
-  println(foo.longan); // expect: longan
-  println(foo.loquat); // expect: loquat
-  println(foo.lychee); // expect: lychee
-  println(foo.mandarine); // expect: mandarine
-  println(foo.mango); // expect: mango
-  println(foo.marionberry); // expect: marionberry
-  println(foo.melon); // expect: melon
-  println(foo.miracle); // expect: miracle
-  println(foo.mulberry); // expect: mulberry
-  println(foo.nance); // expect: nance
-  println(foo.nectarine); // expect: nectarine
-  println(foo.olive); // expect: olive
-  println(foo.orange); // expect: orange
-  println(foo.papaya); // expect: papaya
-  println(foo.passionfruit); // expect: passionfruit
-  println(foo.peach); // expect: peach
-  println(foo.pear); // expect: pear
-  println(foo.persimmon); // expect: persimmon
-  println(foo.physalis); // expect: physalis
-  println(foo.pineapple); // expect: pineapple
-  println(foo.plantain); // expect: plantain
-  println(foo.plum); // expect: plum
-  println(foo.plumcot); // expect: plumcot
-  println(foo.pomegranate); // expect: pomegranate
-  println(foo.pomelo); // expect: pomelo
-  println(foo.quince); // expect: quince
-  println(foo.raisin); // expect: raisin
-  println(foo.rambutan); // expect: rambutan
-  println(foo.raspberry); // expect: raspberry
-  println(foo.redcurrant); // expect: redcurrant
-  println(foo.salak); // expect: salak
-  println(foo.salmonberry); // expect: salmonberry
-  println(foo.satsuma); // expect: satsuma
-  println(foo.strawberry); // expect: strawberry
-  println(foo.tamarillo); // expect: tamarillo
-  println(foo.tamarind); // expect: tamarind
-  println(foo.tangerine); // expect: tangerine
-  println(foo.tomato); // expect: tomato
-  println(foo.watermelon); // expect: watermelon
-  println(foo.yuzu); // expect: yuzu
+  println(foo.apple)； // expect: apple
+  println(foo.apricot)； // expect: apricot
+  println(foo.avocado)； // expect: avocado
+  println(foo.banana)； // expect: banana
+  println(foo.bilberry)； // expect: bilberry
+  println(foo.blackberry)； // expect: blackberry
+  println(foo.blackcurrant)； // expect: blackcurrant
+  println(foo.blueberry)； // expect: blueberry
+  println(foo.boysenberry)； // expect: boysenberry
+  println(foo.cantaloupe)； // expect: cantaloupe
+  println(foo.cherimoya)； // expect: cherimoya
+  println(foo.cherry)； // expect: cherry
+  println(foo.clementine)； // expect: clementine
+  println(foo.cloudberry)； // expect: cloudberry
+  println(foo.coconut)； // expect: coconut
+  println(foo.cranberry)； // expect: cranberry
+  println(foo.currant)； // expect: currant
+  println(foo.damson)； // expect: damson
+  println(foo.date)； // expect: date
+  println(foo.dragonfruit)； // expect: dragonfruit
+  println(foo.durian)； // expect: durian
+  println(foo.elderberry)； // expect: elderberry
+  println(foo.feijoa)； // expect: feijoa
+  println(foo.fig)； // expect: fig
+  println(foo.gooseberry)； // expect: gooseberry
+  println(foo.grape)； // expect: grape
+  println(foo.grapefruit)； // expect: grapefruit
+  println(foo.guava)； // expect: guava
+  println(foo.honeydew)； // expect: honeydew
+  println(foo.huckleberry)； // expect: huckleberry
+  println(foo.jabuticaba)； // expect: jabuticaba
+  println(foo.jackfruit)； // expect: jackfruit
+  println(foo.jambul)； // expect: jambul
+  println(foo.jujube)； // expect: jujube
+  println(foo.juniper)； // expect: juniper
+  println(foo.kiwifruit)； // expect: kiwifruit
+  println(foo.kumquat)； // expect: kumquat
+  println(foo.lemon)； // expect: lemon
+  println(foo.lime)； // expect: lime
+  println(foo.longan)； // expect: longan
+  println(foo.loquat)； // expect: loquat
+  println(foo.lychee)； // expect: lychee
+  println(foo.mandarine)； // expect: mandarine
+  println(foo.mango)； // expect: mango
+  println(foo.marionberry)； // expect: marionberry
+  println(foo.melon)； // expect: melon
+  println(foo.miracle)； // expect: miracle
+  println(foo.mulberry)； // expect: mulberry
+  println(foo.nance)； // expect: nance
+  println(foo.nectarine)； // expect: nectarine
+  println(foo.olive)； // expect: olive
+  println(foo.orange)； // expect: orange
+  println(foo.papaya)； // expect: papaya
+  println(foo.passionfruit)； // expect: passionfruit
+  println(foo.peach)； // expect: peach
+  println(foo.pear)； // expect: pear
+  println(foo.persimmon)； // expect: persimmon
+  println(foo.physalis)； // expect: physalis
+  println(foo.pineapple)； // expect: pineapple
+  println(foo.plantain)； // expect: plantain
+  println(foo.plum)； // expect: plum
+  println(foo.plumcot)； // expect: plumcot
+  println(foo.pomegranate)； // expect: pomegranate
+  println(foo.pomelo)； // expect: pomelo
+  println(foo.quince)； // expect: quince
+  println(foo.raisin)； // expect: raisin
+  println(foo.rambutan)； // expect: rambutan
+  println(foo.raspberry)； // expect: raspberry
+  println(foo.redcurrant)； // expect: redcurrant
+  println(foo.salak)； // expect: salak
+  println(foo.salmonberry)； // expect: salmonberry
+  println(foo.satsuma)； // expect: satsuma
+  println(foo.strawberry)； // expect: strawberry
+  println(foo.tamarillo)； // expect: tamarillo
+  println(foo.tamarind)； // expect: tamarind
+  println(foo.tangerine)； // expect: tangerine
+  println(foo.tomato)； // expect: tomato
+  println(foo.watermelon)； // expect: watermelon
+  println(foo.yuzu)； // expect: yuzu
 }
 
-printFields();
+printFields()；

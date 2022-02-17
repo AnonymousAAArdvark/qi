@@ -1,2 +1,2 @@
-println(123 + 456); // expect: 579
-println("str" + "ing"); // expect: string
+println(123 + 456)； // expect: 579
+println("str" + "ing")； // expect: string

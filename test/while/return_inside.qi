@@ -1,9 +1,9 @@
 fun f() {
   while (真) {
-    var i = "i";
-    return i;
+    var i = "i"；
+    return i；
   }
 }
 
-println(f());
+println(f())；
 // expect: i

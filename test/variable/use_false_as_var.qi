@@ -1,2 +1,2 @@
 // [line 2] Error at '假': Expect variable name.
-var 假 = "value";
+var 假 = "value"；

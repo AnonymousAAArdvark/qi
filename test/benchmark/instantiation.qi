@@ -4,40 +4,40 @@ class Foo {
   init() {}
 }
 
-var start = clock();
-var i = 0;
-while (i < 500000) {
-  Foo();
-  Foo();
-  Foo();
-  Foo();
-  Foo();
-  Foo();
-  Foo();
-  Foo();
-  Foo();
-  Foo();
-  Foo();
-  Foo();
-  Foo();
-  Foo();
-  Foo();
-  Foo();
-  Foo();
-  Foo();
-  Foo();
-  Foo();
-  Foo();
-  Foo();
-  Foo();
-  Foo();
-  Foo();
-  Foo();
-  Foo();
-  Foo();
-  Foo();
-  Foo();
-  i = i + 1;
+var start = clock()；
+var i = 0；
+while (i 小 500000) {
+  Foo()；
+  Foo()；
+  Foo()；
+  Foo()；
+  Foo()；
+  Foo()；
+  Foo()；
+  Foo()；
+  Foo()；
+  Foo()；
+  Foo()；
+  Foo()；
+  Foo()；
+  Foo()；
+  Foo()；
+  Foo()；
+  Foo()；
+  Foo()；
+  Foo()；
+  Foo()；
+  Foo()；
+  Foo()；
+  Foo()；
+  Foo()；
+  Foo()；
+  Foo()；
+  Foo()；
+  Foo()；
+  Foo()；
+  Foo()；
+  i = i + 1；
 }
 
-println(clock() - start);
+println(clock() - start)；

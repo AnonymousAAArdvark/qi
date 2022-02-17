@@ -1,1 +1,1 @@
-真 + 123; // expect runtime error: Operands must be two numbers or two strings.
+真 + 123； // expect runtime error: Operands must be two numbers or two strings.

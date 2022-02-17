@@ -888,7 +888,7 @@ static void classDeclaration() {
     classCompiler.enclosing = currentClass;
     currentClass = &classCompiler;
 
-    if (match(TOKEN_LESS)) {
+    if (match(TOKEN_COLON)) {
         consume(TOKEN_IDENTIFIER, L"Expect superclass name.");
         variable(false);
 
@@ -935,14 +935,14 @@ static void varDeclaration() {
     } else {
         emitByte(OP_NIL);
     }
-    consume(TOKEN_SEMICOLON, L"Expect ';' after variable declaration.");
+    consume(TOKEN_SEMICOLON, L"Expect '；' after variable declaration.");
 
     defineVariable(global);
 }
 
 static void expressionStatement() {
     expression();
-    consume(TOKEN_SEMICOLON, L"Expect ';' after expression.");
+    consume(TOKEN_SEMICOLON, L"Expect '；' after expression.");
     emitByte(OP_POP);
 }
 
@@ -966,7 +966,7 @@ static void forStatement() {
     int exitJump = -1;
     if (!match(TOKEN_SEMICOLON)) {
         expression();
-        consume(TOKEN_SEMICOLON, L"Expect ';' after loop condition.");
+        consume(TOKEN_SEMICOLON, L"Expect '；' after loop condition.");
 
         // Jump out of the loop if the condition is false.
         exitJump = emitJump(OP_JUMP_IF_FALSE);
@@ -1033,7 +1033,7 @@ static void ifStatement() {
 
 static void printStatement() {
     expression();
-    consume(TOKEN_SEMICOLON, L"Expect ';' after value.");
+    consume(TOKEN_SEMICOLON, L"Expect '；' after value.");
 }
 
 static void returnStatement() {
@@ -1049,7 +1049,7 @@ static void returnStatement() {
         }
 
         expression();
-        consume(TOKEN_SEMICOLON, L"Expect ';' after return value.");
+        consume(TOKEN_SEMICOLON, L"Expect '；' after return value.");
         emitByte(OP_RETURN);
     }
 }
@@ -1165,7 +1165,7 @@ static void continueStatement() {
         error(L"Can't use 'continue' outside of a loop.");
     }
 
-    consume(TOKEN_SEMICOLON, L"Expect ';' after 'continue'.");
+    consume(TOKEN_SEMICOLON, L"Expect '；' after 'continue'.");
 
     // Discard any locals created inside the loop.
     for (int i = current->localCount - 1; i >= 0 && current->locals[i].depth > innermostLoopScopeDepth; i--) {
@@ -1181,7 +1181,7 @@ static void breakStatement() {
         error(L"Can't use 'break' outside of a loop.");
     }
 
-    consume(TOKEN_SEMICOLON, L"Expect ';' after 'break'.");
+    consume(TOKEN_SEMICOLON, L"Expect '；' after 'break'.");
 
     // Discard any locals created inside the loop.
     for (int i = current->localCount - 1; i >= 0 && current->locals[i].depth > innermostLoopScopeDepth; i--) {

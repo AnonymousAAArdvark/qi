@@ -1,8 +1,8 @@
 // 假 and nil are 假.
-println(假 && "bad"); // expect: 假
-println(nil && "bad"); // expect: nil
+println(假 和 "bad")； // expect: 假
+println(nil 和 "bad")； // expect: nil
 
-// Everything 否则 is 真.
-println(真 && "ok"); // expect: ok
-println(0 && "ok"); // expect: ok
-println("" && "ok"); // expect: ok
+// Everything else is 真.
+println(真 和 "ok")； // expect: ok
+println(0 和 "ok")； // expect: ok
+println("" 和 "ok")； // expect: ok

@@ -1,13 +1,13 @@
-println(!真);     // expect: 假
-println(!假);    // expect: 真
-println(!!真);    // expect: 真
+println(不 真)；     // expect: 假
+println(不 假)；    // expect: 真
+println(不 不 真)；    // expect: 真
 
-println(!123);      // expect: 假
-println(!0);        // expect: 假
+println(不 123)；      // expect: 假
+println(不 0)；        // expect: 假
 
-println(!nil);     // expect: 真
+println(不 nil)；     // expect: 真
 
-println(!"");       // expect: 假
+println(不 "")；       // expect: 假
 
 fun foo() {}
-println(!foo);      // expect: 假
+println(不 foo)；      // expect: 假
