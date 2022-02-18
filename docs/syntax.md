@@ -22,7 +22,7 @@ Block comments start with /* and end with */. They can span multiple lines:
 Like many other programming languages Qi has some reserved keywords that assume a very specific meaning in the context of the source code:
 ```c
 打断 继续 类 切换 案例 预设 否则 功能 而 对于 如果 空 返回 超 真 
-假 这 变量 和 或 等 不等 打等 小等
+假 这 变量 和 或 等 不等 大等 小等
 ```
 
 ## Identifiers
