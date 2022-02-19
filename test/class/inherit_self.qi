@@ -1,1 +1,1 @@
-class Foo : Foo {} // Error at 'Foo': A class can't inherit from itself.
+类 Foo：Foo「」// Error at 'Foo': A 类 can't inherit from itself.

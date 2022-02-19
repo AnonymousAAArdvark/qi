@@ -1,25 +1,25 @@
-println(1 小 2)；    // expect: 真
-println(2 小 2)；    // expect: 假
-println(2 小 1)；    // expect: 假
+println（1 小 2）；    // expect: 真
+println（2 小 2）；    // expect: 假
+println（2 小 1）；    // expect: 假
 
-println(1 小等 2)；    // expect: 真
-println(2 小等 2)；    // expect: 真
-println(2 小等 1)；    // expect: 假
+println（1 小等 2）；    // expect: 真
+println（2 小等 2）；    // expect: 真
+println（2 小等 1）；    // expect: 假
 
-println(1 > 2)；    // expect: 假
-println(2 > 2)；    // expect: 假
-println(2 > 1)；    // expect: 真
+println（1 大 2）；    // expect: 假
+println（2 大 2）；    // expect: 假
+println（2 大 1）；    // expect: 真
 
-println(1 大等 2)；    // expect: 假
-println(2 大等 2)；    // expect: 真
-println(2 大等 1)；    // expect: 真
+println（1 大等 2）；    // expect: 假
+println（2 大等 2）；    // expect: 真
+println（2 大等 1）；    // expect: 真
 
-// Zero and negative zero compare the same.
-println(0 小 -0)； // expect: 假
-println(-0 小 0)； // expect: 假
-println(0 > -0)； // expect: 假
-println(-0 > 0)； // expect: 假
-println(0 小等 -0)； // expect: 真
-println(-0 小等 0)； // expect: 真
-println(0 大等 -0)； // expect: 真
-println(-0 大等 0)； // expect: 真
+// Zero and negative zero compare the same。
+println（0 小 -0）； // expect: 假
+println（-0 小 0）； // expect: 假
+println（0 大 -0）； // expect: 假
+println（-0 大 0）； // expect: 假
+println（0 小等 -0）； // expect: 真
+println（-0 小等 0）； // expect: 真
+println（0 大等 -0）； // expect: 真
+println（-0 大等 0）； // expect: 真

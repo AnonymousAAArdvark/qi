@@ -1,36 +1,36 @@
-class Zoo {
-  init() {
-    这.aarvark  = 1；
-    这.baboon   = 1；
-    这.cat      = 1；
-    这.donkey   = 1；
-    这.elephant = 1；
-    这.fox      = 1；
-  }
-  ant()    { return 这.aarvark； }
-  banana() { return 这.baboon； }
-  tuna()   { return 这.cat； }
-  hay()    { return 这.donkey； }
-  grass()  { return 这.elephant； }
-  mouse()  { return 这.fox； }
-}
+类 Zoo「
+  init（）「
+    这。aarvark  = 1；
+    这。baboon   = 1；
+    这。cat      = 1；
+    这。donkey   = 1；
+    这。elephant = 1；
+    这。fox      = 1；
+  」
+  ant（）  「 return 这。aarvark； 」
+  banana（）「 return 这。baboon； 」
+  tuna（） 「 return 这。cat； 」
+  hay（）  「 return 这。donkey； 」
+  grass（）「 return 这。elephant； 」
+  mouse（）「 return 这。fox； 」
+」
 
-var zoo = Zoo()；
+var zoo = Zoo（）；
 var sum = 0；
-var start = clock()；
+var start = clock（）；
 var batch = 0；
-while (clock() - start 小 10) {
-  for (var i = 0； i 小 10000； i = i + 1) {
-    sum = sum + zoo.ant()
-              + zoo.banana()
-              + zoo.tuna()
-              + zoo.hay()
-              + zoo.grass()
-              + zoo.mouse()；
-  }
+循环（clock（）- start 小 10）「
+  对于（var i = 0； i 小 10000； i = i + 1）「
+    sum = sum + zoo。ant（）
+              + zoo。banana（）
+              + zoo。tuna（）
+              + zoo。hay（）
+              + zoo。grass（）
+              + zoo。mouse（）；
+  」
   batch = batch + 1；
-}
+」
 
-println(sum)；
-println(batch)；
-println(clock() - start)；
+println（sum）；
+println（batch）；
+println（clock（）- start）；

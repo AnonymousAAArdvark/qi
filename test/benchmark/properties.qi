@@ -1,106 +1,106 @@
-// This benchmark stresses both field and method lookup.
+// This benchmark stresses both field and method lookup。
 
-class Foo {
-  init() {
-    这.field0 = 1；
-    这.field1 = 1；
-    这.field2 = 1；
-    这.field3 = 1；
-    这.field4 = 1；
-    这.field5 = 1；
-    这.field6 = 1；
-    这.field7 = 1；
-    这.field8 = 1；
-    这.field9 = 1；
-    这.field10 = 1；
-    这.field11 = 1；
-    这.field12 = 1；
-    这.field13 = 1；
-    这.field14 = 1；
-    这.field15 = 1；
-    这.field16 = 1；
-    这.field17 = 1；
-    这.field18 = 1；
-    这.field19 = 1；
-    这.field20 = 1；
-    这.field21 = 1；
-    这.field22 = 1；
-    这.field23 = 1；
-    这.field24 = 1；
-    这.field25 = 1；
-    这.field26 = 1；
-    这.field27 = 1；
-    这.field28 = 1；
-    这.field29 = 1；
-  }
+类 Foo「
+  init（）「
+    这。field0 = 1；
+    这。field1 = 1；
+    这。field2 = 1；
+    这。field3 = 1；
+    这。field4 = 1；
+    这。field5 = 1；
+    这。field6 = 1；
+    这。field7 = 1；
+    这。field8 = 1；
+    这。field9 = 1；
+    这。field10 = 1；
+    这。field11 = 1；
+    这。field12 = 1；
+    这。field13 = 1；
+    这。field14 = 1；
+    这。field15 = 1；
+    这。field16 = 1；
+    这。field17 = 1；
+    这。field18 = 1；
+    这。field19 = 1；
+    这。field20 = 1；
+    这。field21 = 1；
+    这。field22 = 1；
+    这。field23 = 1；
+    这。field24 = 1；
+    这。field25 = 1；
+    这。field26 = 1；
+    这。field27 = 1；
+    这。field28 = 1；
+    这。field29 = 1；
+  」
 
-  method0() { return 这.field0； }
-  method1() { return 这.field1； }
-  method2() { return 这.field2； }
-  method3() { return 这.field3； }
-  method4() { return 这.field4； }
-  method5() { return 这.field5； }
-  method6() { return 这.field6； }
-  method7() { return 这.field7； }
-  method8() { return 这.field8； }
-  method9() { return 这.field9； }
-  method10() { return 这.field10； }
-  method11() { return 这.field11； }
-  method12() { return 这.field12； }
-  method13() { return 这.field13； }
-  method14() { return 这.field14； }
-  method15() { return 这.field15； }
-  method16() { return 这.field16； }
-  method17() { return 这.field17； }
-  method18() { return 这.field18； }
-  method19() { return 这.field19； }
-  method20() { return 这.field20； }
-  method21() { return 这.field21； }
-  method22() { return 这.field22； }
-  method23() { return 这.field23； }
-  method24() { return 这.field24； }
-  method25() { return 这.field25； }
-  method26() { return 这.field26； }
-  method27() { return 这.field27； }
-  method28() { return 这.field28； }
-  method29() { return 这.field29； }
-}
+  method0（）「 return 这。field0； 」
+  method1（）「 return 这。field1； 」
+  method2（）「 return 这。field2； 」
+  method3（）「 return 这。field3； 」
+  method4（）「 return 这。field4； 」
+  method5（）「 return 这。field5； 」
+  method6（）「 return 这。field6； 」
+  method7（）「 return 这。field7； 」
+  method8（）「 return 这。field8； 」
+  method9（）「 return 这。field9； 」
+  method10（）「 return 这。field10； 」
+  method11（）「 return 这。field11； 」
+  method12（）「 return 这。field12； 」
+  method13（）「 return 这。field13； 」
+  method14（）「 return 这。field14； 」
+  method15（）「 return 这。field15； 」
+  method16（）「 return 这。field16； 」
+  method17（）「 return 这。field17； 」
+  method18（）「 return 这。field18； 」
+  method19（）「 return 这。field19； 」
+  method20（）「 return 这。field20； 」
+  method21（）「 return 这。field21； 」
+  method22（）「 return 这。field22； 」
+  method23（）「 return 这。field23； 」
+  method24（）「 return 这。field24； 」
+  method25（）「 return 这。field25； 」
+  method26（）「 return 这。field26； 」
+  method27（）「 return 这。field27； 」
+  method28（）「 return 这。field28； 」
+  method29（）「 return 这。field29； 」
+」
 
-var foo = Foo()；
-var start = clock()；
+var foo = Foo（）；
+var start = clock（）；
 var i = 0；
-while (i 小 500000) {
-  foo.method0()；
-  foo.method1()；
-  foo.method2()；
-  foo.method3()；
-  foo.method4()；
-  foo.method5()；
-  foo.method6()；
-  foo.method7()；
-  foo.method8()；
-  foo.method9()；
-  foo.method10()；
-  foo.method11()；
-  foo.method12()；
-  foo.method13()；
-  foo.method14()；
-  foo.method15()；
-  foo.method16()；
-  foo.method17()；
-  foo.method18()；
-  foo.method19()；
-  foo.method20()；
-  foo.method21()；
-  foo.method22()；
-  foo.method23()；
-  foo.method24()；
-  foo.method25()；
-  foo.method26()；
-  foo.method27()；
-  foo.method28()；
-  foo.method29()；
+循环（i 小 500000）「
+  foo。method0（）；
+  foo。method1（）；
+  foo。method2（）；
+  foo。method3（）；
+  foo。method4（）；
+  foo。method5（）；
+  foo。method6（）；
+  foo。method7（）；
+  foo。method8（）；
+  foo。method9（）；
+  foo。method10（）；
+  foo。method11（）；
+  foo。method12（）；
+  foo。method13（）；
+  foo。method14（）；
+  foo。method15（）；
+  foo。method16（）；
+  foo。method17（）；
+  foo。method18（）；
+  foo。method19（）；
+  foo。method20（）；
+  foo。method21（）；
+  foo。method22（）；
+  foo。method23（）；
+  foo。method24（）；
+  foo。method25（）；
+  foo。method26（）；
+  foo。method27（）；
+  foo。method28（）；
+  foo。method29（）；
   i = i + 1；
-}
+」
 
-println((clock() - start))；
+println（（clock（）- start））；

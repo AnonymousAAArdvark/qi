@@ -1,2 +1,2 @@
 var Number = 123；
-class Foo : Number {} // expect runtime error: Superclass must be a class.
+类 Foo：Number「」// expect runtime error: Super类 must be a 类.

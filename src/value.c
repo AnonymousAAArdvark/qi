@@ -36,7 +36,7 @@ void printValue(Value value) {
     if (IS_BOOL(value)) {
         wprintf(AS_BOOL(value) ? L"真" : L"假");
     } else if (IS_NIL(value)) {
-        wprintf(L"nil");
+        wprintf(L"空");
     } else if (IS_NUMBER(value)) {
         wprintf(L"%g", AS_NUMBER(value));
     } else if (IS_OBJ(value)) {
@@ -45,9 +45,9 @@ void printValue(Value value) {
 #else
     switch (value.type) {
         case VAL_BOOL:
-            wprintf(AS_BOOL(value) ? L"true" : L"false");
+            wprintf(AS_BOOL(value) ? L"真" : L"假");
             break;
-        case VAL_NIL: wprintf(L"nil"); break;
+        case VAL_NIL: wprintf(L"空"); break;
         case VAL_NUMBER: wprintf(L"%g", AS_NUMBER(value)); break;
         case VAL_OBJ: printObject(value); break;
     }

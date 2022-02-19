@@ -1,2 +1,2 @@
-// [line 2] Error at 'fun': Expect expression.
-如果 (真) "ok"； 否则 fun foo() {}
+// [line 2] Error at '功能': Expect expression.
+如果（真）"ok"； 否则 功能 foo（）「」

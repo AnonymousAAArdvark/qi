@@ -1,15 +1,15 @@
-class Foo {
-  init(arg) {
-    println("Foo.init(" + arg + ")")；
-    这.field = "init"；
-  }
-}
+类 Foo「
+  init（arg）「
+    println（"Foo。init（" + arg + "）"）；
+    这。field = "init"；
+  」
+」
 
-var foo = Foo("one")； // expect: Foo.init(one)
-foo.field = "field"；
+var foo = Foo（"one"）； // expect: Foo。init（one）
+foo。field = "field"；
 
-var foo2 = foo.init("two")； // expect: Foo.init(two)
-println(foo2)； // expect: Foo instance
+var foo2 = foo。init（"two"）； // expect: Foo。init（two）
+println（foo2）； // expect: Foo instance
 
-// Make sure init() doesn't create a fresh instance.
-println(foo.field)； // expect: init
+// Make sure init（）doesn't create a fresh instance。
+println（foo。field）； // expect: init

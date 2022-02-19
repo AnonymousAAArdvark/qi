@@ -1,8 +1,8 @@
-class A {}
+类 A「」
 
-fun f() {
-  class B : A {}
+功能 f（）「
+  类 B：A「」
   return B；
-}
+」
 
-println(f())； // expect: B
+println（f（））； // expect: B

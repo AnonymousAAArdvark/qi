@@ -1,22 +1,22 @@
-fun caller(g) {
-  g()；
-  // g should be a function, not nil.
-  println(g 等 nil)； // expect: 假
-}
+功能 caller（g）「
+  g（）；
+  // g should be a function，not 空。
+  println（g 等 空）； // expect: 假
+」
 
-fun callCaller() {
+功能 callCaller（）「
   var capturedVar = "before"；
   var a = "a"；
 
-  fun f() {
+  功能 f（）「
     // Commenting the next line out prevents the bug不
     capturedVar = "after"；
 
-    // Returning anything also fixes it, even nil:
-    //return nil；
-  }
+    // Returning anything also fixes it，even 空：
+    //return 空；
+  」
 
-  caller(f)；
-}
+  caller（f）；
+」
 
-callCaller()；
+callCaller（）；

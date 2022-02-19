@@ -1,2 +1,2 @@
-fun f() {}
-println(f())； // expect: nil
+功能 f（）「」
+println（f（））； // expect: 空

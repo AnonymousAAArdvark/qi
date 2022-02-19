@@ -1,27 +1,27 @@
 var f；
 var g；
 
-{
+「
   var local = "local"；
-  fun f下() {
-    println(local)；
+  功能 f下（）「
+    println（local）；
     local = "after f"；
-    println(local)；
-  }
+    println（local）；
+  」
   f = f下；
 
-  fun g下() {
-    println(local)；
+  功能 g下（）「
+    println（local）；
     local = "after g"；
-    println(local)；
-  }
+    println（local）；
+  」
   g = g下；
-}
+」
 
-f()；
+f（）；
 // expect: local
 // expect: after f
 
-g()；
+g（）；
 // expect: after f
 // expect: after g

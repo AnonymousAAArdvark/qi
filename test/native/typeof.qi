@@ -1,12 +1,12 @@
-fun function() {}
-class klass {
-    method() {}
-}
-println(typeof(klass))； // expect: class
-println(typeof(min))； // expect: native function
-println(typeof(klass()))； // expect: instance
-println(typeof(""))； // expect: string
-println(typeof([]))； // expect: list
-println(typeof(假))； // expect: bool
-println(typeof(0))； // expect: number
-println(typeof(nil))； // expect: nil
+功能 function（）「」
+类 klass「
+    method（）「」
+」
+println（typeof（klass））； // expect: 类
+println（typeof（min））； // expect: native function
+println（typeof（klass（）））； // expect: instance
+println（typeof（""））； // expect: string
+println（typeof（【】））； // expect: list
+println（typeof（假））； // expect: 布尔
+println（typeof（0））； // expect: 数字
+println（typeof（空））； // expect: 空

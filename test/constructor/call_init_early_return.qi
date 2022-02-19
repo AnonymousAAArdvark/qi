@@ -1,11 +1,11 @@
-class Foo {
-  init() {
-    println("init")；
+类 Foo「
+  init（）「
+    println（"init"）；
     return；
-    println("nope")；
-  }
-}
+    println（"nope"）；
+  」
+」
 
-var foo = Foo()； // expect: init
-println(foo.init())； // expect: init
+var foo = Foo（）； // expect: init
+println（foo。init（））； // expect: init
 // expect: Foo instance

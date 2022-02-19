@@ -1,13 +1,13 @@
-// Bound methods have identity equality.
-class Foo {
-  method() {}
-}
+// Bound methods have identity equality。
+类 Foo「
+  method（）「」
+」
 
-var foo = Foo()；
-var fooMethod = foo.method；
+var foo = Foo（）；
+var fooMethod = foo。method；
 
-// Same bound method.
-println(fooMethod 等 fooMethod)； // expect: 真
+// Same bound method。
+println（fooMethod 等 fooMethod）； // expect: 真
 
-// Different closurizations.
-println(foo.method 等 foo.method)； // expect: 假
+// Different closurizations。
+println（foo。method 等 foo。method）； // expect: 假

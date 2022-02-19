@@ -1,7 +1,7 @@
-class Foo {
-  method() {
-    println(method)； // expect runtime error: Undefined variable 'method'.
-  }
-}
+类 Foo「
+  method（）「
+    println（method）； // expect runtime error: Undefined variable 'method'.
+  」
+」
 
-Foo().method()；
+Foo（）。method（）；

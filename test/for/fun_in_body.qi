@@ -1,2 +1,2 @@
-// [line 2] Error at 'fun': Expect expression.
-for (；；) fun foo() {}
+// [line 2] Error at '功能': Expect expression.
+对于（；；）功能 foo（）「」

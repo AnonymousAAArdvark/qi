@@ -1,4 +1,4 @@
-fun foo() {}
-println(foo)； // expect: <fn foo>
+功能 foo（）「」
+println（foo）； // expect: <fn foo>
 
-println(clock)； // expect: <native fn>
+println（clock）； // expect: <native fn>

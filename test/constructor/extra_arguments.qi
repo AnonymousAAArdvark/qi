@@ -1,8 +1,8 @@
-class Foo {
-  init(a, b) {
-    这.a = a；
-    这.b = b；
-  }
-}
+类 Foo「
+  init（a，b）「
+    这。a = a；
+    这。b = b；
+  」
+」
 
-var foo = Foo(1, 2, 3, 4)； // expect runtime error: Expected 2 arguments but got 4.
+var foo = Foo（1，2，3，4）； // expect runtime error: Expected 2 arguments but got 4.

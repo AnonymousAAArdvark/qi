@@ -1,2 +1,2 @@
-// [line 2] Error at 'nil': Expect variable name.
-var nil = "value"；
+// [line 2] Error at '空': Expect variable name.
+var 空 = "value"；

@@ -1,6 +1,6 @@
-fun f() {
+功能 f（）「
   return "ok"；
-  println("bad")；
-}
+  println（"bad"）；
+」
 
-println(f())； // expect: ok
+println（f（））； // expect: ok

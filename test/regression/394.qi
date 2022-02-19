@@ -1,5 +1,5 @@
-{
-  class A {}
-  class B : A {}
-  println(B)； // expect: B
-}
+「
+  类 A「」
+  类 B：A「」
+  println（B）； // expect: B
+」

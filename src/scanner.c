@@ -107,33 +107,23 @@ static TokenType checkKeyword(int start, int length, const wchar_t* rest, TokenT
 
 static TokenType identifierType() {
     switch (scanner.start[0]) {
-        case L'b': return checkKeyword(1, 4, L"reak", TOKEN_BREAK);
-        case L'c':
-            if (scanner.current - scanner.start > 1) {
-                switch (scanner.start[1]) {
-                    case L'l': return checkKeyword(2, 3, L"ass", TOKEN_CLASS);
-                    case L'o': return checkKeyword(2, 6, L"ntinue", TOKEN_CONTINUE);
-                    case L'a': return checkKeyword(2, 2, L"se", TOKEN_CASE);
-                }
-            }
-        case L'd': return checkKeyword(1, 6, L"efault", TOKEN_DEFAULT);
+        case L'打': return checkKeyword(1, 1, L"断", TOKEN_BREAK);
+        case L'继': return checkKeyword(1, 1, L"续", TOKEN_CONTINUE);
+        case L'类': return checkKeyword(1, 0, L"", TOKEN_CLASS);
+        case L'切': return checkKeyword(1, 0, L"换", TOKEN_SWITCH);
+        case L'案': return checkKeyword(1, 1, L"例", TOKEN_CASE);
+        case L'预': return checkKeyword(1, 1, L"设", TOKEN_DEFAULT);
         case L'否': return checkKeyword(1, 1, L"则", TOKEN_ELSE);
-        case L'f':
-            if (scanner.current - scanner.start > 1) {
-                switch (scanner.start[1]) {
-                    case L'o': return checkKeyword(2, 1, L"r", TOKEN_FOR);
-                    case L'u': return checkKeyword(2, 1, L"n", TOKEN_FUN);
-                }
-            }
-            break;
+        case L'功': return checkKeyword(1, 1, L"能", TOKEN_FUN);
+        case L'循': return checkKeyword(1, 1, L"环", TOKEN_WHILE);
+        case L'对': return checkKeyword(1, 1, L"于", TOKEN_FOR);
         case L'如': return checkKeyword(1, 1, L"果", TOKEN_IF);
-        case L'n': return checkKeyword(1, 2, L"il", TOKEN_NIL);
+        case L'空': return checkKeyword(1, 0, L"", TOKEN_NIL);
         case L'r': return checkKeyword(1, 5, L"eturn", TOKEN_RETURN);
         case L's':
             if (scanner.current - scanner.start > 1) {
                 switch (scanner.start[1]) {
                     case L'u': return checkKeyword(2, 3, L"per", TOKEN_SUPER);
-                    case L'w': return checkKeyword(2, 4, L"itch", TOKEN_SWITCH);
                 }
             }
             break;
@@ -141,7 +131,9 @@ static TokenType identifierType() {
         case L'假': return checkKeyword(1, 0, L"", TOKEN_FALSE);
         case L'这': return checkKeyword(1, 0, L"", TOKEN_THIS);
         case L'v': return checkKeyword(1, 2, L"ar", TOKEN_VAR);
-        case L'w': return checkKeyword(1, 4, L"hile", TOKEN_WHILE);
+        case L'和': return checkKeyword(1, 0, L"", TOKEN_AND);
+        case L'或': return checkKeyword(1, 0, L"", TOKEN_OR);
+        case L'等': return checkKeyword(1, 0, L"", TOKEN_EQUAL_EQUAL);
         case L'不':
             if (scanner.current - scanner.start > 1) {
                 switch (scanner.start[1]) {
@@ -149,13 +141,11 @@ static TokenType identifierType() {
                 }
             }
             return checkKeyword(1, 0, L"", TOKEN_BANG);
-        case L'和': return checkKeyword(1, 0, L"", TOKEN_AND);
-        case L'或': return checkKeyword(1, 0, L"", TOKEN_OR);
-        case L'等': return checkKeyword(1, 0, L"", TOKEN_EQUAL_EQUAL);
         case L'大':
             if (scanner.current - scanner.start > 1) {
                 switch (scanner.start[1]) {
-                    case L'等': return checkKeyword(2, 0, L"", TOKEN_GREATER_EQUAL);
+                    case L'等':
+                        return checkKeyword(2, 0, L"", TOKEN_GREATER_EQUAL);
                 }
             }
             return checkKeyword(1, 0, L"", TOKEN_GREATER);
@@ -214,13 +204,13 @@ Token scanToken() {
     if (iswdigit(c)) return number();
 
     switch (c) {
-        case L'(': return makeToken(TOKEN_LEFT_PAREN);
-        case L')': return makeToken(TOKEN_RIGHT_PAREN);
-        case L'{': return makeToken(TOKEN_LEFT_BRACE);
-        case L'}': return makeToken(TOKEN_RIGHT_BRACE);
+        case L'（': return makeToken(TOKEN_LEFT_PAREN);
+        case L'）': return makeToken(TOKEN_RIGHT_PAREN);
+        case L'「': return makeToken(TOKEN_LEFT_BRACE);
+        case L'」': return makeToken(TOKEN_RIGHT_BRACE);
         case L'；': return makeToken(TOKEN_SEMICOLON);
-        case L',': return makeToken(TOKEN_COMMA);
-        case L'.': return makeToken(TOKEN_DOT);
+        case L'，': return makeToken(TOKEN_COMMA);
+        case L'。': return makeToken(TOKEN_DOT);
         case L'-':
             return makeToken(match(L'=') ? TOKEN_MINUS_EQUAL
             : match(L'-') ? TOKEN_MINUS_MINUS : TOKEN_MINUS);
@@ -230,11 +220,11 @@ Token scanToken() {
         case L'/': return makeToken(TOKEN_SLASH);
         case L'*': return makeToken(TOKEN_STAR);
         case L'%': return makeToken(TOKEN_PERCENT);
-        case L':': return makeToken(TOKEN_COLON);
+        case L'：': return makeToken(TOKEN_COLON);
         case L'=': return makeToken(TOKEN_EQUAL);
         case L'"': return string();
-        case L'[': return makeToken(TOKEN_LEFT_BRACKET);
-        case L']': return makeToken(TOKEN_RIGHT_BRACKET);
+        case L'【': return makeToken(TOKEN_LEFT_BRACKET);
+        case L'】': return makeToken(TOKEN_RIGHT_BRACKET);
     }
 
     return errorToken(L"Unexpected character.");

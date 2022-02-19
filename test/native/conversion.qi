@@ -1,3 +1,3 @@
-println(ston("1, 2, 3, lets go不 "))； // expect: 1
-println(ntos(4 / 8))； // expect: 0.5
-println(ntos(4 / 7))； // expect: 0.571429
+println（ston（"1，2，3，lets go不 "））； // expect: 1
+println（ntos（4 / 8））； // expect: 0.5
+println（ntos（4 / 7））； // expect: 0.571429

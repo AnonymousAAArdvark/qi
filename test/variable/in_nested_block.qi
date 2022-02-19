@@ -1,6 +1,6 @@
-{
+「
   var a = "outer"；
-  {
-    println(a)； // expect: outer
-  }
-}
+ 「
+    println（a）； // expect: outer
+  」
+」

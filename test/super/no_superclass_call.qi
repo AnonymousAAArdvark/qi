@@ -1,7 +1,7 @@
-class Base {
-  foo() {
-    super.doesNotExist(1)； // Error at 'super': Can't use 'super' in a class with no superclass.
-  }
-}
+类 Base「
+  foo（）「
+    super。doesNotExist（1）； // Error at 'super': Can't use 'super' in a 类 with no super类.
+  」
+」
 
-Base().foo()；
+Base（）。foo（）；

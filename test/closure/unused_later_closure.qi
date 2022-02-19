@@ -1,28 +1,28 @@
-// This is a regression test. When closing upvalues for discarded locals, it
-// wouldn't make sure it discarded the upvalue for the correct stack slot.
+// This is a regression test。 When closing upvalues for discarded locals，it
+// wouldn't make sure it discarded the upvalue for the correct stack slot。
 //
-// Here we create two locals that can be closed over, but only the first one
-// actually is. When "b" goes out of scope, we need to make sure we don't
-// prematurely close "a".
+// Here we create two locals that can be closed over，but only the first one
+// actually is。 When "b" goes out of scope，we need to make sure we don't
+// prematurely close "a"。
 var closure；
 
-{
+「
   var a = "a"；
 
-  {
+ 「
     var b = "b"；
-    fun returnA() {
+    功能 returnA（）「
       return a；
-    }
+    」
 
     closure = returnA；
 
-    如果 (假) {
-      fun returnB() {
+    如果（假）「
+      功能 returnB（）「
         return b；
-      }
-    }
-  }
+      」
+    」
+  」
 
-  println(closure())； // expect: a
-}
+  println（closure（））； // expect: a
+」

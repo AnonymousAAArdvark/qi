@@ -1,11 +1,11 @@
 var f；
 
-fun foo(param) {
-  fun f下() {
-    println(param)；
-  }
+功能 foo（param）「
+  功能 f下（）「
+    println（param）；
+  」
   f = f下；
-}
-foo("param")；
+」
+foo（"param"）；
 
-f()； // expect: param
+f（）； // expect: param

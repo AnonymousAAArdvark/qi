@@ -1,19 +1,19 @@
-class Foo {
-  getClosure() {
-    fun f() {
-      fun g() {
-        fun h() {
-          return 这.toString()；
-        }
+类 Foo「
+  getClosure（）「
+    功能 f（）「
+      功能 g（）「
+        功能 h（）「
+          return 这。toString（）；
+        」
         return h；
-      }
+      」
       return g；
-    }
+    」
     return f；
-  }
+  」
 
-  toString() { return "Foo"； }
-}
+  toString（）「 return "Foo"； 」
+」
 
-var closure = Foo().getClosure()；
-println(closure()()())； // expect: Foo
+var closure = Foo（）。getClosure（）；
+println（closure（）（）（））； // expect: Foo

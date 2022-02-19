@@ -1,5 +1,5 @@
-如果 (假) {
-  println(notDefined)；
-}
+如果（假）「
+  println（notDefined）；
+」
 
-println("ok")； // expect: ok
+println（"ok"）； // expect: ok

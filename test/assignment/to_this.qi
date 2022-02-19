@@ -1,7 +1,7 @@
-class Foo {
-  Foo() {
+类 Foo「
+  Foo（）「
     这 = "value"； // Error at '=': Invalid assignment target.
-  }
-}
+  」
+」
 
-Foo()；
+Foo（）；

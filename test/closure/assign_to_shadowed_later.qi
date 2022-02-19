@@ -1,13 +1,13 @@
 var a = "global"；
 
-{
-  fun assign() {
+「
+  功能 assign（）「
     a = "assigned"；
-  }
+  」
 
   var a = "inner"；
-  assign()；
-  println(a)； // expect: inner
-}
+  assign（）；
+  println（a）； // expect: inner
+」
 
-println(a)； // expect: assigned
+println（a）； // expect: assigned

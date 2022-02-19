@@ -1,43 +1,43 @@
-// This benchmark stresses instance creation and initializer calling.
+// This benchmark stresses instance creation and initializer calling。
 
-class Foo {
-  init() {}
-}
+类 Foo「
+  init（）「」
+」
 
-var start = clock()；
+var start = clock（）；
 var i = 0；
-while (i 小 500000) {
-  Foo()；
-  Foo()；
-  Foo()；
-  Foo()；
-  Foo()；
-  Foo()；
-  Foo()；
-  Foo()；
-  Foo()；
-  Foo()；
-  Foo()；
-  Foo()；
-  Foo()；
-  Foo()；
-  Foo()；
-  Foo()；
-  Foo()；
-  Foo()；
-  Foo()；
-  Foo()；
-  Foo()；
-  Foo()；
-  Foo()；
-  Foo()；
-  Foo()；
-  Foo()；
-  Foo()；
-  Foo()；
-  Foo()；
-  Foo()；
+循环（i 小 500000）「
+  Foo（）；
+  Foo（）；
+  Foo（）；
+  Foo（）；
+  Foo（）；
+  Foo（）；
+  Foo（）；
+  Foo（）；
+  Foo（）；
+  Foo（）；
+  Foo（）；
+  Foo（）；
+  Foo（）；
+  Foo（）；
+  Foo（）；
+  Foo（）；
+  Foo（）；
+  Foo（）；
+  Foo（）；
+  Foo（）；
+  Foo（）；
+  Foo（）；
+  Foo（）；
+  Foo（）；
+  Foo（）；
+  Foo（）；
+  Foo（）；
+  Foo（）；
+  Foo（）；
+  Foo（）；
   i = i + 1；
-}
+」
 
-println(clock() - start)；
+println（clock（）- start）；

@@ -152,14 +152,14 @@ static void printfunction(ObjFunction* function) {
 }
 
 static void printList(ObjList* list) {
-    wprintf(L"[");
+    wprintf(L"【");
     for (int i = 0; i < list->count; i++) {
         printValue(list->items[i]);
         if (i < list->count - 1) {
-            wprintf(L", ");
+            wprintf(L"，");
         }
     }
-    wprintf(L"]");
+    wprintf(L"】");
 }
 
 ObjList* newList() {

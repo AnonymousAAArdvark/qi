@@ -1,7 +1,7 @@
-class Foo {
-  returnSelf() {
+类 Foo「
+  returnSelf（）「
     return Foo；
-  }
-}
+  」
+」
 
-println(Foo().returnSelf())； // expect: Foo
+println（Foo（）。returnSelf（））； // expect: Foo

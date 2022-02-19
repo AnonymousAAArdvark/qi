@@ -1,3 +1,3 @@
-// [line 3] Error at '{': Expect expression.
-// [line 3] Error at ')': Expect '；' after expression.
-for ({}； a 小 2； a = a + 1) {}
+// [line 3] Error at '「': Expect expression.
+// [line 3] Error at '）': Expect '；' after expression.
+对于（「」； a 小 2； a = a + 1）「」

@@ -1,9 +1,9 @@
 var foo = "variable"；
 
-class Foo {
-  method() {
-    println(foo)；
-  }
-}
+类 Foo「
+  method（）「
+    println（foo）；
+  」
+」
 
-Foo().method()； // expect: variable
+Foo（）。method（）； // expect: variable

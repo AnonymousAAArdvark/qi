@@ -1,9 +1,9 @@
-class Base {}
+类 Base「」
 
-class Derived : Base {
-  foo() {
-    super.doesNotExist(1)； // expect runtime error: Undefined property 'doesNotExist'.
-  }
-}
+类 Derived：Base「
+  foo（）「
+    super。doesNotExist（1）； // expect runtime error: Undefined property 'doesNotExist'.
+  」
+」
 
-Derived().foo()；
+Derived（）。foo（）；

@@ -1,6 +1,6 @@
-fun fib(n) {
-  如果 (n 小 2) return n；
-  return fib(n - 1) + fib(n - 2)；
-}
+功能 fib（n）「
+  如果（n 小 2）return n；
+  return fib（n - 1）+ fib（n - 2）；
+」
 
-println(fib(8))； // expect: 21
+println（fib（8））； // expect: 21

@@ -1,10 +1,10 @@
-fun f() {
-  while (真) {
+功能 f（）「
+  循环（真）「
     var i = "i"；
-    fun g() { println(i)； }
+    功能 g（）「 println（i）； 」
     return g；
-  }
-}
+  」
+」
 
-var h = f()；
-h()； // expect: i
+var h = f（）；
+h（）； // expect: i

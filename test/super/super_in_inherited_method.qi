@@ -1,23 +1,23 @@
-class A {
-  say() {
-    println("A")；
-  }
-}
+类 A「
+  say（）「
+    println（"A"）；
+  」
+」
 
-class B : A {
-  test() {
-    super.say()；
-  }
+类 B：A「
+  test（）「
+    super。say（）；
+  」
 
-  say() {
-    println("B")；
-  }
-}
+  say（）「
+    println（"B"）；
+  」
+」
 
-class C : B {
-  say() {
-    println("C")；
-  }
-}
+类 C：B「
+  say（）「
+    println（"C"）；
+  」
+」
 
-C().test()； // expect: A
+C（）。test（）； // expect: A

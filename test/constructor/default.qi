@@ -1,4 +1,4 @@
-class Foo {}
+类 Foo「」
 
-var foo = Foo()；
-println(foo)； // expect: Foo instance
+var foo = Foo（）；
+println（foo）； // expect: Foo instance

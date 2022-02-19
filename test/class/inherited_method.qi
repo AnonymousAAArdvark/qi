@@ -1,22 +1,22 @@
-class Foo {
-  inFoo() {
-    println("in foo")；
-  }
-}
+类 Foo「
+  inFoo（）「
+    println（"in foo"）；
+  」
+」
 
-class Bar : Foo {
-  inBar() {
-    println("in bar")；
-  }
-}
+类 Bar：Foo「
+  inBar（）「
+    println（"in bar"）；
+  」
+」
 
-class Baz : Bar {
-  inBaz() {
-    println("in baz")；
-  }
-}
+类 Baz：Bar「
+  inBaz（）「
+    println（"in baz"）；
+  」
+」
 
-var baz = Baz()；
-baz.inFoo()； // expect: in foo
-baz.inBar()； // expect: in bar
-baz.inBaz()； // expect: in baz
+var baz = Baz（）；
+baz。inFoo（）； // expect: in foo
+baz。inBar（）； // expect: in bar
+baz。inBaz（）； // expect: in baz

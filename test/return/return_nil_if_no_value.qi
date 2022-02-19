@@ -1,6 +1,6 @@
-fun f() {
+功能 f（）「
   return；
-  println("bad")；
-}
+  println（"bad"）；
+」
 
-println(f())； // expect: nil
+println（f（））； // expect: 空

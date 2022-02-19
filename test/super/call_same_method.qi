@@ -1,16 +1,16 @@
-class Base {
-  foo() {
-    println("Base.foo()")；
-  }
-}
+类 Base「
+  foo（）「
+    println（"Base。foo（）"）；
+  」
+」
 
-class Derived : Base {
-  foo() {
-    println("Derived.foo()")；
-    super.foo()；
-  }
-}
+类 Derived：Base「
+  foo（）「
+    println（"Derived。foo（）"）；
+    super。foo（）；
+  」
+」
 
-Derived().foo()；
-// expect: Derived.foo()
-// expect: Base.foo()
+Derived（）。foo（）；
+// expect: Derived。foo（）
+// expect: Base。foo（）
