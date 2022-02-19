@@ -2,7 +2,7 @@
 
 功能 f（）「
   类 B：A「」
-  return B；
+  返回 B；
 」
 
 println（f（））； // expect: B

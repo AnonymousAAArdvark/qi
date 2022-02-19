@@ -11,8 +11,8 @@
   」
 
   walk（）「
-    如果（这。depth 等 0）return 0；
-    return 这。depth
+    如果（这。depth 等 0）返回 0；
+    返回 这。depth
         + 这。a。walk（）
         + 这。b。walk（）
         + 这。c。walk（）

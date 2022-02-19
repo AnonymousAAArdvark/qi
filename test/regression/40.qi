@@ -12,8 +12,8 @@
     // Commenting the next line out prevents the bug不
     capturedVar = "after"；
 
-    // Returning anything also fixes it，even 空：
-    //return 空；
+    // 返回ing anything also fixes it，even 空：
+    //返回 空；
   」
 
   caller（f）；

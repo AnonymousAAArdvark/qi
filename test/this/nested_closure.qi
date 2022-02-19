@@ -3,16 +3,16 @@
     功能 f（）「
       功能 g（）「
         功能 h（）「
-          return 这。toString（）；
+          返回 这。toString（）；
         」
-        return h；
+        返回 h；
       」
-      return g；
+      返回 g；
     」
-    return f；
+    返回 f；
   」
 
-  toString（）「 return "Foo"； 」
+  toString（）「 返回 "Foo"； 」
 」
 
 var closure = Foo（）。getClosure（）；

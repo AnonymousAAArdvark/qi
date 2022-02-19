@@ -1,5 +1,5 @@
 类 Foo「
   init（）「
-    return "result"； // Error at 'return': Can't return a value from an initializer.
+    返回 "result"； // Error at '返回': Can't 返回 a value from an initializer.
   」
 」

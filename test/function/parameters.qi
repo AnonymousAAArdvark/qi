@@ -1,26 +1,26 @@
-功能 f0（）「 return 0； 」
+功能 f0（）「 返回 0； 」
 println（f0（））； // expect: 0
 
-功能 f1（a）「 return a； 」
+功能 f1（a）「 返回 a； 」
 println（f1（1））； // expect: 1
 
-功能 f2（a，b）「 return a + b； 」
+功能 f2（a，b）「 返回 a + b； 」
 println（f2（1，2））； // expect: 3
 
-功能 f3（a，b，c）「 return a + b + c； 」
+功能 f3（a，b，c）「 返回 a + b + c； 」
 println（f3（1，2，3））； // expect: 6
 
-功能 f4（a，b，c，d）「 return a + b + c + d； 」
+功能 f4（a，b，c，d）「 返回 a + b + c + d； 」
 println（f4（1，2，3，4））； // expect: 10
 
-功能 f5（a，b，c，d，e）「 return a + b + c + d + e； 」
+功能 f5（a，b，c，d，e）「 返回 a + b + c + d + e； 」
 println（f5（1，2，3，4，5））； // expect: 15
 
-功能 f6（a，b，c，d，e，f）「 return a + b + c + d + e + f； 」
+功能 f6（a，b，c，d，e，f）「 返回 a + b + c + d + e + f； 」
 println（f6（1，2，3，4，5，6））； // expect: 21
 
-功能 f7（a，b，c，d，e，f，g）「 return a + b + c + d + e + f + g； 」
+功能 f7（a，b，c，d，e，f，g）「 返回 a + b + c + d + e + f + g； 」
 println（f7（1，2，3，4，5，6，7））； // expect: 28
 
-功能 f8（a，b，c，d，e，f，g，h）「 return a + b + c + d + e + f + g + h； 」
+功能 f8（a，b，c，d，e，f，g，h）「 返回 a + b + c + d + e + f + g + h； 」
 println（f8（1，2，3，4，5，6，7，8））； // expect: 36

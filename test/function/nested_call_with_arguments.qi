@@ -1,13 +1,13 @@
-功能 returnArg（arg）「
-  return arg；
+功能 返回Arg（arg）「
+  返回 arg；
 」
 
-功能 returnFunCallWithArg（func，arg）「
-  return returnArg（func）（arg）；
+功能 返回FunCallWithArg（func，arg）「
+  返回 返回Arg（func）（arg）；
 」
 
 功能 printArg（arg）「
   println（arg）；
 」
 
-returnFunCallWithArg（printArg，"hello world"）； // expect: hello world
+返回FunCallWithArg（printArg，"hello world"）； // expect: hello world

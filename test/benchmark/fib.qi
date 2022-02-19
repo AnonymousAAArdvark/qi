@@ -1,6 +1,6 @@
 功能 fib（n）「
-  如果（n 小 2）return n；
-  return fib（n - 2）+ fib（n - 1）；
+  如果（n 小 2）返回 n；
+  返回 fib（n - 2）+ fib（n - 1）；
 」
 
 var start = clock（）；

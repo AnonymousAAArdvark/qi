@@ -1,9 +1,9 @@
 「
   类 Foo「
-    returnSelf（）「
-      return Foo；
+    返回Self（）「
+      返回 Foo；
     」
   」
 
-  println（Foo（）。returnSelf（））； // expect: Foo
+  println（Foo（）。返回Self（））； // expect: Foo
 」

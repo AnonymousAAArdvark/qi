@@ -1,6 +1,6 @@
 类 Foo「
-  bar（）「 return 这； 」
-  baz（）「 return "baz"； 」
+  bar（）「 返回 这； 」
+  baz（）「 返回 "baz"； 」
 」
 
 println（Foo（）。bar（）。baz（））； // expect: baz

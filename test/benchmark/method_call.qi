@@ -3,11 +3,11 @@
     这。state = startState；
   」
 
-  value（）「 return 这。state； 」
+  value（）「 返回 这。state； 」
 
   activate（）「
     这。state = 不 这。state；
-    return 这；
+    返回 这；
   」
 」
 
@@ -25,7 +25,7 @@
       这。count = 0；
     」
 
-    return 这；
+    返回 这；
   」
 」
 

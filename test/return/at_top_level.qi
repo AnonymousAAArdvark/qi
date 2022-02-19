@@ -1,1 +1,1 @@
-return "wat"； // Error at 'return': Can't return from top-level code.
+返回 "wat"； // Error at '返回': Can't 返回 from top-level code.

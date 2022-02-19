@@ -34,36 +34,36 @@
     这。field29 = 1；
   」
 
-  method0（）「 return 这。field0； 」
-  method1（）「 return 这。field1； 」
-  method2（）「 return 这。field2； 」
-  method3（）「 return 这。field3； 」
-  method4（）「 return 这。field4； 」
-  method5（）「 return 这。field5； 」
-  method6（）「 return 这。field6； 」
-  method7（）「 return 这。field7； 」
-  method8（）「 return 这。field8； 」
-  method9（）「 return 这。field9； 」
-  method10（）「 return 这。field10； 」
-  method11（）「 return 这。field11； 」
-  method12（）「 return 这。field12； 」
-  method13（）「 return 这。field13； 」
-  method14（）「 return 这。field14； 」
-  method15（）「 return 这。field15； 」
-  method16（）「 return 这。field16； 」
-  method17（）「 return 这。field17； 」
-  method18（）「 return 这。field18； 」
-  method19（）「 return 这。field19； 」
-  method20（）「 return 这。field20； 」
-  method21（）「 return 这。field21； 」
-  method22（）「 return 这。field22； 」
-  method23（）「 return 这。field23； 」
-  method24（）「 return 这。field24； 」
-  method25（）「 return 这。field25； 」
-  method26（）「 return 这。field26； 」
-  method27（）「 return 这。field27； 」
-  method28（）「 return 这。field28； 」
-  method29（）「 return 这。field29； 」
+  method0（）「 返回 这。field0； 」
+  method1（）「 返回 这。field1； 」
+  method2（）「 返回 这。field2； 」
+  method3（）「 返回 这。field3； 」
+  method4（）「 返回 这。field4； 」
+  method5（）「 返回 这。field5； 」
+  method6（）「 返回 这。field6； 」
+  method7（）「 返回 这。field7； 」
+  method8（）「 返回 这。field8； 」
+  method9（）「 返回 这。field9； 」
+  method10（）「 返回 这。field10； 」
+  method11（）「 返回 这。field11； 」
+  method12（）「 返回 这。field12； 」
+  method13（）「 返回 这。field13； 」
+  method14（）「 返回 这。field14； 」
+  method15（）「 返回 这。field15； 」
+  method16（）「 返回 这。field16； 」
+  method17（）「 返回 这。field17； 」
+  method18（）「 返回 这。field18； 」
+  method19（）「 返回 这。field19； 」
+  method20（）「 返回 这。field20； 」
+  method21（）「 返回 这。field21； 」
+  method22（）「 返回 这。field22； 」
+  method23（）「 返回 这。field23； 」
+  method24（）「 返回 这。field24； 」
+  method25（）「 返回 这。field25； 」
+  method26（）「 返回 这。field26； 」
+  method27（）「 返回 这。field27； 」
+  method28（）「 返回 这。field28； 」
+  method29（）「 返回 这。field29； 」
 」
 
 var foo = Foo（）；

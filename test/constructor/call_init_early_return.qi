@@ -1,7 +1,7 @@
 类 Foo「
   init（）「
     println（"init"）；
-    return；
+    返回；
     println（"nope"）；
   」
 」

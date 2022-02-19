@@ -1,6 +1,6 @@
 类 Foo「
   method（）「
-    return "ok"；
+    返回 "ok"；
     println（"bad"）；
   」
 」

@@ -6,7 +6,7 @@
 
 类 B：A「
   getClosure（）「
-    return super。method；
+    返回 super。method；
   」
 
   method（arg）「

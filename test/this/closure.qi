@@ -1,12 +1,12 @@
 类 Foo「
   getClosure（）「
     功能 closure（）「
-      return 这。toString（）；
+      返回 这。toString（）；
     」
-    return closure；
+    返回 closure；
   」
 
-  toString（）「 return "Foo"； 」
+  toString（）「 返回 "Foo"； 」
 」
 
 var closure = Foo（）。getClosure（）；

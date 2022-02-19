@@ -15,10 +15,10 @@
 
   check（）「
     如果（这。左 等 空）「
-      return 这。项；
+      返回 这。项；
     」
 
-    return 这。项 + 这。左。check（）- 这。右。check（）；
+    返回 这。项 + 这。左。check（）- 这。右。check（）；
   」
 」
 

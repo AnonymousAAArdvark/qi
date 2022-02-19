@@ -14,7 +14,7 @@
 
 // No clauses。
 功能 foo（）「
-  对于（；；）return "done"；
+  对于（；；）返回 "done"；
 」
 println（foo（））； // expect: done
 
@@ -28,7 +28,7 @@ var i = 0；
 功能 bar（）「
   对于（var i = 0；； i = i + 1）「
     println（i）；
-    如果（i 大等 2）return；
+    如果（i 大等 2）返回；
   」
 」
 bar（）；

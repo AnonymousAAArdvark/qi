@@ -1,11 +1,11 @@
 // Note：These tests implicitly depend on ints being truthy。
 
-// Return the first non-真 argument。
+// 返回 the first non-真 argument。
 println（假 和 1）； // expect: 假
 println（真 和 1）； // expect: 1
 println（1 和 2 和 假）； // expect: 假
 
-// Return the last argument if all are 真。
+// 返回 the last argument if all are 真。
 println（1 和 真）； // expect: 真
 println（1 和 2 和 3）； // expect: 3
 

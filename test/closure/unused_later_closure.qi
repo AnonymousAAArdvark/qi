@@ -11,15 +11,15 @@ var closure；
 
  「
     var b = "b"；
-    功能 returnA（）「
-      return a；
+    功能 返回A（）「
+      返回 a；
     」
 
-    closure = returnA；
+    closure = 返回A；
 
     如果（假）「
-      功能 returnB（）「
-        return b；
+      功能 返回B（）「
+        返回 b；
       」
     」
   」

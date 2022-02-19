@@ -1,13 +1,13 @@
 类 Foo「
-  method0（）「 return "no args"； 」
-  method1（a）「 return a； 」
-  method2（a，b）「 return a + b； 」
-  method3（a，b，c）「 return a + b + c； 」
-  method4（a，b，c，d）「 return a + b + c + d； 」
-  method5（a，b，c，d，e）「 return a + b + c + d + e； 」
-  method6（a，b，c，d，e，f）「 return a + b + c + d + e + f； 」
-  method7（a，b，c，d，e，f，g）「 return a + b + c + d + e + f + g； 」
-  method8（a，b，c，d，e，f，g，h）「 return a + b + c + d + e + f + g + h； 」
+  method0（）「 返回 "no args"； 」
+  method1（a）「 返回 a； 」
+  method2（a，b）「 返回 a + b； 」
+  method3（a，b，c）「 返回 a + b + c； 」
+  method4（a，b，c，d）「 返回 a + b + c + d； 」
+  method5（a，b，c，d，e）「 返回 a + b + c + d + e； 」
+  method6（a，b，c，d，e，f）「 返回 a + b + c + d + e + f； 」
+  method7（a，b，c，d，e，f，g）「 返回 a + b + c + d + e + f + g； 」
+  method8（a，b，c，d，e，f，g，h）「 返回 a + b + c + d + e + f + g + h； 」
 」
 
 var foo = Foo（）；

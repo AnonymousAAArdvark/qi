@@ -1,17 +1,22 @@
 // nontest
 // Single-expression body.
-类 树「
-  设置（项，深）「
-    这。项 = 项；
-    这。深 = 深；
-    如果（深 大 0）「
-      变量 项2 = 项 + 项；
-      深 = 深 - 1；
-      这。左 = 树（项2 - 1，深）；
-      这。右 = 树（项2，深）；
-    」否则「
-      这。左 = 空；
-      这。右 = 空；
-    」
-  」
+var c = 0；
+循环（c 小 3）println（c = c + 1）；
+// expect: 1
+// expect: 2
+// expect: 3
+
+// Block body.
+var a = 0；
+循环（a 小 3）「
+  println（a）；
+  a = a + 1；
 」
+// expect: 0
+// expect: 1
+// expect: 2
+
+// Statement bodies。
+循环（假）如果（真）1； 否则 2；
+循环（假）循环（真）1；
+循环（假）对于（；；）1；

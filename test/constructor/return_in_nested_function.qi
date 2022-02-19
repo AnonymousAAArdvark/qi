@@ -1,7 +1,7 @@
 类 Foo「
   init（）「
     功能 init（）「
-      return "bar"；
+      返回 "bar"；
     」
     println（init（））； // expect: bar
   」

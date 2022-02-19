@@ -119,7 +119,7 @@ static TokenType identifierType() {
         case L'对': return checkKeyword(1, 1, L"于", TOKEN_FOR);
         case L'如': return checkKeyword(1, 1, L"果", TOKEN_IF);
         case L'空': return checkKeyword(1, 0, L"", TOKEN_NIL);
-        case L'r': return checkKeyword(1, 5, L"eturn", TOKEN_RETURN);
+        case L'返': return checkKeyword(1, 1, L"回", TOKEN_RETURN);
         case L's':
             if (scanner.current - scanner.start > 1) {
                 switch (scanner.start[1]) {
