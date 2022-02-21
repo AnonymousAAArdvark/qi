@@ -73,18 +73,18 @@ void initVM() {
     vm.initString = copyString(L"init", 4);
     vm.markValue = true;
 
-    defineNative(L"print", printNative, 1);
-    defineNative(L"println", printlnNative, 1);
-    defineNative(L"scan", scanNative, 0);
-    defineNative(L"clock", clockNative, 0);
-    defineNative(L"sqrt", sqrtNative, 1);
-    defineNative(L"pow", powNative, 2);
-    defineNative(L"min", minNative, 2);
-    defineNative(L"max", maxNative, 2);
-    defineNative(L"round", roundNative, -1);
-    defineNative(L"ston", stonNative, 1);
-    defineNative(L"ntos", ntosNative, 1);
-    defineNative(L"typeof", typeofNative, 1);
+    defineNative(L"打印", printNative, 1);
+    defineNative(L"打印条", printlnNative, 1);
+    defineNative(L"扫描", scanNative, 0);
+    defineNative(L"时钟", clockNative, 0);
+    defineNative(L"平方根", sqrtNative, 1);
+    defineNative(L"次方", powNative, 2);
+    defineNative(L"最小", minNative, 2);
+    defineNative(L"最大", maxNative, 2);
+    defineNative(L"四舍五入", roundNative, -1);
+    defineNative(L"串到数", stonNative, 1);
+    defineNative(L"数到串", ntosNative, 1);
+    defineNative(L"型", typeofNative, 1);
 }
 
 void freeVM() {
@@ -546,7 +546,7 @@ static InterpretResult run() {
                 Value value;
                 if (!tableGet(&vm.globals, name, &value)) {
                     frame->ip = ip;
-                    runtimeError(L"Undefined variable '%ls'.", name->chars);
+                    runtimeError(L"Undefined 变量 '%ls'.", name->chars);
                     return INTERPRET_RUNTIME_ERROR;
                 }
                 push(value);
@@ -563,7 +563,7 @@ static InterpretResult run() {
                 if (tableSet(&vm.globals, name, peek(0))) {
                     tableDelete(&vm.globals, name);
                     frame->ip = ip;
-                    runtimeError(L"Undefined variable '%ls'.", name->chars);
+                    runtimeError(L"Undefined 变量 '%ls'.", name->chars);
                     return INTERPRET_RUNTIME_ERROR;
                 }
                 break;
@@ -782,7 +782,7 @@ static InterpretResult run() {
                 Value superclass = peek(1);
                 if (!IS_CLASS(superclass)) {
                     frame->ip = ip;
-                    runtimeError(L"Super类 must be a 类.");
+                    runtimeError(L"超类 must be a 类.");
                     return INTERPRET_RUNTIME_ERROR;
                 }
                 ObjClass *subclass = AS_CLASS(peek(0));
@@ -926,7 +926,7 @@ static InterpretResult run() {
                 }
 
                 frame->ip = ip;
-                runtimeError(L"Cannot store value: variable is not a string or list.");
+                runtimeError(L"Cannot store value: 变量 is not a string or list.");
                 return INTERPRET_RUNTIME_ERROR;
             }
         }
