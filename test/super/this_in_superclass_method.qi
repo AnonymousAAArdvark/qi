@@ -6,11 +6,11 @@
 
 类 Derived：Base「
   init（a，b）「
-    super。init（a）；
+    超。init（a）；
     这。b = b；
   」
 」
 
-var derived = Derived（"a"，"b"）；
-println（derived。a）； // expect: a
-println（derived。b）； // expect: b
+变量 derived = Derived（"a"，"b"）；
+打印条（derived。a）； // expect: a
+打印条（derived。b）； // expect: b

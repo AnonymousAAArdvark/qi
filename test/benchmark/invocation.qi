@@ -33,9 +33,9 @@
   method29（）「」
 」
 
-var foo = Foo（）；
-var start = clock（）；
-var i = 0；
+变量 foo = Foo（）；
+变量 start = 时钟（）；
+变量 i = 0；
 循环（i 小 500000）「
   foo。method0（）；
   foo。method1（）；
@@ -70,4 +70,4 @@ var i = 0；
   i = i + 1；
 」
 
-println（clock（）- start）；
+打印条（时钟（）- start）；

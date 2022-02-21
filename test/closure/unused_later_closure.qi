@@ -4,13 +4,13 @@
 // Here we create two locals that can be closed over，but only the first one
 // actually is。 When "b" goes out of scope，we need to make sure we don't
 // prematurely close "a"。
-var closure；
+变量 closure；
 
 「
-  var a = "a"；
+  变量 a = "a"；
 
  「
-    var b = "b"；
+    变量 b = "b"；
     功能 返回A（）「
       返回 a；
     」
@@ -24,5 +24,5 @@ var closure；
     」
   」
 
-  println（closure（））； // expect: a
+  打印条（closure（））； // expect: a
 」

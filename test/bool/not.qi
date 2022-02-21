@@ -1,3 +1,3 @@
-println（不 真）；    // expect: 假
-println（不 假）；   // expect: 真
-println（不 不 真）；   // expect: 真
+打印条（不 真）；    // expect: 假
+打印条（不 假）；   // expect: 真
+打印条（不 不 真）；   // expect: 真

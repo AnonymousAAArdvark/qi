@@ -3,6 +3,6 @@
   返回 fib（n - 2）+ fib（n - 1）；
 」
 
-var start = clock（）；
-println（fib（35）等 9227465）；
-println（clock（）- start）；
+变量 start = 时钟（）；
+打印条（fib（35）等 9227465）；
+打印条（时钟（）- start）；

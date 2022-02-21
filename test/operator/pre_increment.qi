@@ -1,5 +1,5 @@
-var i = 2；
-var j = "string"；
-println（++i）； // expect: 3
-println（1 + --i）； // expect: 3
-println（++j）； // expect runtime error: Operand must be a number.
+变量 i = 2；
+变量 j = "string"；
+打印条（++i）； // expect: 3
+打印条（1 + --i）； // expect: 3
+打印条（++j）； // expect runtime error: Operand must be a number.

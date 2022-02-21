@@ -1,2 +1,2 @@
-println（8 / 2）；         // expect: 4
-println（12.34 / 12.34）；  // expect: 1
+打印条（8 / 2）；         // expect: 4
+打印条（12.34 / 12.34）；  // expect: 1

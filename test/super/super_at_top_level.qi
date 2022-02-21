@@ -1,2 +1,2 @@
-super。foo（"bar"）； // Error at 'super': Can't use 'super' outside of a 类.
-super。foo； // Error at 'super': Can't use 'super' outside of a 类.
+超。foo（"bar"）； // Error at '超': Can't use '超' outside of a 类.
+超。foo； // Error at '超': Can't use '超' outside of a 类.

@@ -1,16 +1,16 @@
 功能 caller（g）「
   g（）；
   // g should be a function，not 空。
-  println（g 等 空）； // expect: 假
+  打印条（g 等 空）； // expect: 假
 」
 
 功能 callCaller（）「
-  var capturedVar = "before"；
-  var a = "a"；
+  变量 captured变量 = "before"；
+  变量 a = "a"；
 
   功能 f（）「
     // Commenting the next line out prevents the bug不
-    capturedVar = "after"；
+    captured变量 = "after"；
 
     // 返回ing anything also fixes it，even 空：
     //返回 空；

@@ -1,13 +1,13 @@
 类 Base「
   foo（）「
-    println（"Base。foo（）"）；
+    打印条（"Base。foo（）"）；
   」
 」
 
 类 Derived：Base「
   bar（）「
-    println（"Derived。bar（）"）；
-    super。foo（）；
+    打印条（"Derived。bar（）"）；
+    超。foo（）；
   」
 」
 

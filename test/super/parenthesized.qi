@@ -4,7 +4,7 @@
 
 类 B：A「
   method（）「
-    // [line 8] Error at '）': Expect '.' after 'super'.
-   （super）。method（）；
+    // [line 8] Error at '）': Expect '.' after '超'.
+   （超）。method（）；
   」
 」

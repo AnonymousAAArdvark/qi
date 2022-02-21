@@ -1,12 +1,12 @@
 类 Foo「」
 
 功能 bar（a，b）「
-  println（"bar"）；
-  println（a）；
-  println（b）；
+  打印条（"bar"）；
+  打印条（a）；
+  打印条（b）；
 」
 
-var foo = Foo（）；
+变量 foo = Foo（）；
 foo。bar = bar；
 
 foo。bar（1，2）；

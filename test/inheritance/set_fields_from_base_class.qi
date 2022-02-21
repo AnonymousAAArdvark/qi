@@ -5,8 +5,8 @@
   」
 
   fooPrint（）「
-    println（这。field1）；
-    println（这。field2）；
+    打印条（这。field1）；
+    打印条（这。field2）；
   」
 」
 
@@ -17,12 +17,12 @@
   」
 
   barPrint（）「
-    println（这。field1）；
-    println（这。field2）；
+    打印条（这。field1）；
+    打印条（这。field2）；
   」
 」
 
-var bar = Bar（）；
+变量 bar = Bar（）；
 bar。foo（"foo 1"，"foo 2"）；
 bar。fooPrint（）；
 // expect: foo 1

@@ -1,15 +1,15 @@
-var f；
+变量 f；
 
 功能 f1（）「
-  var a = "a"；
+  变量 a = "a"；
   功能 f2（）「
-    var b = "b"；
+    变量 b = "b"；
     功能 f3（）「
-      var c = "c"；
+      变量 c = "c"；
       功能 f4（）「
-        println（a）；
-        println（b）；
-        println（c）；
+        打印条（a）；
+        打印条（b）；
+        打印条（c）；
       」
       f = f4；
     」

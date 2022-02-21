@@ -1,3 +1,3 @@
 类 Foo「」
 
-println（Foo）； // expect: Foo
+打印条（Foo）； // expect: Foo

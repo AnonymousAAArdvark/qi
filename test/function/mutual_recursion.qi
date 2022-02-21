@@ -8,5 +8,5 @@
   返回 isEven（n - 1）；
 」
 
-println（isEven（4））； // expect: 真
-println（isOdd（3））； // expect: 真
+打印条（isEven（4））； // expect: 真
+打印条（isOdd（3））； // expect: 真

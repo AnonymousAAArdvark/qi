@@ -1,53 +1,53 @@
 功能 f（）「
-  // var v00； First slot already taken。
+  // 变量 v00； First slot already taken。
 
-  var v01； var v02； var v03； var v04； var v05； var v06； var v07；
-  var v08； var v09； var v0a； var v0b； var v0c； var v0d； var v0e； var v0f；
+  变量 v01； 变量 v02； 变量 v03； 变量 v04； 变量 v05； 变量 v06； 变量 v07；
+  变量 v08； 变量 v09； 变量 v0a； 变量 v0b； 变量 v0c； 变量 v0d； 变量 v0e； 变量 v0f；
 
-  var v10； var v11； var v12； var v13； var v14； var v15； var v16； var v17；
-  var v18； var v19； var v1a； var v1b； var v1c； var v1d； var v1e； var v1f；
+  变量 v10； 变量 v11； 变量 v12； 变量 v13； 变量 v14； 变量 v15； 变量 v16； 变量 v17；
+  变量 v18； 变量 v19； 变量 v1a； 变量 v1b； 变量 v1c； 变量 v1d； 变量 v1e； 变量 v1f；
 
-  var v20； var v21； var v22； var v23； var v24； var v25； var v26； var v27；
-  var v28； var v29； var v2a； var v2b； var v2c； var v2d； var v2e； var v2f；
+  变量 v20； 变量 v21； 变量 v22； 变量 v23； 变量 v24； 变量 v25； 变量 v26； 变量 v27；
+  变量 v28； 变量 v29； 变量 v2a； 变量 v2b； 变量 v2c； 变量 v2d； 变量 v2e； 变量 v2f；
 
-  var v30； var v31； var v32； var v33； var v34； var v35； var v36； var v37；
-  var v38； var v39； var v3a； var v3b； var v3c； var v3d； var v3e； var v3f；
+  变量 v30； 变量 v31； 变量 v32； 变量 v33； 变量 v34； 变量 v35； 变量 v36； 变量 v37；
+  变量 v38； 变量 v39； 变量 v3a； 变量 v3b； 变量 v3c； 变量 v3d； 变量 v3e； 变量 v3f；
 
-  var v40； var v41； var v42； var v43； var v44； var v45； var v46； var v47；
-  var v48； var v49； var v4a； var v4b； var v4c； var v4d； var v4e； var v4f；
+  变量 v40； 变量 v41； 变量 v42； 变量 v43； 变量 v44； 变量 v45； 变量 v46； 变量 v47；
+  变量 v48； 变量 v49； 变量 v4a； 变量 v4b； 变量 v4c； 变量 v4d； 变量 v4e； 变量 v4f；
 
-  var v50； var v51； var v52； var v53； var v54； var v55； var v56； var v57；
-  var v58； var v59； var v5a； var v5b； var v5c； var v5d； var v5e； var v5f；
+  变量 v50； 变量 v51； 变量 v52； 变量 v53； 变量 v54； 变量 v55； 变量 v56； 变量 v57；
+  变量 v58； 变量 v59； 变量 v5a； 变量 v5b； 变量 v5c； 变量 v5d； 变量 v5e； 变量 v5f；
 
-  var v60； var v61； var v62； var v63； var v64； var v65； var v66； var v67；
-  var v68； var v69； var v6a； var v6b； var v6c； var v6d； var v6e； var v6f；
+  变量 v60； 变量 v61； 变量 v62； 变量 v63； 变量 v64； 变量 v65； 变量 v66； 变量 v67；
+  变量 v68； 变量 v69； 变量 v6a； 变量 v6b； 变量 v6c； 变量 v6d； 变量 v6e； 变量 v6f；
 
-  var v70； var v71； var v72； var v73； var v74； var v75； var v76； var v77；
-  var v78； var v79； var v7a； var v7b； var v7c； var v7d； var v7e； var v7f；
+  变量 v70； 变量 v71； 变量 v72； 变量 v73； 变量 v74； 变量 v75； 变量 v76； 变量 v77；
+  变量 v78； 变量 v79； 变量 v7a； 变量 v7b； 变量 v7c； 变量 v7d； 变量 v7e； 变量 v7f；
 
-  var v80； var v81； var v82； var v83； var v84； var v85； var v86； var v87；
-  var v88； var v89； var v8a； var v8b； var v8c； var v8d； var v8e； var v8f；
+  变量 v80； 变量 v81； 变量 v82； 变量 v83； 变量 v84； 变量 v85； 变量 v86； 变量 v87；
+  变量 v88； 变量 v89； 变量 v8a； 变量 v8b； 变量 v8c； 变量 v8d； 变量 v8e； 变量 v8f；
 
-  var v90； var v91； var v92； var v93； var v94； var v95； var v96； var v97；
-  var v98； var v99； var v9a； var v9b； var v9c； var v9d； var v9e； var v9f；
+  变量 v90； 变量 v91； 变量 v92； 变量 v93； 变量 v94； 变量 v95； 变量 v96； 变量 v97；
+  变量 v98； 变量 v99； 变量 v9a； 变量 v9b； 变量 v9c； 变量 v9d； 变量 v9e； 变量 v9f；
 
-  var va0； var va1； var va2； var va3； var va4； var va5； var va6； var va7；
-  var va8； var va9； var vaa； var vab； var vac； var vad； var vae； var vaf；
+  变量 va0； 变量 va1； 变量 va2； 变量 va3； 变量 va4； 变量 va5； 变量 va6； 变量 va7；
+  变量 va8； 变量 va9； 变量 vaa； 变量 vab； 变量 vac； 变量 vad； 变量 vae； 变量 vaf；
 
-  var vb0； var vb1； var vb2； var vb3； var vb4； var vb5； var vb6； var vb7；
-  var vb8； var vb9； var vba； var vbb； var vbc； var vbd； var vbe； var vbf；
+  变量 vb0； 变量 vb1； 变量 vb2； 变量 vb3； 变量 vb4； 变量 vb5； 变量 vb6； 变量 vb7；
+  变量 vb8； 变量 vb9； 变量 vba； 变量 vbb； 变量 vbc； 变量 vbd； 变量 vbe； 变量 vbf；
 
-  var vc0； var vc1； var vc2； var vc3； var vc4； var vc5； var vc6； var vc7；
-  var vc8； var vc9； var vca； var vcb； var vcc； var vcd； var vce； var vcf；
+  变量 vc0； 变量 vc1； 变量 vc2； 变量 vc3； 变量 vc4； 变量 vc5； 变量 vc6； 变量 vc7；
+  变量 vc8； 变量 vc9； 变量 vca； 变量 vcb； 变量 vcc； 变量 vcd； 变量 vce； 变量 vcf；
 
-  var vd0； var vd1； var vd2； var vd3； var vd4； var vd5； var vd6； var vd7；
-  var vd8； var vd9； var vda； var vdb； var vdc； var vdd； var vde； var vdf；
+  变量 vd0； 变量 vd1； 变量 vd2； 变量 vd3； 变量 vd4； 变量 vd5； 变量 vd6； 变量 vd7；
+  变量 vd8； 变量 vd9； 变量 vda； 变量 vdb； 变量 vdc； 变量 vdd； 变量 vde； 变量 vdf；
 
-  var ve0； var ve1； var ve2； var ve3； var ve4； var ve5； var ve6； var ve7；
-  var ve8； var ve9； var vea； var veb； var vec； var ved； var vee； var vef；
+  变量 ve0； 变量 ve1； 变量 ve2； 变量 ve3； 变量 ve4； 变量 ve5； 变量 ve6； 变量 ve7；
+  变量 ve8； 变量 ve9； 变量 vea； 变量 veb； 变量 vec； 变量 ved； 变量 vee； 变量 vef；
 
-  var vf0； var vf1； var vf2； var vf3； var vf4； var vf5； var vf6； var vf7；
-  var vf8； var vf9； var vfa； var vfb； var vfc； var vfd； var vfe； var vff；
+  变量 vf0； 变量 vf1； 变量 vf2； 变量 vf3； 变量 vf4； 变量 vf5； 变量 vf6； 变量 vf7；
+  变量 vf8； 变量 vf9； 变量 vfa； 变量 vfb； 变量 vfc； 变量 vfd； 变量 vfe； 变量 vff；
 
-  var oops； // Error at 'oops': Too many local variables in function.
+  变量 oops； // Error at 'oops': Too many local 变量 in function.
 」

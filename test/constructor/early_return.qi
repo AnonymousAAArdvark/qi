@@ -1,10 +1,10 @@
 类 Foo「
   init（）「
-    println（"init"）；
+    打印条（"init"）；
     返回；
-    println（"nope"）；
+    打印条（"nope"）；
   」
 」
 
-var foo = Foo（）； // expect: init
-println（foo）； // expect: Foo instance
+变量 foo = Foo（）； // expect: init
+打印条（foo）； // expect: Foo instance

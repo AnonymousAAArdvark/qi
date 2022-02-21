@@ -1,4 +1,4 @@
 类 Foo「」
-var foo = Foo（）；
+变量 foo = Foo（）；
 
 foo。bar； // expect runtime error: Undefined property 'bar'.

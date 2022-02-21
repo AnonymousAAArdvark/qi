@@ -1,12 +1,12 @@
 // Single-expression body.
-对于（var c = 0； c 小 3；）println（c = c + 1）；
+对于（变量 c = 0； c 小 3；）打印条（c = c + 1）；
 // expect: 1
 // expect: 2
 // expect: 3
 
 // Block body.
-对于（var a = 0； a 小 3； a = a + 1）「
-  println（a）；
+对于（变量 a = 0； a 小 3； a = a + 1）「
+  打印条（a）；
 」
 // expect: 0
 // expect: 1
@@ -16,18 +16,18 @@
 功能 foo（）「
   对于（；；）返回 "done"；
 」
-println（foo（））； // expect: done
+打印条（foo（））； // expect: done
 
-// No variable。
-var i = 0；
-对于（； i 小 2； i = i + 1）println（i）；
+// No 变量。
+变量 i = 0；
+对于（； i 小 2； i = i + 1）打印条（i）；
 // expect: 0
 // expect: 1
 
 // No condition。
 功能 bar（）「
-  对于（var i = 0；； i = i + 1）「
-    println（i）；
+  对于（变量 i = 0；； i = i + 1）「
+    打印条（i）；
     如果（i 大等 2）返回；
   」
 」
@@ -37,8 +37,8 @@ bar（）；
 // expect: 2
 
 // No increment。
-对于（var i = 0； i 小 2；）「
-  println（i）；
+对于（变量 i = 0； i 小 2；）「
+  打印条（i）；
   i = i + 1；
 」
 // expect: 0

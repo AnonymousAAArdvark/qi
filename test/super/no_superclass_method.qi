@@ -2,7 +2,7 @@
 
 类 Derived：Base「
   foo（）「
-    super。doesNotExist（1）； // expect runtime error: Undefined property 'doesNotExist'.
+    超。doesNotExist（1）； // expect runtime error: Undefined property 'doesNotExist'.
   」
 」
 

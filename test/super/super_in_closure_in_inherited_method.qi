@@ -1,25 +1,25 @@
 类 A「
   say（）「
-    println（"A"）；
+    打印条（"A"）；
   」
 」
 
 类 B：A「
   getClosure（）「
     功能 closure（）「
-      super。say（）；
+      超。say（）；
     」
     返回 closure；
   」
 
   say（）「
-    println（"B"）；
+    打印条（"B"）；
   」
 」
 
 类 C：B「
   say（）「
-    println（"C"）；
+    打印条（"C"）；
   」
 」
 

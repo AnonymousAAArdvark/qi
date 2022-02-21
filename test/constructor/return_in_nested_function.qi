@@ -3,8 +3,8 @@
     功能 init（）「
       返回 "bar"；
     」
-    println（init（））； // expect: bar
+    打印条（init（））； // expect: bar
   」
 」
 
-println（Foo（））； // expect: Foo instance
+打印条（Foo（））； // expect: Foo instance

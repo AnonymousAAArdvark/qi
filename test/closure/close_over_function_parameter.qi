@@ -1,8 +1,8 @@
-var f；
+变量 f；
 
 功能 foo（param）「
   功能 f下（）「
-    println（param）；
+    打印条（param）；
   」
   f = f下；
 」

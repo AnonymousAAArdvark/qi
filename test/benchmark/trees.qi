@@ -21,9 +21,9 @@
   」
 」
 
-var tree = Tree（8）；
-var start = clock（）；
-对于（var i = 0； i 小 100； i = i + 1）「
-  如果（tree。walk（）不等 122068）println（"Error"）；
+变量 tree = Tree（8）；
+变量 start = 时钟（）；
+对于（变量 i = 0； i 小 100； i = i + 1）「
+  如果（tree。walk（）不等 122068）打印条（"Error"）；
 」
-println（clock（）- start）；
+打印条（时钟（）- start）；

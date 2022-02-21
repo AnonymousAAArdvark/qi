@@ -1,15 +1,15 @@
-var list =【】；
-对于（var i = 0； i 小 10； i++）「
+变量 list =【】；
+对于（变量 i = 0； i 小 10； i++）「
     如果（i % 2 等 0）继续；
     list。push（i）；
 」
-println（list）； // expect:【1，3，5，7，9】
-var i = list。length（）；
+打印条（list）； // expect:【1，3，5，7，9】
+变量 i = list。length（）；
 循环（--i 大等 0）「
     如果（list【i】% 3 等 0）继续；
     list。delete（i）；
 」
-println（list）； // expect:【3，9】
+打印条（list）； // expect:【3，9】
 「
 继续； // Error at '继续': Can't use '继续' outside of a loop.
 」

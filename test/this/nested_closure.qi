@@ -15,5 +15,5 @@
   toString（）「 返回 "Foo"； 」
 」
 
-var closure = Foo（）。getClosure（）；
-println（closure（）（）（））； // expect: Foo
+变量 closure = Foo（）。getClosure（）；
+打印条（closure（）（）（））； // expect: Foo

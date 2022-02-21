@@ -1,4 +1,4 @@
 类 Foo「」
 
-// [line 4] Error at '（': Expect super类 name.
+// [line 4] Error at '（': Expect 超类 name.
 类 Bar：（Foo）「」

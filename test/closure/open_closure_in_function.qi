@@ -1,7 +1,7 @@
 「
-  var local = "local"；
+  变量 local = "local"；
   功能 f（）「
-    println（local）； // expect: local
+    打印条（local）； // expect: local
   」
   f（）；
 」

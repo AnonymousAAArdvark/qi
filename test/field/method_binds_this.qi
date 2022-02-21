@@ -1,14 +1,14 @@
 类 Foo「
   sayName（a）「
-    println（这。name）；
-    println（a）；
+    打印条（这。name）；
+    打印条（a）；
   」
 」
 
-var foo1 = Foo（）；
+变量 foo1 = Foo（）；
 foo1。name = "foo1"；
 
-var foo2 = Foo（）；
+变量 foo2 = Foo（）；
 foo2。name = "foo2"；
 
 // Store the method reference on another object。

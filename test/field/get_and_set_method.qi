@@ -1,17 +1,17 @@
 // Bound methods have identity equality。
 类 Foo「
   method（a）「
-    println（"method"）；
-    println（a）；
+    打印条（"method"）；
+    打印条（a）；
   」
   other（a）「
-    println（"other"）；
-    println（a）；
+    打印条（"other"）；
+    打印条（a）；
   」
 」
 
-var foo = Foo（）；
-var method = foo。method；
+变量 foo = Foo（）；
+变量 method = foo。method；
 
 // Setting a property shadows the instance method。
 foo。method = foo。other；

@@ -1,13 +1,13 @@
-println（不 真）；     // expect: 假
-println（不 假）；    // expect: 真
-println（不 不 真）；    // expect: 真
+打印条（不 真）；     // expect: 假
+打印条（不 假）；    // expect: 真
+打印条（不 不 真）；    // expect: 真
 
-println（不 123）；      // expect: 假
-println（不 0）；        // expect: 假
+打印条（不 123）；      // expect: 假
+打印条（不 0）；        // expect: 假
 
-println（不 空）；     // expect: 真
+打印条（不 空）；     // expect: 真
 
-println（不 ""）；       // expect: 假
+打印条（不 ""）；       // expect: 假
 
 功能 foo（）「」
-println（不 foo）；      // expect: 假
+打印条（不 foo）；      // expect: 假

@@ -3,11 +3,11 @@
   method（）「」
 」
 
-var foo = Foo（）；
-var fooMethod = foo。method；
+变量 foo = Foo（）；
+变量 fooMethod = foo。method；
 
 // Same bound method。
-println（fooMethod 等 fooMethod）； // expect: 真
+打印条（fooMethod 等 fooMethod）； // expect: 真
 
 // Different closurizations。
-println（foo。method 等 foo。method）； // expect: 假
+打印条（foo。method 等 foo。method）； // expect: 假

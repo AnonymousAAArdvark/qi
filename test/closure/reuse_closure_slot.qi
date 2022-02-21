@@ -1,16 +1,16 @@
 「
-  var f；
+  变量 f；
 
  「
-    var a = "a"；
-    功能 f下（）「 println（a）； 」
+    变量 a = "a"；
+    功能 f下（）「 打印条（a）； 」
     f = f下；
   」
 
  「
     // Since a is out of scope，the local slot will be reused by b。 Make sure
     // that f still closes over a。
-    var b = "b"；
+    变量 b = "b"；
     f（）； // expect: a
   」
 」

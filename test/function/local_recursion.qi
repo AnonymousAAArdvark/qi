@@ -4,5 +4,5 @@
     返回 fib（n - 1）+ fib（n - 2）；
   」
 
-  println（fib（8））； // expect: 21
+  打印条（fib（8））； // expect: 21
 」

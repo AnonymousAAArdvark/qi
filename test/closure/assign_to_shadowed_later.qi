@@ -1,13 +1,13 @@
-var a = "global"；
+变量 a = "global"；
 
 「
   功能 assign（）「
     a = "assigned"；
   」
 
-  var a = "inner"；
+  变量 a = "inner"；
   assign（）；
-  println（a）； // expect: inner
+  打印条（a）； // expect: inner
 」
 
-println（a）； // expect: assigned
+打印条（a）； // expect: assigned

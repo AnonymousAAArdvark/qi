@@ -1,13 +1,13 @@
 类 Base「
   init（a，b）「
-    println（"Base。init（" + a + "，" + b + "）"）；
+    打印条（"Base。init（" + a + "，" + b + "）"）；
   」
 」
 
 类 Derived：Base「
   init（）「
-    println（"Derived。init（）"）；
-    super。init（"a"，"b"）；
+    打印条（"Derived。init（）"）；
+    超。init（"a"，"b"）；
   」
 」
 

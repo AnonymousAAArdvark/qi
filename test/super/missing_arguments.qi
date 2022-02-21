@@ -1,12 +1,12 @@
 类 Base「
   foo（a，b）「
-    println（"Base。foo（" + a + "，" + b + "）"）；
+    打印条（"Base。foo（" + a + "，" + b + "）"）；
   」
 」
 
 类 Derived：Base「
   foo（）「
-    super。foo（1）； // expect runtime error: Expected 2 arguments but got 1.
+    超。foo（1）； // expect runtime error: Expected 2 arguments but got 1.
   」
 」
 

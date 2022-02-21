@@ -1,19 +1,19 @@
-var f；
-var g；
+变量 f；
+变量 g；
 
 「
-  var local = "local"；
+  变量 local = "local"；
   功能 f下（）「
-    println（local）；
+    打印条（local）；
     local = "after f"；
-    println（local）；
+    打印条（local）；
   」
   f = f下；
 
   功能 g下（）「
-    println（local）；
+    打印条（local）；
     local = "after g"；
-    println（local）；
+    打印条（local）；
   」
   g = g下；
 」

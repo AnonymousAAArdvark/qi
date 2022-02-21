@@ -1,7 +1,7 @@
-var a = "1
+变量 a = "1
 2
 3"；
-println（a）；
+打印条（a）；
 // expect: 1
 // expect: 2
 // expect: 3

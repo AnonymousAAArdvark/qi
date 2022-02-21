@@ -1,22 +1,22 @@
 类 A「
   say（）「
-    println（"A"）；
+    打印条（"A"）；
   」
 」
 
 类 B：A「
   test（）「
-    super。say（）；
+    超。say（）；
   」
 
   say（）「
-    println（"B"）；
+    打印条（"B"）；
   」
 」
 
 类 C：B「
   say（）「
-    println（"C"）；
+    打印条（"C"）；
   」
 」
 

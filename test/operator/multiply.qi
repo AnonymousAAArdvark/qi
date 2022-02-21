@@ -1,2 +1,2 @@
-println（5 * 3）； // expect: 15
-println（12.34 * 0.3）； // expect: 3.702
+打印条（5 * 3）； // expect: 15
+打印条（12.34 * 0.3）； // expect: 3.702

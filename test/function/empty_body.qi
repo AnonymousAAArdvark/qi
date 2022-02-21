@@ -1,2 +1,2 @@
 功能 f（）「」
-println（f（））； // expect: 空
+打印条（f（））； // expect: 空

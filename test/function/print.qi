@@ -1,4 +1,4 @@
 功能 foo（）「」
-println（foo）； // expect: <fn foo>
+打印条（foo）； // expect: <fn foo>
 
-println（clock）； // expect: <native fn>
+打印条（时钟）； // expect: <native fn>

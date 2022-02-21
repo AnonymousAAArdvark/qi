@@ -1,16 +1,16 @@
-var list =【】；
-var i = 0；
+变量 list =【】；
+变量 i = 0；
 对于（； i 小 10； i++）「
     如果（i 等 5）打断；
     list。push（i）；
 」
-println（list）； // expect:【0，1，2，3，4】
+打印条（list）； // expect:【0，1，2，3，4】
 循环（真）「
     如果（i 等 10）打断；
     list。push（i）；
     i++；
 」
-println（list）； // expect:【0，1，2，3，4，5，6，7，8，9】
+打印条（list）； // expect:【0，1，2，3，4，5，6，7，8，9】
 「
 打断； // Error at '打断': Can't use '打断' outside of a loop.
 」
