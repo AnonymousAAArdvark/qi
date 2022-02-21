@@ -1,9 +1,9 @@
-var foo = "variable"；
+变量 foo = "变量"；
 
 类 Foo「
   method（）「
-    println（foo）；
+    打印条（foo）；
   」
 」
 
-Foo（）。method（）； // expect: variable
+Foo（）。method（）； // expect: 变量

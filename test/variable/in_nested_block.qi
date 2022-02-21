@@ -1,6 +1,6 @@
 「
-  var a = "outer"；
+  变量 a = "outer"；
  「
-    println（a）； // expect: outer
+    打印条（a）； // expect: outer
   」
 」

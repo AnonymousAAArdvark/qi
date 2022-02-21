@@ -1,4 +1,4 @@
-var a = "outer"；
+变量 a = "outer"；
 「
-  var a = a； // Error at 'a': Can't read local variable in its own initializer.
+  变量 a = a； // Error at 'a': Can't read local 变量 in its own initializer.
 」
