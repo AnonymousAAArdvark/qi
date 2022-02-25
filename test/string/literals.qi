@@ -1,5 +1,5 @@
-打印条（"（" + "" + "）"）；   // expect: （）
-打印条（"a string"）； // expect: a string
+打印行（"（" + "" + "）"）；   // expect: （）
+打印行（"a string"）； // expect: a string
 
 // Non-ASCII。
-打印条（"A~¶Þॐஃ"）； // expect: A~¶Þॐஃ
+打印行（"A~¶Þॐஃ"）； // expect: A~¶Þॐஃ

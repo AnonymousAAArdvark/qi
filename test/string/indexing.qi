@@ -1,7 +1,7 @@
 变量 foo = "string"；
 
-打印条（foo【2 - 2】）； // expect: s
+打印行（foo【2 - 2】）； // expect: s
 
-打印条（foo【1】）； // expect: t
+打印行（foo【1】）； // expect: t
 
-打印条（foo【-1】）； // expect: g
+打印行（foo【-1】）； // expect: g
