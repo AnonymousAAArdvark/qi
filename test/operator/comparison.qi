@@ -1,25 +1,25 @@
-打印条（1 小 2）；    // expect: 真
-打印条（2 小 2）；    // expect: 假
-打印条（2 小 1）；    // expect: 假
+打印行（1 小 2）；    // expect: 真
+打印行（2 小 2）；    // expect: 假
+打印行（2 小 1）；    // expect: 假
 
-打印条（1 小等 2）；    // expect: 真
-打印条（2 小等 2）；    // expect: 真
-打印条（2 小等 1）；    // expect: 假
+打印行（1 小等 2）；    // expect: 真
+打印行（2 小等 2）；    // expect: 真
+打印行（2 小等 1）；    // expect: 假
 
-打印条（1 大 2）；    // expect: 假
-打印条（2 大 2）；    // expect: 假
-打印条（2 大 1）；    // expect: 真
+打印行（1 大 2）；    // expect: 假
+打印行（2 大 2）；    // expect: 假
+打印行（2 大 1）；    // expect: 真
 
-打印条（1 大等 2）；    // expect: 假
-打印条（2 大等 2）；    // expect: 真
-打印条（2 大等 1）；    // expect: 真
+打印行（1 大等 2）；    // expect: 假
+打印行（2 大等 2）；    // expect: 真
+打印行（2 大等 1）；    // expect: 真
 
 // Zero and negative zero compare the same。
-打印条（0 小 -0）； // expect: 假
-打印条（-0 小 0）； // expect: 假
-打印条（0 大 -0）； // expect: 假
-打印条（-0 大 0）； // expect: 假
-打印条（0 小等 -0）； // expect: 真
-打印条（-0 小等 0）； // expect: 真
-打印条（0 大等 -0）； // expect: 真
-打印条（-0 大等 0）； // expect: 真
+打印行（0 小 -0）； // expect: 假
+打印行（-0 小 0）； // expect: 假
+打印行（0 大 -0）； // expect: 假
+打印行（-0 大 0）； // expect: 假
+打印行（0 小等 -0）； // expect: 真
+打印行（-0 小等 0）； // expect: 真
+打印行（0 大等 -0）； // expect: 真
+打印行（-0 大等 0）； // expect: 真
