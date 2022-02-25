@@ -10,4 +10,4 @@
 」
 
 变量 closure = Foo（）。getClosure（）；
-打印条（closure（））； // expect: Foo
+打印行（closure（））； // expect: Foo
