@@ -1,4 +1,4 @@
-打印条（平方根（4））； // expect: 2
-打印条（次方（3，4））； // expect: 81
-打印条（次方（9，0.5））； // expect: 3
-打印条（四舍五入（"3"））； // expect runtime error: Argument 1 (input) must be of type 'number', not '字符串'.
+打印行（平方根（4））； // expect: 2
+打印行（次方（3，4））； // expect: 81
+打印行（次方（9，0.5））； // expect: 3
+打印行（四舍五入（"3"））； // expect runtime error: Argument 1 (input) must be of type 'number', not '字符串'.
