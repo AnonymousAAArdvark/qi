@@ -1,12 +1,12 @@
 类 Base「
   foo（a，b）「
-    打印条（"Base。foo（" + a + "，" + b + "）"）；
+    打印行（"Base。foo（" + a + "，" + b + "）"）；
   」
 」
 
 类 Derived：Base「
   foo（）「
-    打印条（"Derived。foo（）"）； // expect: Derived。foo（）
+    打印行（"Derived。foo（）"）； // expect: Derived。foo（）
     超。foo（"a"，"b"，"c"，"d"）； // expect runtime error: Expected 2 arguments but got 4.
   」
 」

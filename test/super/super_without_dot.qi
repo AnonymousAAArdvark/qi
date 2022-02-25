@@ -2,7 +2,7 @@
 
 类 B：A「
   method（）「
-    // [line 6] Error at '；': Expect '.' after '超'.
+    //【行 6】错误在「；」：Expect '.' after '超'.
     超；
   」
 」
