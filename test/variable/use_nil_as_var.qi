@@ -1,2 +1,2 @@
-// [line 2] Error at '空': Expect 变量 name.
+//【行 2】错误在「空」：Expect 变量 name.
 变量 空 = "value"；

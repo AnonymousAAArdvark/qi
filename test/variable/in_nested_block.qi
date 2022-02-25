@@ -1,6 +1,6 @@
 「
   变量 a = "outer"；
  「
-    打印条（a）； // expect: outer
+    打印行（a）； // expect: outer
   」
 」

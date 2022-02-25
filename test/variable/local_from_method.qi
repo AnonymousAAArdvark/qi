@@ -2,7 +2,7 @@
 
 类 Foo「
   method（）「
-    打印条（foo）；
+    打印行（foo）；
   」
 」
 
