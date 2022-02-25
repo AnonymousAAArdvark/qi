@@ -1,8 +1,8 @@
 类 Foo「
   method（）「
     返回 "ok"；
-    打印条（"bad"）；
+    打印行（"bad"）；
   」
 」
 
-打印条（Foo（）。method（））； // expect: ok
+打印行（Foo（）。method（））； // expect: ok
