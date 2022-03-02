@@ -1,9 +1,9 @@
 类 Foo「
   bar（arg）「
-    打印条（arg）；
+    打印行（arg）；
   」
 」
 
 变量 bar = Foo（）。bar；
-打印条（"got method"）； // expect: got method
+打印行（"got method"）； // expect: got method
 bar（"arg"）；          // expect: arg
