@@ -3,13 +3,13 @@
     如果（i % 2 等 0）继续；
     list。push（i）；
 」
-打印条（list）； // expect:【1，3，5，7，9】
-变量 i = list。length（）；
-循环（--i 大等 0）「
+打印行（list）； // expect:【1，3，5，7，9】
+变量 i = list。长度（）；
+而（--i 大等 0）「
     如果（list【i】% 3 等 0）继续；
     list。delete（i）；
 」
-打印条（list）； // expect:【3，9】
+打印行（list）； // expect:【3，9】
 「
-继续； // Error at '继续': Can't use '继续' outside of a loop.
+继续； // 错误在「继续」：不能在循环外使用「继续」。
 」
