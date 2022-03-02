@@ -18,7 +18,7 @@ void disassembleChunk(Chunk* chunk, const wchar_t* name) {
 
 static int constantInstruction(const wchar_t* name, Chunk* chunk, int offset) {
     uint8_t constant = chunk->code[offset + 1];
-    wprintf(L"%-16s %4d '", name, constant);
+    wprintf(L"%-16ls %4d '", name, constant);
     printValue(chunk->constants.values[constant]);
     wprintf(L"'\n");
     return offset + 2;
@@ -27,7 +27,7 @@ static int constantInstruction(const wchar_t* name, Chunk* chunk, int offset) {
 static int invokeInstruction(const wchar_t* name, Chunk* chunk, int offset) {
     uint8_t constant = chunk->code[offset + 1];
     uint8_t argCount = chunk->code[offset + 2];
-    wprintf(L"%-16s (%d args) %4d '", name, argCount, constant);
+    wprintf(L"%-16ls (%d args) %4d '", name, argCount, constant);
     printValue(chunk->constants.values[constant]);
     wprintf(L"'\n");
     return offset + 3;
@@ -40,14 +40,14 @@ static int simpleInstruction(const wchar_t* name, int offset) {
 
 static int byteInstruction(const wchar_t* name, Chunk* chunk, int offset) {
     uint8_t slot = chunk->code[offset + 1];
-    wprintf(L"%-16s %4d\n", name, slot);
+    wprintf(L"%-16ls %4d\n", name, slot);
     return offset + 2;
 }
 
 static int jumpInstruction(const wchar_t* name, int sign, Chunk* chunk, int offset) {
     uint16_t jump = (uint16_t)(chunk->code[offset + 1] << 8);
     jump |= chunk->code[offset + 2];
-    wprintf(L"%-16s %4d -> %d\n", name, offset, offset + 3 + sign * jump);
+    wprintf(L"%-16ls %4d -> %d\n", name, offset, offset + 3 + sign * jump);
     return offset + 3;
 }
 
@@ -122,7 +122,7 @@ int disassembleInstruction(Chunk* chunk, int offset) {
         case OP_NEGATE:
             return simpleInstruction(L"OP_NEGATE", offset);
         case OP_END:
-            return simpleInstruction(L"OP_END", offset);
+            return jumpInstruction(L"OP_END", 1, chunk, offset);
         case OP_DUP:
             return simpleInstruction(L"OP_DUP", offset);
         case OP_DOUBLE_DUP:
