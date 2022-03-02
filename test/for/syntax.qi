@@ -1,12 +1,12 @@
 // Single-expression body.
-对于（变量 c = 0； c 小 3；）打印条（c = c + 1）；
+对于（变量 c = 0； c 小 3；）打印行（c = c + 1）；
 // expect: 1
 // expect: 2
 // expect: 3
 
 // Block body.
 对于（变量 a = 0； a 小 3； a = a + 1）「
-  打印条（a）；
+  打印行（a）；
 」
 // expect: 0
 // expect: 1
@@ -16,18 +16,18 @@
 功能 foo（）「
   对于（；；）返回 "done"；
 」
-打印条（foo（））； // expect: done
+打印行（foo（））； // expect: done
 
 // No 变量。
 变量 i = 0；
-对于（； i 小 2； i = i + 1）打印条（i）；
+对于（； i 小 2； i = i + 1）打印行（i）；
 // expect: 0
 // expect: 1
 
 // No condition。
 功能 bar（）「
   对于（变量 i = 0；； i = i + 1）「
-    打印条（i）；
+    打印行（i）；
     如果（i 大等 2）返回；
   」
 」
@@ -38,7 +38,7 @@ bar（）；
 
 // No increment。
 对于（变量 i = 0； i 小 2；）「
-  打印条（i）；
+  打印行（i）；
   i = i + 1；
 」
 // expect: 0
@@ -46,5 +46,5 @@ bar（）；
 
 // Statement bodies。
 对于（； 假；）如果（真）1； 否则 2；
-对于（； 假；）循环（真）1；
+对于（； 假；）而（真）1；
 对于（； 假；）对于（；；）1；
