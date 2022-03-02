@@ -1,4 +1,4 @@
 「
-  类 Foo：Foo「」// Error at 'Foo': A 类 can't inherit from itself.
+  类 Foo：Foo「」// 错误在「Foo」：类不能从自身继承。
 」
-// [c line 5] Error at end: Expect '}' after block.
+//【行 5】错误在末尾：块后期待「 」」。
