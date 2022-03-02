@@ -1,10 +1,10 @@
 类 A「
-  init（param）「
+  初始化（param）「
     这。field = param；
   」
 
   test（）「
-    打印条（这。field）；
+    打印行（这。field）；
   」
 」
 

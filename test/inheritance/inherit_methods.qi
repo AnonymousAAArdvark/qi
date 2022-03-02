@@ -1,11 +1,11 @@
 类 Foo「
-  methodOnFoo（）「 打印条（"foo"）； 」
-  override（）「 打印条（"foo"）； 」
+  methodOnFoo（）「 打印行（"foo"）； 」
+  override（）「 打印行（"foo"）； 」
 」
 
 类 Bar：Foo「
-  methodOnBar（）「 打印条（"bar"）； 」
-  override（）「 打印条（"bar"）； 」
+  methodOnBar（）「 打印行（"bar"）； 」
+  override（）「 打印行（"bar"）； 」
 」
 
 变量 bar = Bar（）；
