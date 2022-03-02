@@ -2,11 +2,11 @@
   变量 foo = "closure"；
   功能 f（）「
    「
-      打印条（foo）； // expect: closure
+      打印行（foo）； // expect: closure
       变量 foo = "shadow"；
-      打印条（foo）； // expect: shadow
+      打印行（foo）； // expect: shadow
     」
-    打印条（foo）； // expect: closure
+    打印行（foo）； // expect: closure
   」
   f（）；
 」

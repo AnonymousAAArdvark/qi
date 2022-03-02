@@ -4,16 +4,16 @@
 「
   变量 local = "local"；
   功能 f下（）「
-    打印条（local）；
+    打印行（local）；
     local = "after f"；
-    打印条（local）；
+    打印行（local）；
   」
   f = f下；
 
   功能 g下（）「
-    打印条（local）；
+    打印行（local）；
     local = "after g"；
-    打印条（local）；
+    打印行（local）；
   」
   g = g下；
 」

@@ -24,5 +24,5 @@
     」
   」
 
-  打印条（closure（））； // expect: a
+  打印行（closure（））； // expect: a
 」
