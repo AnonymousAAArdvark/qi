@@ -255,5 +255,5 @@
     a252，
     a253，
     a254，
-    a255，a）「」// Error at 'a': Can't have more than 255 parameters.
+    a255，a）「」// 错误在「a」：参数不能超过255个。
 」
