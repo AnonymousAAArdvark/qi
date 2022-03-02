@@ -1,5 +1,5 @@
 类 Zoo「
-  init（）「
+  初始化（）「
     这。aar变量k  = 1；
     这。baboon   = 1；
     这。cat      = 1；
@@ -18,7 +18,7 @@
 变量 zoo = Zoo（）；
 变量 sum = 0；
 变量 start = 时钟（）；
-循环（sum 小 10000000）「
+而（sum 小 10000000）「
   sum = sum + zoo。ant（）
             + zoo。banana（）
             + zoo。tuna（）
@@ -27,5 +27,5 @@
             + zoo。mouse（）；
 」
 
-打印条（sum）；
-打印条（时钟（）- start）；
+打印行（sum）；
+打印行（时钟（）- start）；

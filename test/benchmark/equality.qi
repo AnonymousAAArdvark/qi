@@ -2,7 +2,7 @@
 
 变量 loopStart = 时钟（）；
 
-循环（i 小 10000000）「
+而（i 小 10000000）「
   i = i + 1；
 
   1； 1； 1； 2； 1； 空； 1； "str"； 1； 真；
@@ -16,7 +16,7 @@
 变量 start = 时钟（）；
 
 i = 0；
-循环（i 小 10000000）「
+而（i 小 10000000）「
   i = i + 1；
 
   1 等 1； 1 等 2； 1 等 空； 1 等 "str"； 1 等 真；
@@ -26,9 +26,9 @@ i = 0；
 」
 
 变量 elapsed = 时钟（）- start；
-打印条（"loop"）；
-打印条（loopTime）；
-打印条（"elapsed"）；
-打印条（elapsed）；
-打印条（"equals"）；
-打印条（elapsed - loopTime）；
+打印行（"loop"）；
+打印行（loopTime）；
+打印行（"elapsed"）；
+打印行（elapsed）；
+打印行（"equals"）；
+打印行（elapsed - loopTime）；
