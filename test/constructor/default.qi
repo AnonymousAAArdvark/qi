@@ -1,4 +1,4 @@
 类 Foo「」
 
 变量 foo = Foo（）；
-打印条（foo）； // expect: Foo instance
+打印行（foo）； // expect: Foo 实例

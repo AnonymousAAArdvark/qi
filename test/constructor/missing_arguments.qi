@@ -1,5 +1,5 @@
 类 Foo「
-  init（a，b）「」
+  初始化（a，b）「」
 」
 
 变量 foo = Foo（1）； // expect runtime error: Expected 2 arguments but got 1.

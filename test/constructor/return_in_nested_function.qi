@@ -1,10 +1,10 @@
-类 Foo「
-  init（）「
-    功能 init（）「
-      返回 "bar"；
+类 佛「
+  初始化（）「
+    功能 初始化（）「
+      返回 "吧"；
     」
-    打印条（init（））； // expect: bar
+    打印行（初始化（））； // expect: 吧
   」
 」
 
-打印条（Foo（））； // expect: Foo instance
+打印行（佛（））； // expect: 佛 实例
