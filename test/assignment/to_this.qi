@@ -1,6 +1,6 @@
 类 Foo「
   Foo（）「
-    这 = "value"； // Error at '=': Invalid assignment target.
+    这 = "value"； // 错误在「=」：分配目标无效。
   」
 」
 
