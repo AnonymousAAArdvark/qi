@@ -1,11 +1,11 @@
-变量 foo =【1，2，3，4】；
-foo。push（5）；
-打印条（foo）； // expect:【1，2，3，4，5】
-foo。pop（）；
-打印条（foo）； // expect:【1，2，3，4】
-foo。insert（0，"zero"）；
-打印条（foo）； // expect:【zero，1，2，3，4】
-foo。delete（-1）；
-打印条（foo）； // expect:【zero，1，2，3】
-打印条（foo。length（））； // expect: 4
-foo。insert（"one"，"two"）； // expect runtime error: Argument 1 (index) must be of type 'number', not '字符串'.
+变量 富 =【1，2，3，4】；
+富。推（5）；
+打印行（富）； // expect:【1，2，3，4，5】
+富。弹（）；
+打印行（富）； // expect:【1，2，3，4】
+富。插（0，"零"）；
+打印行（富）； // expect:【零，1，2，3，4】
+富。删（-1）；
+打印行（富）； // expect:【零，1，2，3】
+打印行（富。长度（））； // expect: 4
+富。插（"一"，"二"）； // expect runtime error: Argument 1 (index) must be of type 'number', not '字符串'.
