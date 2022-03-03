@@ -1,7 +1,7 @@
 功能 caller（g）「
   g（）；
   // g should be a function，not 空。
-  打印行（g 等 空）； // expect: 假
+  打印行（g 等 空）； // 期待：假
 」
 
 功能 callCaller（）「

@@ -1,4 +1,4 @@
 类 Foo「」
 
 变量 foo = Foo（）；
-foo（）； // expect runtime error: Can only call functions and 类es.
+foo（）； // 期待运行时错误：Can only call functions and 类es.

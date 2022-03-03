@@ -1,3 +1,3 @@
 // A dangling 否则 binds to the right-most 如果。
-如果（真）如果（假）打印行（"bad"）； 否则 打印行（"good"）； // expect: good
+如果（真）如果（假）打印行（"bad"）； 否则 打印行（"good"）； // 期待：good
 如果（假）如果（真）打印行（"bad"）； 否则 打印行（"bad"）；

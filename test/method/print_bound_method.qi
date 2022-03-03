@@ -2,4 +2,4 @@
   method（）「 」
 」
 变量 foo = Foo（）；
-打印行（foo。method）； // expect:《功能 method》
+打印行（foo。method）； // 期待：《功能 method》

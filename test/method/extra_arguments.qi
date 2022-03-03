@@ -5,4 +5,4 @@
   」
 」
 
-Foo（）。method（1，2，3，4）； // expect runtime error: Expected 2 arguments but got 4.
+Foo（）。method（1，2，3，4）； // 期待运行时错误：Expected 2 arguments but got 4.

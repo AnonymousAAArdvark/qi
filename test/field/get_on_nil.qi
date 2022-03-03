@@ -1,1 +1,1 @@
-空。foo； // expect runtime error: Only instances have properties.
+空。foo； // 期待运行时错误：Only instances have properties.

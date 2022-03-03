@@ -5,11 +5,11 @@
   」
 」
 
-变量 foo = Foo（"one"）； // expect: Foo。初始化（one）
+变量 foo = Foo（"one"）； // 期待：Foo。初始化（one）
 foo。field = "field"；
 
-变量 foo2 = foo。初始化（"two"）； // expect: Foo。初始化（two）
-打印行（foo2）； // expect: Foo 实例
+变量 foo2 = foo。初始化（"two"）； // 期待：Foo。初始化（two）
+打印行（foo2）； // 期待：Foo 实例
 
 // Make sure 初始化（）doesn't create a fresh instance。
-打印行（foo。field）； // expect: 初始化
+打印行（foo。field）； // 期待：初始化

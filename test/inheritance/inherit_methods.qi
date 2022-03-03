@@ -9,6 +9,6 @@
 」
 
 变量 bar = Bar（）；
-bar。methodOnFoo（）； // expect: foo
-bar。methodOnBar（）； // expect: bar
-bar。override（）； // expect: bar
+bar。methodOnFoo（）； // 期待：foo
+bar。methodOnBar（）； // 期待：bar
+bar。override（）； // 期待：bar

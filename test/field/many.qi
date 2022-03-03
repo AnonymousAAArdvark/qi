@@ -86,85 +86,85 @@
 setFields（）；
 
 功能 printFields（）「
-  打印行（foo。apple）； // expect: apple
-  打印行（foo。apricot）； // expect: apricot
-  打印行（foo。avocado）； // expect: avocado
-  打印行（foo。banana）； // expect: banana
-  打印行（foo。bilberry）； // expect: bilberry
-  打印行（foo。blackberry）； // expect: blackberry
-  打印行（foo。blackcurrant）； // expect: blackcurrant
-  打印行（foo。blueberry）； // expect: blueberry
-  打印行（foo。boysenberry）； // expect: boysenberry
-  打印行（foo。cantaloupe）； // expect: cantaloupe
-  打印行（foo。cherimoya）； // expect: cherimoya
-  打印行（foo。cherry）； // expect: cherry
-  打印行（foo。clementine）； // expect: clementine
-  打印行（foo。cloudberry）； // expect: cloudberry
-  打印行（foo。coconut）； // expect: coconut
-  打印行（foo。cranberry）； // expect: cranberry
-  打印行（foo。currant）； // expect: currant
-  打印行（foo。damson）； // expect: damson
-  打印行（foo。date）； // expect: date
-  打印行（foo。dragonfruit）； // expect: dragonfruit
-  打印行（foo。durian）； // expect: durian
-  打印行（foo。elderberry）； // expect: elderberry
-  打印行（foo。feijoa）； // expect: feijoa
-  打印行（foo。fig）； // expect: fig
-  打印行（foo。gooseberry）； // expect: gooseberry
-  打印行（foo。grape）； // expect: grape
-  打印行（foo。grapefruit）； // expect: grapefruit
-  打印行（foo。guava）； // expect: guava
-  打印行（foo。honeydew）； // expect: honeydew
-  打印行（foo。huckleberry）； // expect: huckleberry
-  打印行（foo。jabuticaba）； // expect: jabuticaba
-  打印行（foo。jackfruit）； // expect: jackfruit
-  打印行（foo。jambul）； // expect: jambul
-  打印行（foo。jujube）； // expect: jujube
-  打印行（foo。juniper）； // expect: juniper
-  打印行（foo。kiwifruit）； // expect: kiwifruit
-  打印行（foo。kumquat）； // expect: kumquat
-  打印行（foo。lemon）； // expect: lemon
-  打印行（foo。lime）； // expect: lime
-  打印行（foo。longan）； // expect: longan
-  打印行（foo。loquat）； // expect: loquat
-  打印行（foo。lychee）； // expect: lychee
-  打印行（foo。mandarine）； // expect: mandarine
-  打印行（foo。mango）； // expect: mango
-  打印行（foo。marionberry）； // expect: marionberry
-  打印行（foo。melon）； // expect: melon
-  打印行（foo。miracle）； // expect: miracle
-  打印行（foo。mulberry）； // expect: mulberry
-  打印行（foo。nance）； // expect: nance
-  打印行（foo。nectarine）； // expect: nectarine
-  打印行（foo。olive）； // expect: olive
-  打印行（foo。orange）； // expect: orange
-  打印行（foo。papaya）； // expect: papaya
-  打印行（foo。passionfruit）； // expect: passionfruit
-  打印行（foo。peach）； // expect: peach
-  打印行（foo。pear）； // expect: pear
-  打印行（foo。persimmon）； // expect: persimmon
-  打印行（foo。physalis）； // expect: physalis
-  打印行（foo。pineapple）； // expect: pineapple
-  打印行（foo。plantain）； // expect: plantain
-  打印行（foo。plum）； // expect: plum
-  打印行（foo。plumcot）； // expect: plumcot
-  打印行（foo。pomegranate）； // expect: pomegranate
-  打印行（foo。pomelo）； // expect: pomelo
-  打印行（foo。quince）； // expect: quince
-  打印行（foo。raisin）； // expect: raisin
-  打印行（foo。rambutan）； // expect: rambutan
-  打印行（foo。raspberry）； // expect: raspberry
-  打印行（foo。redcurrant）； // expect: redcurrant
-  打印行（foo。salak）； // expect: salak
-  打印行（foo。salmonberry）； // expect: salmonberry
-  打印行（foo。satsuma）； // expect: satsuma
-  打印行（foo。strawberry）； // expect: strawberry
-  打印行（foo。tamarillo）； // expect: tamarillo
-  打印行（foo。tamarind）； // expect: tamarind
-  打印行（foo。tangerine）； // expect: tangerine
-  打印行（foo。tomato）； // expect: tomato
-  打印行（foo。watermelon）； // expect: watermelon
-  打印行（foo。yuzu）； // expect: yuzu
+  打印行（foo。apple）； // 期待：apple
+  打印行（foo。apricot）； // 期待：apricot
+  打印行（foo。avocado）； // 期待：avocado
+  打印行（foo。banana）； // 期待：banana
+  打印行（foo。bilberry）； // 期待：bilberry
+  打印行（foo。blackberry）； // 期待：blackberry
+  打印行（foo。blackcurrant）； // 期待：blackcurrant
+  打印行（foo。blueberry）； // 期待：blueberry
+  打印行（foo。boysenberry）； // 期待：boysenberry
+  打印行（foo。cantaloupe）； // 期待：cantaloupe
+  打印行（foo。cherimoya）； // 期待：cherimoya
+  打印行（foo。cherry）； // 期待：cherry
+  打印行（foo。clementine）； // 期待：clementine
+  打印行（foo。cloudberry）； // 期待：cloudberry
+  打印行（foo。coconut）； // 期待：coconut
+  打印行（foo。cranberry）； // 期待：cranberry
+  打印行（foo。currant）； // 期待：currant
+  打印行（foo。damson）； // 期待：damson
+  打印行（foo。date）； // 期待：date
+  打印行（foo。dragonfruit）； // 期待：dragonfruit
+  打印行（foo。durian）； // 期待：durian
+  打印行（foo。elderberry）； // 期待：elderberry
+  打印行（foo。feijoa）； // 期待：feijoa
+  打印行（foo。fig）； // 期待：fig
+  打印行（foo。gooseberry）； // 期待：gooseberry
+  打印行（foo。grape）； // 期待：grape
+  打印行（foo。grapefruit）； // 期待：grapefruit
+  打印行（foo。guava）； // 期待：guava
+  打印行（foo。honeydew）； // 期待：honeydew
+  打印行（foo。huckleberry）； // 期待：huckleberry
+  打印行（foo。jabuticaba）； // 期待：jabuticaba
+  打印行（foo。jackfruit）； // 期待：jackfruit
+  打印行（foo。jambul）； // 期待：jambul
+  打印行（foo。jujube）； // 期待：jujube
+  打印行（foo。juniper）； // 期待：juniper
+  打印行（foo。kiwifruit）； // 期待：kiwifruit
+  打印行（foo。kumquat）； // 期待：kumquat
+  打印行（foo。lemon）； // 期待：lemon
+  打印行（foo。lime）； // 期待：lime
+  打印行（foo。longan）； // 期待：longan
+  打印行（foo。loquat）； // 期待：loquat
+  打印行（foo。lychee）； // 期待：lychee
+  打印行（foo。mandarine）； // 期待：mandarine
+  打印行（foo。mango）； // 期待：mango
+  打印行（foo。marionberry）； // 期待：marionberry
+  打印行（foo。melon）； // 期待：melon
+  打印行（foo。miracle）； // 期待：miracle
+  打印行（foo。mulberry）； // 期待：mulberry
+  打印行（foo。nance）； // 期待：nance
+  打印行（foo。nectarine）； // 期待：nectarine
+  打印行（foo。olive）； // 期待：olive
+  打印行（foo。orange）； // 期待：orange
+  打印行（foo。papaya）； // 期待：papaya
+  打印行（foo。passionfruit）； // 期待：passionfruit
+  打印行（foo。peach）； // 期待：peach
+  打印行（foo。pear）； // 期待：pear
+  打印行（foo。persimmon）； // 期待：persimmon
+  打印行（foo。physalis）； // 期待：physalis
+  打印行（foo。pineapple）； // 期待：pineapple
+  打印行（foo。plantain）； // 期待：plantain
+  打印行（foo。plum）； // 期待：plum
+  打印行（foo。plumcot）； // 期待：plumcot
+  打印行（foo。pomegranate）； // 期待：pomegranate
+  打印行（foo。pomelo）； // 期待：pomelo
+  打印行（foo。quince）； // 期待：quince
+  打印行（foo。raisin）； // 期待：raisin
+  打印行（foo。rambutan）； // 期待：rambutan
+  打印行（foo。raspberry）； // 期待：raspberry
+  打印行（foo。redcurrant）； // 期待：redcurrant
+  打印行（foo。salak）； // 期待：salak
+  打印行（foo。salmonberry）； // 期待：salmonberry
+  打印行（foo。satsuma）； // 期待：satsuma
+  打印行（foo。strawberry）； // 期待：strawberry
+  打印行（foo。tamarillo）； // 期待：tamarillo
+  打印行（foo。tamarind）； // 期待：tamarind
+  打印行（foo。tangerine）； // 期待：tangerine
+  打印行（foo。tomato）； // 期待：tomato
+  打印行（foo。watermelon）； // 期待：watermelon
+  打印行（foo。yuzu）； // 期待：yuzu
 」
 
 printFields（）；

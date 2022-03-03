@@ -5,5 +5,5 @@
 」
 
 变量 bar = Foo（）。bar；
-打印行（"got method"）； // expect: got method
-bar（"arg"）；          // expect: arg
+打印行（"got method"）； // 期待：got method
+bar（"arg"）；          // 期待：arg

@@ -5,5 +5,5 @@
     」
   」
 
-  打印行（Foo（）。返回Self（））； // expect: Foo
+  打印行（Foo（）。返回Self（））； // 期待：Foo
 」

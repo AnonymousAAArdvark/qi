@@ -1,13 +1,13 @@
 类 Outer「
   method（）「
-    打印行（这）； // expect: Outer 实例
+    打印行（这）； // 期待：Outer 实例
 
     功能 f（）「
-      打印行（这）； // expect: Outer 实例
+      打印行（这）； // 期待：Outer 实例
 
       类 Inner「
         method（）「
-          打印行（这）； // expect: Inner 实例
+          打印行（这）； // 期待：Inner 实例
         」
       」
 

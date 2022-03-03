@@ -1,1 +1,1 @@
-真。foo = "value"； // expect runtime error: Only instances have fields.
+真。foo = "value"； // 期待运行时错误：Only instances have fields.

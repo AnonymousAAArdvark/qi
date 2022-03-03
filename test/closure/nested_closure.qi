@@ -20,6 +20,6 @@
 f1（）；
 
 f（）；
-// expect: a
-// expect: b
-// expect: c
+// 期待：a
+// 期待：b
+// 期待：c

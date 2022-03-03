@@ -3,4 +3,4 @@
 变量 foo = Foo（）；
 foo。bar = "not fn"；
 
-foo。bar（）； // expect runtime error: Can only call functions and 类es.
+foo。bar（）； // 期待运行时错误：Can only call functions and 类es.

@@ -6,7 +6,7 @@
 
 类 Derived：Base「
   foo（）「
-    超。foo（1）； // expect runtime error: Expected 2 arguments but got 1.
+    超。foo（1）； // 期待运行时错误：Expected 2 arguments but got 1.
   」
 」
 

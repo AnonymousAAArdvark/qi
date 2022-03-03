@@ -2,4 +2,4 @@
   初始化（a，b）「」
 」
 
-变量 foo = Foo（1）； // expect runtime error: Expected 2 arguments but got 1.
+变量 foo = Foo（1）； // 期待运行时错误：Expected 2 arguments but got 1.

@@ -21,10 +21,10 @@ var gray = "\u001b[1;30m"
 var none = "\u001b[0m"
 var resetColor = "\u001b[39m"
 
-var expectedOutputPattern, _ = regexp.Compile(`// expect: ?(.*)`)
+var expectedOutputPattern, _ = regexp.Compile(`// 期待：(.*)`)
 var expectedErrorPattern, _ = regexp.Compile(`// (错误.*)`)
 var errorLinePattern, _ = regexp.Compile(`//【行 (\d+)】(错误.*)`)
-var expectedRuntimeErrorPattern, _ = regexp.Compile(`// expect runtime error: (.+)`)
+var expectedRuntimeErrorPattern, _ = regexp.Compile(`// 期待运行时错误：(.+)`)
 var syntaxErrorPattern, _ = regexp.Compile(`【.*行 (\d+)】(错误.+)`)
 var stackTracePattern, _ = regexp.Compile(`\[line (\d+)]`)
 var nonTestPattern, _ = regexp.Compile(`// nontest`)
@@ -188,14 +188,14 @@ func parse(test Test) (Test, bool) {
 			continue
 		}
 
-		match = expectedRuntimeErrorPattern.FindStringSubmatch(line)
-		if len(match) != 0 {
-			test.runtimeErrorLine = lineNum
-			test.expectedRuntimeError = match[1]
+        match = expectedRuntimeErrorPattern.FindStringSubmatch(line)
+        if len(match) != 0 {
+            test.runtimeErrorLine = lineNum
+            test.expectedRuntimeError = match[1]
 
-			test.expectedExitCode = 70
-			expectations++
-		}
+            test.expectedExitCode = 70
+            expectations++
+        }
 	}
 
 	if len(test.expectedErrors) != 0 && test.expectedRuntimeError != "" {

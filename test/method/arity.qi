@@ -11,12 +11,12 @@
 」
 
 变量 foo = Foo（）；
-打印行（foo。method0（））； // expect: no args
-打印行（foo。method1（1））； // expect: 1
-打印行（foo。method2（1，2））； // expect: 3
-打印行（foo。method3（1，2，3））； // expect: 6
-打印行（foo。method4（1，2，3，4））； // expect: 10
-打印行（foo。method5（1，2，3，4，5））； // expect: 15
-打印行（foo。method6（1，2，3，4，5，6））； // expect: 21
-打印行（foo。method7（1，2，3，4，5，6，7））； // expect: 28
-打印行（foo。method8（1，2，3，4，5，6，7，8））； // expect: 36
+打印行（foo。method0（））； // 期待：no args
+打印行（foo。method1（1））； // 期待：1
+打印行（foo。method2（1，2））； // 期待：3
+打印行（foo。method3（1，2，3））； // 期待：6
+打印行（foo。method4（1，2，3，4））； // 期待：10
+打印行（foo。method5（1，2，3，4，5））； // 期待：15
+打印行（foo。method6（1，2，3，4，5，6））； // 期待：21
+打印行（foo。method7（1，2，3，4，5，6，7））； // 期待：28
+打印行（foo。method8（1，2，3，4，5，6，7，8））； // 期待：36

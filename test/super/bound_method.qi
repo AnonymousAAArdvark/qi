@@ -16,4 +16,4 @@
 
 
 变量 closure = B（）。getClosure（）；
-closure（"arg"）； // expect: A。method（arg）
+closure（"arg"）； // 期待：A。method（arg）

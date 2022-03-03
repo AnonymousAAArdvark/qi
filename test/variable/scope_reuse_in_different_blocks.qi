@@ -1,9 +1,9 @@
 「
   变量 a = "first"；
-  打印行（a）； // expect: first
+  打印行（a）； // 期待：first
 」
 
 「
   变量 a = "second"；
-  打印行（a）； // expect: second
+  打印行（a）； // 期待：second
 」

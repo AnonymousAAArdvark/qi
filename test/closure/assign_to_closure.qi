@@ -19,9 +19,9 @@
 」
 
 f（）；
-// expect: local
-// expect: after f
+// 期待：local
+// 期待：after f
 
 g（）；
-// expect: after f
-// expect: after g
+// 期待：after f
+// 期待：after g

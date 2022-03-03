@@ -10,5 +10,5 @@
 」
 
 f（）；
-// expect: a
-// expect: a
+// 期待：a
+// 期待：a

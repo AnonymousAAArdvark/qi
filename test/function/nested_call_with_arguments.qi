@@ -10,4 +10,4 @@
   打印行（arg）；
 」
 
-返回FunCallWithArg（printArg，"hello world"）； // expect: hello world
+返回FunCallWithArg（printArg，"hello world"）； // 期待：hello world

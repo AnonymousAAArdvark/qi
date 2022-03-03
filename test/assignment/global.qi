@@ -1,8 +1,8 @@
 变量 a = "before"；
-打印行（a）； // expect: before
+打印行（a）； // 期待：before
 
 a = "after"；
-打印行（a）； // expect: after
+打印行（a）； // 期待：after
 
-打印行（a = "arg"）； // expect: arg
-打印行（a）； // expect: arg
+打印行（a = "arg"）； // 期待：arg
+打印行（a）； // 期待：arg

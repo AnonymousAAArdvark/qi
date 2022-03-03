@@ -1,6 +1,6 @@
 变量 a = "global"；
 「
   变量 a = "shadow"；
-  打印行（a）； // expect: shadow
+  打印行（a）； // 期待：shadow
 」
-打印行（a）； // expect: global
+打印行（a）； // 期待：global
