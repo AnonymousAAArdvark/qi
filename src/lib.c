@@ -73,7 +73,7 @@ bool clockNative(int argCount, Value* args) {
 bool sqrtNative(int argCount, Value* args) {
     if (!IS_NUMBER(args[0])) {
         return nativeError(args,
-                           L"参数1（输入）的类型必须是「数字」，而不是「%ls」。", getType(args[0]));
+                           L"参数 1（输入）的类型必须是「数字」，而不是「%ls」。", getType(args[0]));
     }
     args[-1] = NUMBER_VAL(sqrt(AS_NUMBER(args[0])));
     return true;
@@ -82,11 +82,11 @@ bool sqrtNative(int argCount, Value* args) {
 bool powNative(int argCount, Value* args) {
     if (!IS_NUMBER(args[0])) {
         return nativeError(args,
-                           L"参数1（基数）的类型必须是「数字」，而不是「%ls」。", getType(args[0]));
+                           L"参数 1（基数）的类型必须是「数字」，而不是「%ls」。", getType(args[0]));
     }
     if (!IS_NUMBER(args[1])) {
         return nativeError(args,
-                           L"参数2（次方）的类型必须是「数字」，而不是「%ls」。", getType(args[1]));
+                           L"参数 2（次方）的类型必须是「数字」，而不是「%ls」。", getType(args[1]));
     }
     args[-1] = NUMBER_VAL(pow(AS_NUMBER(args[0]), AS_NUMBER(args[1])));
     return true;
@@ -95,11 +95,11 @@ bool powNative(int argCount, Value* args) {
 bool minNative(int argCount, Value* args) {
     if (!IS_NUMBER(args[0])) {
         return nativeError(args,
-                           L"参数1的类型必须是「数字」，而不是「%ls」。", getType(args[0]));
+                           L"参数 1 的类型必须是「数字」，而不是「%ls」。", getType(args[0]));
     }
     if (!IS_NUMBER(args[1])) {
         return nativeError(args,
-                           L"参数2的类型必须是「数字」，而不是「%ls」。", getType(args[1]));
+                           L"参数 2 的类型必须是「数字」，而不是「%ls」。", getType(args[1]));
     }
     double a = AS_NUMBER(args[0]);
     double b = AS_NUMBER(args[1]);
@@ -110,11 +110,11 @@ bool minNative(int argCount, Value* args) {
 bool maxNative(int argCount, Value* args) {
     if (!IS_NUMBER(args[0])) {
         return nativeError(args,
-                           L"参数1的类型必须是「数字」，而不是「%ls」。", getType(args[0]));
+                           L"参数 1 的类型必须是「数字」，而不是「%ls」。", getType(args[0]));
     }
     if (!IS_NUMBER(args[1])) {
         return nativeError(args,
-                           L"参数2的类型必须是「数字」，而不是「%ls」。", getType(args[1]));
+                           L"参数 2 的类型必须是「数字」，而不是「%ls」。", getType(args[1]));
     }
     double a = AS_NUMBER(args[0]);
     double b = AS_NUMBER(args[1]);
@@ -128,11 +128,11 @@ bool roundNative(int argCount, Value* args) {
     }
     if (!IS_NUMBER(args[0])) {
         return nativeError(args,
-                           L"参数1（输入）的类型必须是「数字」，而不是「%ls」。", getType(args[0]));
+                           L"参数 1（输入）的类型必须是「数字」，而不是「%ls」。", getType(args[0]));
     }
     if (argCount == 2 && !IS_NUMBER(args[1])) {
         return nativeError(args,
-                           L"参数2（精度）的类型必须是「数字」，而不是「%ls」。", getType(args[1]));
+                           L"参数 2（精度）的类型必须是「数字」，而不是「%ls」。", getType(args[1]));
     }
     double shift =  pow(10.0, AS_NUMBER(args[1]));
     args[-1] = NUMBER_VAL(round(AS_NUMBER(args[0]) * shift) / shift);
@@ -142,7 +142,7 @@ bool roundNative(int argCount, Value* args) {
 bool stonNative(int argCount, Value* args) {
     if (!IS_STRING(args[0])) {
         return nativeError(args,
-                           L"参数1（输入）的类型必须是「字符串」，而不是「%ls」。", getType(args[0]));
+                           L"参数 1（输入）的类型必须是「字符串」，而不是「%ls」。", getType(args[0]));
     }
     args[-1] = NUMBER_VAL(wcstod(AS_WCSTRING(args[0]), NULL));
     return true;
@@ -151,7 +151,7 @@ bool stonNative(int argCount, Value* args) {
 bool ntosNative(int argCount, Value* args) {
     if (!IS_NUMBER(args[0])) {
         return nativeError(args,
-                           L"参数1（输入）的类型必须是「数字」，而不是「%ls」。", getType(args[0]));
+                           L"参数 1（输入）的类型必须是「数字」，而不是「%ls」。", getType(args[0]));
     }
     wchar_t str[100];
     swprintf(str, sizeof(str), L"%g", AS_NUMBER(args[0]));
