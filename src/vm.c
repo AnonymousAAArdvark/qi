@@ -174,7 +174,7 @@ static bool invokeFromClass(ObjClass* klass, ObjString* name, int argCount, Call
     Value method;
     if (!tableGet(&klass->methods, name, &method)) {
         frame->ip = ip;
-        runtimeError(L"未定义的属性 %ls", name->chars);
+        runtimeError(L"未定义的属性「%ls」", name->chars);
         return false;
     }
     return call(AS_CLOSURE(method), argCount);
@@ -236,15 +236,15 @@ static bool invokeString(const Value* receiver, ObjString* name, int argCount, C
         // Returns a part of a string between given indexes
         if (argCount != 2) {
             frame->ip = ip;
-            runtimeError(L"Expected 2 arguments but got %d.", argCount);
+            runtimeError(L"需要 2 个参数，但得到 %d。", argCount);
             return false;
         } else if (!IS_NUMBER(peek(argCount - 1))) {
             frame->ip = ip;
-            runtimeError(L"Argument 1 (begin) must be of type 'number', not '%ls'.", getType(vm.stackTop[-argCount]));
+            runtimeError(L"参数 1（开头）的类型必须时「数字」，而不是「%ls」。", getType(vm.stackTop[-argCount]));
             return false;
         } else if (!IS_NUMBER(peek(argCount - 2))) {
             frame->ip = ip;
-            runtimeError(L"Argument 2 (end) must be of type 'number', not '%ls'.", getType(vm.stackTop[-argCount]));
+            runtimeError(L"参数 2（结尾）的类型必须时「数字」，而不是「%ls」。", getType(vm.stackTop[-argCount]));
             return false;
         }
 
@@ -256,15 +256,15 @@ static bool invokeString(const Value* receiver, ObjString* name, int argCount, C
 
         if (!isValidStringIndex(str, begin)) {
             frame->ip = ip;
-            runtimeError(L"Argument 1 is not a valid index");
+            runtimeError(L"参数 1 不是有效索引。");
             return false;
         } else if (!isValidStringIndex(str, end - 1)) { // Ending index is exclusive
             frame->ip = ip;
-            runtimeError(L"Argument 2 is not a valid index");
+            runtimeError(L"参数 2 不是有效索引。");
             return false;
         } else if (end < begin) {
             frame->ip = ip;
-            runtimeError(L"End index cannot be before begin index.");
+            runtimeError(L"结束索引不能在开始索引之前。");
             return false;
         }
 
@@ -278,7 +278,7 @@ static bool invokeString(const Value* receiver, ObjString* name, int argCount, C
         return true;
     }
     frame->ip = ip;
-    runtimeError(L"Undefined property '%ls'.", name->chars);
+    runtimeError(L"未定义的属性「%ls」。", name->chars);
     return false;
 }
 
@@ -287,7 +287,7 @@ static bool invokeList(const Value* receiver, ObjString* name, int argCount, Cal
         // Push a value to the end of a list increasing the list's length by 1
         if (argCount != 1) {
             frame->ip = ip;
-            runtimeError(L"Expected 1 argument but got %d.", argCount);
+            runtimeError(L"需要 1 个参数，但得到 %d。", argCount);
             return false;
         }
         ObjList *list = AS_LIST(*receiver);
@@ -300,7 +300,7 @@ static bool invokeList(const Value* receiver, ObjString* name, int argCount, Cal
         // Pop a value from the end of a list decreasing the list's length by 1
         if (argCount != 0) {
             frame->ip = ip;
-            runtimeError(L"Expected 0 arguments but got %d.", argCount);
+            runtimeError(L"需要 0 个参数，但得到 %d。", argCount);
             return false;
         }
 
@@ -308,7 +308,7 @@ static bool invokeList(const Value* receiver, ObjString* name, int argCount, Cal
 
         if (!isValidListIndex(list, list->count - 1)) {
             frame->ip = ip;
-            runtimeError(L"Cannot pop from an empty list.");
+            runtimeError(L"无法从空列表中弹出。");
             return false;
         }
 
@@ -320,11 +320,11 @@ static bool invokeList(const Value* receiver, ObjString* name, int argCount, Cal
         // Insert a value to the specified index of a list increasing the list's length by 1
         if (argCount != 2) {
             frame->ip = ip;
-            runtimeError(L"Expected 2 arguments but got %d.", argCount);
+            runtimeError(L"需要 2 个参数，但得到 %d。", argCount);
             return false;
         } else if (!IS_NUMBER(peek(argCount - 1))) {
             frame->ip = ip;
-            runtimeError(L"Argument 1 (index) must be of type 'number', not '%ls'.", getType(vm.stackTop[-argCount]));
+            runtimeError(L"参数 1（索引）的类型必须时「数字」，而不是「%ls」。", getType(vm.stackTop[-argCount]));
             return false;
         }
 
@@ -335,7 +335,7 @@ static bool invokeList(const Value* receiver, ObjString* name, int argCount, Cal
 
         if (!isValidListIndex(list, index)) {
             frame->ip = ip;
-            runtimeError(L"Argument 1 is not a valid index");
+            runtimeError(L"参数 1 不是有效索引");
             return false;
         }
 
@@ -347,11 +347,11 @@ static bool invokeList(const Value* receiver, ObjString* name, int argCount, Cal
         // Delete an item from a list at the given index.
         if (argCount != 1) {
             frame->ip = ip;
-            runtimeError(L"Expected 1 argument but got %d.", argCount);
+            runtimeError(L"需要 1 个参数，但得到 %d。", argCount);
             return false;
         } else if (!IS_NUMBER(peek(argCount - 1))) {
             frame->ip = ip;
-            runtimeError(L"Argument 1 (index) must be of type 'number', not '%ls'.", getType(vm.stackTop[-argCount]));
+            runtimeError(L"参数 1（索引）的类型必须时「数字」，而不是「%ls」。", getType(vm.stackTop[-argCount]));
             return false;
         }
 
@@ -361,7 +361,7 @@ static bool invokeList(const Value* receiver, ObjString* name, int argCount, Cal
 
         if (!isValidListIndex(list, index)) {
             frame->ip = ip;
-            runtimeError(L"Argument 1 is not a valid index");
+            runtimeError(L"参数 1 不是有效索引。");
             return false;
         }
 
@@ -377,7 +377,7 @@ static bool invokeList(const Value* receiver, ObjString* name, int argCount, Cal
     }
 
     frame->ip = ip;
-    runtimeError(L"Undefined property '%ls'.", name->chars);
+    runtimeError(L"未定义的属性「%ls」。", name->chars);
     return false;
 }
 
@@ -393,7 +393,7 @@ static bool invoke(ObjString* name, int argCount, CallFrame* frame, uint8_t* ip)
     }
 
     frame->ip = ip;
-    runtimeError(L"Only instances, strings, and lists have methods");
+    runtimeError(L"只有实例、字符串和列表有方法。");
     return false;
 }
 
@@ -401,7 +401,7 @@ static bool bindMethod(ObjClass* klass, ObjString* name, CallFrame* frame, uint8
     Value method;
     if (!tableGet(&klass->methods, name, &method)) {
         frame->ip = ip;
-        runtimeError(L"Undefined property '%ls'.", name->chars);
+        runtimeError(L"未定义的属性「%ls」。", name->chars);
         return false;
     }
 
@@ -482,7 +482,7 @@ static InterpretResult run() {
     do { \
       if (!IS_NUMBER(peek(0)) || !IS_NUMBER(peek(1))) { \
         frame->ip = ip; \
-        runtimeError(L"Operands must be numbers."); \
+        runtimeError(L"操作数必须是数字。"); \
         return INTERPRET_RUNTIME_ERROR; \
       } \
       double b = AS_NUMBER(pop()); \
@@ -493,7 +493,7 @@ static InterpretResult run() {
     do { \
       if (!IS_NUMBER(peek(0)) || !IS_NUMBER(peek(1))) { \
         frame->ip = ip; \
-        runtimeError(L"Operands must be numbers."); \
+        runtimeError(L"操作数必须是数字。"); \
         return INTERPRET_RUNTIME_ERROR; \
       } \
       double b = AS_NUMBER(pop()); \
@@ -546,7 +546,7 @@ static InterpretResult run() {
                 Value value;
                 if (!tableGet(&vm.globals, name, &value)) {
                     frame->ip = ip;
-                    runtimeError(L"Undefined 变量 '%ls'.", name->chars);
+                    runtimeError(L"未定义的变量「%ls」。", name->chars);
                     return INTERPRET_RUNTIME_ERROR;
                 }
                 push(value);
@@ -563,7 +563,7 @@ static InterpretResult run() {
                 if (tableSet(&vm.globals, name, peek(0))) {
                     tableDelete(&vm.globals, name);
                     frame->ip = ip;
-                    runtimeError(L"Undefined 变量 '%ls'.", name->chars);
+                    runtimeError(L"未定义的变量「%ls」。", name->chars);
                     return INTERPRET_RUNTIME_ERROR;
                 }
                 break;
