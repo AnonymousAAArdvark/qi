@@ -1,13 +1,13 @@
 类 Base「
-  foo（a，b）「
-    打印行（"Base。foo（" + a + "，" + b + "）"）；
+  富（a，b）「
+    打印行（"Base。富（" + a + "，" + b + "）"）；
   」
 」
 
 类 Derived：Base「
-  foo（）「
-    超。foo（1）； // 期待运行时错误：Expected 2 arguments but got 1.
+  富（）「
+    超。富（1）； // 期待运行时错误：需要 2 个参数，但得到 1。
   」
 」
 
-Derived（）。foo（）；
+Derived（）。富（）；
