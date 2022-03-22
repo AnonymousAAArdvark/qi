@@ -3,7 +3,7 @@
     这。state = startState；
   」
 
-  value（）「 返回 这。state； 」
+  值（）「 返回 这。state； 」
 
   activate（）「
     这。state = 不 这。state；
@@ -35,35 +35,35 @@
 变量 toggle = Toggle（val）；
 
 对于（变量 i = 0； i 小 n； i = i + 1）「
-  val = toggle。activate（）。value（）；
-  val = toggle。activate（）。value（）；
-  val = toggle。activate（）。value（）；
-  val = toggle。activate（）。value（）；
-  val = toggle。activate（）。value（）；
-  val = toggle。activate（）。value（）；
-  val = toggle。activate（）。value（）；
-  val = toggle。activate（）。value（）；
-  val = toggle。activate（）。value（）；
-  val = toggle。activate（）。value（）；
+  val = toggle。activate（）。值（）；
+  val = toggle。activate（）。值（）；
+  val = toggle。activate（）。值（）；
+  val = toggle。activate（）。值（）；
+  val = toggle。activate（）。值（）；
+  val = toggle。activate（）。值（）；
+  val = toggle。activate（）。值（）；
+  val = toggle。activate（）。值（）；
+  val = toggle。activate（）。值（）；
+  val = toggle。activate（）。值（）；
 」
 
-打印行（toggle。value（））；
+打印行（toggle。值（））；
 
 val = 真；
 变量 ntoggle = NthToggle（val，3）；
 
 对于（变量 i = 0； i 小 n； i = i + 1）「
-  val = ntoggle。activate（）。value（）；
-  val = ntoggle。activate（）。value（）；
-  val = ntoggle。activate（）。value（）；
-  val = ntoggle。activate（）。value（）；
-  val = ntoggle。activate（）。value（）；
-  val = ntoggle。activate（）。value（）；
-  val = ntoggle。activate（）。value（）；
-  val = ntoggle。activate（）。value（）；
-  val = ntoggle。activate（）。value（）；
-  val = ntoggle。activate（）。value（）；
+  val = ntoggle。activate（）。值（）；
+  val = ntoggle。activate（）。值（）；
+  val = ntoggle。activate（）。值（）；
+  val = ntoggle。activate（）。值（）；
+  val = ntoggle。activate（）。值（）；
+  val = ntoggle。activate（）。值（）；
+  val = ntoggle。activate（）。值（）；
+  val = ntoggle。activate（）。值（）；
+  val = ntoggle。activate（）。值（）；
+  val = ntoggle。activate（）。值（）；
 」
 
-打印行（ntoggle。value（））；
+打印行（ntoggle。值（））；
 打印行（时钟（）- start）；
