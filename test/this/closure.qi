@@ -1,4 +1,4 @@
-类 Foo「
+类 丰富「
   getClosure（）「
     功能 closure（）「
       返回 这。toString（）；
@@ -6,8 +6,8 @@
     返回 closure；
   」
 
-  toString（）「 返回 "Foo"； 」
+  toString（）「 返回 "丰富"； 」
 」
 
-变量 closure = Foo（）。getClosure（）；
-打印行（closure（））； // 期待：Foo
+变量 closure = 丰富（）。getClosure（）；
+打印行（closure（））； // 期待：丰富
