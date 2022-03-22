@@ -26,8 +26,8 @@ var expectedErrorPattern, _ = regexp.Compile(`// (错误.*)`)
 var errorLinePattern, _ = regexp.Compile(`//【行 (\d+)】(错误.*)`)
 var expectedRuntimeErrorPattern, _ = regexp.Compile(`// 期待运行时错误：(.+)`)
 var syntaxErrorPattern, _ = regexp.Compile(`【.*行 (\d+)】(错误.+)`)
-var stackTracePattern, _ = regexp.Compile(`\[line (\d+)]`)
-var nonTestPattern, _ = regexp.Compile(`// nontest`)
+var stackTracePattern, _ = regexp.Compile(`【行 (\d+)】`)
+var nonTestPattern, _ = regexp.Compile(`// 不考`)
 
 var passed int
 var failed int
