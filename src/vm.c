@@ -174,7 +174,7 @@ static bool invokeFromClass(ObjClass* klass, ObjString* name, int argCount, Call
     Value method;
     if (!tableGet(&klass->methods, name, &method)) {
         frame->ip = ip;
-        runtimeError(L"未定义的属性「%ls」", name->chars);
+        runtimeError(L"未定义的属性「%ls」。", name->chars);
         return false;
     }
     return call(AS_CLOSURE(method), argCount);
@@ -881,7 +881,7 @@ static InterpretResult run() {
                         return INTERPRET_RUNTIME_ERROR;
                     } else if (!IS_STRING(item)) {
                         frame->ip = ip;
-                        runtimeError(L"Only characters can be stored in strings.");
+                        runtimeError(L"字符串中只能存储字符。");
                         return INTERPRET_RUNTIME_ERROR;
                     }
 
@@ -891,12 +891,12 @@ static InterpretResult run() {
 
                     if (!isValidStringIndex(objString, numIndex)) {
                         frame->ip = ip;
-                        runtimeError(L"Invalid string index.");
+                        runtimeError(L"字符串索引无效。");
                         return INTERPRET_RUNTIME_ERROR;
                     } else if (wcslen(itemString->chars) != 1) {
                         frame->ip = ip;
                         runtimeError(
-                                L"Expected string of length 1 but got length %d.", wcslen(itemString->chars));
+                                L"期望长度为 1 的字符串，但长度为 %d。", wcslen(itemString->chars));
                         return INTERPRET_RUNTIME_ERROR;
                     }
 
@@ -908,7 +908,7 @@ static InterpretResult run() {
 
                     if (!IS_NUMBER(index)) {
                         frame->ip = ip;
-                        runtimeError(L"List index is not a number.");
+                        runtimeError(L"列表索引不是数字。");
                         return INTERPRET_RUNTIME_ERROR;
                     }
                     int numIndex = AS_NUMBER(index);
@@ -916,7 +916,7 @@ static InterpretResult run() {
 
                     if (!isValidListIndex(objList, numIndex)) {
                         frame->ip = ip;
-                        runtimeError(L"Invalid list index.");
+                        runtimeError(L"列表索引无效。");
                         return INTERPRET_RUNTIME_ERROR;
                     }
 
@@ -926,7 +926,7 @@ static InterpretResult run() {
                 }
 
                 frame->ip = ip;
-                runtimeError(L"Cannot store value: 变量 is not a string or list.");
+                runtimeError(L"无法存储值：变量不是字符串或列表。");
                 return INTERPRET_RUNTIME_ERROR;
             }
         }
