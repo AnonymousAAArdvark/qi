@@ -1,5 +1,5 @@
-类 Foo「
+类 丰富「
   method（）「 」
 」
-变量 foo = Foo（）；
-打印行（foo。method）； // 期待：《功能 method》
+变量 富 = 丰富（）；
+打印行（富。method）； // 期待：《功能 method》
