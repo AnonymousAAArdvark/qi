@@ -10,5 +10,5 @@
 
 类 B：A「」
 
-变量 b = B（"value"）；
-b。test（）； // 期待：value
+变量 b = B（"值"）；
+b。test（）； // 期待：值
