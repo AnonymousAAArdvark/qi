@@ -1,16 +1,16 @@
 类 Base「
-  foo（）「
-    打印行（"Base。foo（）"）；
+  富（）「
+    打印行（"Base。富（）"）；
   」
 」
 
 类 Derived：Base「
-  bar（）「
-    打印行（"Derived。bar（）"）；
-    超。foo（）；
+  吧（）「
+    打印行（"Derived。吧（）"）；
+    超。富（）；
   」
 」
 
-Derived（）。bar（）；
-// 期待：Derived。bar（）
-// 期待：Base。foo（）
+Derived（）。吧（）；
+// 期待：Derived。吧（）
+// 期待：Base。富（）
