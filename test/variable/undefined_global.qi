@@ -1,1 +1,1 @@
-打印行（notDefined）；  // 期待运行时错误：Undefined 变量 'notDefined'.
+打印行（notDefined）；  // 期待运行时错误：未定义的变量「notDefined」。
