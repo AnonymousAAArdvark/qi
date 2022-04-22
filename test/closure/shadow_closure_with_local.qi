@@ -1,12 +1,12 @@
 「
-  变量 foo = "closure"；
+  变量 富 = "closure"；
   功能 f（）「
    「
-      打印行（foo）； // 期待：closure
-      变量 foo = "shadow"；
-      打印行（foo）； // 期待：shadow
+      打印行（富）； // 期待：closure
+      变量 富 = "shadow"；
+      打印行（富）； // 期待：shadow
     」
-    打印行（foo）； // 期待：closure
+    打印行（富）； // 期待：closure
   」
   f（）；
 」
