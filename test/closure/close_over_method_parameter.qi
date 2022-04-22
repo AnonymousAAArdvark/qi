@@ -1,6 +1,6 @@
 变量 f；
 
-类 Foo「
+类 丰富「
   method（param）「
     功能 f下（）「
       打印行（param）；
@@ -9,5 +9,5 @@
   」
 」
 
-Foo（）。method（"param"）；
+丰富（）。method（"param"）；
 f（）； // 期待：param
