@@ -1,4 +1,4 @@
-类 Foo「」
-变量 foo = Foo（）；
+类 丰富「」
+变量 富 = 丰富（）；
 
-foo。bar； // 期待运行时错误：Undefined property 'bar'.
+富。吧； // 期待运行时错误：未定义的属性「吧」。
