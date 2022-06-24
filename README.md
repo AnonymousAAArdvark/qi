@@ -17,7 +17,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/anonymousaaardvark/qi">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/logobak.png" alt="Logo" width="80" height="80">
   </a>
 
 <h2 align="center">气 (qi) lang</h3>
