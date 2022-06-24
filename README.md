@@ -9,8 +9,6 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 [![Lines of Code][loc-shield]][loc-url]
-[![Last Commit][last-commit-shield]][last-commit-url]
-[![Commit Activity][commit-activity-shield]][commit-activity-url]
 [![License][license-shield]][license-url]
 [![Website][website-shield]][website-url]
 [![Size][size-shield]][size-url]
