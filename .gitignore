@@ -3,3 +3,4 @@
 out
 gen
 cmake-build-debug
+.DS_Store
