@@ -17,7 +17,7 @@
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>qilang.tk »</strong></a>
     <br /><br />
     English |
-    <a href="https://github.com/AnonymousAAArdvark/qi/blob/master/README.zh.md">">中文</a>
+    <a href="https://github.com/AnonymousAAArdvark/qi/blob/master/README.zh.md">中文</a>
   </p>
 </div>
 
