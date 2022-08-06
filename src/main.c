@@ -22,8 +22,9 @@ static void repl() {
 
 static char* readFile(const char* path) {
     FILE* file = fopen(path, "rb");
+
     if (file == NULL) {
-        fwprintf(stderr, L"无法打开文件「%ls」。\n", path);
+        fwprintf(stderr, L"无法打开文件「%s」。\n", path);
         exit(74);
     }
     fseek(file, 0L, SEEK_END);
@@ -32,13 +33,13 @@ static char* readFile(const char* path) {
 
     char* buffer = (char*)malloc(fileSize + 1);
     if (buffer == NULL) {
-        fwprintf(stderr, L"没有足够的内存来读取「%ls」。\n", path);
+        fwprintf(stderr, L"没有足够的内存来读取「%s」。\n", path);
         exit(74);
     }
 
     size_t bytesRead = fread(buffer, sizeof(char), fileSize, file);
     if (bytesRead < fileSize) {
-        fwprintf(stderr, L"无法读取文件「%ls」。\n", path);
+        fwprintf(stderr, L"无法读取文件「%s」。\n", path);
         exit(74);
     }
 
