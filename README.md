@@ -105,9 +105,9 @@ For a more extensive look into Qi, go to the [Language Guide]().
 - [x] Translate everything to Chinese
 - [x] Make a logo
 - [x] Finish Readme
-- [ ] Translate Readme to Chinese
-- [ ] Create Website
-  - [ ] Front Page 
+- [x] Translate Readme to Chinese
+- [x] Create Website
+  - [x] Front Page 
   - [ ] Quick Start
   - [ ] Language Guide
     
