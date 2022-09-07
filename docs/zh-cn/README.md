@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://github.com/anonymousaaardvark/qi">
-    <img src="../assets/images/logo.png" alt="Logo" width="80" height="80">
+    <img src="assets/images/logo.png" alt="Logo" width="80" height="80">
   </a>
 </div>
 
