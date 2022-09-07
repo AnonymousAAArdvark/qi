@@ -1,6 +1,5 @@
 #气-qi-lang {
     pointer-events: none;
-    cursor: default;
 }
 
 #气-qi-lang span {
@@ -8,7 +7,7 @@
 }
 
 .cover {
-    background: url("assets/images/background.jpeg") center center / cover !important;
+    background: url("../images/background.jpeg") center center / cover !important;
 }
 
 .cover::after {
