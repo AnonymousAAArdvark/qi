@@ -9,7 +9,7 @@
     <img src="docs/assets/images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-<h2 align="center">气 (qi) lang</h3>
+<h2 align="center">气 (Qi) lang</h3>
 
   <p align="center">
     Qi is a lightweight, fast, and open source Chinese programming language.

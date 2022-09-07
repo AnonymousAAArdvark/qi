@@ -4,7 +4,7 @@
   </a>
 </div>
 
-<h2 align="center">气 (qi) lang</h2>
+<h2 align="center">气 (Qi) lang</h2>
 
   <p align="center">
     Qi is a lightweight, fast, and open source Chinese programming language.
