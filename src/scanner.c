@@ -86,6 +86,12 @@ static void skipWhitespace() {
                 if (peekNext() == L'/') {
                     // A comment goes until the end of the line.
                     while (peek() != L'\n' && !isAtEnd()) advance();
+                } else if (peekNext() == L'*') {
+                    // A multi-line comment goes until the end token.
+                    while (!isAtEnd()) {
+                        if (match(L'*') && match(L'/')) break;
+                        advance();
+                    }
                 } else {
                     return;
                 }

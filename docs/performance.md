@@ -1,5 +1,5 @@
 
-## Performance
+# Performance
 
 Although a couple of benchmarks aren't **that** good at judging performance, they're pretty cool to look at... so here's a couple.
 

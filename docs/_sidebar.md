@@ -5,6 +5,11 @@
 
 * Guides
 
+  * [Syntax](syntax.md) 
+  * [Operators](operators.md)
+  * [Types](types.md)
+  * 
+
 * Miscellaneous
 
   * [Unit Tests](unit_tests.md)
