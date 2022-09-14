@@ -15,6 +15,19 @@ An operator is a special symbol or phrase that you use to check, change, or comb
 变量 n5 = 9 % 4；        // equals 1
 ```
 
+## Increment / Decrement Operators
+The increment / decrement operators add or subtract 1 from the given integer value.
+
+Based on the placement of the operator, the operation can be either evaluated before (prefix) or after (postfix) the expression. 
+
+```c
+变量 n = 0；
+打印行（++n）；          // equals 1
+打印行（--n）；          // equals 0
+打印行（n++）；          // equals 0
+打印行（n）；            // equals 1 (n is incremented afterwards)
+```
+
 ## Assignment Operator
 The assignment operator = initialize or update a value:
 ```c
@@ -24,8 +37,8 @@ The assignment operator = initialize or update a value:
 ```
 Please note that contrary to many other programming languages, the assignment operator has no side effect, it means that it does not return any value.
 
-# Comparison Operators
-The comparison operators return a Bool value to indicate whether or not the statement is true:
+## Comparison Operators
+The comparison operators return a boolean value to indicate whether or not the statement is true:
 
 * Equal (等)
 * Not equal (不等)
@@ -40,4 +53,26 @@ The comparison operators return a Bool value to indicate whether or not the stat
 1 小等 1      // 真 because 1 is less than or equal to 1
 1 大 2        // 假 because 1 is not greater than 2
 1 大等 1      // 真 because 1 is greater than or equal to 1
+```
+
+## Logical Operators
+The comparison operators return a boolean value to indicate whether the statement is true:
+
+* Logical NOT (不)
+* Logical AND (和)
+* Logical OR (或)
+```c
+不 1          // 真 because 1 is true
+1 和 0      // 假 because one of the two values is false
+1 或 0      // 真 because one of the two values is true
+```
+
+## Subscript Operator
+The subscript operator ```【】``` is used to access and modify items in arrays or strings.
+```c
+变量 l =【1，2，3，4，5】；
+打印行（l【2】）；        // equals 3
+打印行（l【-1】）；       // equals 5
+l【0】= 0；
+打印行（l）；            // equals 【0，2，3，4，5】；
 ```
