@@ -7,6 +7,7 @@ An operator is a special symbol or phrase that you use to check, change, or comb
 * Multiplication (*)
 * Division (/)
 * Remainder (%)
+
 ```c
 变量 n1 = 1 + 2；        // equals 3
 变量 n2 = 5 - 3；        // equals 2
@@ -15,8 +16,16 @@ An operator is a special symbol or phrase that you use to check, change, or comb
 变量 n5 = 9 % 4；        // equals 1
 ```
 
+## Negate Operator
+The negate operator ```-``` flips the sign of the value.
+```c
+变量 n1 = 5；        // equals 5
+变量 n2 = -n1；        // equals -5
+变量 n3 = -n2；        // equals 5
+```
+
 ## Increment / Decrement Operators
-The increment / decrement operators add or subtract 1 from the given integer value.
+The increment / decrement operators add or subtract 1 from the given number value.
 
 Based on the placement of the operator, the operation can be either evaluated before (prefix) or after (postfix) the expression. 
 
@@ -28,8 +37,17 @@ Based on the placement of the operator, the operation can be either evaluated be
 打印行（n）；            // equals 1 (n is incremented afterwards)
 ```
 
+## Concatenation Operator
+The concatenation operator ```+``` combines two strings together.
+```c
+变量 s1 = "一"；        // equals 一
+变量 s2 = "二"；        // equals 二
+变量 s3 = s1 + s2；     // equals 一二
+变量 s4 = s3 + "三"；   // equals 一二三
+```
+
 ## Assignment Operator
-The assignment operator = initialize or update a value:
+The assignment operator ```=``` initialize or update a value:
 ```c
 变量 a = 50；       // a = 50
 变量 b = a；        // b = 50
@@ -68,7 +86,7 @@ The comparison operators return a boolean value to indicate whether the statemen
 ```
 
 ## Subscript Operator
-The subscript operator ```【】``` is used to access and modify items in arrays or strings.
+The subscript operator ```【】``` is used to access and modify items in lists or strings.
 ```c
 变量 l =【1，2，3，4，5】；
 打印行（l【2】）；        // equals 3
