@@ -60,7 +60,10 @@ For a more extensive look into Qi, go to the [Language Guide]().
 - [x] Create Website
   - [x] Front Page 
   - [x] Quick Start
-  - [ ] Language Guide
+  - [x] Language Guide
+- [ ] Escape Sequences
+- [ ] Bitwise operators
+- [ ] Remove semicolons
 
 <!-- LICENSE -->
 ## License
