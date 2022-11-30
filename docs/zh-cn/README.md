@@ -31,41 +31,6 @@
 
 
 - 气**是面向对象的**。将类放在前面和中心，[面向对象](https://en.wikipedia.org/wiki/Object-oriented_programming )编程提供了一个清晰的模块化结构，通过[抽象](https://en.wikipedia.org/wiki/Abstraction_principle_(computer_programming) )和[封装](https://en.wikipedia.org/wiki/Encapsulation_(computer_programming) )等概念，它在处理复杂性方面比函数式编程要好得多。
-## 性能
-
-虽然运行一些基准测试并不太擅长判断性能，但它们看起来很酷。。。这里有几个。
-
-每个基准测试运行5次，每种语言的平均运行时间。
-
-[![Performance Graph][performance-img]]()
-
-这些测试在我的 Macbook Air 2017 上运行，配备双核 i5 CPU 和 8 GB RAM。
-
-基准测试的代码可以在[test 文件夹](https://github.com/AnonymousAAArdvark/qi/tree/master/test/benchmark )中找到。
-
-<!-- Quick Start -->
-## 开始
-#### 先决条件
-* make
-    * macOS
-      ```bash
-      brew install make
-      ```
-    * Windows
-      ```bash
-      choco install make
-      ```
-    * Linux
-        * 应该被纳入系统
-
-#### 安装
-
-1. 克隆或下载git repo的zip。
-6. 打开终端，然后 ```cd``` 到```/src/cmake-build-release```
-7. 运行 ```make```.
-8. 全部完成！
-
-
 
 ## 句法
 
@@ -100,26 +65,11 @@
 - [ ] 删除分号
 
 
-<!-- CONTRIBUTING -->
-## 贡献
-
-贡献使开源社区成为学习、启发和创造的绝佳场所。 **非常感谢您做出的任何贡献**。
-
-如果您有更好的建议，请 fork 存储库并创建拉取请求。您也可以简单地打开带有“增强”标签的问题。
-别忘了给项目打星！再次感谢！
-
-1. Fork 项目
-2. 创建您的功能 branch (`git checkout -b feature/AmazingFeature`)
-3. Commit 你的更改 (`git commit -m 'Add some AmazingFeature'`)
-4. Push 到 Branch (`git push origin feature/AmazingFeature`)
-5. 打开一个 Pull Request
-
-
 
 <!-- LICENSE -->
 ## 执照
 
-在 MIT 许可下分发。有关更多信息，请参阅“LICENSE.txt”。
+在 MIT 许可下分发。有关更多信息，请参阅```LICENSE.txt```。
 
 
 <!-- CONTACT -->
@@ -153,4 +103,3 @@ Andrew Yang - [@anonymousaaardvark](https://twitter.com/anonymousaaardvark) - an
 [size-shield]: https://img.shields.io/github/repo-size/anonymousaaardvark/qi?style=for-the-badge
 [size-url]: https://github.com/anonymousaaardvark/qi
 [background-img]: docs/images/background.jpeg
-[performance-img]: docs/images/performance.png
