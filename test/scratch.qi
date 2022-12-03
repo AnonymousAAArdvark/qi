@@ -1,19 +1,4 @@
-// Note：These tests implicitly depend on ints being truthy。
+// 不考
+打印行（1234 位和 320102）  // 期待：66
+打印行（1234 位或 320102）  // 期待：321270
 
-// 返回 the first 真 argument。
-打印行（1 或 真）； // 期待：1
-打印行（假 或 1）； // 期待：1
-打印行（假 或 假 或 真）； // 期待：真
-
-// 返回 the last argument if all are 假。
-打印行（假 或 假）； // 期待：假
-打印行（假 或 假 或 假）； // 期待：假
-
-// Short-circuit at the first 真 argument。
-变量 a = "before"
-变量 b = "before"
-（a = 假）或
-   （b = 真）或
-   （a = "bad"）
-打印行（a）； // 期待：假
-打印行（b）； // 期待：真
