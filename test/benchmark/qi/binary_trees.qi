@@ -1,71 +1,71 @@
 类 树「
   初始化（项，深）「
-    这。项 = 项；
-    这。深 = 深；
+    这。项 = 项
+    这。深 = 深
     如果（深 大 0）「
-      变量 项2 = 项 + 项；
-      深 = 深 - 1；
-      这。左 = 树（项2 - 1，深）；
-      这。右 = 树（项2，深）；
+      变量 项2 = 项 + 项
+      深 = 深 - 1
+      这。左 = 树（项2 - 1，深）
+      这。右 = 树（项2，深）
     」否则「
-      这。左 = 空；
-      这。右 = 空；
+      这。左 = 空
+      这。右 = 空
     」
   」
 
   check（）「
     如果（这。左 等 空）「
-      返回 这。项；
+      返回 这。项
     」
 
-    返回 这。项 + 这。左。check（）- 这。右。check（）；
+    返回 这。项 + 这。左。check（）- 这。右。check（）
   」
 」
 
-变量 minDepth = 4；
-变量 maxDepth = 14；
-变量 stretchDepth = maxDepth + 1；
+变量 minDepth = 4
+变量 maxDepth = 14
+变量 stretchDepth = maxDepth + 1
 
-变量 start = 时钟（）；
+变量 start = 时钟（）
 
-打印行（"stretch tree of 深："）；
-打印行（stretchDepth）；
-打印行（"check："）；
-打印行（树（0，stretchDepth）。check（））；
+打印行（"stretch tree of 深："）
+打印行（stretchDepth）
+打印行（"check："）
+打印行（树（0，stretchDepth）。check（））
 
-变量 longLived树 = 树（0，maxDepth）；
+变量 longLived树 = 树（0，maxDepth）
 
 // iterations = 2 ** maxDepth
-变量 iterations = 1；
-变量 d = 0；
+变量 iterations = 1
+变量 d = 0
 而（d 小 maxDepth）「
-  iterations = iterations * 2；
-  d = d + 1；
+  iterations = iterations * 2
+  d = d + 1
 」
 
-变量 深 = minDepth；
+变量 深 = minDepth
 而（深 小 stretchDepth）「
-  变量 check = 0；
-  变量 i = 1；
+  变量 check = 0
+  变量 i = 1
   而（i 小等 iterations）「
-    check = check + 树（i，深）。check（）+ 树（-i，深）。check（）；
-    i = i + 1；
+    check = check + 树（i，深）。check（）+ 树（-i，深）。check（）
+    i = i + 1
   」
 
-  打印行（"num trees："）；
-  打印行（iterations * 2）；
-  打印行（"深："）；
-  打印行（深）；
-  打印行（"check："）；
-  打印行（check）；
+  打印行（"num trees："）
+  打印行（iterations * 2）
+  打印行（"深："）
+  打印行（深）
+  打印行（"check："）
+  打印行（check）
 
-  iterations = iterations / 4；
-  深 = 深 + 2；
+  iterations = iterations / 4
+  深 = 深 + 2
 」
 
-打印行（"long lived tree of 深："）；
-打印行（maxDepth）；
-打印行（"check："）；
-打印行（longLived树。check（））；
-打印行（"elapsed："）；
-打印行（时钟（）- start）；
+打印行（"long lived tree of 深："）
+打印行（maxDepth）
+打印行（"check："）
+打印行（longLived树。check（））
+打印行（"elapsed："）
+打印行（时钟（）- start）

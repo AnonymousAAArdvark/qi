@@ -1,11 +1,11 @@
 类 Zoo「
   初始化（）「
-    这。aar变量k  = 1；
-    这。baboon   = 1；
-    这。cat      = 1；
-    这。donkey   = 1；
-    这。elephant = 1；
-    这。fox      = 1；
+    这。aar变量k  = 1
+    这。baboon   = 1
+    这。cat      = 1
+    这。donkey   = 1
+    这。elephant = 1
+    这。fox      = 1
   」
   ant（）  「 返回 这。aar变量k； 」
   banana（）「 返回 这。baboon； 」
@@ -15,10 +15,10 @@
   mouse（）「 返回 这。fox； 」
 」
 
-变量 zoo = Zoo（）；
-变量 sum = 0；
-变量 start = 时钟（）；
-变量 batch = 0；
+变量 zoo = Zoo（）
+变量 sum = 0
+变量 start = 时钟（）
+变量 batch = 0
 而（时钟（）- start 小 10）「
   对于（变量 i = 0； i 小 10000； i = i + 1）「
     sum = sum + zoo。ant（）
@@ -26,11 +26,11 @@
               + zoo。tuna（）
               + zoo。hay（）
               + zoo。grass（）
-              + zoo。mouse（）；
+              + zoo。mouse（）
   」
-  batch = batch + 1；
+  batch = batch + 1
 」
 
-打印行（sum）；
-打印行（batch）；
-打印行（时钟（）- start）；
+打印行（sum）
+打印行（batch）
+打印行（时钟（）- start）

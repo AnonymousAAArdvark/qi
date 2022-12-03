@@ -1,19 +1,19 @@
 类 A「
   method（arg）「
-    打印行（"A。method（" + arg + "）"）；
+    打印行（"A。method（" + arg + "）"）
   」
 」
 
 类 B：A「
   getClosure（）「
-    返回 超。method；
+    返回 超。method
   」
 
   method（arg）「
-    打印行（"B。method（" + arg + "）"）；
+    打印行（"B。method（" + arg + "）"）
   」
 」
 
 
-变量 closure = B（）。getClosure（）；
+变量 closure = B（）。getClosure（）
 closure（"arg"）； // 期待：A。method（arg）

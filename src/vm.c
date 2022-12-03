@@ -489,6 +489,17 @@ static InterpretResult run() {
       double a = AS_NUMBER(pop()); \
       push(valueType(a op b)); \
     } while (false)
+#define BINARY_BITWISE_OP(valueType, op) \
+    do { \
+      if (!IS_NUMBER(peek(0)) || !IS_NUMBER(peek(1))) { \
+        frame->ip = ip; \
+        runtimeError(L"操作数必须是数字。"); \
+        return INTERPRET_RUNTIME_ERROR; \
+      } \
+      int32_t b = (int32_t)AS_NUMBER(pop()); \
+      int32_t a = (int32_t)AS_NUMBER(pop()); \
+      push(valueType(a op b)); \
+    } while (false)
 #define BINARY_FUNC_OP(valueType, op) \
     do { \
       if (!IS_NUMBER(peek(0)) || !IS_NUMBER(peek(1))) { \
@@ -664,6 +675,21 @@ static InterpretResult run() {
             case OP_MODULO:
                 BINARY_FUNC_OP(NUMBER_VAL, fmod);
                 break;
+            case OP_BITWISE_AND:
+                BINARY_BITWISE_OP(NUMBER_VAL, &);
+                break;
+            case OP_BITWISE_OR:
+                BINARY_BITWISE_OP(NUMBER_VAL, |);
+                break;
+            case OP_BITWISE_XOR:
+                BINARY_BITWISE_OP(NUMBER_VAL, ^);
+                break;
+            case OP_BITWISE_LEFT_SHIFT:
+                BINARY_BITWISE_OP(NUMBER_VAL, <<);
+                break;
+            case OP_BITWISE_RIGHT_SHIFT:
+                BINARY_BITWISE_OP(NUMBER_VAL, >>);
+                break;
             case OP_NOT:
                 push(BOOL_VAL(isFalsey(pop())));
                 break;
@@ -674,6 +700,14 @@ static InterpretResult run() {
                     return INTERPRET_RUNTIME_ERROR;
                 }
                 push(NUMBER_VAL(-AS_NUMBER(pop())));
+                break;
+            case OP_BITWISE_NOT:
+                if (!IS_NUMBER(peek(0))) {
+                    frame->ip = ip;
+                    runtimeError(L"操作数必须是数字。");
+                    return INTERPRET_RUNTIME_ERROR;
+                }
+                push(NUMBER_VAL(~(int32_t)AS_NUMBER(pop())));
                 break;
             case OP_INCREMENT: {
                 if (!IS_NUMBER(peek(0))) {

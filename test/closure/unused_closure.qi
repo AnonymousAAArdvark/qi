@@ -3,7 +3,7 @@
 // the closure was not executed。
 
 「
-  变量 a = "a"；
+  变量 a = "a"
   如果（假）「
     功能 富（）「 a； 」
   」

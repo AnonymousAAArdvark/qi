@@ -2,36 +2,36 @@
 
 类 丰富「
   初始化（）「
-    这。field0 = 1；
-    这。field1 = 1；
-    这。field2 = 1；
-    这。field3 = 1；
-    这。field4 = 1；
-    这。field5 = 1；
-    这。field6 = 1；
-    这。field7 = 1；
-    这。field8 = 1；
-    这。field9 = 1；
-    这。field10 = 1；
-    这。field11 = 1；
-    这。field12 = 1；
-    这。field13 = 1；
-    这。field14 = 1；
-    这。field15 = 1；
-    这。field16 = 1；
-    这。field17 = 1；
-    这。field18 = 1；
-    这。field19 = 1；
-    这。field20 = 1；
-    这。field21 = 1；
-    这。field22 = 1；
-    这。field23 = 1；
-    这。field24 = 1；
-    这。field25 = 1；
-    这。field26 = 1；
-    这。field27 = 1；
-    这。field28 = 1；
-    这。field29 = 1；
+    这。field0 = 1
+    这。field1 = 1
+    这。field2 = 1
+    这。field3 = 1
+    这。field4 = 1
+    这。field5 = 1
+    这。field6 = 1
+    这。field7 = 1
+    这。field8 = 1
+    这。field9 = 1
+    这。field10 = 1
+    这。field11 = 1
+    这。field12 = 1
+    这。field13 = 1
+    这。field14 = 1
+    这。field15 = 1
+    这。field16 = 1
+    这。field17 = 1
+    这。field18 = 1
+    这。field19 = 1
+    这。field20 = 1
+    这。field21 = 1
+    这。field22 = 1
+    这。field23 = 1
+    这。field24 = 1
+    这。field25 = 1
+    这。field26 = 1
+    这。field27 = 1
+    这。field28 = 1
+    这。field29 = 1
   」
 
   method0（）「 返回 这。field0； 」
@@ -66,41 +66,41 @@
   method29（）「 返回 这。field29； 」
 」
 
-变量 富 = 丰富（）；
-变量 start = 时钟（）；
-变量 i = 0；
+变量 富 = 丰富（）
+变量 start = 时钟（）
+变量 i = 0
 而（i 小 500000）「
-  富。method0（）；
-  富。method1（）；
-  富。method2（）；
-  富。method3（）；
-  富。method4（）；
-  富。method5（）；
-  富。method6（）；
-  富。method7（）；
-  富。method8（）；
-  富。method9（）；
-  富。method10（）；
-  富。method11（）；
-  富。method12（）；
-  富。method13（）；
-  富。method14（）；
-  富。method15（）；
-  富。method16（）；
-  富。method17（）；
-  富。method18（）；
-  富。method19（）；
-  富。method20（）；
-  富。method21（）；
-  富。method22（）；
-  富。method23（）；
-  富。method24（）；
-  富。method25（）；
-  富。method26（）；
-  富。method27（）；
-  富。method28（）；
-  富。method29（）；
-  i = i + 1；
+  富。method0（）
+  富。method1（）
+  富。method2（）
+  富。method3（）
+  富。method4（）
+  富。method5（）
+  富。method6（）
+  富。method7（）
+  富。method8（）
+  富。method9（）
+  富。method10（）
+  富。method11（）
+  富。method12（）
+  富。method13（）
+  富。method14（）
+  富。method15（）
+  富。method16（）
+  富。method17（）
+  富。method18（）
+  富。method19（）
+  富。method20（）
+  富。method21（）
+  富。method22（）
+  富。method23（）
+  富。method24（）
+  富。method25（）
+  富。method26（）
+  富。method27（）
+  富。method28（）
+  富。method29（）
+  i = i + 1
 」
 
-打印行（（时钟（）- start））；
+打印行（（时钟（）- start））

@@ -1,7 +1,7 @@
-变量 a = "before"；
+变量 a = "before"
 打印行（a）； // 期待：before
 
-a = "after"；
+a = "after"
 打印行（a）； // 期待：after
 
 打印行（a = "arg"）； // 期待：arg

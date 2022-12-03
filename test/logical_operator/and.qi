@@ -10,10 +10,10 @@
 打印行（1 和 2 和 3）； // 期待：3
 
 // Short-circuit at the first 假 argument。
-变量 a = "before"；
-变量 b = "before"；
+变量 a = "before"
+变量 b = "before"
 （a = 真）和
    （b = 假）和
-   （a = "bad"）；
+   （a = "bad"）
 打印行（a）； // 期待：真
 打印行（b）； // 期待：假

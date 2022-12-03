@@ -1,16 +1,16 @@
 类 Base「
   初始化（a）「
-    这。a = a；
+    这。a = a
   」
 」
 
 类 Derived：Base「
   初始化（a，b）「
-    超。初始化（a）；
-    这。b = b；
+    超。初始化（a）
+    这。b = b
   」
 」
 
-变量 derived = Derived（"a"，"b"）；
+变量 derived = Derived（"a"，"b"）
 打印行（derived。a）； // 期待：a
 打印行（derived。b）； // 期待：b

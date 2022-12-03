@@ -33,41 +33,41 @@
   method29（）「」
 」
 
-变量 富 = 丰富（）；
-变量 start = 时钟（）；
-变量 i = 0；
+变量 富 = 丰富（）
+变量 start = 时钟（）
+变量 i = 0
 而（i 小 500000）「
-  富。method0（）；
-  富。method1（）；
-  富。method2（）；
-  富。method3（）；
-  富。method4（）；
-  富。method5（）；
-  富。method6（）；
-  富。method7（）；
-  富。method8（）；
-  富。method9（）；
-  富。method10（）；
-  富。method11（）；
-  富。method12（）；
-  富。method13（）；
-  富。method14（）；
-  富。method15（）；
-  富。method16（）；
-  富。method17（）；
-  富。method18（）；
-  富。method19（）；
-  富。method20（）；
-  富。method21（）；
-  富。method22（）；
-  富。method23（）；
-  富。method24（）；
-  富。method25（）；
-  富。method26（）；
-  富。method27（）；
-  富。method28（）；
-  富。method29（）；
-  i = i + 1；
+  富。method0（）
+  富。method1（）
+  富。method2（）
+  富。method3（）
+  富。method4（）
+  富。method5（）
+  富。method6（）
+  富。method7（）
+  富。method8（）
+  富。method9（）
+  富。method10（）
+  富。method11（）
+  富。method12（）
+  富。method13（）
+  富。method14（）
+  富。method15（）
+  富。method16（）
+  富。method17（）
+  富。method18（）
+  富。method19（）
+  富。method20（）
+  富。method21（）
+  富。method22（）
+  富。method23（）
+  富。method24（）
+  富。method25（）
+  富。method26（）
+  富。method27（）
+  富。method28（）
+  富。method29（）
+  i = i + 1
 」
 
-打印行（时钟（）- start）；
+打印行（时钟（）- start）

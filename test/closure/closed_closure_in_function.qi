@@ -1,11 +1,11 @@
-变量 f；
+变量 f
 
 「
-  变量 local = "local"；
+  变量 local = "local"
   功能 f下（）「
-    打印行（local）；
+    打印行（local）
   」
-  f = f下；
+  f = f下
 」
 
 f（）； // 期待：local

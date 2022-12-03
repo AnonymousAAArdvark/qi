@@ -27,8 +27,12 @@ typedef enum {
     PREC_ASSIGNMENT,  // =
     PREC_OR,          // 或
     PREC_AND,         // 和
-    PREC_EQUALITY,    // 等  不 等
+    PREC_EQUALITY,    // 等  不 等  位不
     PREC_COMPARISON,  // 大 小 大等 小等
+    PREC_BIT_OR,      // 位或
+    PREC_BIT_XOR,     // 位异或
+    PREC_BIT_AND,     // 位和
+    PREC_BIT_SHIFT,   // 位左移 位右移
     PREC_TERM,        // + -
     PREC_FACTOR,      // * /
     PREC_UNARY,       // ! -
@@ -415,17 +419,22 @@ static void binary(bool canAssign) {
     parsePrecedence((Precedence)(rule->precedence + 1));
 
     switch (operatorType) {
-        case TOKEN_BANG_EQUAL:    emitBytes(OP_EQUAL, OP_NOT); break;
-        case TOKEN_EQUAL_EQUAL:   emitByte(OP_EQUAL); break;
-        case TOKEN_GREATER:       emitByte(OP_GREATER); break;
-        case TOKEN_GREATER_EQUAL: emitBytes(OP_LESS, OP_NOT); break;
-        case TOKEN_LESS:          emitByte(OP_LESS); break;
-        case TOKEN_LESS_EQUAL:    emitBytes(OP_GREATER, OP_NOT); break;
-        case TOKEN_PLUS:          emitByte(OP_ADD); break;
-        case TOKEN_MINUS:         emitByte(OP_SUBTRACT); break;
-        case TOKEN_STAR:          emitByte(OP_MULTIPLY); break;
-        case TOKEN_SLASH:         emitByte(OP_DIVIDE); break;
-        case TOKEN_PERCENT:       emitByte(OP_MODULO); break;
+        case TOKEN_BANG_EQUAL:          emitBytes(OP_EQUAL, OP_NOT); break;
+        case TOKEN_EQUAL_EQUAL:         emitByte(OP_EQUAL); break;
+        case TOKEN_GREATER:             emitByte(OP_GREATER); break;
+        case TOKEN_GREATER_EQUAL:       emitBytes(OP_LESS, OP_NOT); break;
+        case TOKEN_LESS:                emitByte(OP_LESS); break;
+        case TOKEN_LESS_EQUAL:          emitBytes(OP_GREATER, OP_NOT); break;
+        case TOKEN_PLUS:                emitByte(OP_ADD); break;
+        case TOKEN_MINUS:               emitByte(OP_SUBTRACT); break;
+        case TOKEN_STAR:                emitByte(OP_MULTIPLY); break;
+        case TOKEN_SLASH:               emitByte(OP_DIVIDE); break;
+        case TOKEN_PERCENT:             emitByte(OP_MODULO); break;
+        case TOKEN_BITWISE_OR:          emitByte(OP_BITWISE_OR); break;
+        case TOKEN_BITWISE_XOR:         emitByte(OP_BITWISE_XOR); break;
+        case TOKEN_BITWISE_AND:         emitByte(OP_BITWISE_AND); break;
+        case TOKEN_BITWISE_LEFT_SHIFT:  emitByte(OP_BITWISE_LEFT_SHIFT); break;
+        case TOKEN_BITWISE_RIGHT_SHIFT: emitByte(OP_BITWISE_RIGHT_SHIFT); break;
         default: return; // Unreachable.
     }
 }
@@ -657,6 +666,7 @@ static void unary(bool canAssign) {
     switch (operatorType) {
         case TOKEN_BANG: emitByte(OP_NOT); break;
         case TOKEN_MINUS: emitByte(OP_NEGATE); break;
+        case TOKEN_BITWISE_NOT: emitByte(OP_BITWISE_NOT); break;
         case TOKEN_PLUS_PLUS:
         case TOKEN_MINUS_MINUS: {
             uint8_t op1 = -1, op2 = -1;
@@ -700,13 +710,14 @@ ParseRule rules[] = {
         [TOKEN_MINUS]         = {unary,    binary, PREC_TERM},
         [TOKEN_PLUS]          = {NULL,     binary, PREC_TERM},
         [TOKEN_MINUS_MINUS]   = {unary,    postfix,   PREC_CALL},
-        [TOKEN_PLUS_PLUS]   = {unary,    postfix,   PREC_CALL},
+        [TOKEN_PLUS_PLUS]     = {unary,    postfix,   PREC_CALL},
         [TOKEN_SEMICOLON]     = {NULL,     NULL,   PREC_NONE},
         [TOKEN_SLASH]         = {NULL,     binary, PREC_FACTOR},
         [TOKEN_STAR]          = {NULL,     binary, PREC_FACTOR},
-        [TOKEN_PERCENT]        = {NULL,     binary, PREC_FACTOR},
-        [TOKEN_BANG]          = {unary,     NULL,   PREC_NONE},
-        [TOKEN_BANG_EQUAL]    = {NULL,     binary,   PREC_EQUALITY},
+        [TOKEN_PERCENT]       = {NULL,     binary, PREC_FACTOR},
+        [TOKEN_BANG]          = {unary,    NULL,   PREC_NONE},
+        [TOKEN_BANG_EQUAL]    = {NULL,     binary, PREC_EQUALITY},
+        [TOKEN_BITWISE_NOT]   = {unary,    NULL,   PREC_NONE},
         [TOKEN_EQUAL]         = {NULL,     NULL,   PREC_NONE},
         [TOKEN_PLUS_EQUAL]    = {NULL,     NULL,   PREC_NONE},
         [TOKEN_MINUS_EQUAL]   = {NULL,     NULL,   PREC_NONE},
@@ -715,24 +726,29 @@ ParseRule rules[] = {
         [TOKEN_GREATER_EQUAL] = {NULL,     binary, PREC_COMPARISON},
         [TOKEN_LESS]          = {NULL,     binary, PREC_COMPARISON},
         [TOKEN_LESS_EQUAL]    = {NULL,     binary, PREC_COMPARISON},
-        [TOKEN_IDENTIFIER]    = {variable,     NULL,   PREC_NONE},
-        [TOKEN_STRING]        = {string,     NULL,   PREC_NONE},
+        [TOKEN_BITWISE_LEFT_SHIFT] = {NULL, binary, PREC_BIT_SHIFT},
+        [TOKEN_BITWISE_RIGHT_SHIFT] = {NULL, binary, PREC_BIT_SHIFT},
+        [TOKEN_IDENTIFIER]    = {variable, NULL,   PREC_NONE},
+        [TOKEN_STRING]        = {string,   NULL,   PREC_NONE},
         [TOKEN_LEFT_BRACKET]  = {list,     subscript, PREC_SUBSCRIPT},
         [TOKEN_RIGHT_BRACKET] = {NULL,     NULL,   PREC_NONE},
         [TOKEN_NUMBER]        = {number,   NULL,   PREC_NONE},
         [TOKEN_AND]           = {NULL,     and_,   PREC_AND},
+        [TOKEN_BITWISE_AND]   = {NULL,     binary, PREC_BIT_AND},
         [TOKEN_CLASS]         = {NULL,     NULL,   PREC_NONE},
         [TOKEN_ELSE]          = {NULL,     NULL,   PREC_NONE},
-        [TOKEN_FALSE]         = {literal,     NULL,   PREC_NONE},
+        [TOKEN_FALSE]         = {literal,  NULL,   PREC_NONE},
         [TOKEN_FOR]           = {NULL,     NULL,   PREC_NONE},
         [TOKEN_FUN]           = {NULL,     NULL,   PREC_NONE},
         [TOKEN_IF]            = {NULL,     NULL,   PREC_NONE},
-        [TOKEN_NIL]           = {literal,     NULL,   PREC_NONE},
+        [TOKEN_NIL]           = {literal,  NULL,   PREC_NONE},
         [TOKEN_OR]            = {NULL,     or_,   PREC_OR},
+        [TOKEN_BITWISE_OR]    = {NULL,     binary, PREC_BIT_OR},
+        [TOKEN_BITWISE_XOR]   = {NULL,     binary, PREC_BIT_XOR},
         [TOKEN_RETURN]        = {NULL,     NULL,   PREC_NONE},
-        [TOKEN_SUPER]         = {super_,     NULL,   PREC_NONE},
-        [TOKEN_THIS]          = {this_,     NULL,   PREC_NONE},
-        [TOKEN_TRUE]          = {literal,     NULL,   PREC_NONE},
+        [TOKEN_SUPER]         = {super_,   NULL,   PREC_NONE},
+        [TOKEN_THIS]          = {this_,    NULL,   PREC_NONE},
+        [TOKEN_TRUE]          = {literal,  NULL,   PREC_NONE},
         [TOKEN_VAR]           = {NULL,     NULL,   PREC_NONE},
         [TOKEN_WHILE]         = {NULL,     NULL,   PREC_NONE},
         [TOKEN_ERROR]         = {NULL,     NULL,   PREC_NONE},
@@ -751,6 +767,7 @@ static void parsePrecedence(Precedence precedence) {
     prefixRule(canAssign);
 
     while (precedence <= getRule(parser.current.type)->precedence) {
+        if (parser.current.line > parser.previous.line) break;
         advance();
         ParseFn infixRule = getRule(parser.previous.type)->infix;
         infixRule(canAssign);
@@ -937,15 +954,17 @@ static void varDeclaration() {
     } else {
         emitByte(OP_NIL);
     }
-    consume(TOKEN_SEMICOLON, L"在变量声明之后期待「 ；」。");
+//    consume(TOKEN_SEMICOLON, L"在变量声明之后期待「 ；」。");
+    match(TOKEN_SEMICOLON);
 
     defineVariable(global);
 }
 
 static void expressionStatement() {
     expression();
-    consume(TOKEN_SEMICOLON, L"表达式后期待「 ；」。");
+//    consume(TOKEN_SEMICOLON, L"表达式后期待「 ；」。");
     emitByte(OP_POP);
+    match(TOKEN_SEMICOLON);
 }
 
 static void forStatement() {
@@ -1038,7 +1057,7 @@ static void returnStatement() {
         error(L"无法从顶级代码返回。");
     }
 
-    if (match(TOKEN_SEMICOLON)) {
+    if (match(TOKEN_SEMICOLON) || check(TOKEN_RIGHT_BRACE)) {
         emitReturn();
     } else {
         if (current->type == TYPE_INITIALIZER) {
@@ -1046,7 +1065,9 @@ static void returnStatement() {
         }
 
         expression();
-        consume(TOKEN_SEMICOLON, L"返回值后期得「 ；」。");
+//        consume(TOKEN_SEMICOLON, L"返回值后期得「 ；」。");
+        match(TOKEN_SEMICOLON);
+
         emitByte(OP_RETURN);
     }
 }
@@ -1176,7 +1197,8 @@ static void continueStatement() {
         error(L"不能在循环外使用「继续」。");
     }
 
-    consume(TOKEN_SEMICOLON, L"在「继续」之后期待「 ；」。");
+//    consume(TOKEN_SEMICOLON, L"在「继续」之后期待「 ；」。");
+    match(TOKEN_SEMICOLON);
 
     // Discard any locals created inside the loop.
     for (int i = current->localCount - 1; i >= 0 && current->locals[i].depth > innermostLoopScopeDepth; i--) {
@@ -1192,7 +1214,8 @@ static void breakStatement() {
         error(L"不能在循环外或切换使用「打断」。");
     }
 
-    consume(TOKEN_SEMICOLON, L"在「打断」之后期待「 ；」。");
+//    consume(TOKEN_SEMICOLON, L"在「打断」之后期待「 ；」。");
+    match(TOKEN_SEMICOLON);
 
     if (innermostLoopStart > innermostSwitchStart) {
         // Discard any locals created inside the loop.
@@ -1214,6 +1237,7 @@ static void synchronize() {
 
     while (parser.current.type != TOKEN_EOF) {
         if (parser.previous.type == TOKEN_SEMICOLON) return;
+        else if (parser.previous.line != parser.current.line) return;
         switch (parser.current.type) {
             case TOKEN_CLASS:
             case TOKEN_FUN:

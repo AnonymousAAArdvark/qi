@@ -1,11 +1,11 @@
 功能 isEven（n）「
-  如果（n 等 0）返回 真；
-  返回 isOdd（n - 1）；
+  如果（n 等 0）返回 真
+  返回 isOdd（n - 1）
 」
 
 功能 isOdd（n）「
-  如果（n 等 0）返回 假；
-  返回 isEven（n - 1）；
+  如果（n 等 0）返回 假
+  返回 isEven（n - 1）
 」
 
 打印行（isEven（4））； // 期待：真

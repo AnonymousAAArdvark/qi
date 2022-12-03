@@ -5,13 +5,13 @@
 类 Derived：Base「
   getClosure（）「
     功能 closure（）「
-      返回 超。toString（）；
+      返回 超。toString（）
     」
-    返回 closure；
+    返回 closure
   」
 
   toString（）「 返回 "Derived"； 」
 」
 
-变量 closure = Derived（）。getClosure（）；
+变量 closure = Derived（）。getClosure（）
 打印行（closure（））； // 期待：Base

@@ -1,14 +1,14 @@
 类 A「
   初始化（param）「
-    这。field = param；
+    这。field = param
   」
 
   test（）「
-    打印行（这。field）；
+    打印行（这。field）
   」
 」
 
 类 B：A「」
 
-变量 b = B（"值"）；
+变量 b = B（"值"）
 b。test（）； // 期待：值

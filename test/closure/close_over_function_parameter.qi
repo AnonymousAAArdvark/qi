@@ -1,11 +1,11 @@
-变量 f；
+变量 f
 
 功能 富（param）「
   功能 f下（）「
-    打印行（param）；
+    打印行（param）
   」
-  f = f下；
+  f = f下
 」
-富（"param"）；
+富（"param"）
 
 f（）； // 期待：param

@@ -1,7 +1,7 @@
 「
-  变量 a = "local"；
+  变量 a = "local"
  「
-    变量 a = "shadow"；
+    变量 a = "shadow"
     打印行（a）； // 期待：shadow
   」
   打印行（a）； // 期待：local

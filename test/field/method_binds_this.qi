@@ -1,19 +1,19 @@
 类 丰富「
   sayName（a）「
-    打印行（这。name）；
-    打印行（a）；
+    打印行（这。name）
+    打印行（a）
   」
 」
 
-变量 富1 = 丰富（）；
-富1。name = "富1"；
+变量 富1 = 丰富（）
+富1。name = "富1"
 
-变量 富2 = 丰富（）；
-富2。name = "富2"；
+变量 富2 = 丰富（）
+富2。name = "富2"
 
 // Store the method reference on another object。
-富2。fn = 富1。sayName；
+富2。fn = 富1。sayName
 // Still retains original receiver。
-富2。fn（1）；
+富2。fn（1）
 // 期待：富1
 // 期待：1

@@ -1,25 +1,25 @@
 类 A「
   say（）「
-    打印行（"A"）；
+    打印行（"A"）
   」
 」
 
 类 B：A「
   getClosure（）「
     功能 closure（）「
-      超。say（）；
+      超。say（）
     」
-    返回 closure；
+    返回 closure
   」
 
   say（）「
-    打印行（"B"）；
+    打印行（"B"）
   」
 」
 
 类 C：B「
   say（）「
-    打印行（"C"）；
+    打印行（"C"）
   」
 」
 
