@@ -1,1 +1,1 @@
-unknown = "what"； // 期待运行时错误：未定义的变量「unknown」。
+unknown = "what" // 期待运行时错误：未定义的变量「unknown」。

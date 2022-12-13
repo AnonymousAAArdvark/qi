@@ -521,8 +521,33 @@ static void grouping(bool canAssign) {
 }
 
 static void number(bool canAssign) {
-    double value = wcstod(parser.previous.start, NULL);
-    emitConstant(NUMBER_VAL(value));
+    switch (parser.previous.type) {
+        case TOKEN_DECIMAL: {
+            double value = wcstod(parser.previous.start, NULL);
+            emitConstant(NUMBER_VAL(value));
+            break;
+        }
+        case TOKEN_HEXADECIMAL: {
+            // Skip past the "0x" so that it doesn't trip up the conversion
+            double value = (double)wcstol(parser.previous.start + 2, NULL, 16);
+            emitConstant(NUMBER_VAL(value));
+            break;
+        }
+        case TOKEN_OCTAL: {
+            // Skip past the "0O" so that it doesn't trip up the conversion
+            double value = (double)wcstol(parser.previous.start + 2, NULL, 8);
+            emitConstant(NUMBER_VAL(value));
+            break;
+        }
+        case TOKEN_BINARY: {
+            // Skip past the "0B" so that it doesn't trip up the conversion
+            double value = (double)wcstol(parser.previous.start + 2, NULL, 2);
+            emitConstant(NUMBER_VAL(value));
+            break;
+        }
+        default: return; // Unreachable.
+    }
+
 }
 
 static void or_(bool canAssign) {
@@ -732,7 +757,10 @@ ParseRule rules[] = {
         [TOKEN_STRING]        = {string,   NULL,   PREC_NONE},
         [TOKEN_LEFT_BRACKET]  = {list,     subscript, PREC_SUBSCRIPT},
         [TOKEN_RIGHT_BRACKET] = {NULL,     NULL,   PREC_NONE},
-        [TOKEN_NUMBER]        = {number,   NULL,   PREC_NONE},
+        [TOKEN_DECIMAL]       = {number,   NULL,   PREC_NONE},
+        [TOKEN_OCTAL]         = {number,   NULL,   PREC_NONE},
+        [TOKEN_HEXADECIMAL]   = {number,   NULL,   PREC_NONE},
+        [TOKEN_BINARY]        = {number,   NULL,   PREC_NONE},
         [TOKEN_AND]           = {NULL,     and_,   PREC_AND},
         [TOKEN_BITWISE_AND]   = {NULL,     binary, PREC_BIT_AND},
         [TOKEN_CLASS]         = {NULL,     NULL,   PREC_NONE},

@@ -1,12 +1,12 @@
 类 丰富「
   初始化（arg）「
-    打印行（"丰富。初始化（" + arg + "）"）
+    系统。打印行（"丰富。初始化（" + arg + "）"）
     这。field = "初始化"
   」
 」
 
 功能 初始化（）「
-  打印行（"not initializer"）
+  系统。打印行（"not initializer"）
 」
 
-初始化（）； // 期待：not initializer
+初始化（） // 期待：not initializer

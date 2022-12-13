@@ -7,7 +7,7 @@
 」
 
 功能 printArg（arg）「
-  打印行（arg）
+  系统。打印行（arg）
 」
 
-返回FunCallWithArg（printArg，"hello world"）； // 期待：hello world
+返回FunCallWithArg（printArg，"hello world"） // 期待：hello world

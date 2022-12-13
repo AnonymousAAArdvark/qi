@@ -7,20 +7,20 @@
     这。elephant = 1
     这。fox      = 1
   」
-  ant（）  「 返回 这。aar变量k； 」
-  banana（）「 返回 这。baboon； 」
-  tuna（） 「 返回 这。cat； 」
-  hay（）  「 返回 这。donkey； 」
-  grass（）「 返回 这。elephant； 」
-  mouse（）「 返回 这。fox； 」
+  ant（）  「 返回 这。aar变量k 」
+  banana（）「 返回 这。baboon 」
+  tuna（） 「 返回 这。cat 」
+  hay（）  「 返回 这。donkey 」
+  grass（）「 返回 这。elephant 」
+  mouse（）「 返回 这。fox 」
 」
 
 变量 zoo = Zoo（）
 变量 sum = 0
-变量 start = 时钟（）
+变量 start = 系统。时钟（）
 变量 batch = 0
-而（时钟（）- start 小 10）「
-  对于（变量 i = 0； i 小 10000； i = i + 1）「
+而（系统。时钟（）- start 小 10）「
+  对于（变量 i = 0；i 小 10000；i = i + 1）「
     sum = sum + zoo。ant（）
               + zoo。banana（）
               + zoo。tuna（）
@@ -31,6 +31,6 @@
   batch = batch + 1
 」
 
-打印行（sum）
-打印行（batch）
-打印行（时钟（）- start）
+系统。打印行（sum）
+系统。打印行（batch）
+系统。打印行（系统。时钟（）- start）

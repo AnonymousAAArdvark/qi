@@ -1,5 +1,5 @@
 # Operators
-An operator is a special symbol or phrase that you use to check, change, or combine values. For example, the addition operator (+) adds two numbers, as in ```变量 i = 1 + 2；```, and the logical AND operator (和) combines two Boolean values, as in ```如果 (flag1 和 flag2)；```.
+An operator is a special symbol or phrase that you use to check, change, or combine values. For example, the addition operator (+) adds two numbers, as in ```变量 i = 1 + 2```, and the logical AND operator (和) combines two Boolean values, as in ```如果 (flag1 和 flag2)```.
 
 ## Arithmetic Operators
 * Addition (+)
@@ -9,19 +9,19 @@ An operator is a special symbol or phrase that you use to check, change, or comb
 * Remainder (%)
 
 ```c
-变量 n1 = 1 + 2；        // equals 3
-变量 n2 = 5 - 3；        // equals 2
-变量 n3 = 2 * 3；        // equals 6
-变量 n4 = 10.0 / 2.5；   // equals 4.0
-变量 n5 = 9 % 4；        // equals 1
+变量 n1 = 1 + 2        // equals 3
+变量 n2 = 5 - 3        // equals 2
+变量 n3 = 2 * 3        // equals 6
+变量 n4 = 10.0 / 2.5   // equals 4.0
+变量 n5 = 9 % 4        // equals 1
 ```
 
 ## Negate Operator
 The negate operator ```-``` flips the sign of the value.
 ```c
-变量 n1 = 5；        // equals 5
-变量 n2 = -n1；        // equals -5
-变量 n3 = -n2；        // equals 5
+变量 n1 = 5        // equals 5
+变量 n2 = -n1        // equals -5
+变量 n3 = -n2        // equals 5
 ```
 
 ## Increment / Decrement Operators
@@ -30,28 +30,28 @@ The increment / decrement operators add or subtract 1 from the given number valu
 Based on the placement of the operator, the operation can be either evaluated before (prefix) or after (postfix) the expression. 
 
 ```c
-变量 n = 0；
-打印行（++n）；          // equals 1
-打印行（--n）；          // equals 0
-打印行（n++）；          // equals 0
-打印行（n）；            // equals 1 (n is incremented afterwards)
+变量 n = 0
+打印行（++n）          // equals 1
+打印行（--n）          // equals 0
+打印行（n++）          // equals 0
+打印行（n）            // equals 1 (n is incremented afterwards)
 ```
 
 ## Concatenation Operator
 The concatenation operator ```+``` combines two strings together.
 ```c
-变量 s1 = "一"；        // equals 一
-变量 s2 = "二"；        // equals 二
-变量 s3 = s1 + s2；     // equals 一二
-变量 s4 = s3 + "三"；   // equals 一二三
+变量 s1 = "一"        // equals 一
+变量 s2 = "二"        // equals 二
+变量 s3 = s1 + s2     // equals 一二
+变量 s4 = s3 + "三"   // equals 一二三
 ```
 
 ## Assignment Operator
 The assignment operator ```=``` initialize or update a value:
 ```c
-变量 a = 50；       // a = 50
-变量 b = a；        // b = 50
-变量 c = a * b；    // c = 50 * 50
+变量 a = 50       // a = 50
+变量 b = a        // b = 50
+变量 c = a * b    // c = 50 * 50
 ```
 Please note that contrary to many other programming languages, the assignment operator has no side effect, it means that it does not return any value.
 
@@ -88,9 +88,9 @@ The comparison operators return a boolean value to indicate whether the statemen
 ## Subscript Operator
 The subscript operator ```【】``` is used to access and modify items in lists or strings.
 ```c
-变量 l =【1，2，3，4，5】；
-打印行（l【2】）；        // equals 3
-打印行（l【-1】）；       // equals 5
-l【0】= 0；
-打印行（l）；            // equals 【0，2，3，4，5】；
+变量 l =【1，2，3，4，5】
+打印行（l【2】）        // equals 3
+打印行（l【-1】）       // equals 5
+l【0】= 0
+打印行（l）              // equals 【0，2，3，4，5】
 ```

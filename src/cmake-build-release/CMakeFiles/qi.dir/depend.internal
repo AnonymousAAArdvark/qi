@@ -22,6 +22,16 @@ CMakeFiles/qi.dir/compiler.c.o
  /Users/andrewyang/CLionProjects/qi/src/table.h
  /Users/andrewyang/CLionProjects/qi/src/value.h
  /Users/andrewyang/CLionProjects/qi/src/vm.h
+CMakeFiles/qi.dir/core_module.c.o
+ /Users/andrewyang/CLionProjects/qi/src/chunk.h
+ /Users/andrewyang/CLionProjects/qi/src/common.h
+ /Users/andrewyang/CLionProjects/qi/src/core_module.c
+ /Users/andrewyang/CLionProjects/qi/src/core_module.h
+ /Users/andrewyang/CLionProjects/qi/src/memory.h
+ /Users/andrewyang/CLionProjects/qi/src/object.h
+ /Users/andrewyang/CLionProjects/qi/src/table.h
+ /Users/andrewyang/CLionProjects/qi/src/value.h
+ /Users/andrewyang/CLionProjects/qi/src/vm.h
 CMakeFiles/qi.dir/debug.c.o
  /Users/andrewyang/CLionProjects/qi/src/chunk.h
  /Users/andrewyang/CLionProjects/qi/src/common.h
@@ -30,16 +40,6 @@ CMakeFiles/qi.dir/debug.c.o
  /Users/andrewyang/CLionProjects/qi/src/object.h
  /Users/andrewyang/CLionProjects/qi/src/table.h
  /Users/andrewyang/CLionProjects/qi/src/value.h
-CMakeFiles/qi.dir/lib.c.o
- /Users/andrewyang/CLionProjects/qi/src/chunk.h
- /Users/andrewyang/CLionProjects/qi/src/common.h
- /Users/andrewyang/CLionProjects/qi/src/lib.c
- /Users/andrewyang/CLionProjects/qi/src/lib.h
- /Users/andrewyang/CLionProjects/qi/src/memory.h
- /Users/andrewyang/CLionProjects/qi/src/object.h
- /Users/andrewyang/CLionProjects/qi/src/table.h
- /Users/andrewyang/CLionProjects/qi/src/value.h
- /Users/andrewyang/CLionProjects/qi/src/vm.h
 CMakeFiles/qi.dir/main.c.o
  /Users/andrewyang/CLionProjects/qi/src/chunk.h
  /Users/andrewyang/CLionProjects/qi/src/common.h
@@ -93,8 +93,8 @@ CMakeFiles/qi.dir/vm.c.o
  /Users/andrewyang/CLionProjects/qi/src/chunk.h
  /Users/andrewyang/CLionProjects/qi/src/common.h
  /Users/andrewyang/CLionProjects/qi/src/compiler.h
+ /Users/andrewyang/CLionProjects/qi/src/core_module.h
  /Users/andrewyang/CLionProjects/qi/src/debug.h
- /Users/andrewyang/CLionProjects/qi/src/lib.h
  /Users/andrewyang/CLionProjects/qi/src/memory.h
  /Users/andrewyang/CLionProjects/qi/src/object.h
  /Users/andrewyang/CLionProjects/qi/src/table.h

@@ -30,7 +30,7 @@ After reading an article on how programming languages are created, I was inspire
 
 **Why name it Qi?** Qi was derived from the pinyin of the Chinese character "气", which means "air" in English. I wanted this language to be quick and lightweight, as well as fully transparent, just like air! 
 ```c
-打印行（"你好，世界"）；
+打印行（"你好，世界"）
 ```
 ### Features
 - Qi is <ins>Chinese-based</ins>. Us English-speaking people don't often take for granted the fact that the programming languages we learn are all based on native tongues we're already fluent in. A native English speaker can reasonably infer what a piece of Python code does just from reading the keywords ("if", "int", "while", etc.). Making this language foreign-based allows programming to be more accessible to more people around the globe.

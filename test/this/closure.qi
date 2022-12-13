@@ -6,8 +6,8 @@
     返回 closure
   」
 
-  toString（）「 返回 "丰富"； 」
+  toString（）「 返回 "丰富" 」
 」
 
 变量 closure = 丰富（）。getClosure（）
-打印行（closure（））； // 期待：丰富
+系统。打印行（closure（）） // 期待：丰富

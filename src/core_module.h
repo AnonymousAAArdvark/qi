@@ -2,8 +2,8 @@
 // Created by Andrew Yang on 9/17/21.
 //
 
-#ifndef QI_LIB_H
-#define QI_LIB_H
+#ifndef QI_CORE_MODULE_H
+#define QI_CORE_MODULE_H
 
 #include "common.h"
 #include "object.h"
@@ -23,5 +23,6 @@ bool roundNative(int argCount, Value* args);
 bool stonNative(int argCount, Value* args);
 bool ntosNative(int argCount, Value* args);
 bool typeofNative(int argCount, Value* args);
+void initCoreClass();
 
-#endif //QI_LIB_H
+#endif //QI_CORE_MODULE_H

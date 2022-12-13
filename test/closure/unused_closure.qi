@@ -5,9 +5,9 @@
 「
   变量 a = "a"
   如果（假）「
-    功能 富（）「 a； 」
+    功能 富（）「 a 」
   」
 」
 
 // If we get here，we didn't segfault when a went out of scope.
-打印行（"ok"）； // 期待：ok
+系统。打印行（"ok"） // 期待：ok

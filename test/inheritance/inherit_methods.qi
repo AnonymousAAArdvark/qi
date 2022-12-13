@@ -1,14 +1,14 @@
 类 丰富「
-  methodOn丰富（）「 打印行（"富"）； 」
-  override（）「 打印行（"富"）； 」
+  methodOn丰富（）「 系统。打印行（"富"） 」
+  override（）「 系统。打印行（"富"） 」
 」
 
 类 吧子：丰富「
-  methodOn吧子（）「 打印行（"吧"）； 」
-  override（）「 打印行（"吧"）； 」
+  methodOn吧子（）「 系统。打印行（"吧"） 」
+  override（）「 系统。打印行（"吧"） 」
 」
 
 变量 吧 = 吧子（）
-吧。methodOn丰富（）； // 期待：富
-吧。methodOn吧子（）； // 期待：吧
-吧。override（）； // 期待：吧
+吧。methodOn丰富（） // 期待：富
+吧。methodOn吧子（） // 期待：吧
+吧。override（） // 期待：吧

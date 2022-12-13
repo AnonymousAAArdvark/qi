@@ -1,6 +1,6 @@
 变量 a = "global"
 「
   变量 a = "shadow"
-  打印行（a）； // 期待：shadow
+  系统。打印行（a） // 期待：shadow
 」
-打印行（a）； // 期待：global
+系统。打印行（a） // 期待：global

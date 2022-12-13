@@ -26,12 +26,12 @@
 变量 maxDepth = 14
 变量 stretchDepth = maxDepth + 1
 
-变量 start = 时钟（）
+变量 start = 系统。时钟（）
 
-打印行（"stretch tree of 深："）
-打印行（stretchDepth）
-打印行（"check："）
-打印行（树（0，stretchDepth）。check（））
+系统。打印行（"stretch tree of 深："）
+系统。打印行（stretchDepth）
+系统。打印行（"check："）
+系统。打印行（树（0，stretchDepth）。check（））
 
 变量 longLived树 = 树（0，maxDepth）
 
@@ -52,20 +52,20 @@
     i = i + 1
   」
 
-  打印行（"num trees："）
-  打印行（iterations * 2）
-  打印行（"深："）
-  打印行（深）
-  打印行（"check："）
-  打印行（check）
+  系统。打印行（"num trees："）
+  系统。打印行（iterations * 2）
+  系统。打印行（"深："）
+  系统。打印行（深）
+  系统。打印行（"check："）
+  系统。打印行（check）
 
   iterations = iterations / 4
   深 = 深 + 2
 」
 
-打印行（"long lived tree of 深："）
-打印行（maxDepth）
-打印行（"check："）
-打印行（longLived树。check（））
-打印行（"elapsed："）
-打印行（时钟（）- start）
+系统。打印行（"long lived tree of 深："）
+系统。打印行（maxDepth）
+系统。打印行（"check："）
+系统。打印行（longLived树。check（））
+系统。打印行（"elapsed："）
+系统。打印行（系统。时钟（）- start）

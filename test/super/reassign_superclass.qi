@@ -1,6 +1,6 @@
 类 Base「
   method（）「
-    打印行（"Base。method（）"）
+    系统。打印行（"Base。method（）"）
   」
 」
 
@@ -12,11 +12,11 @@
 
 类 OtherBase「
   method（）「
-    打印行（"OtherBase。method（）"）
+    系统。打印行（"OtherBase。method（）"）
   」
 」
 
 变量 derived = Derived（）
-derived。method（）； // 期待：Base。method（）
+derived。method（） // 期待：Base。method（）
 Base = OtherBase
-derived。method（）； // 期待：Base。method（）
+derived。method（） // 期待：Base。method（）

@@ -43,13 +43,12 @@ one二3
 Semicolons (；) are meaningful in Qi. They are used for separating statements:
 ```c
 // Two statements:
-打印行（"你好"）；// Newline.
-打印行（"再见"）；
+打印行（"你好"）；打印行（"再见"）
 ```
 Sometimes, though, a statement doesn’t fit on a single line and a line without a semicolon would trip it up. To handle that, Qi has a very simple rule: It ignores a newline following any token that can’t end a statement.
 ```c
 打印行（ // Newline here is ignored.
-"你好"）；
+"你好"）
 ```
 In practice, this means you can put each statement on its own line and wrap them across lines as needed without too much trouble.
 
@@ -57,15 +56,15 @@ In practice, this means you can put each statement on its own line and wrap them
 Qi uses corner brackets (「」) to define blocks. You can use a block anywhere a statement is allowed, like in [control flow](control_flow.md) statements. [Method](class.md) and [function](function.md) bodies are also blocks. For example, here we have a block for the if case, and a single statement for the else:
 ```c
 如果（高兴 和 知道）「
-    手。拍；
-」 否则 打印行（"伤心"）；
+    手。拍
+」 否则 打印行（"伤心"）
 ```
 Typically, blocks contain a series of statements like:
 ```c
 {
-    打印行（"一"）；
-    打印行（"二"）；
-    打印行（"三"）；
+    打印行（"一"）
+    打印行（"二"）
+    打印行（"三"）
 }
 ```
 

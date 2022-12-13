@@ -177,18 +177,76 @@ static Token identifier() {
     return makeToken(identifierType());
 }
 
-static Token number() {
+// Reads the next character, which should be a hex digit (0-9, a-f, or A-F) and
+// returns its numeric value. If the character isn't a hex digit, returns -1.
+static int readHexDigit()
+{
+    wchar_t c = peek();
+    if (c >= L'0' && c <= L'9') return c - L'0';
+    if (c >= L'a' && c <= L'f') return c - L'a' + 10;
+    if (c >= L'A' && c <= L'F') return c - L'A' + 10;
+
+    return -1;
+}
+
+static Token decimal() {
     while (iswdigit(peek())) advance();
 
     // Look for a fractional part.
     if (peek() == L'.' && iswdigit(peekNext())) {
         // Consume the ".".
         advance();
+        while (iswdigit(peek())) advance();
+    }
+
+    // Look for a scientific notation part.
+    if (match(L'e') || match(L'E')) {
+        // Allow a single positive/negative exponent symbol.
+        if (!match(L'+')) {
+            match(L'-');
+        }
+
+        if (!iswdigit(peek())) {
+            return errorToken(L"无终止的科学记数法。");
+        }
 
         while (iswdigit(peek())) advance();
     }
 
-    return makeToken(TOKEN_NUMBER);
+    return makeToken(TOKEN_DECIMAL);
+}
+
+// Finishes lexing an octal number literal.
+static Token octal() {
+    // Skip past the `O` used to denote an octal literal.
+    advance();
+
+    // Iterate over all the valid octal digits found.
+    while (peek() >= L'0' && peek() <= L'7') advance();
+
+    return makeToken(TOKEN_OCTAL);
+}
+
+// Finishes lexing a binary number literal.
+static Token binary() {
+    // Skip past the `B` used to denote a binary literal.
+    advance();
+
+    // Iterate over all the valid binary digits found.
+    while (peek() == L'0' || peek() == L'1') advance();
+
+    return makeToken(TOKEN_BINARY);
+}
+
+// Finishes lexing a hexadecimal number literal.
+static Token hexadecimal() {
+    // Skip past the `x` used to denote a hexadecimal literal.
+    advance();
+
+    // Iterate over all the valid hexadecimal digits found.
+    while (readHexDigit() != -1) advance();
+
+    return makeToken(TOKEN_HEXADECIMAL);
 }
 
 static Token string() {
@@ -212,8 +270,6 @@ Token scanToken() {
     if (isAtEnd()) return makeToken(TOKEN_EOF);
 
     wchar_t c = advance();
-    if (isAlpha(c)) return identifier();
-    if (iswdigit(c)) return number();
 
     switch (c) {
         case L'（': return makeToken(TOKEN_LEFT_PAREN);
@@ -239,6 +295,16 @@ Token scanToken() {
         case L'"': return string();
         case L'【': return makeToken(TOKEN_LEFT_BRACKET);
         case L'】': return makeToken(TOKEN_RIGHT_BRACKET);
+        case L'0':
+            switch (peek()) {
+                case L'x': return hexadecimal();
+                case L'O': return octal();
+                case L'B': return binary();
+                default: return decimal();
+            }
+        default:
+            if (isAlpha(c)) return identifier();
+            if (iswdigit(c)) return decimal();
     }
 
     return errorToken(L"Unexpected character.");

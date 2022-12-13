@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/qi.dir/chunk.c.o"
   "CMakeFiles/qi.dir/compiler.c.o"
+  "CMakeFiles/qi.dir/core_module.c.o"
   "CMakeFiles/qi.dir/debug.c.o"
-  "CMakeFiles/qi.dir/lib.c.o"
   "CMakeFiles/qi.dir/main.c.o"
   "CMakeFiles/qi.dir/memory.c.o"
   "CMakeFiles/qi.dir/object.c.o"

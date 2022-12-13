@@ -1,4 +1,4 @@
-变量 start = 时钟（）
+变量 start = 系统。时钟（）
 
 变量 result = 0
 对于（变量 i = 0；i 小 10000000；i++）「
@@ -6,5 +6,5 @@
     result = result * 10
     result = result -（result / 100）* 99
 」
-打印行（result）
-打印行（时钟（） - start）；
+系统。打印行（result）
+系统。打印行（系统。时钟（） - start）；

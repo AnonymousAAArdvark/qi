@@ -2,7 +2,7 @@
 
 类 Derived：Base「
   富（）「
-    超。doesNotExist（1）； // 期待运行时错误：未定义的属性「doesNotExist」。
+    超。doesNotExist（1） // 期待运行时错误：未定义的属性「doesNotExist」。
   」
 」
 

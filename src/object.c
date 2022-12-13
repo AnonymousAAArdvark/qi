@@ -35,6 +35,13 @@ ObjBoundMethod* newBoundMethod(Value reciever, ObjClosure* method) {
     return bound;
 }
 
+ObjBoundMethod* newBoundNative(Value reciever, ObjNative* native) {
+    ObjBoundMethod* bound = ALLOCATE_OBJ(ObjBoundMethod, OBJ_BOUND_METHOD);
+    bound->receiver = reciever;
+    bound->native = native;
+    return bound;
+}
+
 ObjClass* newClass(ObjString* name) {
     ObjClass* klass = ALLOCATE_OBJ(ObjClass, OBJ_CLASS);
     klass->name = name;
@@ -64,9 +71,10 @@ ObjFunction* newFunction() {
     return function;
 }
 
-ObjInstance* newInstance(ObjClass* klass) {
+ObjInstance* newInstance(ObjClass* klass, bool isStatic) {
     ObjInstance* instance = ALLOCATE_OBJ(ObjInstance, OBJ_INSTANCE);
     instance->klass = klass;
+    instance->isStatic = isStatic;
     initTable(&instance->fields);
     return instance;
 }
@@ -126,7 +134,7 @@ ObjString* handleEscapeSequences(ObjString* string) {
     int num;
     int num_len;
 
-    while (NULL != (here = wcschr(here,L'·'))) {
+    while (NULL != (here = wcschr(here, L'·'))) {
         num_len = 1;
         switch (here[1]) {
             case L'r':
@@ -149,6 +157,16 @@ ObjString* handleEscapeSequences(ObjString* string) {
                 break;
             case L'a':
                 *here = L'\a';
+                break;
+            case L'u':
+                swscanf(here + 2, L"%4x", &num);
+                num_len = 5;
+                *here = (wchar_t)num;
+                break;
+            case L'U':
+                swscanf(here + 2, L"%8x", &num);
+                num_len = 9;
+                *here = (wchar_t)num;
                 break;
             default:
                 *here = here[1];
@@ -251,7 +269,10 @@ bool isValidListIndex(ObjList* list, int index) {
 void printObject(Value value) {
     switch (OBJ_TYPE(value)) {
         case OBJ_BOUND_METHOD:
-            printfunction(AS_BOUND_METHOD(value)->method->function);
+            if (AS_BOUND_METHOD(value)->method)
+                printfunction(AS_BOUND_METHOD(value)->method->function);
+            else
+                wprintf(L"《静态方法》");
             break;
         case OBJ_CLASS:
             wprintf(L"%ls", AS_CLASS(value)->name->chars);
@@ -266,7 +287,7 @@ void printObject(Value value) {
             wprintf(L"%ls 实例", AS_INSTANCE(value)->klass->name->chars);
             break;
         case OBJ_NATIVE:
-            wprintf(L"《本机功能》");
+            wprintf(L"《静态方法》");
             break;
         case OBJ_STRING:
             wprintf(L"%ls", AS_WCSTRING(value));

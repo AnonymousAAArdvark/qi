@@ -3,7 +3,7 @@
     这。state = startState
   」
 
-  值（）「 返回 这。state； 」
+  值（）「 返回 这。state 」
 
   activate（）「
     这。state = 不 这。state
@@ -29,12 +29,12 @@
   」
 」
 
-变量 start = 时钟（）
+变量 start = 系统。时钟（）
 变量 n = 100000
 变量 val = 真
 变量 toggle = Toggle（val）
 
-对于（变量 i = 0； i 小 n； i = i + 1）「
+对于（变量 i = 0；i 小 n；i = i + 1）「
   val = toggle。activate（）。值（）
   val = toggle。activate（）。值（）
   val = toggle。activate（）。值（）
@@ -47,12 +47,12 @@
   val = toggle。activate（）。值（）
 」
 
-打印行（toggle。值（））
+系统。打印行（toggle。值（））
 
 val = 真
 变量 ntoggle = NthToggle（val，3）
 
-对于（变量 i = 0； i 小 n； i = i + 1）「
+对于（变量 i = 0；i 小 n；i = i + 1）「
   val = ntoggle。activate（）。值（）
   val = ntoggle。activate（）。值（）
   val = ntoggle。activate（）。值（）
@@ -65,5 +65,5 @@ val = 真
   val = ntoggle。activate（）。值（）
 」
 
-打印行（ntoggle。值（））
-打印行（时钟（）- start）
+系统。打印行（ntoggle。值（））
+系统。打印行（系统。时钟（）- start）

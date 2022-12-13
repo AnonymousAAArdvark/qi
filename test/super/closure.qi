@@ -1,5 +1,5 @@
 类 Base「
-  toString（）「 返回 "Base"； 」
+  toString（）「 返回 "Base" 」
 」
 
 类 Derived：Base「
@@ -10,8 +10,8 @@
     返回 closure
   」
 
-  toString（）「 返回 "Derived"； 」
+  toString（）「 返回 "Derived" 」
 」
 
 变量 closure = Derived（）。getClosure（）
-打印行（closure（））； // 期待：Base
+系统。打印行（closure（）） // 期待：Base

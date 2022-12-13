@@ -9,15 +9,15 @@ The built-in types are [布尔 (boolean)](boolean.md), [数字 (number)](number.
 #### **型**（value）
 Prints the type of the inputted value.
 ```c
-打印行（型（1234））； // 数字
+打印行（型（1234）） // 数字
 ```
 #### **串到数**（string）
 Converts the given string to a number.
 ```c
-打印行（串到数（"1"）+ 1）； // 2
+打印行（串到数（"1"）+ 1） // 2
 ```
 #### **数到串**（number）
 Converts the given number to a string.
 ```c
-打印行（数到串（123）+ "4"）； // 1234
+打印行（数到串（123）+ "4"） // 1234
 ```

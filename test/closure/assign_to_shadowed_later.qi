@@ -7,7 +7,7 @@
 
   变量 a = "inner"
   assign（）
-  打印行（a）； // 期待：inner
+  系统。打印行（a） // 期待：inner
 」
 
-打印行（a）； // 期待：assigned
+系统。打印行（a） // 期待：assigned

@@ -12,5 +12,5 @@
 」
 
 变量 derived = Derived（"a"，"b"）
-打印行（derived。a）； // 期待：a
-打印行（derived。b）； // 期待：b
+系统。打印行（derived。a） // 期待：a
+系统。打印行（derived。b） // 期待：b
