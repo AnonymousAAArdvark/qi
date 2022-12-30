@@ -39,7 +39,7 @@ The [Quick Start](quick_start.md) page is a great guide to install and set up th
 
 For code examples, please refer to the [Tests](unit_tests.md).
 
-For a more extensive look into Qi, go to the [Language Guide]().
+For a more extensive look into Qi, go to the [Language Guide](syntax.md).
 
 
 
@@ -84,7 +84,7 @@ Project Link: [https://github.com/anonymousaaardvark/qi](https://github.com/anon
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* [Crafting Interpreters](craftinginterpreters.com/)
+* [Crafting Interpreters](https://craftinginterpreters.com/)
 * [Gravity](https://github.com/marcobambini/gravity)
 * [Loxido](https://github.com/ceronman/loxido)
 

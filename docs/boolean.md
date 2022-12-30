@@ -1,4 +1,4 @@
-# 布尔 (Boolean)
+# 布尔
 Booleans can only have 2 values: 真 (true) or 假 (false). The value expresses the validity of a condition.
 ```c
 打印行（真 和 真）；  // 真 because both statements are true.

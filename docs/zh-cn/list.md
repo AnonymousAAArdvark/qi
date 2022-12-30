@@ -1,43 +1,43 @@
-# 列表 (List)
-Lists are simple sequence of values with dynamic size. Each element can be quickly accessed with a number index. You can create a array by placing a sequence of comma-separated expressions inside square brackets (【】):
+# 列表
+列表是具有动态大小的简单值序列。每个元素都可以通过数字索引快速访问。您可以通过将一系列逗号分隔的表达式放在方括号 (【】) 中来创建数组：
 ```c
 【真，2，"三"】
 ```
-The list elements don't have to be the same type.
+列表元素不必是相同的类型。
 
-## Static Methods
+## 静态方法
 
-#### list。**长度**（）
-Returns the length of the list.
+#### 列表。**长度**（）
+返回列表的长度。
 ```c
-变量 test = 【"一"，"二"，"三"，"四"】；
-打印行（test。长度（））；  // 4
+变量 科试 = 【"一"，"二"，"三"，"四"】；
+打印行（科试。长度（））；  // 4
 ```
-#### list。**推**（value）
-Push a value to the end of a list increasing the list's length by 1
+#### 列表。**推**（值）
+将值推送到列表的末尾，将列表的长度增加 1。
 ```c
-变量 test = 【"一"，"二"，"三"，"四"】；
-test。推（"五"）；
-打印行（test）；  // 【"一"，"二"，"三"，"四"，"五"】
+变量 科试 = 【"一"，"二"，"三"，"四"】；
+科试。推（"五"）；
+打印行（科试）；  // 【"一"，"二"，"三"，"四"，"五"】
 ```
-#### list。**弹**（）
-Pop a value from the end of a list decreasing the list's length by 1.
+#### 列表。**弹**（）
+从列表的末尾弹出一个值，将列表的长度减 1。
 ```c
-变量 test = 【"一"，"二"，"三"，"四"】；
-test。弹（）；
-打印行（test）；  // 【"一"，"二"，"三"】
+变量 科试 = 【"一"，"二"，"三"，"四"】；
+科试。弹（）；
+打印行（科试）；  // 【"一"，"二"，"三"】
 ```
-#### list。**插**（value，number）
-Insert a value to the specified index of a list increasing the list's length by 1.
+#### 列表。**插**（值，数字）
+向列表的指定索引插入一个值，将列表的长度增加 1。
 ```c
-变量 test = 【"一"，"二"，"三"，"四"】；
-test。插（"零"，0）；
-打印行（test）；  // 【"零"，"一"，"二"，"三"，"四"】
+变量 科试 = 【"一"，"二"，"三"，"四"】；
+科试。插（"零"，0）；
+打印行（科试）；  // 【"零"，"一"，"二"，"三"，"四"】
 ```
-#### list。**删**（number）
-Delete an item from a list at the given index.
+#### 列表。**删**（数字）
+从给定索引处的列表中删除项目。
 ```c
-变量 test = 【"一"，"二"，"三"，"四"】；
-test。插（0）；
-打印行（test）；  // 【"二"，"三"，"四"】
+变量 科试 = 【"一"，"二"，"三"，"四"】；
+科试。插（0）；
+打印行（科试）；  // 【"二"，"三"，"四"】
 ```

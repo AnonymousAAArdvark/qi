@@ -54,7 +54,7 @@ Sometimes, though, a statement doesn’t fit on a single line and a line without
 In practice, this means you can put each statement on its own line and wrap them across lines as needed without too much trouble.
 
 # Blocks
-Qi uses corner brackets (「」) to define blocks. You can use a block anywhere a statement is allowed, like in [control flow]() statements. [Method]() and [function]() bodies are also blocks. For example, here we have a block for the if case, and a single statement for the else:
+Qi uses corner brackets (「」) to define blocks. You can use a block anywhere a statement is allowed, like in [control flow](control_flow.md) statements. [Method](class.md) and [function](function.md) bodies are also blocks. For example, here we have a block for the if case, and a single statement for the else:
 ```c
 如果（高兴 和 知道）「
     手。拍；

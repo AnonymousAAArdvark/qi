@@ -1,41 +1,41 @@
-# Control Flow
-Control flow is used to determine which chunks of code are executed and how many times. *Branching* statements and expressions decide whether to execute some code and *looping* ones execute something more than once.
+# 控制流
+控制流用于确定执行哪些代码块以及执行多少次。 *分支*语句和表达式决定是否执行某些代码，而*循环*语句和表达式会多次执行某些代码。
 
-## 如果 (if) Statement
-It is often useful to execute different pieces of code based on certain conditions. You might want to run an extra piece of code when an error occurs, or to display a message when a value becomes too high or too low. To do this, you make parts of your code conditional. In its simplest form, the ```如果``` statement has a single if condition. It executes a set of statements only if that condition is true:
+## 「如果」陈述
+根据特定条件执行不同的代码段通常很有用。您可能希望在发生错误时运行一段额外的代码，或者在值变得过高或过低时显示一条消息。为此，您需要使部分代码有条件。在最简单的形式中，```如果``` 语句只有一个如果条件。仅当该条件为真时才执行一组语句：
 ```c
 如果（真）「
     打印行（"会打印"）；  // 会打印
 」
 如果（假）「
-    打印行（"不会打印"）；  // Won't print because statement is 假.
+    打印行（"不会打印"）；  // 不会打印，因为声明是假的。
 」
 ```
-#### 否则 (else) Statement
-The ```如果``` statement can provide an alternative set of statements, known as an else clause, for situations when the if condition is false. These statements are indicated by the ```否则``` keyword:
+#### 「否则」陈述
+```如果``` 语句可以为 if 条件为假的情况提供一组替代语句，称为否则子句。这些语句由```另外``` 关键字表示：
 ```c
 如果（假）「
-    打印行（"不会打印"）；  // Won't print because statement is 假.
+    打印行（"不会打印"）；  // 不会打印，因为声明是假的。
 」否则「
     打印行（"会打印"）；  // 会打印
 」
 ```
-#### 如果 否则 (if else) Statement
-To chain extra conditions after the previous ones fail, you can combine the else clause with the if condition, forming ```否则 如果```.
+#### 「如果 否则」陈述
+要在前面的条件失败后链接额外的条件，您可以将否则子句与如果条件结合起来，形成 ```如果 否则```。
 ```c
 如果（假）「
-    打印行（"不会打印"）；  // Won't print because statement is 假.
+    打印行（"不会打印"）；  // 不会打印，因为声明是假的。
 」否则 如果（真）「
     打印行（"会打印"）；  // 会打印
 」否则 如果（真）「
-    打印行（"不会打印"）；  // Won't print because previous condition evaluated to 真.
+    打印行（"不会打印"）；  // 不会打印，因为先前的条件评估为真。
 」否则「
-    打印行（"不会打印"）；  // Won't print because an if condition evaluated to 真.
+    打印行（"不会打印"）；  // 不会打印，因为如果条件评估为真。
 」
 ```
 
-## 切换 (switch) Statement
-There are many situations in which you need to match a specific value to many, many conditions. Sure, you can chain multiple ```如果``` statements, but up to a certain point the code becomes repetitive and hard to read:
+## 「切换」陈述
+在许多情况下，您需要将特定值与许多条件相匹配。当然，您可以链接多个 ```如果``` 语句，但是直到某个点，代码会变得重复且难以阅读：
 ```c
 变量 数字 = 6；
 如果（数字 等 0）「
@@ -59,11 +59,11 @@ There are many situations in which you need to match a specific value to many, m
 否则 如果（数字 等 6）「
     打印行（"六"）；
 」
-// Output: 六
+// 输出：六
 ```
-To make the above code shorter, a ```切换``` statement could be used. The switch statement is given a value, and compares it to the ```案例``` statements. It will only execute the code if the value and the case matches. 
+为了使上面的代码更短，可以使用 ```切换``` 语句。切换语句被赋予一个值，并将其与 ```案例``` 语句进行比较。如果值和大小写匹配，它只会执行代码。
 
-Make sure to include a ```打断``` (break) statement at the end of the case if you don't want execution to jump into the next case.
+如果您不希望执行跳转到下一个案例，请确保在案例的末尾包含一个 ```打断```（中断）语句。
 ```c
 变量 数字 = 6；
 切换（数字）「
@@ -82,10 +82,10 @@ Make sure to include a ```打断``` (break) statement at the end of the case if 
     案例 6：
         打印行（"六"）；打断；
 」
-// Output: 六
+// 输出：六
 ```
-#### 预设 (default) Statement
-The ```预设``` statement is executed if the inputted value does not match any of the ```案例``` statements. 
+#### 「预设」陈述
+如果输入的值与任何```案例```语句不匹配，则执行```预设```语句。
 ```c
 变量 数字 = 7；
 切换（数字）「
@@ -106,10 +106,10 @@ The ```预设``` statement is executed if the inputted value does not match any 
     预设：
         打印行（"未知数字"）；打断；
 」
-// Output: 未知数字
+// 输出：未知数字
 ```
-#### Fallthrough Cases
-If you want the code in the next case to be executed if the current case passes, simply remove the ```打断``` statement at the end of the case. This is useful if you want multiple value matches to execute the same code.
+#### 失败案例
+如果你想让下一个案例的代码在当前案例通过的情况下被执行，只需删除案例末尾的```打断```语句。如果您希望多个值匹配来执行相同的代码，这将非常有用。
 ```c
 变量 数字 = 1；
 切换（数字）「
@@ -123,5 +123,5 @@ If you want the code in the next case to be executed if the current case passes,
     预设：
         打印行（"没有在1到5之间"）；打断；
 」
-// Output: 在1到5之间
+// 输出：在1到5之间
 ```

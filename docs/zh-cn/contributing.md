@@ -1,13 +1,12 @@
-<!-- CONTRIBUTING -->
-# Contributing
+# 贡献
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+贡献使开源社区成为学习、启发和创造的绝佳场所。 **非常感谢您做出的任何贡献**。
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
+如果您有更好的建议，请 fork 存储库并创建拉取请求。您也可以简单地打开带有“增强”标签的问题。
+别忘了给项目打星！再次感谢！
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+1. 分叉项目
+2. 创建你的功能分支（`git checkout -b feature/AmazingFeature`）
+3. 提交您的更改（`git commit -m 'Add some AmazingFeature'`）
+   4.推送到分支（`git push origin feature/AmazingFeature`）
+   5.打开拉取请求

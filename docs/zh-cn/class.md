@@ -1,17 +1,17 @@
-# 类 (Class)
-Most values in Qi are objects, and every object is an instance of a class. 
+# 类
+气中的大多数值都是对象，每个对象都是一个类的实例。
 
-Classes define an object's behavior and state. Behavior is defined by methods which live in the class. Every object of the same class supports the same methods. State is defined in fields, whose values are stored in each instance.
+类定义了对象的行为和状态。行为由类中的方法定义。同一类的每个对象都支持相同的方法。状态在字段中定义，其值存储在每个实例中。
 
-## Defining a Class
-To declare a class, use the ```类``` keyword followed by the class name:
+## 定义一个类
+要声明一个类，请使用```类``` 关键字，后跟类名：
 ```c
 类 树 「
 」
 ```
 
-## Methods
-Methods are functions that are declared within a class and adds functionality to the objects that belong in that class.
+## 方法
+方法是在类中声明并为属于该类的对象添加功能的函数。
 ```c
 类 树 「
     功能 打印（）「
@@ -22,7 +22,7 @@ Methods are functions that are declared within a class and adds functionality to
 变量 式 = 树（）；
 打印行（式。打印（））；  // 我是一个树！
 ```
-Like regular functions, you can add parameters to methods.
+与常规函数一样，您可以向方法添加参数。
 ```c
 类 树 「
     功能 打印（形容）「
@@ -34,8 +34,8 @@ Like regular functions, you can add parameters to methods.
 打印行（式。打印（"大"））；  // 我是一个大树！
 ```
 
-## Constructors
-Constructors are called on initialization of a new object in a class. This is usually where class properties are declared and initialized. You are allowed to pass custom parameters into the constructor.
+## 构造函数
+在类中的新对象的初始化时调用构造函数。这通常是声明和初始化类属性的地方。您可以将自定义参数传递给构造函数。
 ```c
 类 树 「
     初始化（高度）「
@@ -46,8 +46,8 @@ Constructors are called on initialization of a new object in a class. This is us
 变量 式 = 树（）；  // 初始化新树
 ```
 
-## Properties
-Properties are variables that are declared within a class that adds states to the objects that belong in that class.
+## 特性
+属性是在类中声明的变量，用于向属于该类的对象添加状态。
 ```c
 类 树 「
     初始化（高度）「
@@ -57,8 +57,8 @@ Properties are variables that are declared within a class that adds states to th
 
 变量 式 = 树（3）；
 ```
-#### Getting and Setting Properties
-To get a property of an object, specify the object name and the property, separated by the ```。``` operator.
+#### 获取和设置属性
+要获取对象的属性，请指定对象名称和属性，用```。``` 运算符分隔。
 ```c
 类 树 「
     初始化（高度）「
@@ -69,7 +69,7 @@ To get a property of an object, specify the object name and the property, separa
 变量 式 = 树（3）；
 打印行（式。高度）；  // 3
 ```
-To set a property of an object, do the same thing that you would do with a normal variable using a ```=``` operator.
+要设置对象的属性，请执行与使用 ```=``` 运算符处理普通变量相同的操作。
 ```c
 类 树 「
     初始化（高度）「
@@ -82,8 +82,8 @@ To set a property of an object, do the same thing that you would do with a norma
 式。高度 = 4；
 打印行（式。高度）；  // 4
 ```
-#### 这 (this) Keyword
-The keyword ```这``` is used to specify that the variable you are accessing or modifying belongs to the enclosing class. This is especially useful in constructors, where the compiler may not be able to differentiate between the constructor parameter and the class property.
+#### 「这」关键字
+关键字```这```用于指定您正在访问或修改的变量属于封闭类。这在构造函数中特别有用，因为编译器可能无法区分构造函数参数和类属性。
 ```c
 类 树 「
     初始化（高度）「
@@ -95,10 +95,10 @@ The keyword ```这``` is used to specify that the variable you are accessing or 
 」
 ```
 
-## Inheritance
-A class can inherit from a “parent” or superclass. When you invoke a method on an object of some class, if it can’t be found, it walks up the chain of superclasses looking for it there.
+## 遗产
+类可以从“父类”或超类继承。当你在某个类的对象上调用一个方法时，如果找不到它，它就会沿着超类链向上寻找它。
 
-To specify a parent class, use the ```：``` operator.
+要指定父类，请使用```：``` 运算符。
 ```c
 类 树 「
     功能 打印（）「
@@ -112,9 +112,9 @@ To specify a parent class, use the ```：``` operator.
 变量 式 = 橡木（）；
 打印行（式。打印（））；  // 我是一个树！
 ```
-When a class inherits from a superclass, all of the parent class's methods and properties are "passed down" to the child class.
-#### 超 (super) Keyword
-The keyword ```超``` is used within child classes to execute methods that they inherited from parent classes. This is useful when you are trying to execute a method when you want to access the superclass method being overridden.  
+当一个类从超类继承时，所有父类的方法和属性都“传递”给子类。
+#### 「超」关键词
+关键字 ```超``` 在子类中用于执行它们从父类继承的方法。当您想要访问被覆盖的超类方法时尝试执行方法时，这很有用。
 ```c
 类 树 「
     功能 打印（种）「

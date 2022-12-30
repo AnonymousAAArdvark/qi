@@ -23,29 +23,6 @@
       subMaxLevel: 2,
       coverpage: ['/', '/zh-cn/'],
       baseurl: 'qi',
-
-      // plugins: [
-      //   function (hook) {
-      //     hook.beforeEach(function (content) { //enabling relative paths
-      //       var url = window.location.href;     // Returns full URL
-      //       lidx = url.lastIndexOf("/");
-      //       xurl = url.substring(0,lidx);
-      //       var idx = xurl.indexOf("#");
-      //       var purl = xurl.substring(idx + 1, xurl.length);
-      //       var root_url = xurl.substring(0,idx-1);
-      //
-      //       content = content.replace(/\[([^\]]*)\]\(([^)]*)\)/g,  //enabling relative paths as they should be (by adding "/" in the beginning)
-      //               function(x){
-      //                 if (!x.includes("](/")){
-      //                   if(x.includes(":ignore")){
-      //                     return x.replace("](","]("+root_url+purl+"/") ;
-      //                   }
-      //                   return x.replace("](","]("+purl+"/") ;
-      //                 }
-      //                 return x;
-      //               } )
-      //     })
-      //   }]
     }
   </script>
   <script src="https://unpkg.com/docsify/lib/docsify.min.js"></script>

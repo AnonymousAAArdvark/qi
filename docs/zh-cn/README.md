@@ -34,11 +34,11 @@
 
 ## 句法
 
-[入门]()页面是安装和设置语言的绝佳指南。
+[入门](quick_start.md)页面是安装和设置语言的绝佳指南。
 
 代码示例请参考[测试](https://github.com/AnonymousAAArdvark/qi/tree/master/test/).
 
-要更深入地了解气，请访问[语言指南]().
+要更深入地了解气，请访问[语言指南](syntax.md).
 
 
 
@@ -84,7 +84,7 @@ Andrew Yang - [@anonymousaaardvark](https://twitter.com/anonymousaaardvark) - an
 <!-- ACKNOWLEDGMENTS -->
 ## 致谢
 
-* [Crafting Interpreters](craftinginterpreters.com/)
+* [Crafting Interpreters](https://craftinginterpreters.com/)
 * [Gravity](https://github.com/marcobambini/gravity)
 * [Loxido](https://github.com/ceronman/loxido)
 

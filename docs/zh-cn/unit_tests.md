@@ -1,13 +1,13 @@
-# Unit Tests
-Unit testing is so important (especially for a programming language) that I have included a full Qi test suite to make sure that every aspect of the interpreter does what it's supposed to do. The test programs can be found in the ```/test``` directory [here](https://github.com/AnonymousAAArdvark/qi/tree/master/test). To automate the testing procedure, the Go program ```/utils/test.go``` provided [here](https://github.com/AnonymousAAArdvark/qi/blob/master/utils/test.go) runs each test program with the inputted interpreter, captures the output, and validates the result.
-## Running the Testing Program
-To run the tests, you'll need to have Go installed onto your system. Download and install it from [here](https://go.dev/doc/install).
+# 单元测试
+单元测试非常重要（特别是对于编程语言），我已经包含了一个完整的 Qi 测试套件，以确保解释器的每个方面都做它应该做的事情。测试程序可以在```/test``` 目录[这里](https://github.com/AnonymousAAArdvark/qi/tree/master/test) 中找到。为了自动化测试过程，[这里](https://github.com/AnonymousAAArdvark/qi/blob/master/utils/test.go) 提供的 Go 程序 ```/utils/test.go``` 运行每个使用输入的解释器测试程序，捕获输出并验证结果。
+## 运行测试程序
+要运行测试，您需要将 Go 安装到您的系统上。从 [此处](https://go.dev/doc/install) 下载并安装它。
 
-Executing the Go program is fairly easy. Simply run ```go run test.go``` and pass the path to the desired interpreter into the ```-interpreter=``` argument.
+执行 Go 程序相当容易。只需运行 ```go run test.go``` 并将所需解释器的路径传递到 ```-interpreter=``` 参数中。
 ```bash
-go run test.go -interpreter=PATH_TO_INTERPRETER_HERE
+go run test.go -interpreter=解释器的路径在这里
 ```
-Here is the output of the testing program if you forget to implement the negate operator:
+如果您忘记实现否定运算符，以下是测试程序的输出：
 ```bash
 $ go run test.go -interpreter=PATH
 FAIL ../test/array/indexing.qi
@@ -26,7 +26,7 @@ FAIL ../test/string/indexing.qi
 268 tests passed. 6 tests failed.
 exit status 1
 ```
-And here is the output if all tests pass:
+如果所有测试都通过，这里是输出：
 ```bash
 $ go run test.go -interpreter=PATH
 All 274 tests passed (641 expectations).
