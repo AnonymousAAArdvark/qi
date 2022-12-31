@@ -6,6 +6,22 @@ To declare a literal, surround text in two double quotes ("").
 "你好，世界"
 ```
 
+## Escaping
+Most other programming languages use a backslash (\) followed by a letter or combination of digits to declare escape sequences. However, since the backslash is not readily available on the standard pinyin keyboard, Qi uses the middle dot (·) in place of the backslash.
+A handful of escape characters are supported:
+```c
+"·"" // A double quote character.
+"··" // A middle dot.
+"·a" // Alarm beep. 
+"·b" // Backspace.
+"·f" // Formfeed.
+"·n" // Newline.
+"·r" // Carriage return.
+"·t" // Tab.
+"·v" // Vertical tab.
+```
+> For more information on escape sequences, reference [this article](https://en.wikipedia.org/wiki/Escape_sequences_in_C).
+
 ## Static Methods
 
 #### string。**长度**（）
