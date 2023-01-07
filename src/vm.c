@@ -99,6 +99,10 @@ void freeVM() {
     freeObjects();
 }
 
+bool isFalsey(Value value) {
+    return IS_NIL(value) || (IS_BOOL(value) && !AS_BOOL(value));
+}
+
 void push(Value value) {
     *vm.stackTop = value;
     vm.stackTop++;
@@ -111,6 +115,13 @@ Value pop() {
 
 static Value peek(int distance) {
     return vm.stackTop[-1 - distance];
+}
+
+static bool containsChar(wchar_t* input, wchar_t c) {
+    if (input == NULL) return iswspace(c);
+    for (int i = 0; i < wcslen(input); i++)
+        if (input[i] == c) return true;
+    return false;
 }
 
 static bool call(ObjClosure* closure, int argCount) {
@@ -179,7 +190,7 @@ static bool invokeFromClass(ObjClass* klass, bool isStatic, ObjString* name, int
         vm.stackTop -= argCount;
         return true;
     } else {
-        runtimeError(AS_STRING(vm.stackTop[-argCount - 1])->chars);
+        if (vm.frameCount != 0) runtimeError(AS_STRING(vm.stackTop[-argCount - 1])->chars);
         return false;
     }
 }
@@ -199,12 +210,231 @@ static bool invokeInstance(const Value* receiver, ObjString* name, int argCount,
 static bool invokeString(const Value* receiver, ObjString* name, int argCount, CallFrame* frame, uint8_t* ip) {
     if (wcscmp(name->chars, L"长度") == 0) {
         // Returns the length of the string
+        if (argCount != 0) {
+            frame->ip = ip;
+            runtimeError(L"需要 0 个参数，但得到 %d。", argCount);
+            return false;
+        }
+
         vm.stackTop -= argCount + 1;
         push(NUMBER_VAL(AS_STRING(*receiver)->length));
+        return true;
+    } else if (wcscmp(name->chars, L"指数") == 0) {
+        // Returns the index of the first char matching the input string
+        ObjString* str = AS_STRING(*receiver);
+        if (argCount != 1) {
+            frame->ip = ip;
+            runtimeError(L"需要 1 个参数，但得到 %d。", argCount);
+            return false;
+        } else if (!IS_STRING(peek(argCount - 1))) {
+            frame->ip = ip;
+            runtimeError(L"参数 1（开头）的类型必须时「字符串」，而不是「%ls」。", getType(vm.stackTop[-argCount]));
+            return false;
+        }
+
+        ObjString* search = AS_STRING(peek(argCount - 1));
+        wchar_t* found = wcsstr(str->chars, search->chars);
+        vm.stackTop -= argCount + 1;
+
+        push(NUMBER_VAL(found == NULL ? -1 : found - str->chars));
+
+        return true;
+    } else if (wcscmp(name->chars, L"计数") == 0) {
+        // Returns the amount of times the input string was found
+        ObjString* str = AS_STRING(*receiver);
+        if (argCount != 1) {
+            frame->ip = ip;
+            runtimeError(L"需要 1 个参数，但得到 %d。", argCount);
+            return false;
+        } else if (!IS_STRING(peek(argCount - 1))) {
+            frame->ip = ip;
+            runtimeError(L"参数 1（开头）的类型必须时「字符串」，而不是「%ls」。", getType(vm.stackTop[-argCount]));
+            return false;
+        }
+
+        ObjString* search = AS_STRING(peek(argCount - 1));
+        double count = 0;
+        const wchar_t* tmp = wcsstr(str->chars, search->chars);
+        while (tmp) {
+            count++;
+            tmp++;
+            tmp = wcsstr(tmp, search->chars);
+        }
+        vm.stackTop -= argCount + 1;
+
+        push(NUMBER_VAL(count));
+
+        return true;
+    } else if (wcscmp(name->chars, L"拆分") == 0) {
+        // Returns a split string as a list.
+        ObjString* str = AS_STRING(*receiver);
+        if (argCount != 1) {
+            frame->ip = ip;
+            runtimeError(L"需要 1 个参数，但得到 %d。", argCount);
+            return false;
+        } else if (!IS_STRING(peek(argCount - 1))) {
+            frame->ip = ip;
+            runtimeError(L"参数 1（开头）的类型必须时「字符串」，而不是「%ls」。", getType(vm.stackTop[-argCount]));
+            return false;
+        }
+
+        ObjString* search = AS_STRING(peek(argCount - 1));
+        ObjList* list = newList();
+        wchar_t *last, *token, *tmp, *toFree;
+        toFree = tmp = wcsdup(str->chars);
+
+        token = wcstok(tmp, search->chars, &last);
+        while (token != NULL) {
+            insertToList(list, OBJ_VAL(copyString(token, wcslen(token))), list->count);
+            token = wcstok(NULL, search->chars, &last);
+        }
+
+        free(toFree);
+        vm.stackTop -= argCount + 1;
+
+        push(OBJ_VAL(list));
+
+        return true;
+    } else if (wcscmp(name->chars, L"替换") == 0) {
+        // Returns a string with all occurrences of the 1st argument replaced with the 2nd argument.
+        ObjString* str = AS_STRING(*receiver);
+        if (argCount != 2) {
+            frame->ip = ip;
+            runtimeError(L"需要 2 个参数，但得到 %d。", argCount);
+            return false;
+        } else if (!IS_STRING(peek(argCount - 1))) {
+            frame->ip = ip;
+            runtimeError(L"参数 1（开头）的类型必须时「字符串」，而不是「%ls」。", getType(vm.stackTop[-argCount]));
+            return false;
+        } else if (!IS_STRING(peek(argCount - 2))) {
+            frame->ip = ip;
+            runtimeError(L"参数 2（结尾）的类型必须时「字符串」，而不是「%ls」。", getType(vm.stackTop[-argCount]));
+            return false;
+        }
+
+        ObjString* old = AS_STRING(peek(argCount - 1));
+        ObjString* new = AS_STRING(peek(argCount - 2));
+        wchar_t *buff, *next;
+        buff = wcsdup(str->chars);
+        int pos;
+
+        wchar_t* found = wcsstr(str->chars, old->chars);
+        pos = found == NULL ? -1 : (int)(found - str->chars);
+        if (pos != -1) {
+            buff[0] = 0;
+            wcsncpy(buff, str->chars, pos);
+            buff[pos] = 0;
+            wcscat(buff, new->chars);
+            next = str->chars + pos + wcslen(old->chars);
+
+            while (wcslen(next) != 0) {
+                found = wcsstr(next, old->chars);
+                pos = found == NULL ? -1 : (int)(found - next);
+                if (pos == -1) {
+                    wcscat(buff, next);
+                    break;
+                }
+                wcsncat(buff, next, pos);
+                wcscat(buff, new->chars);
+                next = next + pos + wcslen(old->chars);
+            }
+        }
+
+        vm.stackTop -= argCount + 1;
+        push(OBJ_VAL(copyString(buff, wcslen(buff))));
+
+        return true;
+    } else if (wcscmp(name->chars, L"修剪") == 0) {
+        // Returns a string with whitespace or chars of given string removed from the start and end of the input string
+        const wchar_t* str = AS_STRING(*receiver)->chars;
+        if (argCount > 1) {
+            frame->ip = ip;
+            runtimeError(L"需要 0 到 1 个参数，但得到 %d。", argCount);
+            return false;
+        } else if (argCount == 1 && !IS_STRING(peek(argCount - 1))) {
+            frame->ip = ip;
+            runtimeError(L"参数 1（开头）的类型必须时「字符串」，而不是「%ls」。", getType(vm.stackTop[-argCount]));
+            return false;
+        }
+
+        wchar_t* remove = argCount ? AS_STRING(peek(argCount - 1))->chars : NULL;
+        const wchar_t* end;
+        size_t res_size;
+        while(containsChar(remove, (wchar_t)*str)) str++;
+
+        if(*str == 0) {
+            vm.stackTop -= argCount + 1;
+            push(OBJ_VAL(copyString(0, 1)));
+            return true;
+        }
+
+        end = str + wcslen(str) - 1;
+        while(end > str && containsChar(remove, (wchar_t)*end)) end--;
+        end++;
+
+        res_size = (end - str) < wcslen(str)-1 ? (end - str) : wcslen(str)-1;
+        vm.stackTop -= argCount + 1;
+        push(OBJ_VAL(copyString(str, res_size)));
+        return true;
+    } else if (wcscmp(name->chars, L"修剪始") == 0) {
+        // Returns a string with whitespace or chars of given string removed from the start of the input string
+        const wchar_t* str = AS_STRING(*receiver)->chars;
+        if (argCount > 1) {
+            frame->ip = ip;
+            runtimeError(L"需要 0 到 1 个参数，但得到 %d。", argCount);
+            return false;
+        } else if (argCount == 1 && !IS_STRING(peek(argCount - 1))) {
+            frame->ip = ip;
+            runtimeError(L"参数 1（开头）的类型必须时「字符串」，而不是「%ls」。", getType(vm.stackTop[-argCount]));
+            return false;
+        }
+
+        wchar_t* remove = argCount ? AS_STRING(peek(argCount - 1))->chars : NULL;
+        size_t res_size;
+        while(containsChar(remove, (wchar_t)*str)) str++;
+
+        if(*str == 0) {
+            vm.stackTop -= argCount + 1;
+            push(OBJ_VAL(copyString(0, 1)));
+            return true;
+        }
+
+        vm.stackTop -= argCount + 1;
+        push(OBJ_VAL(copyString(str, wcslen(str))));
+        return true;
+    } else if (wcscmp(name->chars, L"修剪端") == 0) {
+        // Returns a string with whitespace or chars of given string removed from the end of the input string
+        const wchar_t* str = AS_STRING(*receiver)->chars;
+        if (argCount > 1) {
+            frame->ip = ip;
+            runtimeError(L"需要 0 到 1 个参数，但得到 %d。", argCount);
+            return false;
+        } else if (argCount == 1 && !IS_STRING(peek(argCount - 1))) {
+            frame->ip = ip;
+            runtimeError(L"参数 1（开头）的类型必须时「字符串」，而不是「%ls」。", getType(vm.stackTop[-argCount]));
+            return false;
+        }
+
+        wchar_t* remove = argCount ? AS_STRING(peek(argCount - 1))->chars : NULL;
+        const wchar_t* end;
+        size_t res_size;
+
+        end = str + wcslen(str) - 1;
+        while(end > str && containsChar(remove, (wchar_t)*end)) end--;
+        end++;
+
+        res_size = (end - str) < wcslen(str)-1 ? (end - str) : wcslen(str)-1;
+        vm.stackTop -= argCount + 1;
+        push(OBJ_VAL(copyString(str, res_size)));
         return true;
     } else if (wcscmp(name->chars, L"大写") == 0) {
         // Returns a string where all characters are in upper case.
         ObjString* str = AS_STRING(*receiver);
+        if (argCount != 0) {
+            frame->ip = ip;
+            runtimeError(L"需要 0 个参数，但得到 %d。", argCount);
+            return false;
+        }
 
         wchar_t* chars = ALLOCATE(wchar_t, str->length + 1);
         wcscpy(chars, str->chars);
@@ -222,6 +452,11 @@ static bool invokeString(const Value* receiver, ObjString* name, int argCount, C
     } else if (wcscmp(name->chars, L"小写") == 0) {
         // Returns a string where all characters are in lower case.
         ObjString* str = AS_STRING(*receiver);
+        if (argCount != 0) {
+            frame->ip = ip;
+            runtimeError(L"需要 0 个参数，但得到 %d。", argCount);
+            return false;
+        }
 
         wchar_t* chars = ALLOCATE(wchar_t, str->length + 1);
         wcscpy(chars, str->chars);
@@ -375,8 +610,74 @@ static bool invokeList(const Value* receiver, ObjString* name, int argCount, Cal
         return true;
     } else if (wcscmp(name->chars, L"长度") == 0) {
         // Returns the length of the list
+        if (argCount != 0) {
+            frame->ip = ip;
+            runtimeError(L"需要 0 个参数，但得到 %d。", argCount);
+            return false;
+        }
         vm.stackTop -= argCount + 1;
         push(NUMBER_VAL(AS_LIST(*receiver)->count));
+        return true;
+    } else if (wcscmp(name->chars, L"过滤") == 0) {
+        // Filters the list based on the given function
+        if (argCount != 1) {
+            frame->ip = ip;
+            runtimeError(L"需要 1 个参数，但得到 %d。", argCount);
+            return false;
+        } else if (!IS_CLOSURE(peek(argCount - 1))) {
+            frame->ip = ip;
+            runtimeError(L"参数 1（测试）的类型必须时「关闭」，而不是「%ls」。", getType(vm.stackTop[-argCount]));
+            return false;
+        }
+
+
+        ObjList* list = AS_LIST(*receiver);
+        ObjList* filtered = newList();
+        ObjClosure* closure = AS_CLOSURE(peek(argCount - 1));
+
+        if (closure->function->arity != 1) {
+            frame->ip = ip;
+            runtimeError(L"输入功能需要 1 个参数，但得到 %d。", argCount);
+            return false;
+        }
+        for (int i = 0; i < list->count; i++) {
+            Value ret;
+            Value argArr[1] = {indexFromList(list, i)};
+            if (runClosure(closure, &ret, argArr, 1) != INTERPRET_OK) {
+                return false;
+            }
+            if (!isFalsey(ret)) insertToList(filtered, indexFromList(list, i), filtered->count);
+        }
+
+        vm.stackTop -= argCount + 1;
+        push(OBJ_VAL(filtered));
+        return true;
+    } else if (wcscmp(name->chars, L"排序") == 0) {
+        // Sorts the list based on the given function or in ascending order
+        if (argCount > 1) {
+            frame->ip = ip;
+            runtimeError(L"需要 0 或 1 个参数，但得到 %d。", argCount);
+            return false;
+        } else if (argCount == 1 && !IS_CLOSURE(peek(argCount - 1))) {
+            frame->ip = ip;
+            runtimeError(L"参数 1（测试）的类型必须时「关闭」，而不是「%ls」。", getType(vm.stackTop[-argCount]));
+            return false;
+        }
+
+        ObjList* list = AS_LIST(*receiver);
+        ObjClosure* closure = argCount == 1 ? AS_CLOSURE(peek(argCount - 1)) : NULL;
+
+        if (closure && closure->function->arity != 2) {
+            frame->ip = ip;
+            runtimeError(L"输入功能需要 2 个参数，但得到 %d。", argCount);
+            return false;
+        }
+
+        if (!sortList(list, 0, list->count - 1, closure))
+            return false;
+
+        vm.stackTop -= argCount + 1;
+        push(OBJ_VAL(list));
         return true;
     }
 
@@ -455,10 +756,6 @@ static void defineMethod(ObjString* name) {
     ObjClass* klass = AS_CLASS(peek(1));
     tableSet(&klass->methods, name, method);
     pop();
-}
-
-static bool isFalsey(Value value) {
-    return IS_NIL(value) || (IS_BOOL(value) && !AS_BOOL(value));
 }
 
 static ObjString* concatenate(ObjString* a, ObjString* b) {
@@ -578,6 +875,7 @@ static InterpretResult run() {
             }
             case OP_SET_GLOBAL: {
                 ObjString *name = READ_STRING();
+
                 if (tableSet(&vm.globals, name, peek(0))) {
                     tableDelete(&vm.globals, name);
                     frame->ip = ip;
@@ -811,8 +1109,13 @@ static InterpretResult run() {
                 Value result = pop();
                 closeUpvalues(frame->slots);
                 vm.frameCount--;
+
                 if (vm.frameCount == 0) {
                     pop();
+                    return INTERPRET_OK;
+                } else if (frame->callClosure) {
+                    push(result);
+                    frame->callClosure = false;
                     return INTERPRET_OK;
                 }
 
@@ -985,6 +1288,18 @@ static InterpretResult run() {
 #undef READ_STRING
 #undef BINARY_FUNC_OP
 #undef BINARY_OP
+}
+
+InterpretResult runClosure(ObjClosure* closure, Value* value, Value args[], int argCount) {
+    for (int i = 0; i < argCount; i++) {
+        push(args[i]);
+    }
+    call(closure, argCount);
+    vm.frames[vm.frameCount - 1].callClosure = true;
+    InterpretResult result = run();
+    *value = pop();
+    vm.stackTop -= argCount;
+    return result;
 }
 
 InterpretResult interpret(const char* source) {

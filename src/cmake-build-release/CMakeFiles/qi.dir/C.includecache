@@ -22,23 +22,11 @@ stdint.h
 wchar.h
 -
 
-/Users/andrewyang/CLionProjects/qi/src/core_module.c
-stdarg.h
--
-stdio.h
--
-string.h
--
-float.h
--
-time.h
--
-math.h
--
-stdlib.h
--
-core_module.h
-/Users/andrewyang/CLionProjects/qi/src/core_module.h
+/Users/andrewyang/CLionProjects/qi/src/compiler.h
+object.h
+/Users/andrewyang/CLionProjects/qi/src/object.h
+vm.h
+/Users/andrewyang/CLionProjects/qi/src/vm.h
 
 /Users/andrewyang/CLionProjects/qi/src/core_module.h
 common.h
@@ -49,6 +37,10 @@ memory.h
 /Users/andrewyang/CLionProjects/qi/src/memory.h
 vm.h
 /Users/andrewyang/CLionProjects/qi/src/vm.h
+
+/Users/andrewyang/CLionProjects/qi/src/debug.h
+chunk.h
+/Users/andrewyang/CLionProjects/qi/src/chunk.h
 
 /Users/andrewyang/CLionProjects/qi/src/memory.h
 common.h
@@ -73,6 +65,36 @@ string.h
 -
 common.h
 /Users/andrewyang/CLionProjects/qi/src/common.h
+
+/Users/andrewyang/CLionProjects/qi/src/vm.c
+stdarg.h
+-
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+time.h
+-
+ctype.h
+-
+math.h
+-
+common.h
+/Users/andrewyang/CLionProjects/qi/src/common.h
+compiler.h
+/Users/andrewyang/CLionProjects/qi/src/compiler.h
+debug.h
+/Users/andrewyang/CLionProjects/qi/src/debug.h
+object.h
+/Users/andrewyang/CLionProjects/qi/src/object.h
+memory.h
+/Users/andrewyang/CLionProjects/qi/src/memory.h
+vm.h
+/Users/andrewyang/CLionProjects/qi/src/vm.h
+core_module.h
+/Users/andrewyang/CLionProjects/qi/src/core_module.h
 
 /Users/andrewyang/CLionProjects/qi/src/vm.h
 chunk.h

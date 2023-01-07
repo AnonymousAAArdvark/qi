@@ -259,6 +259,52 @@ void deleteFromList(ObjList* list, int index) {
     list->count--;
 }
 
+static int partitionList(ObjList* list, int low, int high, ObjClosure* pred) {
+    Value pivot = indexFromList(list, high);
+    int i = low - 1;
+
+    for (int j = low; j < high; j++) {
+        bool res = false;
+        if (pred) {
+            Value val;
+            Value args[2] = {indexFromList(list, j), pivot};
+            if (runClosure(pred, &val, args, 2) == INTERPRET_RUNTIME_ERROR)
+                return -1;
+            res = !isFalsey(val);
+        } else {
+            if (IS_NUMBER(indexFromList(list, j)) && IS_NUMBER(pivot)) {
+                res = AS_NUMBER(indexFromList(list, j)) > AS_NUMBER(pivot);
+            } else if (IS_STRING(indexFromList(list, j)) && IS_NUMBER(pivot)) {
+                res = true;
+            } else if (IS_STRING(indexFromList(list, j)) && IS_STRING(pivot)) {
+                res = wcscmp((AS_WCSTRING(indexFromList(list, j))), (AS_WCSTRING(pivot))) > 0;
+            }
+         }
+
+        if (!res) {
+            ++i;
+            Value temp = indexFromList(list, i);
+            storeToList(list, i, indexFromList(list, j));
+            storeToList(list, j, temp);
+        }
+    }
+
+    Value temp = indexFromList(list, i + 1);
+    storeToList(list, i + 1, indexFromList(list, high));
+    storeToList(list, high, temp);
+
+    return i + 1;
+}
+
+bool sortList(ObjList* list, int low, int high, ObjClosure* pred) {
+    if (low < high) {
+        int pi = partitionList(list, low, high, pred);
+        if (pi == -1 || !sortList(list, low, pi - 1, pred) || !sortList(list, pi + 1, high, pred))
+            return false;
+    }
+    return true;
+}
+
 bool isValidListIndex(ObjList* list, int index) {
     if (index < 0 || index > list->count - 1) {
         return false;

@@ -17,6 +17,7 @@ typedef struct {
     ObjClosure* closure;
     uint8_t* ip;
     Value* slots;
+    bool callClosure;
 } CallFrame;
 
 typedef struct {
@@ -49,6 +50,8 @@ extern VM vm;
 
 void initVM();
 void freeVM();
+bool isFalsey(Value value);
+InterpretResult runClosure(ObjClosure* closure, Value* value, Value args[], int argCount);
 InterpretResult interpret(const char* source);
 void push(Value value);
 Value pop();
