@@ -31,10 +31,28 @@ Based on the placement of the operator, the operation can be either evaluated be
 
 ```c
 变量 n = 0
-打印行（++n）          // equals 1
-打印行（--n）          // equals 0
-打印行（n++）          // equals 0
-打印行（n）            // equals 1 (n is incremented afterwards)
+系统。打印行（++n）          // equals 1
+系统。打印行（--n）          // equals 0
+系统。打印行（n++）          // equals 0
+系统。打印行（n）            // equals 1 (n is incremented afterwards)
+```
+
+## Bitwise Operators
+Bitwise operators operate on binary numerals at the level of its individual bits.
+* Not (位不)
+* And (位和)
+* Or (位或)
+* Xor (位异或)
+* Left Shift (位左移)
+* Right Shift (位右移)
+
+```c
+系统。打印行（位不 0B0111）         // equals 8
+系统。打印行（0B0101 位和 0B0011）  // equals 1
+系统。打印行（0B0101 位或 0B0011）  // equals 7
+系统。打印行（0B0101 位异或 0B0011）// equals 6
+系统。打印行（0B0101 位左移 1）     // equals 10
+系统。打印行（0B0101 位右移 1）     // equals 2
 ```
 
 ## Concatenation Operator
@@ -89,8 +107,8 @@ The comparison operators return a boolean value to indicate whether the statemen
 The subscript operator ```【】``` is used to access and modify items in lists or strings.
 ```c
 变量 l =【1，2，3，4，5】
-打印行（l【2】）        // equals 3
-打印行（l【-1】）       // equals 5
+系统。打印行（l【2】）        // equals 3
+系统。打印行（l【-1】）       // equals 5
 l【0】= 0
-打印行（l）              // equals 【0，2，3，4，5】
+系统。打印行（l）              // equals 【0，2，3，4，5】
 ```

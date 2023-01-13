@@ -15,23 +15,23 @@ Methods are functions that are declared within a class and adds functionality to
 ```c
 类 树 「
     功能 打印（）「
-        打印行（"我是一个树！"）
+        系统。打印行（"我是一个树！"）
     」
 」
 
 变量 式 = 树（）
-打印行（式。打印（））  // 我是一个树！
+系统。打印行（式。打印（））  // 我是一个树！
 ```
 Like regular functions, you can add parameters to methods.
 ```c
 类 树 「
     功能 打印（形容）「
-        打印行（"我是一个" + 形容 + "树！"）
+        系统。打印行（"我是一个" + 形容 + "树！"）
     」
 」
 
 变量 式 = 树（）
-打印行（式。打印（"大"））  // 我是一个大树！
+系统。打印行（式。打印（"大"））  // 我是一个大树！
 ```
 
 ## Constructors
@@ -39,7 +39,7 @@ Constructors are called on initialization of a new object in a class. This is us
 ```c
 类 树 「
     初始化（高度）「
-        打印行（"初始化新树"）
+        系统。打印行（"初始化新树"）
     」
 」
 
@@ -67,7 +67,7 @@ To get a property of an object, specify the object name and the property, separa
 」
 
 变量 式 = 树（3）
-打印行（式。高度）  // 3
+系统。打印行（式。高度）  // 3
 ```
 To set a property of an object, do the same thing that you would do with a normal variable using a ```=``` operator.
 ```c
@@ -78,9 +78,9 @@ To set a property of an object, do the same thing that you would do with a norma
 」
 
 变量 式 = 树（3）
-打印行（式。高度）  // 3
+系统。打印行（式。高度）  // 3
 式。高度 = 4
-打印行（式。高度）  // 4
+系统。打印行（式。高度）  // 4
 ```
 #### 这 (this) Keyword
 The keyword ```这``` is used to specify that the variable you are accessing or modifying belongs to the enclosing class. This is especially useful in constructors, where the compiler may not be able to differentiate between the constructor parameter and the class property.
@@ -90,7 +90,7 @@ The keyword ```这``` is used to specify that the variable you are accessing or 
         这。高度 = 高度
     」
     多高（）「
-        打印行（这。高度）
+        系统。打印行（这。高度）
     」
 」
 ```
@@ -102,7 +102,7 @@ To specify a parent class, use the ```：``` operator.
 ```c
 类 树 「
     功能 打印（）「
-        打印行（"我是一个树！"）
+        系统。打印行（"我是一个树！"）
     」
 」
 
@@ -110,7 +110,7 @@ To specify a parent class, use the ```：``` operator.
 」
 
 变量 式 = 橡木（）
-打印行（式。打印（））  // 我是一个树！
+系统。打印行（式。打印（））  // 我是一个树！
 ```
 When a class inherits from a superclass, all of the parent class's methods and properties are "passed down" to the child class.
 #### 超 (super) Keyword
@@ -118,7 +118,7 @@ The keyword ```超``` is used within child classes to execute methods that they 
 ```c
 类 树 「
     功能 打印（种）「
-        打印行（"我是一个" + 种 + "树！"）
+        系统。打印行（"我是一个" + 种 + "树！"）
     」
 」
 
@@ -129,5 +129,5 @@ The keyword ```超``` is used within child classes to execute methods that they 
 」
 
 变量 式 = 橡木（）
-打印行（式。打印（））  // 我是一个橡木树！
+系统。打印行（式。打印（））  // 我是一个橡木树！
 ```

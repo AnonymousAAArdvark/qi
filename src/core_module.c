@@ -178,7 +178,7 @@ bool sinNative(int argCount, Value* args) {
         return nativeError(args,
                            L"参数 1（输入）的类型必须是「数字」，而不是「%ls」。", getType(args[0]));
     }
-    args[-1] = NUMBER_VAL(sin(args[0]));
+    args[-1] = NUMBER_VAL(sin(AS_NUMBER(args[0])));
     return true;
 }
 
@@ -187,7 +187,7 @@ bool cosNative(int argCount, Value* args) {
         return nativeError(args,
                            L"参数 1（输入）的类型必须是「数字」，而不是「%ls」。", getType(args[0]));
     }
-    args[-1] = NUMBER_VAL(cos(args[0]));
+    args[-1] = NUMBER_VAL(cos(AS_NUMBER(args[0])));
     return true;
 }
 
@@ -196,7 +196,7 @@ bool tanNative(int argCount, Value* args) {
         return nativeError(args,
                            L"参数 1（输入）的类型必须是「数字」，而不是「%ls」。", getType(args[0]));
     }
-    args[-1] = NUMBER_VAL(tan(args[0]));
+    args[-1] = NUMBER_VAL(tan(AS_NUMBER(args[0])));
     return true;
 }
 
@@ -205,7 +205,7 @@ bool asinNative(int argCount, Value* args) {
         return nativeError(args,
                            L"参数 1（输入）的类型必须是「数字」，而不是「%ls」。", getType(args[0]));
     }
-    args[-1] = NUMBER_VAL(asin(args[0]));
+    args[-1] = NUMBER_VAL(asin(AS_NUMBER(args[0])));
     return true;
 }
 
@@ -214,7 +214,7 @@ bool acosNative(int argCount, Value* args) {
         return nativeError(args,
                            L"参数 1（输入）的类型必须是「数字」，而不是「%ls」。", getType(args[0]));
     }
-    args[-1] = NUMBER_VAL(acos(args[0]));
+    args[-1] = NUMBER_VAL(acos(AS_NUMBER(args[0])));
     return true;
 }
 
@@ -223,7 +223,7 @@ bool atanNative(int argCount, Value* args) {
         return nativeError(args,
                            L"参数 1（输入）的类型必须是「数字」，而不是「%ls」。", getType(args[0]));
     }
-    args[-1] = NUMBER_VAL(atan(args[0]));
+    args[-1] = NUMBER_VAL(atan(AS_NUMBER(args[0])));
     return true;
 }
 
@@ -232,7 +232,7 @@ bool ceilNative(int argCount, Value* args) {
         return nativeError(args,
                            L"参数 1（输入）的类型必须是「数字」，而不是「%ls」。", getType(args[0]));
     }
-    args[-1] = NUMBER_VAL(ceil(args[0]));
+    args[-1] = NUMBER_VAL(ceil(AS_NUMBER(args[0])));
     return true;
 }
 
@@ -241,7 +241,7 @@ bool floorNative(int argCount, Value* args) {
         return nativeError(args,
                            L"参数 1（输入）的类型必须是「数字」，而不是「%ls」。", getType(args[0]));
     }
-    args[-1] = NUMBER_VAL(floor(args[0]));
+    args[-1] = NUMBER_VAL(floor(AS_NUMBER(args[0])));
     return true;
 }
 
@@ -293,7 +293,6 @@ void initCoreClass() {
     defineNative(L"扫描", scanNative, 0, systemClass);
     defineNative(L"时钟", clockNative, 0, systemClass);
     defineNative(L"型", typeofNative, 1, systemClass);
-    defineNative(L"最大", maxNative, -1, systemClass);
     ObjInstance* systemInstance = newInstance(systemClass, true);
     defineNativeInstance(L"系统", systemInstance);
 
@@ -305,7 +304,6 @@ void initCoreClass() {
     defineNative(L"最大", maxNative, -1, numberClass);
     defineNative(L"四舍五入", roundNative, -1, numberClass);
     defineNative(L"数到串", ntosNative, 1, numberClass);
-    defineNative(L"对数", logNative, -1, numberClass);
     defineNative(L"对数", logNative, -1, numberClass);
     defineNative(L"正弦", sinNative, 1, numberClass);
     defineNative(L"余弦", cosNative, 1, numberClass);

@@ -13,7 +13,7 @@ A ```而``` loop performs a set of statements until a condition becomes false. T
         i += 1
     」
 」
-打印行（j）  // 2475
+系统。打印行（j）  // 2475
 ```
 ## 对于 (for) Loop
 ```而``` loops are useful when you want to loop indefinitely or according to some complex condition. But in most cases, you’re looping through a list, a series of numbers, or some other “sequence” object. ```对于``` loops can make the process significantly easier.
@@ -25,9 +25,9 @@ There are 3 optional clauses that you can to pass into the ```对于``` loop:
 ```c
 变量 列表 = 【"一"，"二"，"三"，"四"，"五"】
 对于（变量 i = 0；i 小 列表。长度（）；i++）「
-    打印（列表【i】+ " "）
+    系统。打印（列表【i】+ " "）
 」
-打印行（""）
+系统。打印行（""）
 // Output: 一 二 三 四 五
 ```
 
@@ -37,7 +37,7 @@ To immediately exit an executing loop, a ```打断``` statement can be used. Thi
 变量 日志 = 【"好"，"好"，"好"，"错误"，"好"，"好"】
 对于（变量 i = 0；i 小 日志。长度（）；i++）「
     如果（日志【i】等 "错误"）「
-        打印行（"错误在：" + 数到串（i）+ "行"）
+        系统。打印行（"错误在：" + 数到串（i）+ "行"）
         打断
     」
 」
@@ -49,8 +49,8 @@ To immediately skip over the rest of the current iteration, a ```继续``` state
 变量 列表 = 【482，9654，861，6720，5738，2045，18397】
 对于（变量 i = 0；i 小 列表。长度（）；i++）「
     如果（列表【i】% 2 等 0）继续
-    打印（数到串（列表【i】）+ " "）
+    系统。打印（数到串（列表【i】）+ " "）
 」
-打印行（""）
+系统。打印行（""）
 // Output: 861 2045 18397
 ```
