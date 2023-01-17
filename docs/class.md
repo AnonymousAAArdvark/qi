@@ -117,7 +117,7 @@ When a class inherits from a superclass, all of the parent class's methods and p
 The keyword ```超``` is used within child classes to execute methods that they inherited from parent classes. This is useful when you are trying to execute a method when you want to access the superclass method being overridden.  
 ```c
 类 树 「
-    功能 打印（种）「
+    打印（种）「
         系统。打印行（"我是一个" + 种 + "树！"）
     」
 」
