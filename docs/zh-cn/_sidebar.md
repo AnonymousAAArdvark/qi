@@ -6,7 +6,7 @@
 * 指南
 
   * [句法](zh-cn/syntax.md) 
-  * [运营商](zh-cn/operators.md)
+  * [运算符](zh-cn/operators.md)
   * [类型](zh-cn/types.md)
   * [数字](zh-cn/number.md)
   * [布尔](zh-cn/boolean.md)
