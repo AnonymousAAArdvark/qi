@@ -190,7 +190,7 @@ Project Link: [https://github.com/anonymousaaardvark/qi](https://github.com/anon
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* [Crafting Interpreters](craftinginterpreters.com/)
+* [Crafting Interpreters](http://craftinginterpreters.com/)
 * [Gravity](https://github.com/marcobambini/gravity)
 * [Loxido](https://github.com/ceronman/loxido)
 
