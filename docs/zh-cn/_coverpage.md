@@ -11,4 +11,4 @@
 * 无外部依赖
 
 [GitHub](https://github.com/anonymousaaardvark/qi/)
-[开始](quick_start.md)
+[开始](zh-cn/quick_start.md)
