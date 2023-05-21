@@ -14,7 +14,7 @@ To declare a class, use the ```类``` keyword followed by the class name:
 Methods are functions that are declared within a class and adds functionality to the objects that belong in that class.
 ```c
 类 树 「
-    功能 打印（）「
+    打印（）「
         系统。打印行（"我是一个树！"）
     」
 」
@@ -25,7 +25,7 @@ Methods are functions that are declared within a class and adds functionality to
 Like regular functions, you can add parameters to methods.
 ```c
 类 树 「
-    功能 打印（形容）「
+    打印（形容）「
         系统。打印行（"我是一个" + 形容 + "树！"）
     」
 」
@@ -101,7 +101,7 @@ A class can inherit from a “parent” or superclass. When you invoke a method 
 To specify a parent class, use the ```：``` operator.
 ```c
 类 树 「
-    功能 打印（）「
+    打印（）「
         系统。打印行（"我是一个树！"）
     」
 」
@@ -123,7 +123,7 @@ The keyword ```超``` is used within child classes to execute methods that they 
 」
 
 类 橡木：树「
-    功能 打印（）「
+    打印（）「
         超。打印（"橡木"）
     」
 」
