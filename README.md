@@ -196,13 +196,13 @@ Project Link: [https://github.com/anonymousaaardvark/qi](https://github.com/anon
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[loc-shield]: https://img.shields.io/tokei/lines/github/anonymousaaardvark/qi?style=for-the-badge
-[loc-url]: https://github.com/anonymousaaardvark/qi
+[loc-shield]: https://img.shields.io/badge/Total_Lines-10.3k-lightgrey?style=for-the-badge
+[loc-url]: https://github.com/anonymousaaardvark/qi/tree/master/src
 [last-commit-shield]: https://img.shields.io/github/last-commit/anonymousaaardvark/qi?style=for-the-badge
 [last-commit-url]: https://github.com/anonymousaaardvark/qi
 [commit-activity-shield]: https://img.shields.io/github/commit-activity/m/anonymousaaardvark/qi?style=for-the-badge
 [commit-activity-url]: https://github.com/anonymousaaardvark/qi
-[license-shield]: https://img.shields.io/github/license/anonymousaaardvark/qi?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/anonymousaaardvark/autostegano?style=for-the-badge
 [license-url]: https://github.com/anonymousaaardvark/qi
 [website-shield]: https://img.shields.io/website?down_color=lightgrey&down_message=offline&style=for-the-badge&up_color=blue&up_message=online&url=https%3A%2F%2Fqilang.tk
 [website-url]: https://qilang.tk
