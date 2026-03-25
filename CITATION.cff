@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+title: "Qi: A Lightweight and Fast Programming Language Designed to be Written in Chinese"
+message: "If you use this software, please cite it as below."
+type: software
+
+authors:
+  - family-names: "Yang"
+    given-names: "Andrew"
+    alias: "AnonymousAAArdvark"
+
+repository-code: "https://github.com/AnonymousAAArdvark/qi"
+url: "https://github.com/AnonymousAAArdvark/qi"
+
+abstract: >
+  Qi is a lightweight, fast, and open-source programming language designed to be
+  written in Chinese. It features a bytecode compiler, object-oriented design,
+  and aims to explore programming using non-English natural language syntax.
+
+keywords:
+  - programming language
+  - Chinese programming
+  - esolang
+  - interpreter
+  - bytecode
+
+license: "MIT"
+
+version: "master"
+date-released: "2021"
+
+preferred-citation:
+  type: software
+  authors:
+    - family-names: "Yang"
+      given-names: "Andrew"
+  title: "Qi: A Lightweight and Fast Programming Language Designed to be Written in Chinese"
+  year: 2021
+  url: "https://github.com/AnonymousAAArdvark/qi"
